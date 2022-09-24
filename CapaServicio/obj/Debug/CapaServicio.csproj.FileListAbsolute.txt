@@ -1,0 +1,2 @@
+C:\Users\Marcelo\source\repos\Tienda\CapaServicio\obj\Debug\CapaServicio.csproj.AssemblyReference.cache
+C:\Users\Marcelo\source\repos\Tienda\CapaServicio\obj\Debug\CapaServicio.csproj.CoreCompileInputs.cache

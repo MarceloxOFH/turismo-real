@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class= "container jumbotron w-25 bg-light">
+        <p>Valor: ViewBag.Amount</p>
+        <p>Orden de Compra: ViewBag.BuyOrder</p>
+        <form action="ViewBag.FormAction" method="post">
+            <input type="hidden" name="token_ws" value="ViewBag.TokenWs"/>
+            <button type="submit" class="btn btn-primary">Pagar</button>
+        </form>
+    </div>
+</body>
+</html>

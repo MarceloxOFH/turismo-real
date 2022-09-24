@@ -1,0 +1,608 @@
+--secuencias 
+CREATE SEQUENCE  "USER1"."SEQ_ID_UBI"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 71 CACHE 20 NOORDER  NOCYCLE ;
+CREATE SEQUENCE  "USER1"."SEQ_ID_DEP"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 85 CACHE 20 NOORDER  NOCYCLE ;
+
+--inserts
+REM INSERTING into USER1.CARGO
+SET DEFINE OFF;
+Insert into USER1.CARGO (ID_CARGO,NOMBRE,"DESCRIPCIÓN") values ('1','Administrador','Usuario con acceso a todas las funciones');
+Insert into USER1.CARGO (ID_CARGO,NOMBRE,"DESCRIPCIÓN") values ('2','Empleado','Usuario con acceso a funciones de gestión');
+REM INSERTING into USER1.ACCESO
+SET DEFINE OFF;
+Insert into USER1.ACCESO (USERNAME,PASSWORD,EMAIL,TOKEN) values ('juanperez','123','juanperez@mail.com','AZ19');
+Insert into USER1.ACCESO (USERNAME,PASSWORD,EMAIL,TOKEN) values ('pedrohernandez','111','pedrohernandez@mail.com','GF67');
+REM INSERTING into USER1.DEPARTAMENTO
+SET DEFINE OFF;
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('1','Alto Santiago',70000,'Si',4,2,'Departamento con ubicación privilegiada en el centro de la ciudad',4,26,0,null,'1','1');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('2','Viña Vino',50000,'No',3,1,'Departamento cercano al mar',4,20,0,null,'2','1');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('3','Departamento Mayor',55000,'No',6,3,'Departamento para varias personas',5,40,0,null,'3','3');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('4','El Olivo',36000,'No',6,1,'Departamento ubicado en condomino',3,28,0,null,'4','2');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('0','Departamento de Prueba',0,'No',0,0,'Departamento para hacer pruebas en la base de datos',0,0,0,null,'0','1');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('71','Ciudad alegre',70000,'No',6,2,'Departamento de alta calidad',5,35,0,null,'57','1');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('66','Departamento Las Cigueñas',100000,'No',7,2,'Departamento de lujo con multiples habitaciones y gran espacio',5,50,0,null,'52','1');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('72','El verde',26000,'No',4,1,'Lugar económico y acogedor',3,22,0,null,'58','1');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('73','El retiro',46000,'Si',5,2,'Departamento ubicado en condominio con piscina y grandes espacios',4,31,0,null,'59','2');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('33','El depa',50000,'Si',6,2,'Lugar ubicado en el centro de la ciudad',4,21,0,null,'20','1');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('59','Torre Paraíso',53000,'No',4,2,'Ubicación privilegiada en el corazón de la ciudad',3,27,0,null,'46','2');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('61','Departamento Star 4',44000,'Si',4,1,'Gran comodidad a un bajo precio',3,36,0,null,'48','3');
+Insert into USER1.DEPARTAMENTO (ID_DEPARTAMENTO,NOMBRE,ARRIENDO_DIARIO,RESERVADO,HABITACIONES,"BAÑOS","DESCRIPCIÓN","VALORACIÓN",METROS_CUADRADOS,VALOR_INVENTARIO,"ÚLTIMO_INVENTARIO","UBICACIÓN_ID_UBICACIÓN",ESTADO_DEPARTAMENTO_ID_ESTADO) values ('65','Gran Departamento',45000,'No',3,1,'Departamento con mucho espacio',3,33,0,null,'51','2');
+REM INSERTING into USER1.EMPLEADO
+SET DEFINE OFF;
+Insert into USER1.EMPLEADO (ID_EMPLEADO,NOMBRES,APELLIDOS,"AÑO_CONTRATACIÓN",CARGO,SUELDO,HORARIO_TRABAJO,DEPARTAMENTO_ASIGNADO,CARGO_ID_CARGO,ACCESO_USERNAME) values ('1','Juan','Perez',to_date('14/08/22 19:34:59','DD/MM/RR HH24:MI:SS'),'Administrador',1000000,to_date('14/09/22 19:34:59','DD/MM/RR HH24:MI:SS'),null,'1','juanperez');
+Insert into USER1.EMPLEADO (ID_EMPLEADO,NOMBRES,APELLIDOS,"AÑO_CONTRATACIÓN",CARGO,SUELDO,HORARIO_TRABAJO,DEPARTAMENTO_ASIGNADO,CARGO_ID_CARGO,ACCESO_USERNAME) values ('2','Pedro','Hernandez',to_date('14/08/22 19:34:59','DD/MM/RR HH24:MI:SS'),'Empleado',600000,to_date('14/09/22 19:34:59','DD/MM/RR HH24:MI:SS'),null,'2','pedrohernandez');
+REM INSERTING into USER1.ESTADO_DEPARTAMENTO
+SET DEFINE OFF;
+Insert into USER1.ESTADO_DEPARTAMENTO (ID_ESTADO,NOMBRE,"DESCRIPCIÓN") values ('1','Bueno','El departamento se encuentra en buenas condiciones');
+Insert into USER1.ESTADO_DEPARTAMENTO (ID_ESTADO,NOMBRE,"DESCRIPCIÓN") values ('2','Regular','El departamento requiere algunos arreglos');
+Insert into USER1.ESTADO_DEPARTAMENTO (ID_ESTADO,NOMBRE,"DESCRIPCIÓN") values ('3','Malo','El departamento se encuentra inutilizable');
+REM INSERTING into USER1.INVENTARIO_DEPARTAMENTO
+SET DEFINE OFF;
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('1','Toalla','Toalla blanca mediana');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('2','Shampoo','Shampoo H&S');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('3','Acondicionador','Acondicionador H&S');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('4','Jabón','Jabón en barra');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('5','Cama 1 plaza','Cama 1 plaza con colchón');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('6','Escritorio','Escritorio de madera');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('7','Silla','Silla metálica');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('8','Mesa redonda','Mesa redonda de madera');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('9','Microondas','Microondas marca Galanz');
+Insert into USER1.INVENTARIO_DEPARTAMENTO (ID_ARTICULO,NOMBRE_ARTICULO,"DESCRIPCIÓN") values ('10','Espejo','Espejo colgador');
+REM INSERTING into USER1."MANTENCIÓN_DEPARTAMENTO"
+SET DEFINE OFF;
+Insert into USER1."MANTENCIÓN_DEPARTAMENTO" (DEPARTAMENTO_ID_DEPARTAMENTO,"ID_MANTENCIÓN",FECHA_INICIO,FECHA_TERMINO,COSTO,"DESCRIPCIÓN") values ('0','1',to_date('14/08/22 19:34:59','DD/MM/RR HH24:MI:SS'),to_date('15/08/22 19:34:59','DD/MM/RR HH24:MI:SS'),30000,'Mantención rutinaria');
+Insert into USER1."MANTENCIÓN_DEPARTAMENTO" (DEPARTAMENTO_ID_DEPARTAMENTO,"ID_MANTENCIÓN",FECHA_INICIO,FECHA_TERMINO,COSTO,"DESCRIPCIÓN") values ('0','2',to_date('12/08/22 20:00:00','DD/MM/RR HH24:MI:SS'),to_date('13/08/22 20:00:00','DD/MM/RR HH24:MI:SS'),22500,'Mantención rutinaria');
+Insert into USER1."MANTENCIÓN_DEPARTAMENTO" (DEPARTAMENTO_ID_DEPARTAMENTO,"ID_MANTENCIÓN",FECHA_INICIO,FECHA_TERMINO,COSTO,"DESCRIPCIÓN") values ('0','3',to_date('12/08/22 20:00:00','DD/MM/RR HH24:MI:SS'),to_date('18/08/22 20:00:00','DD/MM/RR HH24:MI:SS'),120000,'Mantención extensa');
+Insert into USER1."MANTENCIÓN_DEPARTAMENTO" (DEPARTAMENTO_ID_DEPARTAMENTO,"ID_MANTENCIÓN",FECHA_INICIO,FECHA_TERMINO,COSTO,"DESCRIPCIÓN") values ('0','4',to_date('12/08/22 16:00:00','DD/MM/RR HH24:MI:SS'),to_date('15/08/22 16:00:00','DD/MM/RR HH24:MI:SS'),50000,'Cambio de muebles');
+Insert into USER1."MANTENCIÓN_DEPARTAMENTO" (DEPARTAMENTO_ID_DEPARTAMENTO,"ID_MANTENCIÓN",FECHA_INICIO,FECHA_TERMINO,COSTO,"DESCRIPCIÓN") values ('0','5',to_date('16/08/22 16:00:00','DD/MM/RR HH24:MI:SS'),to_date('22/08/22 16:00:00','DD/MM/RR HH24:MI:SS'),60000,'Renovar pintura de paredes');
+Insert into USER1."MANTENCIÓN_DEPARTAMENTO" (DEPARTAMENTO_ID_DEPARTAMENTO,"ID_MANTENCIÓN",FECHA_INICIO,FECHA_TERMINO,COSTO,"DESCRIPCIÓN") values ('0','6',to_date('22/08/22 16:00:00','DD/MM/RR HH24:MI:SS'),to_date('24/08/22 16:00:00','DD/MM/RR HH24:MI:SS'),200000,'Reemplazo de aire acondicionado');
+REM INSERTING into USER1."REGIÓN"
+SET DEFINE OFF;
+Insert into USER1."REGIÓN" ("ID_REGIÓN",NOMBRE) values ('1','Santiago');
+Insert into USER1."REGIÓN" ("ID_REGIÓN",NOMBRE) values ('2','Viña del Mar');
+Insert into USER1."REGIÓN" ("ID_REGIÓN",NOMBRE) values ('3','La Serena');
+Insert into USER1."REGIÓN" ("ID_REGIÓN",NOMBRE) values ('4','Pucón');
+Insert into USER1."REGIÓN" ("ID_REGIÓN",NOMBRE) values ('5','Puerto Varas');
+REM INSERTING into USER1."UBICACIÓN"
+SET DEFINE OFF;
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('1','Pajaritos 3456',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('2','Santa Isabel 6587',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('3','Laguna Centro 4588',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('4','Estación Avellaneda 4569',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('5','El Bosque 4976',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('6','Calle Flores 8769',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('7','Las Palmas 5432',null,null,null,'4');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('8','El Salvador 4508',null,null,null,'4');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('9','Las ardillas 5987',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('10','Plaza Central 6794',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('11','aaaaa',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('12','aaaaa',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('13','bbbbb',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('14','66666',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('15','ffff',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('16','thghghg',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('17','r3r3r3',null,null,null,'4');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('18','aaaaaeeee',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('19','5555',null,null,null,'4');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('20','Viña 4455',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('21','aaaaa',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('22','aaaaa',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('23','aaaaa',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('25','aaaaa',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('32','aaaaa',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('33','aaaaa',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('35','aaaaa',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('38','aaaaa',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('44','aaaaa',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('45','aaaaa',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('46','Ciudadela 3452',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('47','aaaaa',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('48','Las ballenas 44444',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('51','Avenida Las Artes 0876',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('52','Las Cigueñas 5765',null,null,null,'4');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('53','fffff',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('54','444',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('55','4545',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('0','Ubicación de prueba',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('56','2',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('57','Estrella de oro 4555',null,null,null,'3');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('58','Greenwood 6568',null,null,null,'4');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('59','Los Olmos 9898',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('60','nuevo lugar 42342',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('61','234v23r',null,null,null,'1');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('62','direccion 3453',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('63','direccion 1231',null,null,null,'2');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('64','direccion 2345',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('65','direccion 2134',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('66','direccion 12342',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('67','san joaquin',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('68','san joaquin',null,null,null,'5');
+Insert into USER1."UBICACIÓN" ("ID_UBICACIÓN","DIRECCIÓN",LONGITUD,LATITUD,URL_GOOGLEMAPS,"REGIÓN_ID_REGIÓN") values ('69','san joaquin',null,null,null,'5');
+
+
+--script tablas
+CREATE TABLE acceso (
+    username   VARCHAR2(20) NOT NULL,
+    password   VARCHAR2(20) NOT NULL,
+    email      VARCHAR2(50) NOT NULL,
+    token      VARCHAR2(256) NOT NULL
+);
+
+ALTER TABLE acceso ADD CONSTRAINT acceso_pk PRIMARY KEY ( username );
+
+CREATE TABLE acompañante (
+    cliente_rut_cliente   VARCHAR2(10 BYTE) NOT NULL,
+    rut_acompañante       VARCHAR2(10 BYTE) NOT NULL,
+    nombres               VARCHAR2(50 BYTE) NOT NULL,
+    apellidos             VARCHAR2(50) NOT NULL
+);
+
+ALTER TABLE acompañante ADD CONSTRAINT acompañante_pk PRIMARY KEY ( rut_acompañante,
+                                                                    cliente_rut_cliente );
+
+CREATE TABLE actividad_tour (
+    id_actividad   VARCHAR2(3 BYTE) NOT NULL,
+    descripción    VARCHAR2(500) NOT NULL,
+    duración       DATE NOT NULL,
+    valor          NUMBER(7) NOT NULL
+);
+
+ALTER TABLE actividad_tour ADD CONSTRAINT actividad_tour_pk PRIMARY KEY ( id_actividad );
+
+CREATE TABLE cargo (
+    id_cargo      VARCHAR2(5 BYTE) NOT NULL,
+    nombre        VARCHAR2(20 BYTE) NOT NULL,
+    descripción   VARCHAR2(100 BYTE) NOT NULL
+);
+
+ALTER TABLE cargo ADD CONSTRAINT cargo_pk PRIMARY KEY ( id_cargo );
+
+CREATE TABLE check_in (
+    id_checkin               VARCHAR2(10) NOT NULL,
+    condicion_departamento   VARCHAR2(500 BYTE) NOT NULL,
+    firma_conformidad        BLOB NOT NULL,
+    hora_ingreso             DATE NOT NULL,
+    pago_estadia             NUMBER(10) NOT NULL,
+    reserva_nro_reserva      NUMBER(10) NOT NULL
+);
+
+CREATE UNIQUE INDEX check_in__idx ON
+    check_in (
+        reserva_nro_reserva
+    ASC );
+
+ALTER TABLE check_in ADD CONSTRAINT ch_in_pk PRIMARY KEY ( id_checkin );
+
+CREATE TABLE check_out (
+    id_checkout           VARCHAR2(10 BYTE) NOT NULL,
+    firma_cliente         BLOB NOT NULL,
+    hora_salida           DATE NOT NULL,
+    reserva_nro_reserva   NUMBER(10) NOT NULL,
+    multa_id_multa        VARCHAR2(5 BYTE) NOT NULL
+);
+
+CREATE UNIQUE INDEX check_out__idx ON
+    check_out (
+        reserva_nro_reserva
+    ASC );
+
+ALTER TABLE check_out ADD CONSTRAINT ch_out_pk PRIMARY KEY ( id_checkout );
+
+CREATE TABLE cliente (
+    rut_cliente        VARCHAR2(10 BYTE) NOT NULL,
+    nombres            VARCHAR2(50 BYTE) NOT NULL,
+    apellido_paterno   VARCHAR2(20 BYTE) NOT NULL,
+    telefono           NUMBER(10) NOT NULL,
+    apellido_materno   VARCHAR2(20 BYTE),
+    email              VARCHAR2(50 BYTE),
+    contraseña         VARCHAR2(100 BYTE)
+);
+
+ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( rut_cliente );
+
+CREATE TABLE conductor (
+    rut_conductor        VARCHAR2(10 BYTE) NOT NULL,
+    nombre               VARCHAR2(20 BYTE) NOT NULL,
+    apellido_paterno     VARCHAR2(25) NOT NULL,
+    apellido_materno     VARCHAR2(25) NOT NULL,
+    caducidad_licencia   DATE NOT NULL,
+    disponibilidad       CHAR(1) NOT NULL,
+    sueldo               NUMBER(7) NOT NULL
+);
+
+ALTER TABLE conductor ADD CONSTRAINT conductor_pk PRIMARY KEY ( rut_conductor );
+
+CREATE TABLE "Depa-Empleado" (
+    departamento_id_departamento   VARCHAR2(5 BYTE) NOT NULL,
+    empleado_id_empleado           VARCHAR2(10) NOT NULL
+);
+
+ALTER TABLE "Depa-Empleado" ADD CONSTRAINT "Depa-Empleado_PK" PRIMARY KEY ( departamento_id_departamento,
+                                                                            empleado_id_empleado );
+
+CREATE TABLE "Depa-Inventario" (
+    dep_id_departamento   VARCHAR2(5 BYTE) NOT NULL,
+    inv_dep_id_art        VARCHAR2(5 BYTE) NOT NULL,
+    valor                 NUMBER(10) NOT NULL,
+    cantidad              NUMBER(10) NOT NULL
+);
+
+ALTER TABLE "Depa-Inventario" ADD CONSTRAINT "Depa-Inventario_PK" PRIMARY KEY ( dep_id_departamento,
+                                                                                inv_dep_id_art );
+
+CREATE TABLE departamento (
+    id_departamento                 VARCHAR2(5 BYTE) NOT NULL,
+    nombre                          VARCHAR2(50) NOT NULL,
+    arriendo_diario                 NUMBER(7) NOT NULL,
+    reservado                       VARCHAR2(20) NOT NULL,
+    habitaciones                    NUMBER(2) NOT NULL,
+    baños                           NUMBER(2) NOT NULL,
+    descripción                     VARCHAR2(500 BYTE),
+    valoración                      NUMBER(2),
+    metros_cuadrados                NUMBER(3),
+    valor_inventario                NUMBER(12),
+    último_inventario               DATE,
+    ubicación_id_ubicación          VARCHAR2(5) NOT NULL,
+    estado_departamento_id_estado   VARCHAR2(5 BYTE) NOT NULL
+);
+
+CREATE UNIQUE INDEX departamento__idx ON
+    departamento (
+        ubicación_id_ubicación
+    ASC );
+
+ALTER TABLE departamento ADD CONSTRAINT departamento_pk PRIMARY KEY ( id_departamento );
+
+CREATE TABLE empleado (
+    id_empleado             VARCHAR2(10) NOT NULL,
+    nombres                 VARCHAR2(50) NOT NULL,
+    apellidos               VARCHAR2(50 BYTE) NOT NULL,
+    año_contratación        DATE NOT NULL,
+    cargo                   VARCHAR2(20 BYTE) NOT NULL,
+    sueldo                  NUMBER(10) NOT NULL,
+    horario_trabajo         DATE NOT NULL,
+    departamento_asignado   VARCHAR2(10 BYTE),
+    cargo_id_cargo          VARCHAR2(5 BYTE) NOT NULL,
+    acceso_username         VARCHAR2(20) NOT NULL
+);
+
+ALTER TABLE empleado ADD CONSTRAINT empleado_pk PRIMARY KEY ( id_empleado );
+
+CREATE TABLE estado_departamento (
+    id_estado     VARCHAR2(5 BYTE) NOT NULL,
+    nombre        VARCHAR2(20 BYTE) NOT NULL,
+    descripción   VARCHAR2(50 BYTE) NOT NULL
+);
+
+ALTER TABLE estado_departamento ADD CONSTRAINT estado_pk PRIMARY KEY ( id_estado );
+
+CREATE TABLE estado_vehiculo (
+    id_estado_vehi   VARCHAR2(5 BYTE) NOT NULL,
+    nombre           VARCHAR2(20 BYTE) NOT NULL,
+    descripción      VARCHAR2(50 BYTE) NOT NULL
+);
+
+ALTER TABLE estado_vehiculo ADD CONSTRAINT estado_departamentov1_pk PRIMARY KEY ( id_estado_vehi );
+
+CREATE TABLE foto (
+    id_foto                        VARCHAR2(10) NOT NULL,
+    imagen                         BLOB NOT NULL,
+    url_imagen                     VARCHAR2(500 BYTE) NOT NULL,
+    descripción                    VARCHAR2(500 BYTE),
+    departamento_id_departamento   VARCHAR2(5 BYTE) NOT NULL
+);
+
+ALTER TABLE foto ADD CONSTRAINT fotos_pk PRIMARY KEY ( id_foto );
+
+CREATE TABLE inventario_departamento (
+    id_articulo       VARCHAR2(5 BYTE) NOT NULL,
+    nombre_articulo   VARCHAR2(50) NOT NULL,
+    descripción       VARCHAR2(500 BYTE) NOT NULL
+);
+
+ALTER TABLE inventario_departamento ADD CONSTRAINT inventario_departamento_pk PRIMARY KEY ( id_articulo );
+
+CREATE TABLE mantención_departamento (
+    departamento_id_departamento   VARCHAR2(5 BYTE) NOT NULL,
+    id_mantención                  VARCHAR2(5 BYTE) NOT NULL,
+    fecha_inicio                   DATE NOT NULL,
+    fecha_termino                  DATE NOT NULL,
+    costo                          NUMBER(7) NOT NULL,
+    descripción                    VARCHAR2(500 CHAR) NOT NULL
+);
+
+ALTER TABLE mantención_departamento ADD CONSTRAINT mantención_departamento_pk PRIMARY KEY ( id_mantención,
+                                                                                            departamento_id_departamento );
+
+CREATE TABLE mantención_vehiculo (
+    vehiculo_patente            VARCHAR2(6 BYTE) NOT NULL,
+    id_mantención               VARCHAR2(10 BYTE) NOT NULL,
+    fecha_realización           DATE NOT NULL,
+    fecha_prox_mantención       DATE NOT NULL,
+    resultado_ultima_revision   VARCHAR2(200 BYTE) NOT NULL,
+    costo                       NUMBER(10) NOT NULL,
+    descripción                 VARCHAR2(500 BYTE) NOT NULL
+);
+
+ALTER TABLE mantención_vehiculo ADD CONSTRAINT mantención_vehiculo_pk PRIMARY KEY ( id_mantención,
+                                                                                    vehiculo_patente );
+
+CREATE TABLE multa (
+    id_multa      VARCHAR2(5 BYTE) NOT NULL,
+    descripción   VARCHAR2(200 BYTE) NOT NULL,
+    costo         NUMBER(7) NOT NULL
+);
+
+ALTER TABLE multa ADD CONSTRAINT multa_pk PRIMARY KEY ( id_multa );
+
+CREATE TABLE regalo (
+    id_regalo             VARCHAR2(7 BYTE) NOT NULL,
+    contenido             VARCHAR2(500 BYTE) NOT NULL,
+    valor                 NUMBER(7) NOT NULL,
+    check_in_id_checkin   VARCHAR2(10) NOT NULL
+);
+
+CREATE UNIQUE INDEX regalo__idx ON
+    regalo (
+        check_in_id_checkin
+    ASC );
+
+ALTER TABLE regalo ADD CONSTRAINT regalo_pk PRIMARY KEY ( id_regalo );
+
+CREATE TABLE región (
+    id_región   VARCHAR2(5 BYTE) NOT NULL,
+    nombre      VARCHAR2(20 BYTE) NOT NULL
+);
+
+ALTER TABLE región ADD CONSTRAINT región_pk PRIMARY KEY ( id_región );
+
+CREATE TABLE reserva (
+    nro_reserva             NUMBER(10) NOT NULL,
+    cantidad_personas       NUMBER(2) NOT NULL,
+    fecha_reserva           DATE NOT NULL,
+    valor_servicios_extra   NUMBER(10),
+    cliente_rut_cliente     VARCHAR2(10 BYTE) NOT NULL
+);
+
+ALTER TABLE reserva ADD CONSTRAINT reserva_pk PRIMARY KEY ( nro_reserva );
+
+CREATE TABLE "Reserva-Servicio_extra" (
+    reserva_nro_reserva             NUMBER(10) NOT NULL,
+    servicio_ext_id_servicioextra   VARCHAR2(5 BYTE) NOT NULL
+);
+
+ALTER TABLE "Reserva-Servicio_extra" ADD CONSTRAINT "Reserva-Servicio_extra_PK" PRIMARY KEY ( reserva_nro_reserva,
+                                                                                              servicio_ext_id_servicioextra );
+
+CREATE TABLE servicio_asociado (
+    id_servicio                    NUMBER(3) NOT NULL,
+    nombre_servicio                VARCHAR2(30 BYTE) NOT NULL,
+    descripción                    VARCHAR2(100 BYTE) NOT NULL,
+    costo                          NUMBER(10) NOT NULL,
+    departamento_id_departamento   VARCHAR2(5 BYTE) NOT NULL
+);
+
+ALTER TABLE servicio_asociado ADD CONSTRAINT servicios_pk PRIMARY KEY ( id_servicio );
+
+CREATE TABLE servicio_extra (
+    id_servicioextra   VARCHAR2(5 BYTE) NOT NULL,
+    nombre             VARCHAR2(20) NOT NULL,
+    descripción        VARCHAR2(50 BYTE) NOT NULL,
+    valor              NUMBER(7) NOT NULL,
+    disponibilidad     CHAR(1) NOT NULL
+);
+
+ALTER TABLE servicio_extra ADD CONSTRAINT servicio_extra_pk PRIMARY KEY ( id_servicioextra );
+
+CREATE TABLE tour (
+    reserva_nro_reserva           NUMBER(10) NOT NULL,
+    actividad_tour_id_actividad   VARCHAR2(3 BYTE) NOT NULL,
+    actividades                   VARCHAR2(100 BYTE) NOT NULL,
+    hora_inicio                   DATE NOT NULL,
+    hora_termino                  DATE NOT NULL
+);
+
+CREATE UNIQUE INDEX tour__idx ON
+    tour (
+        reserva_nro_reserva
+    ASC );
+
+ALTER TABLE tour ADD CONSTRAINT tour_pk PRIMARY KEY ( actividad_tour_id_actividad,
+                                                      reserva_nro_reserva );
+
+CREATE TABLE transporte (
+    "Vehi-Cond_Vehiculo_Patente"     VARCHAR2(6 BYTE) NOT NULL,
+    "Vehi-Cond_Cond_Rut_conductor"   VARCHAR2(10 BYTE) NOT NULL,
+    lugar                            VARCHAR2(50 BYTE) NOT NULL,
+    horario                          DATE NOT NULL
+);
+
+ALTER TABLE transporte ADD CONSTRAINT transporte_pk PRIMARY KEY ( "Vehi-Cond_Vehiculo_Patente",
+                                                                  "Vehi-Cond_Cond_Rut_conductor" );
+
+CREATE TABLE "Transporte-Reserva" (
+    "Trans_Vehi-Cond_Vehi_Patente"    VARCHAR2(6 BYTE) NOT NULL,
+    "Trans_Vehi-Cond_Cond_Rut_cond"   VARCHAR2(10 BYTE) NOT NULL,
+    reserva_nro_reserva               NUMBER(10) NOT NULL
+);
+
+ALTER TABLE "Transporte-Reserva"
+    ADD CONSTRAINT "Transporte-Reserva_PK" PRIMARY KEY ( "Trans_Vehi-Cond_Vehi_Patente",
+                                                         "Trans_Vehi-Cond_Cond_Rut_cond",
+                                                         reserva_nro_reserva );
+
+CREATE TABLE ubicación (
+    id_ubicación       VARCHAR2(5) NOT NULL,
+    dirección          VARCHAR2(100 BYTE) NOT NULL,
+    longitud           NUMBER(3, 10),
+    latitud            NUMBER(3, 10),
+    url_googlemaps     VARCHAR2(200 BYTE),
+    región_id_región   VARCHAR2(5 BYTE) NOT NULL
+);
+
+ALTER TABLE ubicación ADD CONSTRAINT ubicación_pk PRIMARY KEY ( id_ubicación );
+
+CREATE TABLE vehiculo (
+    patente                          VARCHAR2(6 BYTE) NOT NULL,
+    disponibilidad                   CHAR(1) NOT NULL,
+    estado                           VARCHAR2(20) NOT NULL,
+    descripción                      VARCHAR2(500 BYTE) NOT NULL,
+    estado_vehiculo_id_estado_vehi   VARCHAR2(5 BYTE) NOT NULL
+);
+
+ALTER TABLE vehiculo ADD CONSTRAINT vehiculo_pk PRIMARY KEY ( patente );
+
+CREATE TABLE "Vehiculo-Conductor" (
+    vehiculo_patente          VARCHAR2(6 BYTE) NOT NULL,
+    conductor_rut_conductor   VARCHAR2(10 BYTE) NOT NULL
+);
+
+ALTER TABLE "Vehiculo-Conductor" ADD CONSTRAINT "Vehiculo-Conductor_PK" PRIMARY KEY ( vehiculo_patente,
+                                                                                      conductor_rut_conductor );
+
+ALTER TABLE acompañante
+    ADD CONSTRAINT acompañante_cliente_fk FOREIGN KEY ( cliente_rut_cliente )
+        REFERENCES cliente ( rut_cliente );
+
+ALTER TABLE check_in
+    ADD CONSTRAINT check_in_reserva_fk FOREIGN KEY ( reserva_nro_reserva )
+        REFERENCES reserva ( nro_reserva );
+
+ALTER TABLE check_out
+    ADD CONSTRAINT check_out_multa_fk FOREIGN KEY ( multa_id_multa )
+        REFERENCES multa ( id_multa );
+
+ALTER TABLE check_out
+    ADD CONSTRAINT check_out_reserva_fk FOREIGN KEY ( reserva_nro_reserva )
+        REFERENCES reserva ( nro_reserva );
+
+ALTER TABLE departamento
+    ADD CONSTRAINT dep_estado_dep_fk FOREIGN KEY ( estado_departamento_id_estado )
+        REFERENCES estado_departamento ( id_estado )
+            ON DELETE CASCADE;
+
+ALTER TABLE "Depa-Empleado"
+    ADD CONSTRAINT "Depa-Empleado_Departamento_FK" FOREIGN KEY ( departamento_id_departamento )
+        REFERENCES departamento ( id_departamento );
+
+ALTER TABLE "Depa-Empleado"
+    ADD CONSTRAINT "Depa-Empleado_Empleado_FK" FOREIGN KEY ( empleado_id_empleado )
+        REFERENCES empleado ( id_empleado );
+
+ALTER TABLE "Depa-Inventario"
+    ADD CONSTRAINT "Depa-Inventario_Dep_FK" FOREIGN KEY ( dep_id_departamento )
+        REFERENCES departamento ( id_departamento );
+
+ALTER TABLE "Depa-Inventario"
+    ADD CONSTRAINT "Depa-Inventario_Inv_dep_FK" FOREIGN KEY ( inv_dep_id_art )
+        REFERENCES inventario_departamento ( id_articulo );
+
+ALTER TABLE departamento
+    ADD CONSTRAINT departamento_ubi_fk FOREIGN KEY ( ubicación_id_ubicación )
+        REFERENCES ubicación ( id_ubicación );
+
+ALTER TABLE empleado
+    ADD CONSTRAINT empleado_acceso_fk FOREIGN KEY ( acceso_username )
+        REFERENCES acceso ( username );
+
+ALTER TABLE empleado
+    ADD CONSTRAINT empleado_cargo_fk FOREIGN KEY ( cargo_id_cargo )
+        REFERENCES cargo ( id_cargo );
+
+ALTER TABLE foto
+    ADD CONSTRAINT foto_departamento_fk FOREIGN KEY ( departamento_id_departamento )
+        REFERENCES departamento ( id_departamento );
+
+ALTER TABLE mantención_departamento
+    ADD CONSTRAINT mantención_dep_dep_fk FOREIGN KEY ( departamento_id_departamento )
+        REFERENCES departamento ( id_departamento );
+
+ALTER TABLE mantención_vehiculo
+    ADD CONSTRAINT mantención_veh_veh_fk FOREIGN KEY ( vehiculo_patente )
+        REFERENCES vehiculo ( patente );
+
+ALTER TABLE regalo
+    ADD CONSTRAINT regalo_check_in_fk FOREIGN KEY ( check_in_id_checkin )
+        REFERENCES check_in ( id_checkin );
+
+ALTER TABLE reserva
+    ADD CONSTRAINT reserva_cliente_fk FOREIGN KEY ( cliente_rut_cliente )
+        REFERENCES cliente ( rut_cliente );
+
+ALTER TABLE "Reserva-Servicio_extra"
+    ADD CONSTRAINT "Reserva-Ser_ext_Ser_ext_FK" FOREIGN KEY ( servicio_ext_id_servicioextra )
+        REFERENCES servicio_extra ( id_servicioextra )
+            ON DELETE CASCADE;
+
+ALTER TABLE "Reserva-Servicio_extra"
+    ADD CONSTRAINT "Reserva-Servicio_ext_Res_FK" FOREIGN KEY ( reserva_nro_reserva )
+        REFERENCES reserva ( nro_reserva )
+            ON DELETE CASCADE;
+
+ALTER TABLE servicio_asociado
+    ADD CONSTRAINT servicio_asociado_dep_fk FOREIGN KEY ( departamento_id_departamento )
+        REFERENCES departamento ( id_departamento );
+
+ALTER TABLE tour
+    ADD CONSTRAINT tour_actividad_tour_fk FOREIGN KEY ( actividad_tour_id_actividad )
+        REFERENCES actividad_tour ( id_actividad );
+
+ALTER TABLE tour
+    ADD CONSTRAINT tour_reserva_fk FOREIGN KEY ( reserva_nro_reserva )
+        REFERENCES reserva ( nro_reserva );
+
+ALTER TABLE transporte
+    ADD CONSTRAINT "Transporte_Vehiculo-Con_FK" FOREIGN KEY ( "Vehi-Cond_Vehiculo_Patente",
+                                                              "Vehi-Cond_Cond_Rut_conductor" )
+        REFERENCES "Vehiculo-Conductor" ( vehiculo_patente,
+                                          conductor_rut_conductor );
+
+ALTER TABLE "Transporte-Reserva"
+    ADD CONSTRAINT "Transporte-Res_Res_FK" FOREIGN KEY ( reserva_nro_reserva )
+        REFERENCES reserva ( nro_reserva );
+
+ALTER TABLE "Transporte-Reserva"
+    ADD CONSTRAINT "Transporte-Res_Tra_FK" FOREIGN KEY ( "Trans_Vehi-Cond_Vehi_Patente",
+                                                         "Trans_Vehi-Cond_Cond_Rut_cond" )
+        REFERENCES transporte ( "Vehi-Cond_Vehiculo_Patente",
+                                "Vehi-Cond_Cond_Rut_conductor" );
+
+ALTER TABLE ubicación
+    ADD CONSTRAINT ubicación_región_fk FOREIGN KEY ( región_id_región )
+        REFERENCES región ( id_región );
+
+ALTER TABLE vehiculo
+    ADD CONSTRAINT vehiculo_estado_veh_fk FOREIGN KEY ( estado_vehiculo_id_estado_vehi )
+        REFERENCES estado_vehiculo ( id_estado_vehi )
+            ON DELETE CASCADE;
+
+ALTER TABLE "Vehiculo-Conductor"
+    ADD CONSTRAINT "Vehiculo-Conductor_Con_FK" FOREIGN KEY ( conductor_rut_conductor )
+        REFERENCES conductor ( rut_conductor )
+            ON DELETE CASCADE;
+
+ALTER TABLE "Vehiculo-Conductor"
+    ADD CONSTRAINT "Vehiculo-Conductor_Veh_FK" FOREIGN KEY ( vehiculo_patente )
+        REFERENCES vehiculo ( patente )
+            ON DELETE CASCADE;
+
+CREATE SEQUENCE ch_in_id_checkin_seq START WITH 1 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER ch_in_id_checkin_trg BEFORE
+    INSERT ON check_in
+    FOR EACH ROW
+    WHEN ( new.id_checkin IS NULL )
+BEGIN
+    :new.id_checkin := ch_in_id_checkin_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE ch_out_id_checkout_seq START WITH 1 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER ch_out_id_checkout_trg BEFORE
+    INSERT ON check_out
+    FOR EACH ROW
+    WHEN ( new.id_checkout IS NULL )
+BEGIN
+    :new.id_checkout := ch_out_id_checkout_seq.nextval;
+END;
+/
