@@ -37,7 +37,7 @@
         <Label Content="Nombre Departamento:" HorizontalAlignment="Left" Margin="34,118,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
         <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="217,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="217,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="380,394,0,0" VerticalAlignment="Top" Width="101"/>
+        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="380,394,0,0" VerticalAlignment="Top" Width="101" Click="btnActualizar_Click"/>
 
     </Grid>
 </Window>

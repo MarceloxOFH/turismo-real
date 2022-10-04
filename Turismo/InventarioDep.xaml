@@ -5,17 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Ver Inventario Departamento" Height="480" Width="870">
+        Title="Ver Inventario Departamento" Height="650" Width="650">
     <Grid>
-        <Label Content="Inventario" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <DataGrid x:Name="dgInventario" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="32,159,45,87"/>
-        <Button Content="Agregar Objeto" HorizontalAlignment="Left" Margin="34,394,0,0" VerticalAlignment="Top" Width="101"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="149,394,0,0" VerticalAlignment="Top" Width="101"/>
-        <Button Content="Actualizar" HorizontalAlignment="Left" Margin="264,394,0,0" VerticalAlignment="Top" Width="101"/>
-        <Label Content="Id Departamento:" HorizontalAlignment="Left" Margin="34,87,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
-        <Label Content="Nombre Departamento:" HorizontalAlignment="Left" Margin="34,118,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="217,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="217,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Rectangle x:Name="rtBtnInvGen" HorizontalAlignment="Left" Height="28" Margin="340,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="112" Fill="Black"/>
+
+        <Rectangle x:Name="rtBtnInvDep" HorizontalAlignment="Left" Height="28" Margin="460,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="150" Fill="Black"/>
+
+        <Rectangle x:Name="rtAgregar_Precio" HorizontalAlignment="Left" Height="116" Margin="202,479,0,0" Stroke="Black" VerticalAlignment="Top" Width="249"/>
+
+        <Label Content="Inventario Departamento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="BtnAgregarQuitar" Content="Agregar / Quitar" HorizontalAlignment="Left" Margin="213,511,0,0" VerticalAlignment="Top" Width="100" Height="33"/>
+        <Label Content="Id Departamento:" HorizontalAlignment="Left" Margin="29,62,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
+        <Label x:Name="lblPrecio" Content="Valor Unitario:" HorizontalAlignment="Left" Margin="336,483,0,0" VerticalAlignment="Top" Width="118" FontSize="16"/>
+        <TextBox x:Name="tbNombreDepartamento" HorizontalAlignment="Left" Margin="212,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbIdDepartamento" HorizontalAlignment="Left" Margin="212,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dgInvGeneral" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,184,25,169" SelectionChanged="dgInvGeneral_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.079"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.399"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" Id" Binding="{Binding ID_ARTICULO}" Width="40"/>
+                <DataGridTextColumn Header=" Artículo" Binding="{Binding NOMBRE_ARTICULO}" Width="140"/>
+                <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="*"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button x:Name="BtnAgregarMenos" Content="-" HorizontalAlignment="Left" Margin="213,552,0,0" VerticalAlignment="Top" Width="18" Height="29" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="BtnAgregarMas" Content="+" HorizontalAlignment="Left" Margin="295,552,0,0" VerticalAlignment="Top" Width="18" Height="29" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="tbAgregar" HorizontalAlignment="Left" Margin="235,552,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Height="29" FontWeight="Bold" FontSize="18" TextAlignment="Center"/>
+        <TextBox x:Name="tbPrecio" HorizontalAlignment="Left" Margin="345,552,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" Height="29" FontWeight="Bold" FontSize="18" TextAlignment="Center"/>
+        <Label Content="Nombre Departamento:" HorizontalAlignment="Left" Margin="29,94,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
+        <Button x:Name="BtnInventarioGeneral" Content="Inventario General" HorizontalAlignment="Left" Margin="343,157,0,0" VerticalAlignment="Top" Width="106" Height="22" Click="BtnInventarioGeneral_Click"/>
+        <Button x:Name="BtnInventarioDepartamento" Content="Inventario Departamento" HorizontalAlignment="Left" Margin="463,157,0,0" VerticalAlignment="Top" Width="144" Height="22" Click="BtnInventarioDepartamento_Click"/>
+        <Label x:Name="lblTipoInventario" Content="Inventario Departamento:" HorizontalAlignment="Left" Margin="30,151,0,0" VerticalAlignment="Top" Width="215" FontSize="16" FontWeight="Bold"/>
+        <DataGrid x:Name="dgInvDepartamento" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,184,25,169" SelectionChanged="dgInventario_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.079"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.399"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" Id" Binding="{Binding ID_ARTICULO}" Width="40"/>
+                <DataGridTextColumn Header=" Artículo" Binding="{Binding NOMBRE_ARTICULO}" Width="140"/>
+                <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="160"/>
+                <DataGridTextColumn Header=" Cantidad" Binding="{Binding CANTIDAD}" Width="60"/>
+                <DataGridTextColumn Header=" Valor" Binding="{Binding VALOR}" Width="70"/>
+                <DataGridTextColumn Header=" Total" Binding="{Binding TOTAL}" Width="*"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label x:Name="lblPrecio_Copy" Content="Cantidad:" HorizontalAlignment="Left" Margin="209,482,0,0" VerticalAlignment="Top" Width="118" FontSize="16"/>
+        <Button x:Name="BtnAgregarQuitar_Copy" Content="Cambiar Valor" HorizontalAlignment="Left" Margin="340,511,0,0" VerticalAlignment="Top" Width="100" Height="33"/>
 
     </Grid>
 </Window>

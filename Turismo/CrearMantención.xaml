@@ -16,12 +16,20 @@
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="18,272,0,0" VerticalAlignment="Top" Width="121"/>
         <TextBox x:Name="tbCosto" HorizontalAlignment="Left" Margin="115,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102"/>
         <TextBox x:Name="tbDesccripcion" HorizontalAlignment="Left" Margin="115,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="90"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="25,388,0,0" VerticalAlignment="Top" Width="81"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="25,388,0,0" VerticalAlignment="Top" Width="81" Click="btnAgregar_Click"/>
         <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="274,388,0,0" VerticalAlignment="Top" Width="81"/>
         <Label Content="Id Depto" HorizontalAlignment="Left" Margin="18,67,0,0" VerticalAlignment="Top" Width="121"/>
         <Label Content="Nombre Depto:" HorizontalAlignment="Left" Margin="18,109,0,0" VerticalAlignment="Top" Width="141"/>
-        <TextBox x:Name="tbCosto_Copy" HorizontalAlignment="Left" Margin="115,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" IsEnabled="False"/>
-        <TextBox x:Name="tbCosto_Copy1" HorizontalAlignment="Left" Margin="115,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" IsEnabled="False"/>
+        <TextBox x:Name="tbIdDepartamento" HorizontalAlignment="Left" Margin="115,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" IsEnabled="False"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="115,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" IsEnabled="False"/>
+        <TextBox x:Name="tbHoraInicio" HorizontalAlignment="Left" Margin="250,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
+        <TextBox x:Name="tbMinutoInicio" HorizontalAlignment="Left" Margin="315,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
+        <Label Content="HH:" HorizontalAlignment="Left" Margin="223,152,0,0" VerticalAlignment="Top"/>
+        <Label Content="MM:" HorizontalAlignment="Left" Margin="283,152,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbHoraTermino" HorizontalAlignment="Left" Margin="250,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
+        <TextBox x:Name="tbMinutoTermino" HorizontalAlignment="Left" Margin="315,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
+        <Label Content="HH:" HorizontalAlignment="Left" Margin="223,194,0,0" VerticalAlignment="Top"/>
+        <Label Content="MM:" HorizontalAlignment="Left" Margin="283,194,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

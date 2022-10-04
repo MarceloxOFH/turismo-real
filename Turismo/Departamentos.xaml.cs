@@ -28,7 +28,7 @@ namespace Turismo
         public Departamentos()
         {
             InitializeComponent();
-            
+
             dgDepartamento.ItemsSource = logic.DepartamentoData().DefaultView;
             //dgDepartamento.Items.Add(logic.DepartamentoData().DefaultView);
             BtnEliminar.IsEnabled = false;
@@ -147,13 +147,25 @@ namespace Turismo
 
         private void BtnVerInventario_Click(object sender, RoutedEventArgs e)
         {
-            new InventarioDep().Show();
+            new InventarioDep(id_departamento, nombre_departamento).Show();
         }
 
         private void BtnVerMantencion_Click(object sender, RoutedEventArgs e)
         {
-            new MantenciónDep(id_departamento).Show();
+            new MantenciónDep(id_departamento, nombre_departamento).Show();
         }
 
+
+        private void BtnIngresarInventario_Click(object sender, RoutedEventArgs e)
+        {
+            
+            new Inventario().Show();
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

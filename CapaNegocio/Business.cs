@@ -40,13 +40,32 @@ namespace CapaNegocio
 
         public DataTable InventarioData()
         {
-            OracleCommand command = new OracleCommand("SELECT * FROM INVENTARIO_DEPARTAMENTO", Conec.Connect());
+            OracleCommand command = new OracleCommand("SELECT * FROM INVENTARIO", Conec.Connect());
             OracleDataAdapter da = new OracleDataAdapter(command);
             DataTable dt = new DataTable();
             da.Fill(dt);
 
             return dt;
         }
+
+        public DataTable getInventarioDep(string id_departamento)
+        {
+            OracleCommand command = new OracleCommand("SELECT ID_ARTICULO, " +
+                "NOMBRE_ARTICULO, DESCRIPCION, " +
+                "DI.CANTIDAD, DI.VALOR, " +
+                "DI.CANTIDAD * DI.VALOR AS TOTAL " +
+                "FROM INVENTARIO INV INNER JOIN \"Depa-Inventario\" DI ON DI.INV_DEP_ID_ART = INV.ID_ARTICULO " +
+                "WHERE DI.DEP_ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
+
+            command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+            command.ExecuteNonQuery();
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
 
         public DataTable MantencionData()
         {
@@ -88,7 +107,8 @@ namespace CapaNegocio
                 "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
                 "INNER JOIN REGION REG ON REG.ID_REGION = UBI.REGION_ID_REGION " +
                 "INNER JOIN ESTADO_DEPARTAMENTO EST ON EST.ID_ESTADO = DEP.ESTADO_DEPARTAMENTO_ID_ESTADO " +
-                "WHERE DEP.ID_DEPARTAMENTO != '0'", Conec.Connect());
+                "WHERE DEP.ID_DEPARTAMENTO != '0' " +
+                "ORDER BY TO_NUMBER(DEP.ID_DEPARTAMENTO) ASC", Conec.Connect());
             OracleDataAdapter da = new OracleDataAdapter(command);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -198,6 +218,34 @@ namespace CapaNegocio
             catch (Exception ex)
             {
                 MessageBox.Show("Error al agregar departamento: " + ex);
+            }
+        }
+
+        public void newMantencion(string id_departamento, DateTime fecha_inicio, DateTime fecha_termino, int costo, string descripcion)
+        {
+
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO MANTENCION_DEPARTAMENTO " +
+                    "(DEPARTAMENTO_ID_DEPARTAMENTO, ID_MANTENCION, FECHA_INICIO, FECHA_TERMINO, " +
+                    "COSTO, DESCRIPCION) VALUES (:id_departamento, to_char(seq_id_man.nextval), " +
+                    ":fecha_inicio, :fecha_termino, :costo, :descripcion)", Conec.Connect());
+
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+                command.Parameters.Add("fecha_inicio", OracleDbType.Date, 100).Value = fecha_inicio;
+                command.Parameters.Add("fecha_termino", OracleDbType.Date, 100).Value = fecha_termino;
+                command.Parameters.Add("costo", OracleDbType.Int32, 100).Value = costo;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Mantención agregada");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar mantención: " + ex);
             }
         }
 
@@ -315,6 +363,35 @@ namespace CapaNegocio
             catch (Exception ex)
             {
                 MessageBox.Show("Error al modificar ubicación: " + ex);
+            }
+        }
+
+        public void editMantencion(string id_departamento, string id_mantencion, DateTime fecha_inicio, DateTime fecha_termino, int costo, string descripcion)
+        {
+            try
+            {
+
+
+                OracleCommand command = new OracleCommand("UPDATE MANTENCION_DEPARTAMENTO " +
+                    "SET DEPARTAMENTO_ID_DEPARTAMENTO = :id_departamento, " +
+                    "FECHA_INICIO = :fecha_inicio, FECHA_TERMINO = :fecha_termino, " +
+                    "COSTO = :costo, DESCRIPCION = :descripcion " +
+                    "WHERE ID_MANTENCION = :id_mantencion", Conec.Connect());
+
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+                command.Parameters.Add("fecha_inicio", OracleDbType.Date, 100).Value = fecha_inicio;
+                command.Parameters.Add("fecha_termino", OracleDbType.Date, 100).Value = fecha_termino;
+                command.Parameters.Add("costo", OracleDbType.Int32, 100).Value = costo;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
+                command.Parameters.Add("id_mantencion", OracleDbType.Varchar2, 100).Value = id_mantencion;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar mantención: " + ex);
             }
         }
         public void deleteDepartamento(string id_departamento)

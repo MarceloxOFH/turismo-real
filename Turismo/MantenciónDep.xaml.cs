@@ -20,16 +20,19 @@ namespace Turismo
 {
     public partial class MantenciónDep : Window
     {
-        public MantenciónDep(string id_departamento)
+        public MantenciónDep(string id_departamento, string nombre_departamento)
         {
             InitializeComponent();
             dgMantencion.ItemsSource = logic.MantencionDepId(id_departamento).DefaultView;
             this.id_departamento = id_departamento;
+            this.nombre_departamento = nombre_departamento;
             tbidDepartamento.Text = id_departamento;
+            tbnombreDepartamento.Text = nombre_departamento;
         }
 
         Business logic = new Business();
         string id_departamento;
+        string nombre_departamento;
         string id_mantencion;
         DateTime fecha_inicio;
         DateTime fecha_termino;
@@ -52,12 +55,12 @@ namespace Turismo
 
         private void btnCrear_Click(object sender, RoutedEventArgs e)
         {
-            new CrearMantención().Show();
+            new CrearMantención(id_departamento, nombre_departamento).Show();
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            new EditarMantención().Show();
+            new EditarMantención(id_departamento, nombre_departamento, id_mantencion, fecha_inicio, fecha_termino, costo, descripcion).Show();
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
@@ -83,5 +86,9 @@ namespace Turismo
             dgMantencion.ItemsSource = logic.MantencionDepId(id_departamento).DefaultView;
         }
 
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            refreshDatagrid();
+        }
     }
 }
