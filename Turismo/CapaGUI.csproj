@@ -164,10 +164,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Conductor.xaml.cs">
+      <DependentUpon>Conductor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\WSProducts\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CrearArticulo.xaml.cs">
+      <DependentUpon>CrearArticulo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrearConductor.xaml.cs">
+      <DependentUpon>CrearConductor.xaml</DependentUpon>
     </Compile>
     <Compile Include="CrearDepartamento.xaml.cs">
       <DependentUpon>CrearDepartamento.xaml</DependentUpon>
@@ -175,11 +184,23 @@
     <Compile Include="CrearMantención.xaml.cs">
       <DependentUpon>CrearMantención.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrearVehiculo.xaml.cs">
+      <DependentUpon>CrearVehiculo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarArticulo.xaml.cs">
+      <DependentUpon>EditarArticulo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarConductor.xaml.cs">
+      <DependentUpon>EditarConductor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarDepartamento.xaml.cs">
       <DependentUpon>EditarDepartamento.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditarMantención.xaml.cs">
       <DependentUpon>EditarMantención.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarVehiculo.xaml.cs">
+      <DependentUpon>EditarVehiculo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Inventario.xaml.cs">
       <DependentUpon>Inventario.xaml</DependentUpon>
@@ -196,6 +217,21 @@
     <Compile Include="InventarioDep.xaml.cs">
       <DependentUpon>InventarioDep.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vehiculo.xaml.cs">
+      <DependentUpon>Vehiculo.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Conductor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearArticulo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearConductor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CrearDepartamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,7 +240,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CrearVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Departamentos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarArticulo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarConductor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,6 +268,10 @@
       <DependentUpon>Departamentos.xaml</DependentUpon>
     </Compile>
     <Page Include="EditarMantención.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,6 +292,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InventarioDep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

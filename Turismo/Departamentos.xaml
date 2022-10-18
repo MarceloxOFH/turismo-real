@@ -55,18 +55,18 @@
         <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="925,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click"/>
         <Label x:Name="testName_lbl_Copy2" Content="Región:" HorizontalAlignment="Left" Margin="616,140,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
 
-        <ComboBox x:Name="cbRegion" SelectedValuePath="id_región" HorizontalAlignment="Left" Margin="682,145,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
+        <ComboBox x:Name="cbRegion" SelectedValuePath="id_region" HorizontalAlignment="Left" Margin="682,145,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
 
         <Button x:Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="917,106,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
         <Button x:Name="BtnVerMantencion" Content="Ver Mantención" HorizontalAlignment="Left" Margin="307,582,0,0" VerticalAlignment="Top" Width="107" Height="29" Click="BtnVerMantencion_Click"/>
         <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="917,144,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
-        <Button x:Name="BtnIngresarInventario" Content="Ingresar Inventario" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnIngresarInventario_Click"/>
-        <Button Content="Ingresar Mantención" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="Button_Click"/>
+        <Button x:Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click"/>
+        <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click"/>
         <Button Content="Clientes" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFD5DDFA" Width="146"/>
-        <Button Content="Planificar Transporte" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Generar informe reserva" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Exit" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Generar Informes" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button x:Name="BtnVehiculos" Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click"/>
     </Grid>
 </Window>

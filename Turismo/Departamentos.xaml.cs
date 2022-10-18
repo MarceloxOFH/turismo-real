@@ -156,16 +156,22 @@ namespace Turismo
         }
 
 
-        private void BtnIngresarInventario_Click(object sender, RoutedEventArgs e)
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
         {
-            
             new Inventario().Show();
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnConductores_Click(object sender, RoutedEventArgs e)
         {
+            new Conductor().Show();
+            this.Close();
+        }
 
+        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
+        {
+            new Vehiculo().Show();
+            this.Close();
         }
     }
 }

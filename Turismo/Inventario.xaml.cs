@@ -27,6 +27,8 @@ namespace Turismo
             InitializeComponent();
             dgInventario.ItemsSource = logic.InventarioData().DefaultView;
             dgInvDepartamento.ItemsSource = logic.DepartamentoData().DefaultView;
+            BtnEditar.IsEnabled = false;
+            BtnEliminar.IsEnabled = false;
         }
 
         Business logic = new Business();
@@ -36,13 +38,19 @@ namespace Turismo
         string id_departamento;
         string nombre_departamento;
         string reservado;
+        string id_categoria;
+        string categoria;
 
-        public void refreshDatagrid()
+        public void refreshDgDepartamento()
+        {
+            dgInvDepartamento.ItemsSource = null;
+            dgInvDepartamento.ItemsSource = logic.DepartamentoData().DefaultView;
+        }
+
+        public void refreshDgInventario()
         {
             dgInventario.ItemsSource = null;
-            dgInvDepartamento.ItemsSource = null;
             dgInventario.ItemsSource = logic.InventarioData().DefaultView;
-            dgInvDepartamento.ItemsSource = logic.DepartamentoData().DefaultView;
         }
 
         private void dgInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,9 +62,14 @@ namespace Turismo
                 id_articulo = dr["ID_ARTICULO"].ToString();
                 nombre_articulo = dr["NOMBRE_ARTICULO"].ToString();
                 descripcion = dr["DESCRIPCION"].ToString();
+                id_categoria = dr["CAT_INV_ID_CAT"].ToString(); 
+                categoria = dr["CATEGORIA"].ToString();
 
                 tbNombreArticulo.Text = nombre_articulo;
                 tbIdArticulo.Text = id_articulo;
+
+                BtnEditar.IsEnabled = true;
+                BtnEliminar.IsEnabled = true;
             }
         }
 
@@ -77,22 +90,27 @@ namespace Turismo
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-
+            logic.deleteArticulo(id_articulo);
+            tbNombreArticulo.Text = "";
+            tbIdArticulo.Text = "";
+            BtnEditar.IsEnabled = false;
+            BtnEliminar.IsEnabled = false;
+            refreshDgInventario();
         }
 
         private void BtnCrear_Click(object sender, RoutedEventArgs e)
         {
-
+            new CrearArticulo().Show();
         }
 
-        private void BtnEditar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            new InventarioDep(id_departamento, nombre_departamento).Show();
+            refreshDgInventario();
+            nombre_articulo = "";
+            id_articulo = "";
+            tbNombreArticulo.Text = nombre_articulo;
+            tbIdArticulo.Text = id_articulo;
         }
 
         private void BtnIngresarInventario_Click(object sender, RoutedEventArgs e)
@@ -105,5 +123,35 @@ namespace Turismo
             new Departamentos().Show();
             this.Close();
         }
+
+        private void BtnInvDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            new InventarioDep(id_departamento, nombre_departamento).Show();
+        }
+
+        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            new EditarArticulo(id_articulo, nombre_articulo, descripcion, id_categoria).Show();
+            refreshDgInventario();
+        }
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            new Inventario().Show();
+            this.Close();
+        }
+
+        private void BtnConductores_Click(object sender, RoutedEventArgs e)
+        {
+            new Conductor().Show();
+            this.Close();
+        }
+
+        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
+        {
+            new Vehiculo().Show();
+            this.Close();
+        }
+
     }
 }

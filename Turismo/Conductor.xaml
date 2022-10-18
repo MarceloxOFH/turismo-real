@@ -1,0 +1,68 @@
+﻿<Window x:Class="Turismo.Conductor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Turismo"
+        mc:Ignorable="d"
+        Title="Conductor" Height="720" Width="1080" WindowStartupLocation="Manual" 
+    Left="0" Top="0">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="704" Stroke="Black" VerticalAlignment="Center" Width="171" Fill="#FFF1F0F0"/>
+        <Label Content="Conductores" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Label Content="Administrador" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="146" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl" Content="Rut conductor:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <Label x:Name="testName_lbl_Copy" Content="Disponibilidad:" HorizontalAlignment="Left" Margin="191,139,0,0" VerticalAlignment="Top" Width="119" FontSize="16"/>
+        <TextBox x:Name="tbRut" HorizontalAlignment="Left" Margin="310,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
+        <Label x:Name="testName_lbl_Copy1" Content="Nombres:" HorizontalAlignment="Left" Margin="585,103,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="643,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
+        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="737,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="831,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click"/>
+
+
+
+        <DataGrid x:Name="dgConductor" IsReadOnly="True" AutoGenerateColumns="False"  Margin="191,196,61,139" SelectionChanged="dgConductor_SelectionChanged">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" Rut" Binding="{Binding RUT_CONDUCTOR}" Width="100"/>
+                <DataGridTextColumn Header=" Disponibilidad" Binding="{Binding DISPONIBILIDAD}" Width="90"/>
+                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="180"/>
+                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="180"/>
+                <DataGridTextColumn Header=" Caducidad Licencia" Binding="{Binding CADUCIDAD_LICENCIA}" Width="115"/>
+                <DataGridTextColumn Header=" Sueldo" Binding="{Binding SUELDO}" Width="*"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="925,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click"/>
+        <Label x:Name="testName_lbl_Copy2" Content="Apellidos:" HorizontalAlignment="Left" Margin="585,140,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+
+        <Button x:Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="917,106,0,0" VerticalAlignment="Top" Width="86" Height="22" Click="BtnLimpiar_Click"/>
+        <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="917,144,0,0" VerticalAlignment="Top" Width="86" Height="22" Click="BtnBuscar_Click"/>
+        <Button x:Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click"/>
+        <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFD5DDFA" Width="146"/>
+        <Button Content="Clientes" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="Button_Click"/>
+        <Button Content="Generar Informes" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="Button_Click"/>
+        <TextBox x:Name="tbNombres" HorizontalAlignment="Left" Margin="668,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Height="20"/>
+        <TextBox x:Name="tbApellidos" HorizontalAlignment="Left" Margin="668,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Height="20"/>
+        <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="310,145,0,0" VerticalAlignment="Top" Width="83">
+            <ComboBoxItem>
+                <TextBlock><Run Text="N"/></TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock><Run Text="Y"/></TextBlock>
+            </ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</Window>

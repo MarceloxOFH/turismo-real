@@ -73,12 +73,9 @@ namespace Turismo
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-
-            String reservado = cbReservado.Text;
-
             try
             {
-                logic.editDepartamento(id_departamento, tbNombre.Text, Convert.ToInt32(tbArriendoDiario.Text), Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), id_region, this.id_estado, tbDireccion.Text, this.id_ubicacion, reservado);
+                logic.editDepartamento(id_departamento, tbNombre.Text, Convert.ToInt32(tbArriendoDiario.Text), Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), id_region, this.id_estado, tbDireccion.Text, this.id_ubicacion, cbReservado.Text);
             }
 
             catch (Exception ex)
