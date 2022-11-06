@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="EditarVehiculo"  Height="380" Width="390">
+        Title="EditarVehiculo"  Height="400" Width="390">
     <Grid>
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="29,291,0,0" VerticalAlignment="Top" Width="89" Click="BtnEditar_Click"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="29,327,0,0" VerticalAlignment="Top" Width="89" Click="BtnEditar_Click"/>
         <Label Content="Editar Vehículo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Capacidad:" HorizontalAlignment="Left" Margin="19,152,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="212,291,0,0" VerticalAlignment="Top" Width="81" Click="btnLimpiar_Click"/>
-        <Label Content="Estado:" HorizontalAlignment="Left" Margin="19,121,0,0" VerticalAlignment="Top" Width="141"/>
+        <Label Content="Capacidad:" HorizontalAlignment="Left" Margin="19,186,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="212,327,0,0" VerticalAlignment="Top" Width="81" Click="btnLimpiar_Click"/>
+        <Label Content="Estado:" HorizontalAlignment="Left" Margin="19,125,0,0" VerticalAlignment="Top" Width="141"/>
         <Label Content="Patente:" HorizontalAlignment="Left" Margin="20,61,0,0" VerticalAlignment="Top" Width="141"/>
         <TextBox x:Name="tbPatente" HorizontalAlignment="Left" Margin="139,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
-        <Label Content="Disponibilidad:" HorizontalAlignment="Left" Margin="19,91,0,0" VerticalAlignment="Top" Width="141"/>
-        <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="138,93,0,0" VerticalAlignment="Top" Width="83" SelectionChanged="cbDisponibilidad_SelectionChanged">
+        <Label Content="Disponibilidad:" HorizontalAlignment="Left" Margin="19,95,0,0" VerticalAlignment="Top" Width="141"/>
+        <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="138,97,0,0" VerticalAlignment="Top" Width="83" SelectionChanged="cbDisponibilidad_SelectionChanged">
             <ComboBoxItem>
                 <TextBlock><Run Text="N"/></TextBlock>
             </ComboBoxItem>
@@ -23,10 +23,12 @@
                 <TextBlock><Run Text="Y"/></TextBlock>
             </ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="tbCapacidad" HorizontalAlignment="Left" Margin="138,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
-        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="19,182,0,0" VerticalAlignment="Top" Width="141"/>
-        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="138,125,0,0" VerticalAlignment="Top" Width="155" SelectionChanged="cbEstado_SelectionChanged"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="138,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Height="73"/>
+        <TextBox x:Name="tbCapacidad" HorizontalAlignment="Left" Margin="138,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
+        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="19,218,0,0" VerticalAlignment="Top" Width="141"/>
+        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="138,129,0,0" VerticalAlignment="Top" Width="155" SelectionChanged="cbEstado_SelectionChanged"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="138,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Height="73"/>
+        <Label Content="Modelo:" HorizontalAlignment="Left" Margin="19,157,0,0" VerticalAlignment="Top" Width="121"/>
+        <TextBox x:Name="tbModelo" HorizontalAlignment="Left" Margin="138,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
 
     </Grid>
 </Window>

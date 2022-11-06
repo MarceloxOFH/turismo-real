@@ -118,8 +118,8 @@ namespace Turismo
 
         public void refreshDgInvGeneral()
         {
-            dgInvGeneral.ItemsSource = null;
-            dgInvGeneral.ItemsSource = logic.InventarioData().DefaultView;
+             dgInvGeneral.ItemsSource = null;
+             dgInvGeneral.ItemsSource = logic.InventarioData().DefaultView;
         }
 
         private void dgInvGeneral_SelectionChanged(object sender, SelectionChangedEventArgs e)

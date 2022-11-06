@@ -36,7 +36,7 @@
         <Button x:Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click"/>
         <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click"/>
         <Button Content="Clientes" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnDepartamentos"/>
         <Button Content="Generar Informes" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
@@ -54,7 +54,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" Patente" Binding="{Binding PATENTE}" Width="80"/>
                 <DataGridTextColumn Header=" Disponibilidad" Binding="{Binding DISPONIBILIDAD}" Width="90"/>
-                <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="80"/>
+                <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="120"/>
+                <DataGridTextColumn Header=" Modelo" Binding="{Binding MODELO}" Width="180"/>
                 <DataGridTextColumn Header=" Capacidad" Binding="{Binding CAPACIDAD}" Width="70"/>
                 <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="*"/>
 

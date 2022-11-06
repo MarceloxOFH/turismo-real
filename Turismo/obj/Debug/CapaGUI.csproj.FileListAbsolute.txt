@@ -277,3 +277,17 @@ C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearVehiculo.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearVehiculo.baml
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarVehiculo.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarVehiculo.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Categoria.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Categoria.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearCategoria.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearCategoria.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarCategoria.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarCategoria.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Foto.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Foto.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearFoto.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearFoto.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarFoto.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarFoto.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Servicio.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Servicio.baml

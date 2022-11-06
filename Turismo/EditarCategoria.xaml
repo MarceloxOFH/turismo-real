@@ -1,0 +1,21 @@
+﻿<Window x:Class="Turismo.EditarCategoria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Turismo"
+        mc:Ignorable="d"
+        Title="EditarCategoria" Height="290" Width="300">
+    <Grid>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="29,222,0,0" VerticalAlignment="Top" Width="89" Click="BtnCrear_Click"/>
+        <Label Content="Editar Categoría" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="168,222,0,0" VerticalAlignment="Top" Width="81" Click="btnLimpiar_Click"/>
+        <Label Content="Categoría:" HorizontalAlignment="Left" Margin="20,92,0,0" VerticalAlignment="Top" Width="141"/>
+        <TextBox x:Name="tbCategoria" HorizontalAlignment="Left" Margin="95,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Center" Width="141"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="95,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Height="73"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top" Width="141"/>
+        <TextBox x:Name="tbIdCategoria" HorizontalAlignment="Left" Margin="95,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71"/>
+
+    </Grid>
+</Window>

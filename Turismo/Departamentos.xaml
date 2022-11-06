@@ -19,7 +19,7 @@
         <ComboBox x:Name="cbEstado" SelectedValuePath="id_estado" HorizontalAlignment="Left" Margin="682,108,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
         <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="643,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
         <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="737,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
-        <Button x:Name="BtnVerInventario" Content="Ver Inventario" HorizontalAlignment="Left" Margin="193,582,0,0" VerticalAlignment="Top" Height="29" Width="96" Click="BtnVerInventario_Click"/>
+        <Button x:Name="BtnVerInventario" Content="Inventario" HorizontalAlignment="Left" Margin="193,582,0,0" VerticalAlignment="Top" Height="29" Width="72" Click="BtnVerInventario_Click"/>
         <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="831,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click"/>
 
 
@@ -35,20 +35,21 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding ID_DEPARTAMENTO}" Width="30"/>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding NOMBRE}" Width="120"/>
-                <DataGridTextColumn Header="Región" Binding="{Binding REGION}" Width="80"/>
-                <DataGridTextColumn Header="Dirección" Binding="{Binding DIRECCION}" Width="120"/>
-                <DataGridTextColumn Header="Estado" Binding="{Binding ESTADO}" Width="60"/>
-                <DataGridTextColumn Header="Arriendo Diario" Binding="{Binding ARRIENDO_DIARIO}" Width="90"/>
-                <DataGridTextColumn Header="Reservado" Binding="{Binding RESERVADO}" Width="60"/>
-                <DataGridTextColumn Header="Habitaciones" Binding="{Binding HABITACIONES}" Width="75"/>
-                <DataGridTextColumn Header="Baños" Binding="{Binding BANOS}" Width="45"/>
-                <DataGridTextColumn Header="Valoración" Binding="{Binding VALORACION}" Width="70"/>
-                <DataGridTextColumn Header="M. Cuadrados" Binding="{Binding METROS_CUADRADOS}" Width="90"/>
-                <DataGridTextColumn Header="Valor Inventario" Binding="{Binding VALOR_INVENTARIO}" Width="90"/>
-                <DataGridTextColumn Header="Último Inventario" Binding="{Binding ULTIMO_INVENTARIO}" Width="100  "/>
-                <DataGridTextColumn Header="Descripción" Binding="{Binding DESCRIPCION}" Width="200"/>
+                <DataGridTextColumn Header=" Id" Binding="{Binding ID_DEPARTAMENTO}" Width="30"/>
+                <DataGridTextColumn Header=" Nombre" Binding="{Binding NOMBRE}" Width="120"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding NUMERO}" Width="35"/>
+                <DataGridTextColumn Header=" Región" Binding="{Binding REGION}" Width="80"/>
+                <DataGridTextColumn Header=" Dirección" Binding="{Binding DIRECCION}" Width="120"/>
+                <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="55"/>
+                <DataGridTextColumn Header=" Arriendo diario" Binding="{Binding ARRIENDO_DIARIO}" Width="90"/>
+                <DataGridTextColumn Header=" Reservado" Binding="{Binding RESERVADO}" Width="65"/>
+                <DataGridTextColumn Header=" Habitaciones" Binding="{Binding HABITACIONES}" Width="78"/>
+                <DataGridTextColumn Header=" Baños" Binding="{Binding BANOS}" Width="40"/>
+                <DataGridTextColumn Header=" Valoración" Binding="{Binding VALORACION}" Width="65"/>
+                <DataGridTextColumn Header=" m²" Binding="{Binding METROS_CUADRADOS}" Width="30"/>
+                <DataGridTextColumn Header=" Valor Inventario" Binding="{Binding VALOR_INVENTARIO}" Width="100"/>
+                <DataGridTextColumn Header=" Último Inventario" Binding="{Binding ULTIMO_INVENTARIO}" Width="100  "/>
+                <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="200"/>
             </DataGrid.Columns>
 
         </DataGrid>
@@ -58,7 +59,7 @@
         <ComboBox x:Name="cbRegion" SelectedValuePath="id_region" HorizontalAlignment="Left" Margin="682,145,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
 
         <Button x:Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="917,106,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
-        <Button x:Name="BtnVerMantencion" Content="Ver Mantención" HorizontalAlignment="Left" Margin="307,582,0,0" VerticalAlignment="Top" Width="107" Height="29" Click="BtnVerMantencion_Click"/>
+        <Button x:Name="BtnVerMantencion" Content="Mantención" HorizontalAlignment="Left" Margin="279,582,0,0" VerticalAlignment="Top" Width="80" Height="29" Click="BtnVerMantencion_Click"/>
         <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="917,144,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
         <Button x:Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click"/>
         <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click"/>
@@ -68,5 +69,7 @@
         <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button x:Name="BtnVehiculos" Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click"/>
+        <Button x:Name="BtnVerFotos" Content="Fotos" HorizontalAlignment="Left" Margin="373,582,0,0" VerticalAlignment="Top" Width="56" Height="29" Click="BtnVerFotos_Click"/>
+        <Button x:Name="BtnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="443,582,0,0" VerticalAlignment="Top" Width="66" Height="29" Click="BtnServicios_Click"/>
     </Grid>
 </Window>

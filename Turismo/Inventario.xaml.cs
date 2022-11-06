@@ -53,6 +53,14 @@ namespace Turismo
             dgInventario.ItemsSource = logic.InventarioData().DefaultView;
         }
 
+        public void limpiarCampos()
+        {
+            nombre_articulo = "";
+            id_articulo = "";
+            tbNombreArticulo.Text = nombre_articulo;
+            tbIdArticulo.Text = id_articulo;
+        }
+
         private void dgInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGrid dg = sender as DataGrid;
@@ -62,7 +70,7 @@ namespace Turismo
                 id_articulo = dr["ID_ARTICULO"].ToString();
                 nombre_articulo = dr["NOMBRE_ARTICULO"].ToString();
                 descripcion = dr["DESCRIPCION"].ToString();
-                id_categoria = dr["CAT_INV_ID_CAT"].ToString(); 
+                id_categoria = dr["CATEGORIA_ID_CATEGORIA"].ToString(); 
                 categoria = dr["CATEGORIA"].ToString();
 
                 tbNombreArticulo.Text = nombre_articulo;
@@ -107,10 +115,6 @@ namespace Turismo
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
             refreshDgInventario();
-            nombre_articulo = "";
-            id_articulo = "";
-            tbNombreArticulo.Text = nombre_articulo;
-            tbIdArticulo.Text = id_articulo;
         }
 
         private void BtnIngresarInventario_Click(object sender, RoutedEventArgs e)
@@ -153,5 +157,14 @@ namespace Turismo
             this.Close();
         }
 
+        private void BtnGestionarCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            new Categoria().Show();
+        }
+
+        private void BtnDepartamentos_Click_1(object sender, RoutedEventArgs e)
+        {
+            new Departamentos().Show();
+        }
     }
 }

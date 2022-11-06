@@ -17,7 +17,7 @@
         <Label Content="Administrador" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="146" FontWeight="Bold"/>
         <Label x:Name="testName_lbl" Content="Nombre artículo:" HorizontalAlignment="Left" Margin="207,160,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
         <Label x:Name="testName_lbl_Copy" Content="Código artículo:" HorizontalAlignment="Left" Margin="207,197,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbNombreArticulo" HorizontalAlignment="Left" Margin="335,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="20" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="tbNombreArticulo" HorizontalAlignment="Left" Margin="335,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="20" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -82,11 +82,12 @@
         <Button x:Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Background="#FFD5DDFA" Width="146" Click="BtnInventario_Click"/>
         <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click"/>
         <Button Content="Clientes" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button x:Name="BtnDepartamentos" Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnDepartamentos_Click_1"/>
         <Button Content="Generar Informes" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button x:Name="BtnVehiculos" Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click"/>
+        <Button x:Name="BtnGestionarCategorias" Content="      Ver&#xA;Categorías" HorizontalAlignment="Left" Margin="496,116,0,0" VerticalAlignment="Top" Width="66" Height="40" Click="BtnGestionarCategorias_Click"/>
 
     </Grid>
 </Window>

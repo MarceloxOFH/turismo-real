@@ -26,7 +26,7 @@ namespace Turismo
         {
             InitializeComponent();
             //COMBOBOX CATEGORIA
-            DataTable dtr = logic.dtCategoriaInvData();
+            DataTable dtr = logic.CategoriaData();
             cbCategoria.ItemsSource = dtr.AsDataView();
             cbCategoria.DisplayMemberPath = "CATEGORIA";
             cbCategoria.SelectedValuePath = "ID_CATEGORIA";

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Marcelo\TurismoReal\Turismo\App.xaml
-18706689844
+25-478216969
 1-1763673438
-23-1992985020
+30-122324387
 153-241630468
-Conductor.xaml;CrearArticulo.xaml;CrearConductor.xaml;CrearDepartamento.xaml;CrearMantención.xaml;CrearVehiculo.xaml;Departamentos.xaml;EditarArticulo.xaml;EditarConductor.xaml;EditarDepartamento.xaml;EditarMantención.xaml;EditarVehiculo.xaml;Inventario.xaml;Login.xaml;MantenciónDep.xaml;Return.xaml;InventarioDep.xaml;Vehiculo.xaml;
+Categoria.xaml;Conductor.xaml;CrearArticulo.xaml;CrearCategoria.xaml;CrearConductor.xaml;CrearDepartamento.xaml;CrearFoto.xaml;CrearMantención.xaml;CrearVehiculo.xaml;Departamentos.xaml;EditarArticulo.xaml;EditarCategoria.xaml;EditarConductor.xaml;EditarDepartamento.xaml;EditarFoto.xaml;EditarMantención.xaml;EditarVehiculo.xaml;Foto.xaml;Inventario.xaml;Login.xaml;MantenciónDep.xaml;Return.xaml;InventarioDep.xaml;Servicio.xaml;Vehiculo.xaml;
 
 False
 

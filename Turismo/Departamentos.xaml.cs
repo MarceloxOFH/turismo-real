@@ -53,6 +53,7 @@ namespace Turismo
         Business logic = new Business();
         string id_departamento;
         string nombre_departamento;
+        int numero;
         int arriendo_diario;
         string reservado;
         int habitaciones;
@@ -82,6 +83,7 @@ namespace Turismo
             try
             { 
                 logic.deleteDepartamento(id_departamento);
+                logic.deleteUbicacion(id_ubicacion);
                 refreshDatagrid();
                 tbidDepartamento.Text = "";
                 tbnombreDepartamento.Text = "";
@@ -104,7 +106,8 @@ namespace Turismo
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            new EditarDepartamento(id_departamento, nombre_departamento, arriendo_diario, habitaciones, banos, valoracion, metros_cuadrados, direccion, descripcion, region, id_region, estado, id_estado, id_ubicacion, reservado).Show();
+            EditarDepartamento ED = new EditarDepartamento(this, id_departamento, nombre_departamento, numero, arriendo_diario, habitaciones, banos, valoracion, metros_cuadrados, direccion, descripcion, region, id_region, estado, id_estado, id_ubicacion, reservado);
+            ED.Show();
         }
 
         private void dgDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -115,6 +118,7 @@ namespace Turismo
             {
                 id_departamento = dr["ID_DEPARTAMENTO"].ToString();
                 nombre_departamento = dr["NOMBRE"].ToString();
+                numero = Convert.ToInt32(dr["NUMERO"]);
                 arriendo_diario = Convert.ToInt32(dr["ARRIENDO_DIARIO"]);
                 reservado = dr["RESERVADO"].ToString();
                 habitaciones = Convert.ToInt32(dr["HABITACIONES"]);
@@ -172,6 +176,16 @@ namespace Turismo
         {
             new Vehiculo().Show();
             this.Close();
+        }
+
+        private void BtnVerFotos_Click(object sender, RoutedEventArgs e)
+        {
+            new Foto(id_departamento, nombre_departamento).Show();
+        }
+
+        private void BtnServicios_Click(object sender, RoutedEventArgs e)
+        {
+            new Servicio(id_departamento, nombre_departamento).Show();
         }
     }
 }

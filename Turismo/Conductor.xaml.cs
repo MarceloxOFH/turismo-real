@@ -57,7 +57,7 @@ namespace Turismo
                 rut_conductor = dr["RUT_CONDUCTOR"].ToString();
                 nombres = dr["NOMBRES"].ToString();
                 apellidos = dr["APELLIDOS"].ToString();
-                caducidad_licencia = DateTime.Parse(dr["CADUCIDAD_LICENCIA"].ToString());
+                caducidad_licencia = DateTime.Parse(dr["CADUCIDAD_LICENCIA"].ToString()); 
                 disponibilidad = dr["DISPONIBILIDAD"].ToString();
                 sueldo = Convert.ToInt32(dr["SUELDO"]);
 
@@ -73,7 +73,24 @@ namespace Turismo
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estás seguro que deseas borrar el conductor de RUT: '" + tbRut.Text + "'?", "Eliminar conductor", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
 
+                try
+                {
+                    logic.deleteConductor(rut_conductor);
+                    refreshDatagrid();
+                    tbRut.Text = "";
+                    tbNombres.Text = "";
+                    tbApellidos.Text = "";
+                    cbDisponibilidad.Text = "";
+                    BtnEliminar.IsEnabled = false;
+                    BtnEditar.IsEnabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se debe seleccionar un conductor");
+                }
         }
 
         private void BtnCrear_Click(object sender, RoutedEventArgs e)
@@ -83,8 +100,15 @@ namespace Turismo
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            new EditarConductor(rut_conductor, nombres, apellidos, caducidad_licencia, disponibilidad, sueldo).Show();
-        }
+            try
+            { 
+                new EditarConductor(rut_conductor, nombres, apellidos, caducidad_licencia, disponibilidad, sueldo).Show();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Se debe seleccionar un conductor");
+            }
+}
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
@@ -103,12 +127,20 @@ namespace Turismo
 
         private void BtnInventario_Click(object sender, RoutedEventArgs e)
         {
-
+            new Inventario().Show();
+            this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
         {
+            new Vehiculo().Show();
+            this.Close();
+        }
 
+        private void Departamentos_Click(object sender, RoutedEventArgs e)
+        {
+            new Departamentos().Show();
+            this.Close();
         }
     }
 }

@@ -36,7 +36,7 @@
                 <DataGridTextColumn Header=" Disponibilidad" Binding="{Binding DISPONIBILIDAD}" Width="90"/>
                 <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="180"/>
                 <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="180"/>
-                <DataGridTextColumn Header=" Caducidad Licencia" Binding="{Binding CADUCIDAD_LICENCIA}" Width="115"/>
+                <DataGridTextColumn Header=" Caducidad Licencia" Binding="{Binding CADUCIDAD_LICENCIA}" Width="140"/>
                 <DataGridTextColumn Header=" Sueldo" Binding="{Binding SUELDO}" Width="*"/>
             </DataGrid.Columns>
 
@@ -49,11 +49,11 @@
         <Button x:Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click"/>
         <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFD5DDFA" Width="146"/>
         <Button Content="Clientes" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="Button_Click"/>
+        <Button x:Name="Departamentos" Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="Departamentos_Click"/>
         <Button Content="Generar Informes" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="Button_Click"/>
+        <Button x:Name="BtnVehiculos" Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click"/>
         <TextBox x:Name="tbNombres" HorizontalAlignment="Left" Margin="668,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Height="20"/>
         <TextBox x:Name="tbApellidos" HorizontalAlignment="Left" Margin="668,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Height="20"/>
         <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="310,145,0,0" VerticalAlignment="Top" Width="83">

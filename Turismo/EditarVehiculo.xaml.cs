@@ -21,20 +21,30 @@ namespace Turismo
     /// </summary>
     public partial class EditarVehiculo : Window
     {
-        public EditarVehiculo(string patente, string disponibilidad, string id_estado, int capacidad, string descripcion)
+        public EditarVehiculo(string patente, string disponibilidad, string modelo, string id_estado, int capacidad, string descripcion)
         {
             InitializeComponent();
+
+            tbPatente.Text = patente;
+            temp_patente = patente;
+            tbCapacidad.Text = capacidad.ToString();
+            tbDescripcion.Text = descripcion;
+            cbDisponibilidad.Text = disponibilidad;
+            tbModelo.Text = modelo;
+
 
             DataTable dted = logic.dtestadoVehiculoData();
             cbEstado.ItemsSource = dted.AsDataView();
             cbEstado.DisplayMemberPath = "NOMBRE";
             cbEstado.SelectedValuePath = "ID_ESTADO";
+            cbEstado.SelectedIndex = Convert.ToInt32(id_estado) - 1;
 
             this.id_estado = (Convert.ToInt32(cbEstado.SelectedIndex) + 1).ToString();
         }
 
         Business logic = new Business();
         string patente;
+        string temp_patente;
         string disponibilidad;
         string id_estado;
         int capacidad;
@@ -42,7 +52,7 @@ namespace Turismo
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            logic.editVehiculo(patente, disponibilidad, id_estado, capacidad, descripcion);
+            logic.editVehiculo(tbPatente.Text, temp_patente, cbDisponibilidad.Text, tbModelo.Text, id_estado, Convert.ToInt32(tbCapacidad.Text), tbDescripcion.Text);
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
@@ -57,7 +67,6 @@ namespace Turismo
 
         private void cbDisponibilidad_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            disponibilidad = (Convert.ToInt32(cbDisponibilidad.SelectedIndex) + 1).ToString();
         }
     }
 }

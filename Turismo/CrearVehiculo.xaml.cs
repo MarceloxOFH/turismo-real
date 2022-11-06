@@ -43,8 +43,7 @@ namespace Turismo
 
             try
             {
-
-                logic.newVehiculo(tbPatente.Text, cbDisponibilidad.Text, id_estado, Convert.ToInt32(tbCapacidad.Text), tbDescripcion.Text);
+                logic.newVehiculo(tbPatente.Text, cbDisponibilidad.Text, tbModelo.Text, id_estado, Convert.ToInt32(tbCapacidad.Text), tbDescripcion.Text);
             }
 
             catch (Exception ex)

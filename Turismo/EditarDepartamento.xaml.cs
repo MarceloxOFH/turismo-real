@@ -21,23 +21,21 @@ namespace Turismo
 
     public partial class EditarDepartamento : Window
     {
-        public EditarDepartamento()
-        {
-            InitializeComponent();
-        }
-
+        Departamentos dep;
         string id_departamento;
+        int numero;
         Business logic = new Business();
         string id_estado;
         string id_ubicacion;
         string reservado;
         string region;
         string id_region;
-        Departamentos dep = new Departamentos();
+        //Departamentos dep = new Departamentos();
 
-        public EditarDepartamento(string id_departamento, string nombre_departamento, int arriendo_diario, int habitaciones, int baños, int valoracion, int metros_cuadrados, string direccion, string descripcion, string region, string id_region, string estado, string id_estado, string id_ubicacion, string reservado)
+        public EditarDepartamento(Departamentos dep, string id_departamento, string nombre_departamento, int numero, int arriendo_diario, int habitaciones, int baños, int valoracion, int metros_cuadrados, string direccion, string descripcion, string region, string id_region, string estado, string id_estado, string id_ubicacion, string reservado)
         {
             InitializeComponent();
+            this.dep = dep;
 
             //COMBOBOX ESTADO DEPARTAMENTO
             DataTable dted = logic.dtestadoDepartamentoData();
@@ -57,6 +55,7 @@ namespace Turismo
 
             this.id_departamento = id_departamento;
             tbNombre.Text = nombre_departamento;
+            tbNumero.Text = numero.ToString();
             tbArriendoDiario.Text = arriendo_diario.ToString();
             tbHabitaciones.Text = habitaciones.ToString();
             tbBaños.Text = baños.ToString();
@@ -75,7 +74,8 @@ namespace Turismo
         {
             try
             {
-                logic.editDepartamento(id_departamento, tbNombre.Text, Convert.ToInt32(tbArriendoDiario.Text), Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), id_region, this.id_estado, tbDireccion.Text, this.id_ubicacion, cbReservado.Text);
+                logic.editDepartamento(id_departamento, tbNombre.Text, Convert.ToInt32(tbNumero.Text),Convert.ToInt32(tbArriendoDiario.Text), Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), id_region, this.id_estado, tbDireccion.Text, this.id_ubicacion, cbReservado.Text);
+                dep.refreshDatagrid();
             }
 
             catch (Exception ex)

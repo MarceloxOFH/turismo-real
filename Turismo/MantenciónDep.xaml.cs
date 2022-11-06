@@ -23,11 +23,16 @@ namespace Turismo
         public MantenciónDep(string id_departamento, string nombre_departamento)
         {
             InitializeComponent();
+            dgMantencionTerminada.Visibility = Visibility.Hidden;
             dgMantencion.ItemsSource = logic.MantencionDepId(id_departamento).DefaultView;
+            dgMantencionTerminada.ItemsSource = logic.MantencionTerminadaDepId(id_departamento).DefaultView;
+
             this.id_departamento = id_departamento;
             this.nombre_departamento = nombre_departamento;
             tbidDepartamento.Text = id_departamento;
             tbnombreDepartamento.Text = nombre_departamento;
+            rtBtnManTer.Visibility = Visibility.Hidden;
+            BtnMantencionesAgendadas.IsEnabled = false;
         }
 
         Business logic = new Business();
@@ -71,7 +76,8 @@ namespace Turismo
                 try
                 {
                     logic.deleteMantención(id_mantencion);
-                    refreshDatagrid();
+                    refreshDatagridManTer();
+                    refreshDatagridManAge();
                 }
 
                 catch (Exception ex)
@@ -80,7 +86,13 @@ namespace Turismo
                 }
         }
 
-        public void refreshDatagrid()
+        public void refreshDatagridManTer()
+        {
+            dgMantencionTerminada.ItemsSource = null;
+            dgMantencionTerminada.ItemsSource = logic.MantencionTerminadaDepId(id_departamento).DefaultView;
+        }
+
+        public void refreshDatagridManAge()
         {
             dgMantencion.ItemsSource = null;
             dgMantencion.ItemsSource = logic.MantencionDepId(id_departamento).DefaultView;
@@ -88,7 +100,34 @@ namespace Turismo
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            refreshDatagrid();
+            refreshDatagridManTer();
+            refreshDatagridManAge();
+        }
+
+        private void btnMantencionesTerminadas_Click(object sender, RoutedEventArgs e)
+        {
+            refreshDatagridManAge();
+            refreshDatagridManTer();
+            dgMantencion.Visibility = Visibility.Hidden;
+            dgMantencionTerminada.Visibility = Visibility.Visible;
+            rtBtnManAge.Visibility = Visibility.Hidden;
+            rtBtnManTer.Visibility = Visibility.Visible;
+            btnMantencionesTerminadas.IsEnabled = false;
+            BtnMantencionesAgendadas.IsEnabled = true;
+            
+        }
+
+        private void BtnMantencionesAgendadas_Click(object sender, RoutedEventArgs e)
+        {
+            refreshDatagridManTer();
+            refreshDatagridManAge();
+            dgMantencionTerminada.Visibility = Visibility.Hidden;
+            dgMantencion.Visibility = Visibility.Visible;
+            rtBtnManTer.Visibility = Visibility.Hidden;
+            rtBtnManAge.Visibility = Visibility.Visible;
+            BtnMantencionesAgendadas.IsEnabled = false;
+            btnMantencionesTerminadas.IsEnabled = true;
+            
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Turismo
 
             try
             {
-                logic.newDepartamento(tbNombre.Text, Convert.ToInt32(tbArriendoDiario.Text), reservado.Text, Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), idRegion, tbDireccion.Text, idEstado);
+                logic.newDepartamento(tbNombre.Text, Convert.ToInt32(tbNumero.Text),Convert.ToInt32(tbArriendoDiario.Text), reservado.Text, Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), idRegion, tbDireccion.Text, idEstado);
             }
             
             catch(Exception ex)

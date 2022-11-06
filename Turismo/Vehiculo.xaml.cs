@@ -45,6 +45,7 @@ namespace Turismo
         string id_estado;
         int capacidad;
         string descripcion;
+        string modelo;
 
         private void dgVehiculo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -58,7 +59,7 @@ namespace Turismo
                 id_estado = dr["ID_ESTADO"].ToString();
                 capacidad = Convert.ToInt32(dr["CAPACIDAD"]);
                 descripcion = dr["DESCRIPCION"].ToString();
-
+                modelo = dr["MODELO"].ToString();
                 tbPatente.Text = patente;
                 cbDisponibilidad.Text = disponibilidad;
                 tbCapacidad.Text = capacidad.ToString();
@@ -111,7 +112,7 @@ namespace Turismo
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            new EditarVehiculo(patente, disponibilidad, id_estado, capacidad, descripcion).Show();
+            new EditarVehiculo(patente, disponibilidad, modelo, id_estado, capacidad, descripcion).Show();
         }
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
@@ -141,5 +142,10 @@ namespace Turismo
             this.Close();
         }
 
+        private void BtnDepartamentos(object sender, RoutedEventArgs e)
+        {
+            new Departamentos().Show();
+            this.Close();
+        }
     }
 }
