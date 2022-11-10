@@ -62,6 +62,7 @@
         <Rectangle x:Name="rtBtnOtrSer" HorizontalAlignment="Left" Height="28" Margin="195,150,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Fill="Black"/>
         <Button x:Name="BtnServiciosActuales" Content="Servicios Actuales" HorizontalAlignment="Left" Margin="367,153,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnServiciosActuales_Click"/>
         <Button x:Name="BtnOtrosServicios" Content="Otros Servicios" HorizontalAlignment="Left" Margin="198,153,0,0" VerticalAlignment="Top" Width="145" Height="22" Click="BtnOtrosServicios_Click"/>
+        <Label Content="MODULO EN PROGRESO" HorizontalAlignment="Left" Margin="363,31,0,0" VerticalAlignment="Top" Width="153"/>
 
     </Grid>
 </Window>
