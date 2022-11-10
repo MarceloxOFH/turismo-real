@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Marcelo\source\repos\Turismo\Turismo\obj\Debug\
+C:\Users\eduar\turismo-real\Turismo\obj\Debug\
 Turismo
 none
 false
 DEBUG;TRACE
-C:\Users\Marcelo\source\repos\Turismo\Turismo\App.xaml
+C:\Users\eduar\turismo-real\Turismo\App.xaml
 9-642973945
 1-1763673438
 14-1567168515
-153252096112
+1532126697487
 CrearDepartamento.xaml;CrearMantención.xaml;Departamentos.xaml;EditarDepartamento.xaml;EditarMantención.xaml;Login.xaml;MantenciónDep.xaml;Return.xaml;InventarioDep.xaml;
 
-False
+True
 
