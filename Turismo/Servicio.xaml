@@ -61,8 +61,9 @@
         <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="284,363,0,0" VerticalAlignment="Top" Width="66" Click="btnActualizar_Click" Height="31"/>
         <Rectangle x:Name="rtBtnOtrSer" HorizontalAlignment="Left" Height="28" Margin="195,150,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Fill="Black"/>
         <Button x:Name="BtnServiciosActuales" Content="Servicios Actuales" HorizontalAlignment="Left" Margin="367,153,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnServiciosActuales_Click"/>
-        <Button x:Name="BtnOtrosServicios" Content="Otros Servicios" HorizontalAlignment="Left" Margin="198,153,0,0" VerticalAlignment="Top" Width="145" Height="22" Click="BtnOtrosServicios_Click"/>
+        <Button x:Name="BtnOtrosServicios" Content="Todos los Servicios" HorizontalAlignment="Left" Margin="198,153,0,0" VerticalAlignment="Top" Width="145" Height="22" Click="BtnOtrosServicios_Click"/>
         <Label Content="MODULO EN PROGRESO" HorizontalAlignment="Left" Margin="363,31,0,0" VerticalAlignment="Top" Width="153"/>
+        <Button x:Name="BtnAgregarServicio" Content="Agregar Servicio" HorizontalAlignment="Left" Margin="428,363,0,0" VerticalAlignment="Top" Width="106" Click="btnActualizar_Click" Height="31"/>
 
     </Grid>
 </Window>

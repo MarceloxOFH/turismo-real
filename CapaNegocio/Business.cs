@@ -20,6 +20,7 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Windows.Controls.Image;
+using System.EnterpriseServices;
 
 namespace CapaNegocio
 {
@@ -63,6 +64,37 @@ namespace CapaNegocio
             catch (Exception ex)
             {
                 MessageBox.Show("error en InventarioData(): " + ex);
+                DataTable dt = new DataTable();
+                return dt;
+            }
+        }
+
+
+        public DataTable ReservaCOData()
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, " +
+                    "RES.CLIENTE_RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RD.RESERVA_TERMINO " +
+                    "FROM RESERVA RES " +
+                    "LEFT JOIN CHECK_OUT CO ON (CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "INNER JOIN CLIENTE CLI ON (CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE) " +
+                    "INNER JOIN \"Reserva-Depto\" RD ON (RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "WHERE CO.ACTIVO != 'N' OR " +
+                    "NOT EXISTS " +
+                    "(SELECT NULL " +
+                    "FROM CHECK_OUT " +
+                    "WHERE CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en ReservaCOData(): " + ex);
                 DataTable dt = new DataTable();
                 return dt;
             }
@@ -179,7 +211,7 @@ namespace CapaNegocio
         public DataTable ServiciosOtros(string id_departamento)
         {
             OracleCommand command = new OracleCommand("SELECT DISTINCT DSA.SERVICIO_ASOCIADO_ID_SERVICIO AS ID_SERVICIO, " +
-                "DSA.DEPARTAMENTO_ID_DEPARTAMENTO AS ID_DEPARTAMENTO, SA.NOMBRE_SERVICIO, SA.DESCRIPCION, SA.COSTO " +
+                "SA.NOMBRE_SERVICIO, SA.DESCRIPCION, SA.COSTO " +
                 "FROM \"Depa-ServAsoc\" DSA " +
                 "INNER JOIN SERVICIO_ASOCIADO SA ON SA.ID_SERVICIO = DSA.SERVICIO_ASOCIADO_ID_SERVICIO " +
                 "WHERE DEPARTAMENTO_ID_DEPARTAMENTO != :id_departamento", Conec.Connect());
@@ -266,6 +298,32 @@ namespace CapaNegocio
             }
         }
 
+        public DataTable MultaData(int nro_reserva)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT * " +
+                    "FROM MULTA MUL " +
+                    "INNER JOIN CHECK_OUT CO ON (CO.ID_CHECKOUT = MUL.CHECK_OUT_ID_CHECKOUT) " +
+                    "WHERE CO.RESERVA_NRO_RESERVA = :nro_reserva " +
+                    "AND MUL.PAGADA = 'N'", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                return dt;
+            }
+        }
+
         public DataTable dtestadoDepartamentoData()
         {
 
@@ -331,6 +389,80 @@ namespace CapaNegocio
             {
                 string ubi_id = "0";
                 return ubi_id;
+            }
+        }
+
+        public string GetIdCheckOut()
+        {
+            try
+            {
+                DataTable _datatable = new DataTable();
+                OracleDataAdapter _adapter = new OracleDataAdapter("SELECT MAX(TO_NUMBER(ID_CHECKOUT)) FROM CHECK_OUT", Conec.Connect());
+                _adapter.Fill(_datatable);
+
+                string id_checkout = _datatable.Rows[0][0].ToString();
+
+                return id_checkout;
+            }
+            catch (Exception ex)
+            {
+                string id_checkout = "0";
+                return id_checkout;
+            }
+        }
+
+        public int getMultas(int nro_reserva)
+        {
+
+            try
+            {
+                DataTable _datatable = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(MUL.ID_MULTA) " +
+                    "FROM MULTA MUL " +
+                    "INNER JOIN CHECK_OUT CO ON (CO.ID_CHECKOUT = MUL.CHECK_OUT_ID_CHECKOUT) " +
+                    "WHERE MUL.PAGADA = 'N' AND CO.RESERVA_NRO_RESERVA = :nro_reserva", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+
+                OracleDataAdapter _adapter = new OracleDataAdapter(command);
+                _adapter.Fill(_datatable);
+
+                int multas = Convert.ToInt32(_datatable.Rows[0][0].ToString());
+
+                return multas;
+            }
+            catch (Exception ex)
+            {
+                int multas = -1;
+                return multas;
+            }
+        }
+
+        public string findIdCheckout(int nro_reserva)
+        {
+            try
+            {
+                DataTable _datatable = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT ID_CHECKOUT " +
+                    "FROM CHECK_OUT " +
+                    "WHERE RESERVA_NRO_RESERVA = :nro_reserva", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+
+                OracleDataAdapter _adapter = new OracleDataAdapter(command);
+                _adapter.Fill(_datatable);
+
+                string id_checkout = _datatable.Rows[0][0].ToString();
+
+                return id_checkout;
+            }
+            catch (Exception ex)
+            {
+                string id_checkout = "";
+                //MessageBox.Show("error al encontrar id checkout");
+                return id_checkout;
             }
         }
 
@@ -640,6 +772,111 @@ namespace CapaNegocio
             }
         }
 
+        public void newCheckOut(int nro_reserva, string firma_cliente)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO CHECK_OUT " +
+                    "(ID_CHECKOUT, RESERVA_NRO_RESERVA, ACTIVO, HORA_SALIDA, FIRMA_CLIENTE) " +
+                    "VALUES (to_char(SEQ_ID_CHECK_OUT.nextval), " +
+                    ":nro_reserva, :activo, :hora_salida, :firma_cliente)", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+                command.Parameters.Add("activo", OracleDbType.Varchar2, 100).Value = "N";
+                command.Parameters.Add("hora_salida", OracleDbType.Date).Value = DateTime.Now;
+                command.Parameters.Add("firma_cliente", OracleDbType.Varchar2, 12000000).Value = firma_cliente;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Check Out realizado exitosamente");
+
+            }
+            catch (Exception ex)
+            {
+                editPendingCheckOut(nro_reserva, firma_cliente);
+                //MessageBox.Show("Error al realizar Check Out: " + ex);
+            }
+        }
+
+        public void newMulta(string id_checkout, string descripcion, int costo)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("INSERT INTO MULTA " +
+                    "(ID_MULTA, DESCRIPCION, COSTO, CHECK_OUT_ID_CHECKOUT, PAGADA) " +
+                    "VALUES (to_char(SEQ_ID_MUL.nextval), " +
+                    ":descripcion, :costo, :id_checkout, :pagada)", Conec.Connect());
+
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 200).Value = descripcion;
+                command.Parameters.Add("costo", OracleDbType.Varchar2, 100).Value = costo;
+                command.Parameters.Add("id_checkout", OracleDbType.Varchar2).Value = id_checkout;
+                command.Parameters.Add("pagada", OracleDbType.Varchar2, 100).Value = "N";
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Multa creada");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al crear multa: " + ex);
+            }
+        }
+
+        public void newCheckOutAndMulta(int nro_reserva, string descripcion, int costo)
+        {
+            try
+            {
+                //si el cliente no tenia multas ni un checkout ingresado
+                OracleCommand command = new OracleCommand("INSERT INTO CHECK_OUT " +
+                    "(ID_CHECKOUT, RESERVA_NRO_RESERVA, ACTIVO) " +
+                    "VALUES (to_char(SEQ_ID_CHECK_OUT.nextval), " +
+                    ":nro_reserva, :activo)", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+                command.Parameters.Add("activo", OracleDbType.Varchar2, 100).Value = "Y";
+                //command.Parameters.Add("hora_salida", OracleDbType.Date).Value = null;
+                //command.Parameters.Add("firma_cliente", OracleDbType.Varchar2, 12000000).Value = null;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                newMulta(GetIdCheckOut(), descripcion, costo);
+
+            }
+            catch (Exception ex)
+            {
+                //si el cliente tiene un checkout previamente ingresado
+                //debido a multa
+                newMulta(findIdCheckout(nro_reserva), descripcion, costo);
+
+            }
+
+        }
+
+        public void editPendingCheckOut(int nro_reserva, string firma_cliente)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE CHECK_OUT " +
+                    "SET ACTIVO = :activo, FIRMA_CLIENTE = :firma_cliente, " +
+                    "HORA_SALIDA = :hora_salida " +
+                    "WHERE RESERVA_NRO_RESERVA = :nro_reserva", Conec.Connect());
+
+                command.Parameters.Add("activo", OracleDbType.Varchar2, 100).Value = "N";
+                command.Parameters.Add("firma_cliente", OracleDbType.Varchar2, 12000000).Value = firma_cliente;
+                command.Parameters.Add("hora_salida", OracleDbType.Date).Value = DateTime.Now;
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Check Out realizado exitosamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar Check Out: " + ex);
+            }
+        }
+
         public void addDepaInventario(int valor, int cantidad, string id_articulo, string id_departamento)
         {
             try
@@ -845,6 +1082,29 @@ namespace CapaNegocio
             }
         }
 
+        public void deleteMulta(string id_multa)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("DELETE FROM MULTA " +
+                    "WHERE ID_MULTA = :id_multa", Conec.Connect());
+
+                command.Parameters.Add("id_multa", OracleDbType.Varchar2, 100).Value = id_multa;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Multa eliminada");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar multa: " + ex);
+            }
+        }
+
+
         public void deleteFoto(string id_foto)
         {
             try
@@ -1024,6 +1284,50 @@ namespace CapaNegocio
             catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar departamento: " + ex);
+            }
+        }
+
+        public void editMulta(string id_multa, string descripcion, int costo)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE MULTA " +
+                    "SET DESCRIPCION = :descripcion, COSTO = :costo " +
+                    "WHERE ID_MULTA = :id_multa", Conec.Connect());
+
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 200).Value = descripcion;
+                command.Parameters.Add("costo", OracleDbType.Int32, 100).Value = costo;
+                command.Parameters.Add("id_multa", OracleDbType.Varchar2, 100).Value = id_multa;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Multa editada");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar multa: " + ex);
+            }
+        }
+
+
+        public void editMultaPagada(string id_multa)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE MULTA " +
+                    "SET PAGADA = :pagada " +
+                    "WHERE ID_MULTA = :id_multa", Conec.Connect());
+
+                command.Parameters.Add("pagada", OracleDbType.Varchar2, 100).Value = "Y";
+                command.Parameters.Add("id_multa", OracleDbType.Varchar2, 100).Value = id_multa;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Multa pagada");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al pagar multa: " + ex);
             }
         }
 

@@ -187,5 +187,11 @@ namespace Turismo
         {
             new Servicio(id_departamento, nombre_departamento).Show();
         }
+
+        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckOut().Show();
+            this.Close();
+        }
     }
 }

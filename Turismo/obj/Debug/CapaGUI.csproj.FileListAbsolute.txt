@@ -291,3 +291,13 @@ C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarFoto.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarFoto.baml
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Servicio.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Servicio.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CheckOut.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarCheckOut.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CheckOut.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarCheckOut.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Multa.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Multa.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearMulta.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearMulta.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarMulta.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarMulta.baml

@@ -167,6 +167,9 @@
     <Compile Include="Categoria.xaml.cs">
       <DependentUpon>Categoria.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CheckOut.xaml.cs">
+      <DependentUpon>CheckOut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Conductor.xaml.cs">
       <DependentUpon>Conductor.xaml</DependentUpon>
     </Compile>
@@ -193,6 +196,9 @@
     <Compile Include="CrearMantención.xaml.cs">
       <DependentUpon>CrearMantención.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrearMulta.xaml.cs">
+      <DependentUpon>CrearMulta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearVehiculo.xaml.cs">
       <DependentUpon>CrearVehiculo.xaml</DependentUpon>
     </Compile>
@@ -214,6 +220,9 @@
     <Compile Include="EditarMantención.xaml.cs">
       <DependentUpon>EditarMantención.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditarMulta.xaml.cs">
+      <DependentUpon>EditarMulta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarVehiculo.xaml.cs">
       <DependentUpon>EditarVehiculo.xaml</DependentUpon>
     </Compile>
@@ -229,6 +238,12 @@
     <Compile Include="MantenciónDep.xaml.cs">
       <DependentUpon>MantenciónDep.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Multa.xaml.cs">
+      <DependentUpon>Multa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RealizarCheckOut.xaml.cs">
+      <DependentUpon>RealizarCheckOut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Return.xaml.cs">
       <DependentUpon>Return.xaml</DependentUpon>
     </Compile>
@@ -242,6 +257,10 @@
       <DependentUpon>Vehiculo.xaml</DependentUpon>
     </Compile>
     <Page Include="Categoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CheckOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -270,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CrearMantención.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearMulta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -312,6 +335,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditarMulta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditarVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -329,6 +356,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MantenciónDep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Multa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RealizarCheckOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

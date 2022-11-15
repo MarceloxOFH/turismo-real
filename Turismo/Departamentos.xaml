@@ -67,9 +67,11 @@
         <Button Content="Departamentos" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Background="#FFD5DDFA" Width="146"/>
         <Button Content="Generar Informes" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
-        <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="10,586,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button x:Name="BtnVehiculos" Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click"/>
         <Button x:Name="BtnVerFotos" Content="Fotos" HorizontalAlignment="Left" Margin="373,582,0,0" VerticalAlignment="Top" Width="56" Height="29" Click="BtnVerFotos_Click"/>
         <Button x:Name="BtnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="443,582,0,0" VerticalAlignment="Top" Width="66" Height="29" Click="BtnServicios_Click"/>
+        <Button x:Name="BtnCheckIn" Content="Check In" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
+        <Button x:Name="BtnCheckOut" Content="Check Out" HorizontalAlignment="Left" Margin="10,256,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCheckOut_Click"/>
     </Grid>
 </Window>
