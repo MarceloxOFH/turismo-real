@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Check Out" 
                  WindowTitleBrush="Gray"
-                 Height="720" Width="1080" Icon="Pictures/icon.png" WindowStartupLocation="Manual" 
+                 Height="720" Width="1080" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
     Left="0" Top="0">
     <Grid Background="LightGray">
         <Rectangle HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
@@ -101,7 +101,7 @@
         <Label Content="Check Out" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label Content="Administrador" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="93" FontWeight="Bold"/>
 
-        <DataGrid x:Name="dgReserva" IsReadOnly="True" AutoGenerateColumns="False"  Margin="201,301,61,169" SelectionChanged="dgReserva_Click" BorderBrush="#CCD72F00">
+        <DataGrid x:Name="dgReserva" IsReadOnly="True" AutoGenerateColumns="False"  Margin="201,301,61,169" SelectionChanged="dgReserva_Click" BorderBrush="#CCD72F00" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
@@ -113,11 +113,11 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="40"/>
-                <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding CLIENTE_RUT_CLIENTE}" Width="90"/>
-                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="100"/>
-                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="100"/>
-                <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="140"/>
-                <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="140"/>
+                <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding CLIENTE_RUT_CLIENTE}" Width="85"/>
+                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="115"/>
+                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="115"/>
+                <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="150"/>
+                <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="150"/>
                 <DataGridTextColumn Header=" Reserva Termino" Binding="{Binding RESERVA_TERMINO}" Width="*"/>
             </DataGrid.Columns>
 
@@ -140,7 +140,7 @@
         <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="939,528,0,0" VerticalAlignment="Top" Height="29" Width="80" Click="BtnActualizar_Click" Background="#FFBCE1E5" BorderBrush="Black"/>
         <Label x:Name="LblMulta2" Content="Existen Multas pendientes" HorizontalAlignment="Left" Margin="519,540,0,0" VerticalAlignment="Top" Width="220" FontSize="16" FontWeight="Bold"/>
         <Button x:Name="BtnGestionarMultas" Content="Gestionar Multas" HorizontalAlignment="Left" Margin="552,575,0,0" VerticalAlignment="Top" Height="38" Width="142" Click="BtnGestionarMultas_Click" FontSize="12" BorderBrush="Black"/>
-        <Label x:Name="LblBuscarRut" Content="Buscar Rut:" HorizontalAlignment="Left" Margin="201,529,0,0" VerticalAlignment="Top" Width="220" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="tbRutCliente_Copy" HorizontalAlignment="Left" Margin="301,532,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Height="20" FontWeight="Bold"/>
+        <Label x:Name="LblBuscarRut" Content="Buscar Rut:" HorizontalAlignment="Left" Margin="201,528,0,0" VerticalAlignment="Top" Width="220" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbRutCliente_Copy" HorizontalAlignment="Left" Margin="301,531,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Height="20" FontWeight="Bold"/>
     </Grid>
 </mah:MetroWindow>

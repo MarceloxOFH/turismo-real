@@ -1,13 +1,15 @@
-﻿<Window x:Class="Turismo.Inventario"
+﻿<mah:MetroWindow x:Class="Turismo.Inventario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Inventario" Height="720" Width="1080" WindowStartupLocation="Manual" 
+        Title="Inventario" WindowTitleBrush="Gray"
+                 Height="720" Width="1080" Icon="Pictures/icon.png" WindowStartupLocation="Manual" 
     Left="0" Top="0">
-    <Grid>
+    <Grid Background="LightGray">
         <Rectangle HorizontalAlignment="Left" Height="580" Margin="632,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="418"/>
 
         <Rectangle HorizontalAlignment="Left" Height="580" Margin="183,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="423"/>
@@ -15,9 +17,9 @@
         <Rectangle HorizontalAlignment="Left" Height="704" Stroke="Black" VerticalAlignment="Center" Width="171" Fill="#FFF1F0F0"/>
         <Label Content="Gestionar Inventario" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label Content="Administrador" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="146" FontWeight="Bold"/>
-        <Label x:Name="testName_lbl" Content="Nombre artículo:" HorizontalAlignment="Left" Margin="207,160,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy" Content="Código artículo:" HorizontalAlignment="Left" Margin="207,197,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbNombreArticulo" HorizontalAlignment="Left" Margin="335,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="20" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="testName_lbl" Content="Nombre artículo:" HorizontalAlignment="Left" Margin="207,160,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy" Content="Código artículo:" HorizontalAlignment="Left" Margin="207,197,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombreArticulo" HorizontalAlignment="Left" Margin="349,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="20" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -27,10 +29,10 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="tbIdArticulo" HorizontalAlignment="Left" Margin="335,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20"/>
-        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="207,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
-        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="299,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="392,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click"/>
+        <TextBox x:Name="tbIdArticulo" HorizontalAlignment="Left" Margin="349,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20" FontWeight="Bold"/>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="402,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click" Background="#FFFCC5C5"/>
+        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="207,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click" Background="#FFD0FCCE"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="304,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click" Background="#FFF6F9C3"/>
 
 
 
@@ -38,7 +40,7 @@
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
                     <Setter Property="BorderBrush" Value="#FF1487EE"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
@@ -52,12 +54,12 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button x:Name="BtnInvDepartamento" Content="Gestionar inventario" HorizontalAlignment="Left" Margin="885,624,0,0" VerticalAlignment="Top" Height="29" Width="124" Click="BtnInvDepartamento_Click" RenderTransformOrigin="0.111,0.601"/>
+        <Button x:Name="BtnInvDepartamento" Content="Gestionar inventario" HorizontalAlignment="Left" Margin="885,624,0,0" VerticalAlignment="Top" Height="29" Width="139" Click="BtnInvDepartamento_Click" RenderTransformOrigin="0.111,0.601"/>
         <DataGrid x:Name="dgInvDepartamento" IsReadOnly="True" AutoGenerateColumns="False"  Margin="655,241,56,89" SelectionChanged="dgInvDepartamento_SelectionChanged">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
                     <Setter Property="BorderBrush" Value="#FF1487EE"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
@@ -72,13 +74,13 @@
         </DataGrid>
         <Label x:Name="testName_lbl_Copy1" Content="Inventario:" HorizontalAlignment="Left" Margin="207,98,0,0" VerticalAlignment="Top" Width="192" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="testName_lbl_Copy2" Content="Departamento:" HorizontalAlignment="Left" Margin="656,97,0,0" VerticalAlignment="Top" Width="192" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="testName_lbl_Copy3" Content="Nombre Depto:" HorizontalAlignment="Left" Margin="656,158,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy4" Content="Código Depto:" HorizontalAlignment="Left" Margin="656,195,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbNombreDepartamento" HorizontalAlignment="Left" Margin="784,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Height="20"/>
-        <TextBox x:Name="tbIdDepartamento" HorizontalAlignment="Left" Margin="784,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20"/>
-        <Label x:Name="testName_lbl_Copy5" Content="Listado de todos los artículos" HorizontalAlignment="Left" Margin="207,122,0,0" VerticalAlignment="Top" Width="192" FontSize="14"/>
-        <Label x:Name="testName_lbl_Copy6" Content="Gestionar inventario por departamento" HorizontalAlignment="Left" Margin="657,121,0,0" VerticalAlignment="Top" Width="262" FontSize="14"/>
-        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="484,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click"/>
+        <Label x:Name="testName_lbl_Copy3" Content="Nombre Depto:" HorizontalAlignment="Left" Margin="656,158,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy4" Content="Código Depto:" HorizontalAlignment="Left" Margin="656,195,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombreDepartamento" HorizontalAlignment="Left" Margin="798,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Height="20" FontWeight="Bold"/>
+        <TextBox x:Name="tbIdDepartamento" HorizontalAlignment="Left" Margin="798,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy5" Content="Listado de todos los artículos" HorizontalAlignment="Left" Margin="207,122,0,0" VerticalAlignment="Top" Width="242" FontSize="14" FontWeight="Bold" Foreground="#FF707070"/>
+        <Label x:Name="testName_lbl_Copy6" Content="Gestionar inventario por departamento" HorizontalAlignment="Left" Margin="657,121,0,0" VerticalAlignment="Top" Width="297" FontSize="14" FontWeight="Bold" Foreground="#FF707070"/>
+        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="498,624,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click" Background="#FFBCE1E5"/>
         <Button x:Name="BtnInventario" Content="Inventario" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Background="#FFD5DDFA" Width="146" Click="BtnInventario_Click"/>
         <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click"/>
         <Button Content="Clientes" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
@@ -87,7 +89,7 @@
         <Button Content="Generar Estadísticas" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146"/>
         <Button x:Name="BtnVehiculos" Content="Vehículos" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click"/>
-        <Button x:Name="BtnGestionarCategorias" Content="      Ver&#xA;Categorías" HorizontalAlignment="Left" Margin="496,116,0,0" VerticalAlignment="Top" Width="66" Height="40" Click="BtnGestionarCategorias_Click"/>
+        <Button x:Name="BtnGestionarCategorias" Content="      Ver&#xA;Categorías" HorizontalAlignment="Left" Margin="484,116,0,0" VerticalAlignment="Top" Width="78" Height="40" Click="BtnGestionarCategorias_Click"/>
 
     </Grid>
-</Window>
+</mah:MetroWindow>

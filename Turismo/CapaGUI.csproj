@@ -543,6 +543,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\logo_icon1.png" />
+    <Resource Include="Pictures\logo_blanco5.png" />
+    <Resource Include="Pictures\password.png" />
+    <Resource Include="Pictures\usuario.png" />
     <Resource Include="Pictures\icon.png" />
     <Resource Include="Pictures\cerrarsesion.png" />
     <Resource Include="Pictures\checkout.png" />
@@ -555,7 +559,6 @@
     <Resource Include="Pictures\clientes.png" />
     <Resource Include="Pictures\inventario.png" />
     <Resource Include="Pictures\departamentos.png" />
-    <Resource Include="index.jpg" />
     <None Include="Connected Services\WSProducts\WSProducts.disco" />
     <None Include="Connected Services\WSProducts\configuration91.svcinfo" />
     <None Include="Connected Services\WSProducts\configuration.svcinfo" />

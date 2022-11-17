@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace Turismo
 {
@@ -91,7 +92,7 @@ namespace Turismo
             }
             else
             {
-                MessageBox.Show("Se deben regularizar las multas antes de firmar");
+                MessageBox.Show("Se deben regularizar las multas antes de firmar.", "Subir Firma");
             }
         }
 
@@ -180,11 +181,13 @@ namespace Turismo
                 apellidos = "";
                 nro_reserva = -1;
                 multas_activas = -1;
-                
+                await this.ShowMessageAsync("Check Out finalizado", "El Check Out se realizó exitosamente.");
+                //MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
+
             }
             else
             {
-                MessageBox.Show("Verificar Firma y Multas", "Check Out incompleto");
+                MessageBox.Show("Verificar Firma y Multas.", "Check Out incompleto");
             }
         }
 

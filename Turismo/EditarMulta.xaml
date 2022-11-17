@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Editar Multa" Background="LightGray" Height="300" Width="280" Icon="Pictures/icon.png">
+        Title="Editar Multa" Background="LightGray" Height="300" Width="280" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png">
     <Grid>
         <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="29,220,0,0" VerticalAlignment="Top" Width="89" Click="BtnEditar_Click" Background="#FFF6F9C3"/>
         <Label Content="Editar Multa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>

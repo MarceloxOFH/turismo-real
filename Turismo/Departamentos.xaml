@@ -6,10 +6,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Departamentos" WindowTitleBrush="Gray" Background="LightGray" Height="720" Width="1080" Icon="Pictures/icon.png" WindowStartupLocation="Manual" 
+        Title="Departamentos" WindowTitleBrush="Gray" Background="LightGray" Height="720" Width="1080" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
     Left="0" Top="0">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
+        <Rectangle x:Name="RtBarra" HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFAA9759" Offset="1"/>
@@ -18,77 +18,77 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Button x:Name="BtnDepartamentos" HorizontalAlignment="Left" Margin="12,61,0,0" VerticalAlignment="Top" Background="#FFEBC351" BorderBrush="White" Width="146" Click="BtnDepartamentos_Click">
+        <Button x:Name="BtnDepartamentos" HorizontalAlignment="Left" Margin="12,104,0,0" VerticalAlignment="Top" Background="#FFEBC351" BorderBrush="White" Width="146" Click="BtnDepartamentos_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/departamentos.png" Width="24" Height="24"/>
                 <TextBlock Text="     DEPARTAMENTOS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnInventario" HorizontalAlignment="Left" Margin="12,104,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click">
+        <Button x:Name="BtnInventario" HorizontalAlignment="Left" Margin="12,150,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/inventario.png" Width="24" Height="24"/>
                 <TextBlock Text="     INVENTARIO" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnEmpleados" HorizontalAlignment="Left" Margin="12,147,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnEmpleados_Click">
+        <Button x:Name="BtnEmpleados" HorizontalAlignment="Left" Margin="12,195,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnEmpleados_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/empleados.png" Width="24" Height="24"/>
                 <TextBlock Text="     EMPLEADOS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnClientes" HorizontalAlignment="Left" Margin="12,191,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnClientes_Click">
+        <Button x:Name="BtnClientes" HorizontalAlignment="Left" Margin="12,240,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnClientes_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/clientes.png" Width="24" Height="24"/>
                 <TextBlock Text="     CLIENTES" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnConductores" HorizontalAlignment="Left" Margin="12,235,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click">
+        <Button x:Name="BtnConductores" HorizontalAlignment="Left" Margin="12,285,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/conductores.png" Width="24" Height="24"/>
                 <TextBlock Text="     CONDUCTORES" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnVehiculos" HorizontalAlignment="Left" Margin="12,280,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click">
+        <Button x:Name="BtnVehiculos" HorizontalAlignment="Left" Margin="12,330,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/vehiculos.png" Width="24" Height="24"/>
                 <TextBlock Text="     VEHÍCULOS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnEstadisticas" HorizontalAlignment="Left" Margin="12,324,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnEstadisticas_Click">
+        <Button x:Name="BtnEstadisticas" HorizontalAlignment="Left" Margin="12,374,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnEstadisticas_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/estadisticas.png" Width="24" Height="24"/>
                 <TextBlock Text="     ESTADÍSTICAS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnInformes" HorizontalAlignment="Left" Margin="12,368,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInformes_Click">
+        <Button x:Name="BtnInformes" HorizontalAlignment="Left" Margin="12,419,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInformes_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/informes.png" Width="24" Height="24"/>
                 <TextBlock Text="     INFORMES" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnCheckIn" HorizontalAlignment="Left" Margin="12,413,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCheckIn_Click">
+        <Button x:Name="BtnCheckIn" HorizontalAlignment="Left" Margin="12,463,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCheckIn_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/checkin.png" Width="24" Height="24"/>
                 <TextBlock Text="     CHECK IN" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnCheckOut" HorizontalAlignment="Left" Margin="12,459,0,0" VerticalAlignment="Top" Width="146" Background="#FFF1F0F0" Click="BtnCheckOut_Click" >
+        <Button x:Name="BtnCheckOut" HorizontalAlignment="Left" Margin="12,508,0,0" VerticalAlignment="Top" Width="146" Background="#FFF1F0F0" Click="BtnCheckOut_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/checkout.png" Width="24" Height="24"/>
                 <TextBlock Text="     CHECK OUT" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnCerrarSesion" HorizontalAlignment="Left" Margin="12,571,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCerrarSesion_Click">
+        <Button x:Name="BtnCerrarSesion" HorizontalAlignment="Left" Margin="12,621,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCerrarSesion_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/cerrarsesion.png" Width="24" Height="24"/>
                 <TextBlock Text="     CERRAR SESIÓN" VerticalAlignment="Center" Width="106" />
@@ -98,13 +98,12 @@
 
 
         <Label Content="Departamentos" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Administrador" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="146" FontWeight="Bold"/>
         <Label x:Name="testName_lbl" Content="Nombre departamento:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="testName_lbl_Copy" Content="Código departamento:" HorizontalAlignment="Left" Margin="191,139,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="384,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
-        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="384,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20"/>
+        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="384,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" FontWeight="Bold"/>
+        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="384,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20" FontWeight="Bold"/>
         <Label x:Name="testName_lbl_Copy1" Content="Estado:" HorizontalAlignment="Left" Margin="630,103,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
-        <ComboBox x:Name="cbEstado" SelectedValuePath="id_estado" HorizontalAlignment="Left" Margin="702,107,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
+        <ComboBox x:Name="cbEstado" SelectedValuePath="id_estado" HorizontalAlignment="Left" Margin="702,107,0,0" VerticalAlignment="Top" Width="118" Height="22" FontWeight="Bold"/>
         <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="847,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click" Background="#FFFCC5C5"/>
         <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="662,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click" Background="#FFD0FCCE"/>
         <Button x:Name="BtnVerInventario" Content="Inventario" HorizontalAlignment="Left" Margin="207,582,0,0" VerticalAlignment="Top" Height="29" Width="81" Click="BtnVerInventario_Click"/>
@@ -113,7 +112,7 @@
 
 
 
-        <DataGrid x:Name="dgDepartamento" IsReadOnly="True" AutoGenerateColumns="False"  Margin="205,196,63,139" SelectionChanged="dgDepartamento_SelectionChanged">
+        <DataGrid x:Name="dgDepartamento" IsReadOnly="True" AutoGenerateColumns="False"  Margin="205,196,63,139" SelectionChanged="dgDepartamento_SelectionChanged" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
@@ -124,32 +123,35 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" Id" Binding="{Binding ID_DEPARTAMENTO}" Width="30"/>
-                <DataGridTextColumn Header=" Nombre" Binding="{Binding NOMBRE}" Width="120"/>
+                <DataGridTextColumn Header=" Id" Binding="{Binding ID_DEPARTAMENTO}" Width="35"/>
+                <DataGridTextColumn Header=" Nombre" Binding="{Binding NOMBRE}" Width="140"/>
                 <DataGridTextColumn Header=" N°" Binding="{Binding NUMERO}" Width="35"/>
-                <DataGridTextColumn Header=" Región" Binding="{Binding REGION}" Width="80"/>
-                <DataGridTextColumn Header=" Dirección" Binding="{Binding DIRECCION}" Width="120"/>
+                <DataGridTextColumn Header=" Región" Binding="{Binding REGION}" Width="95"/>
+                <DataGridTextColumn Header=" Dirección" Binding="{Binding DIRECCION}" Width="150"/>
                 <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="55"/>
                 <DataGridTextColumn Header=" Arriendo diario" Binding="{Binding ARRIENDO_DIARIO}" Width="90"/>
                 <DataGridTextColumn Header=" Reservado" Binding="{Binding RESERVADO}" Width="65"/>
                 <DataGridTextColumn Header=" Habitaciones" Binding="{Binding HABITACIONES}" Width="78"/>
                 <DataGridTextColumn Header=" Baños" Binding="{Binding BANOS}" Width="40"/>
-                <DataGridTextColumn Header=" Valoración" Binding="{Binding VALORACION}" Width="65"/>
                 <DataGridTextColumn Header=" m²" Binding="{Binding METROS_CUADRADOS}" Width="30"/>
+                <DataGridTextColumn Header=" Valoración" Binding="{Binding VALORACION}" Width="65"/>
                 <DataGridTextColumn Header=" Valor Inventario" Binding="{Binding VALOR_INVENTARIO}" Width="100"/>
-                <DataGridTextColumn Header=" Último Inventario" Binding="{Binding ULTIMO_INVENTARIO}" Width="100  "/>
                 <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="200"/>
             </DataGrid.Columns>
 
         </DataGrid>
         <Label x:Name="testName_lbl_Copy2" Content="Región:" HorizontalAlignment="Left" Margin="630,140,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
 
-        <ComboBox x:Name="cbRegion" SelectedValuePath="id_region" HorizontalAlignment="Left" Margin="702,145,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
+        <ComboBox x:Name="cbRegion" SelectedValuePath="id_region" HorizontalAlignment="Left" Margin="702,145,0,0" VerticalAlignment="Top" Width="118" Height="22" FontWeight="Bold"/>
 
         <Button x:Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="931,108,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
         <Button x:Name="BtnVerMantencion" Content="Mantención" HorizontalAlignment="Left" Margin="301,582,0,0" VerticalAlignment="Top" Width="83" Height="29" Click="BtnVerMantencion_Click"/>
         <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="931,146,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
         <Button x:Name="BtnVerFotos" Content="Fotos" HorizontalAlignment="Left" Margin="398,582,0,0" VerticalAlignment="Top" Width="56" Height="29" Click="BtnVerFotos_Click"/>
         <Button x:Name="BtnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="467,582,0,0" VerticalAlignment="Top" Width="66" Height="29" Click="BtnServicios_Click"/>
+        <Label x:Name="LblUsuario" Content="Usuario" HorizontalContentAlignment="Center" Margin="12,37,922,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="LblCargo" Content="Cargo" HorizontalContentAlignment="Center" Margin="12,59,922,0" VerticalAlignment="Top" FontSize="16"/>
+        <Rectangle x:Name="RtUsuario" HorizontalAlignment="Left" Height="79" Margin="12,9,0,0" Stroke="#FFE5E5E5" VerticalAlignment="Top" Width="146"/>
+        <Image Margin="58,11,968,643" Source="Pictures/usuario.png" Opacity="0.8"/>
     </Grid>
 </mah:MetroWindow>

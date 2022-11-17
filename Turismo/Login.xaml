@@ -6,14 +6,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="450" Icon="Pictures/icon.png">
-    <Grid>
-        <TextBox x:Name="tbUsuario" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Margin="0,222,0,0" Text="juanperez" FontWeight="Bold"/>
-        <Button x:Name="BtnIngresar" Content="Ingresar" HorizontalAlignment="Center" Margin="0,345,0,0" VerticalAlignment="Top" Width="78" Click="BtnIngresar_Click" Background="#FFF1E06C"/>
-        <Label Content="Usuario:" HorizontalAlignment="Left" Margin="151,196,0,0" VerticalAlignment="Top" Width="67" FontWeight="Bold"/>
-        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="151,263,0,0" VerticalAlignment="Top" Width="88" FontWeight="Bold"/>
-        <Image Margin="151,18,151,266" Source="/index.jpg" Stretch="Fill"/>
-        <PasswordBox x:Name="pwContrasena" HorizontalAlignment="Center" Margin="0,289,0,0" VerticalAlignment="Top" Width="148" Password="123"/>
+        Title="Login" Height="450" Width="450"  ResizeMode="NoResize" Icon="Pictures/logo_icon1.png">
+    <Grid Background="LightGray">
+        <Image Margin="129,1,127,256" Source="Pictures/logo_blanco5.png" Stretch="Fill"/>
+        <TextBox x:Name="tbUsuario" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Margin="159,224,0,0" Text="juanperez" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="BtnIngresar" Content="Ingresar" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Width="78" Click="BtnIngresar_Click" Background="#FFBDB17E"/>
+        <Label Content="Usuario:" HorizontalAlignment="Left" Margin="164,196,0,0" VerticalAlignment="Top" Width="67" FontWeight="Bold" Foreground="#FF767676" FontSize="14"/>
+        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="164,268,0,0" VerticalAlignment="Top" Width="88" FontWeight="Bold" Foreground="#FF767676" FontSize="14"/>
+        <PasswordBox x:Name="pwContrasena" HorizontalAlignment="Left" Margin="159,296,0,0" VerticalAlignment="Top" Width="148" Password="123" FontSize="14"/>
+        <Image Margin="120,229,292,169"  Source="Pictures/usuario.png" Opacity="0.8"/>
+        <Image Margin="123,302,292,100" Source="Pictures/password.png" Opacity="0.8"/>
 
     </Grid>
 </mah:MetroWindow>

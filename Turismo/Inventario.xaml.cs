@@ -14,13 +14,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for Inventario.xaml
     /// </summary>
-    public partial class Inventario : Window
+    public partial class Inventario : MetroWindow
     {
         public Inventario()
         {
@@ -29,6 +30,7 @@ namespace Turismo
             dgInvDepartamento.ItemsSource = logic.DepartamentoData().DefaultView;
             BtnEditar.IsEnabled = false;
             BtnEliminar.IsEnabled = false;
+            BtnInvDepartamento.IsEnabled = false;
         }
 
         Business logic = new Business();
@@ -93,6 +95,7 @@ namespace Turismo
 
                 tbNombreDepartamento.Text = nombre_departamento;
                 tbIdDepartamento.Text = id_departamento;
+                BtnInvDepartamento.IsEnabled = true;
             }
         }
 

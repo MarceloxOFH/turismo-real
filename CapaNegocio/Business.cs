@@ -14,7 +14,7 @@ using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Windows.Media;
-using Microsoft.Web.Services3.Addressing;
+//using Microsoft.Web.Services3.Addressing;
 using System.Reflection;
 using System.IO;
 using System.Windows.Media.Imaging;
@@ -503,7 +503,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Departamento agregado");
+                MessageBox.Show("Departamento agregado exitosamente","Agregar");
                 //Departamento dep = new Departamento();
                 //dep.
 
@@ -563,7 +563,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Conductor agregado");
+                MessageBox.Show("Conductor agregado exitosamente","Agregar");
 
             }
             catch (Exception ex)
@@ -590,7 +590,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Foto agregada");
+                MessageBox.Show("Foto agregada exitosamente","Agregar");
 
             }
             catch (Exception ex)
@@ -615,7 +615,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Categoría agregada");
+                MessageBox.Show("Categoría agregada exitosamente","Agregar");
 
             }
             catch (Exception ex)
@@ -646,7 +646,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Vehículo agregado");
+                MessageBox.Show("Vehículo agregado exitosamente","Agregar");
 
             }
             catch (Exception ex)
@@ -712,7 +712,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Departamento editado");
+                MessageBox.Show("Departamento editado exitosamente","Editar");
 
                 editUbicacion(direccion, id_ubicacion);
                 editRegion(id_ubicacion, id_region);
@@ -741,7 +741,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Valores editados");
+                MessageBox.Show("Valores editados exitosamente","Editar");
             }
             catch (Exception ex)
             {
@@ -763,7 +763,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Artículo eliminado");
+                MessageBox.Show("Artículo eliminado exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -789,7 +789,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
+                //MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
 
             }
             catch (Exception ex)
@@ -815,7 +815,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Multa creada", "Crear");
+                MessageBox.Show("Multa creada exitosamente", "Crear");
             }
             catch (Exception ex)
             {
@@ -869,7 +869,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
+                //MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
             }
             catch (Exception ex)
             {
@@ -894,7 +894,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Artículo agregado al departamento");
+                MessageBox.Show("Artículo agregado al departamento", "Agregar");
             }
             catch (Exception ex)
             {
@@ -917,7 +917,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Artículo agregado");
+                MessageBox.Show("Artículo agregado exitosamente", "Agregar");
 
             }
             catch (Exception ex)
@@ -944,7 +944,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Artículo editado");
+                MessageBox.Show("Artículo editado exitosamente", "Editar");
             }
             catch (Exception ex)
             {
@@ -970,7 +970,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Foto editada");
+                MessageBox.Show("Foto editada exitosamente","Editar");
             }
             catch (Exception ex)
             {
@@ -999,7 +999,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Conductor editado");
+                MessageBox.Show("Conductor editado exitosamente","Editar");
             }
             catch (Exception ex)
             {
@@ -1030,7 +1030,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Vehiculo editado");
+                MessageBox.Show("Vehiculo editado exitosamente","Editar");
             }
             catch (Exception ex)
             {
@@ -1052,7 +1052,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Categoría editada");
+                MessageBox.Show("Categoría editada exitosamente","Editar");
             }
             catch (Exception ex)
             {
@@ -1073,7 +1073,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Artículo eliminado");
+                MessageBox.Show("Artículo eliminado exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -1095,7 +1095,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Multa eliminada");
+                MessageBox.Show("Multa eliminada exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -1117,7 +1117,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Foto eliminada");
+                MessageBox.Show("Foto eliminada exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -1139,7 +1139,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Vehiculo eliminado");
+                MessageBox.Show("Vehiculo eliminado exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -1161,7 +1161,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Categoría eliminada");
+                MessageBox.Show("Categoría eliminada exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -1182,7 +1182,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Conductor eliminado");
+                MessageBox.Show("Conductor eliminado exitosamente","Eliminar");
             }
             catch (Exception ex)
             {
@@ -1278,7 +1278,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Departamento eliminado");
+                MessageBox.Show("Departamento eliminado exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -1301,7 +1301,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Multa editada", "Editar");
+                MessageBox.Show("Multa editada exitosamente", "Editar");
             }
             catch (Exception ex)
             {
@@ -1323,7 +1323,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Multa pagada");
+                MessageBox.Show("Multa pagada exitosamente","Pagar");
             }
             catch (Exception ex)
             {
@@ -1365,7 +1365,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Mantención eliminada");
+                MessageBox.Show("Mantención eliminada exitosamente","Eliminar");
 
             }
             catch (Exception ex)
@@ -1442,7 +1442,17 @@ namespace CapaNegocio
             return base64ImageRepresentation;
         }
 
+        public void Usuario(string _usuario)
+        {
+            user_login = _usuario;
+        }
+        public void TipoUsuario(string _usertype_login)
+        {
+            usertype_login = _usertype_login;
+        }
 
+        public static string user_login { get; set; }
+        public static string usertype_login { get; set; }
 
     }
 }

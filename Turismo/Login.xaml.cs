@@ -36,7 +36,8 @@ namespace Turismo
                 
                 if (dt.Rows[0][1].ToString() == "Administrador")
                 {
-                    //MessageBox.Show("Login exitoso");
+                    logic.Usuario(dt.Rows[0][0].ToString());
+                    logic.TipoUsuario(dt.Rows[0][1].ToString());
                     this.Hide();
                     new Departamentos().ShowDialog();   
                 }

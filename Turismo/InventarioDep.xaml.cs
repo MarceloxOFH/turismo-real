@@ -13,10 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
-    public partial class InventarioDep : Window
+    public partial class InventarioDep : MetroWindow
     {
         public InventarioDep(string id_departamento, string nombre_departamento)
         {
@@ -106,7 +107,7 @@ namespace Turismo
             lbldescripcion.Content = "Agregar articulo a departamento";
             BtnAgregarArticulo.IsEnabled = false;
             BtnEditarArticulo.IsEnabled = false;
-            tbCantidad.Text = "";
+            tbCantidad.Text = "1";
             tbValor.Text = "";
         }
 
@@ -140,13 +141,20 @@ namespace Turismo
 
         private void BtnAgregarArticulo_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (Convert.ToInt32(tbCantidad.Text) > 0)
             {
-                logic.addDepaInventario(Convert.ToInt32(tbValor.Text), Convert.ToInt32(tbCantidad.Text), tbIdArticulo.Text, id_departamento);
+                try
+                {
+                    logic.addDepaInventario(Convert.ToInt32(tbValor.Text), Convert.ToInt32(tbCantidad.Text), tbIdArticulo.Text, id_departamento);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se deben llenar todos los campos", "Error");
+                }
             }
-            catch (Exception ex)
+            else 
             {
-                MessageBox.Show("Se deben llenar todos los campos");
+                MessageBox.Show("La cantidad debe ser un número positivo", "Error");
             }
         }
 
@@ -154,27 +162,60 @@ namespace Turismo
         {
              try
              {
+                if (Convert.ToInt32(tbCantidad.Text) < 0)
+                {
+                    MessageBox.Show("La cantidad no puede ser un número negativo", "Error");
+                }
+
                 if (Convert.ToInt32(tbCantidad.Text) > 0)
                 {
                     logic.editDepaInventario(Convert.ToInt32(tbValor.Text), Convert.ToInt32(tbCantidad.Text), tbIdArticulo.Text, id_departamento);
                     refreshDgInvDepartamento();
                 }
+
                 else if (Convert.ToInt32(tbCantidad.Text) == 0)
                 {
                     logic.deleteDepaInventario(id_articulo, id_departamento);
                     tbValor.Text = "";
                     tbCantidad.Text = "";
                     refreshDgInvDepartamento();
-                }
-                else if (Convert.ToInt32(tbCantidad.Text) < 0)
-                {
-                    MessageBox.Show("La cantidad no puede ser un número negativo");
-                }
+                }   
             }
              catch (Exception ex)
              {
-                MessageBox.Show("Se deben llenar todos los campos");
+                MessageBox.Show("Se deben llenar todos los campos","Error");
              }
+        }
+
+        private void BtnAgregarMas_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                if (tbCantidad.Text != "" && id_articulo != "")
+                {
+                    tbCantidad.Text = (Convert.ToInt32(tbCantidad.Text) + 1).ToString();
+                }
+            }
+            catch 
+            { 
+            
+            }
+        }
+
+        private void BtnAgregarMenos_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (tbCantidad.Text != "" && id_articulo != "" && tbCantidad.Text != "0")
+                {
+                    tbCantidad.Text = (Convert.ToInt32(tbCantidad.Text) - 1).ToString();
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

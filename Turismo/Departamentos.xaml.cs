@@ -29,11 +29,16 @@ namespace Turismo
         public Departamentos()
         {
             InitializeComponent();
-
+            LblUsuario.Content = Business.user_login;
+            LblCargo.Content = Business.usertype_login;
             dgDepartamento.ItemsSource = logic.DepartamentoData().DefaultView;
             //dgDepartamento.Items.Add(logic.DepartamentoData().DefaultView);
             BtnEliminar.IsEnabled = false;
             BtnEditar.IsEnabled = false;
+            BtnVerInventario.IsEnabled = false;
+            BtnVerMantencion.IsEnabled = false;
+            BtnVerFotos.IsEnabled = false;
+            BtnServicios.IsEnabled = false;
 
             //COMBOBOX ESTADO DEPARTAMENTO
             DataTable dted = logic.dtestadoDepartamentoData();
@@ -139,6 +144,10 @@ namespace Turismo
                 tbnombreDepartamento.Text = nombre_departamento;
                 BtnEliminar.IsEnabled = true;
                 BtnEditar.IsEnabled = true;
+                BtnVerInventario.IsEnabled = true;
+                BtnVerMantencion.IsEnabled = true;
+                BtnVerFotos.IsEnabled = true;
+                BtnServicios.IsEnabled = true;
 
                 cbEstado.SelectedIndex = Convert.ToInt32(id_estado) - 1;
                 cbRegion.SelectedIndex = Convert.ToInt32(id_region) - 1;
