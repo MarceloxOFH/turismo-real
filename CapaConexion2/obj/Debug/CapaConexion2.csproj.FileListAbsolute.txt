@@ -1,8 +1,0 @@
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\bin\Debug\CapaConexion2.dll.config
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\bin\Debug\CapaConexion2.dll
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\bin\Debug\CapaConexion2.pdb
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\bin\Debug\Oracle.ManagedDataAccess.dll
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\obj\Debug\CapaConexion2.csproj.CoreCompileInputs.cache
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\obj\Debug\CapaConexion2.csproj.CopyComplete
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\obj\Debug\CapaConexion2.dll
-C:\Users\Marcelo\source\repos\Tienda\CapaConexion2\obj\Debug\CapaConexion2.pdb

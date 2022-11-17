@@ -64,7 +64,17 @@ namespace Turismo
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            refreshDatagrid();
+            try
+            {
+                if (rut_cliente != null)
+                {
+                    refreshDatagrid();
+                }
+            }
+            catch 
+            { 
+
+            }
         }
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
@@ -75,24 +85,31 @@ namespace Turismo
 
         private void BtnSubirFirma_Click(object sender, RoutedEventArgs e)
         {
-            if (multas_activas == 0)
+            try
             {
-                OpenFileDialog fd = new OpenFileDialog();
-                if (fd.ShowDialog() == true)
+                if (multas_activas == 0)
                 {
-                    ImgImagen.Source = new BitmapImage(new Uri(fd.FileName));
-                    Stream stream = File.OpenRead(fd.FileName);
-                    stream = File.OpenRead(fd.FileName);
-                    byte[] binaryImage = new byte[stream.Length];
-                    stream.Read(binaryImage, 0, (int)stream.Length);
-                    firma_cliente = logic.ConvertImageToBase64String(binaryImage);
-                    LblFirma.Content = "✓ Firma subida";
-                    LblFirma.Foreground = System.Windows.Media.Brushes.DarkGreen;
+                    OpenFileDialog fd = new OpenFileDialog();
+                    if (fd.ShowDialog() == true)
+                    {
+                        ImgImagen.Source = new BitmapImage(new Uri(fd.FileName));
+                        Stream stream = File.OpenRead(fd.FileName);
+                        stream = File.OpenRead(fd.FileName);
+                        byte[] binaryImage = new byte[stream.Length];
+                        stream.Read(binaryImage, 0, (int)stream.Length);
+                        firma_cliente = logic.ConvertImageToBase64String(binaryImage);
+                        LblFirma.Content = "✓ Firma subida";
+                        LblFirma.Foreground = System.Windows.Media.Brushes.DarkGreen;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Se deben regularizar las multas antes de firmar.", "Subir Firma");
                 }
             }
-            else
+            catch 
             {
-                MessageBox.Show("Se deben regularizar las multas antes de firmar.", "Subir Firma");
+                
             }
         }
 
