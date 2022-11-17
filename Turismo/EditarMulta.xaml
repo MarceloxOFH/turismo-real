@@ -1,21 +1,22 @@
-﻿<Window x:Class="Turismo.EditarMulta"
+﻿<mah:MetroWindow x:Class="Turismo.EditarMulta"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="EditarMulta" Height="300" Width="280">
+        Title="Editar Multa" Background="LightGray" Height="300" Width="280" Icon="Pictures/icon.png">
     <Grid>
-        <Button x:Name="BtnCrear" Content="Editar" HorizontalAlignment="Left" Margin="29,220,0,0" VerticalAlignment="Top" Width="89" Click="BtnEditar_Click"/>
-        <Label Content="Crear Multa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="29,220,0,0" VerticalAlignment="Top" Width="89" Click="BtnEditar_Click" Background="#FFF6F9C3"/>
+        <Label Content="Editar Multa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="168,220,0,0" VerticalAlignment="Top" Width="81" Click="btnLimpiar_Click"/>
-        <Label Content="Costo:" HorizontalAlignment="Left" Margin="25,155,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="101,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Height="46"/>
-        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="23,95,0,0" VerticalAlignment="Top" Width="77"/>
-        <TextBox x:Name="tbCosto" HorizontalAlignment="Left" Margin="101,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Height="18"/>
-        <Label Content="Id:" HorizontalAlignment="Left" Margin="28,65,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="tbIdMulta" HorizontalAlignment="Left" Margin="101,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Height="18"/>
+        <Label Content="Costo:" HorizontalAlignment="Left" Margin="25,157,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="104,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Height="46"/>
+        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="23,99,0,0" VerticalAlignment="Top" Width="81" FontWeight="Bold"/>
+        <TextBox x:Name="tbCosto" HorizontalAlignment="Center" Margin="0,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Height="18"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="28,67,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
+        <TextBox x:Name="tbIdMulta" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Height="18"/>
 
     </Grid>
-</Window>
+</mah:MetroWindow>

@@ -14,13 +14,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for Multa.xaml
     /// </summary>
-    public partial class Multa : Window
+    public partial class Multa : MetroWindow
     {
         public Multa(CheckOut CO, int nro_reserva, string rut_cliente, string nombres, string apellidos)
         {
@@ -111,7 +112,7 @@ namespace Turismo
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Eliminar esta multa?", "Eliminar", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Eliminar multa seleccionada?", "Eliminar", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 logic.deleteMulta(id_multa);

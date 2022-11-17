@@ -16,10 +16,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
-    public partial class CheckOut : Window
+    public partial class CheckOut : MetroWindow
     {
         public CheckOut()
         {
@@ -48,26 +49,6 @@ namespace Turismo
         string apellidos;
         int multas_activas;
         Multa MUL;
-
-        private void BtnInventario_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnConductores_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         
         private void BtnCrear_Click(object sender, RoutedEventArgs e)
@@ -114,10 +95,6 @@ namespace Turismo
             }
         }
 
-        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void dgMulta_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -184,7 +161,7 @@ namespace Turismo
             }
         }
 
-        private void BtnRealizarCheckOut_Click(object sender, RoutedEventArgs e)
+        private async void BtnRealizarCheckOut_Click(object sender, RoutedEventArgs e)
         {
             if (nro_reserva > 0 && firma_cliente != null && multas_activas == 0)
             {
@@ -207,7 +184,7 @@ namespace Turismo
             }
             else
             {
-                MessageBox.Show("Check Out incompleto, verificar firma y multas");
+                MessageBox.Show("Verificar Firma y Multas", "Check Out incompleto");
             }
         }
 
@@ -225,6 +202,67 @@ namespace Turismo
             dgReserva.ItemsSource = logic.ReservaCOData().DefaultView;
             multas_activas = logic.getMultas(nro_reserva);
             CheckMultasStatus();
+        }
+
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
+
+        private void BtnDepartamentos_Click(object sender, RoutedEventArgs e)
+        {
+            new Departamentos().Show();
+            this.Close();
+        }
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            new Inventario().Show();
+            this.Close();
+        }
+
+        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
+        {
+            new Vehiculo().Show();
+            this.Close();
+        }
+
+        private void BtnConductores_Click(object sender, RoutedEventArgs e)
+        {
+            new Conductor().Show();
+            this.Close();
+        }
+
+        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
+        {
+            //new CheckOut().Show();
+            //this.Close();
+        }
+
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        } 
+
+        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnInformes_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -17,13 +17,14 @@ using System.Data;
 using CapaNegocio;
 using System.Drawing;
 using Tienda;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class Departamentos : Window
+    public partial class Departamentos : MetroWindow
     {
         public Departamentos()
         {
@@ -191,6 +192,42 @@ namespace Turismo
         private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
         {
             new CheckOut().Show();
+            this.Close();
+        }
+
+        private void BtnDepartamentos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnInformes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
             this.Close();
         }
     }

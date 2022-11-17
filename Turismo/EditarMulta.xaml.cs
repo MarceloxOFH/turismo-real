@@ -12,13 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for EditarMulta.xaml
     /// </summary>
-    public partial class EditarMulta : Window
+    public partial class EditarMulta : MetroWindow
     {
         public EditarMulta(Multa MUL, string id_multa, string descripcion, int costo)
         {

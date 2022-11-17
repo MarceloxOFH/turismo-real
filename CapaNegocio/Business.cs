@@ -789,7 +789,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Check Out realizado exitosamente");
+                MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
 
             }
             catch (Exception ex)
@@ -815,7 +815,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Multa creada");
+                MessageBox.Show("Multa creada", "Crear");
             }
             catch (Exception ex)
             {
@@ -869,7 +869,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Check Out realizado exitosamente");
+                MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
             }
             catch (Exception ex)
             {
@@ -1301,7 +1301,7 @@ namespace CapaNegocio
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
-                MessageBox.Show("Multa editada");
+                MessageBox.Show("Multa editada", "Editar");
             }
             catch (Exception ex)
             {
