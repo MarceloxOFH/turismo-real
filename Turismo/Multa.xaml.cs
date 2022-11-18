@@ -52,6 +52,7 @@ namespace Turismo
         string descripcion;
         int costo;
         string pagada;
+        DateTime fecha_creacion;
 
         public void CheckMultasStatus()
         {
@@ -91,7 +92,7 @@ namespace Turismo
                 descripcion = dr["DESCRIPCION"].ToString();
                 costo = Convert.ToInt32(dr["COSTO"]);
                 pagada = dr["PAGADA"].ToString();
-
+                fecha_creacion = DateTime.Parse(dr["FECHA_CREACION"].ToString());
                 BtnEditar.IsEnabled = true;
                 BtnEliminar.IsEnabled = true;
                 BtnPagarMulta.IsEnabled = true;
@@ -130,10 +131,10 @@ namespace Turismo
 
         private void BtnPagarMulta_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("CONFIRMAR PAGO DE $" + costo + " ?", "PAGAR MULTA", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Confirmar pago de $" + costo, "Pagar Multa", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                logic.editMultaPagada(id_multa);
+                logic.PagarMulta(id_multa);
                 refreshDatagrid();
                 BtnEditar.IsEnabled = false;
                 BtnEliminar.IsEnabled = false;

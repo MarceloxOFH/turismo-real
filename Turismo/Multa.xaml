@@ -9,7 +9,7 @@
         Title="Multas" Height="450" Width="620" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png">
     <Grid Background="LightGray">
         <Label Content="Multas:" HorizontalAlignment="Left" Margin="49,193,0,0" VerticalAlignment="Top" Width="93" FontSize="20" FontWeight="Bold"/>
-        <DataGrid x:Name="dgMulta" IsReadOnly="True" AutoGenerateColumns="False"  Margin="49,229,68,78" SelectionChanged="dgMulta_SelectionChanged">
+        <DataGrid x:Name="dgMulta" IsReadOnly="True" AutoGenerateColumns="False"  Margin="49,229,68,78" SelectionChanged="dgMulta_SelectionChanged" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
@@ -21,8 +21,10 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" Id" Binding="{Binding ID_MULTA}" Width="35"/>
-                <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="320"/>
-                <DataGridTextColumn Header=" Costo" Binding="{Binding COSTO}" Width="70"/>
+                <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="210"/>
+                <DataGridTextColumn Header=" Costo" Binding="{Binding COSTO}" Width="60"/>
+                <DataGridTextColumn Header=" Creación" Binding="{Binding FECHA_CREACION}" Width="150"/>
+
                 <DataGridTextColumn Header=" Pagada" Binding="{Binding PAGADA}" Width="*"/>
 
 

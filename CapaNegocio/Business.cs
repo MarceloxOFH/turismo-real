@@ -21,6 +21,7 @@ using System.Windows.Media.Imaging;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Windows.Controls.Image;
 using System.EnterpriseServices;
+using Microsoft.Web.Services3.Addressing;
 
 namespace CapaNegocio
 {
@@ -304,11 +305,13 @@ namespace CapaNegocio
             {
                 DataTable dt = new DataTable();
 
-                OracleCommand command = new OracleCommand("SELECT * " +
+                OracleCommand command = new OracleCommand("SELECT ID_MULTA, " +
+                    "DESCRIPCION, COSTO, " +
+                    "CHECK_OUT_ID_CHECKOUT, " +
+                    "PAGADA, FECHA_CREACION " +
                     "FROM MULTA MUL " +
-                    "INNER JOIN CHECK_OUT CO ON (CO.ID_CHECKOUT = MUL.CHECK_OUT_ID_CHECKOUT) " +
-                    "WHERE CO.RESERVA_NRO_RESERVA = :nro_reserva " +
-                    "AND MUL.PAGADA = 'N'", Conec.Connect());
+                    "INNER JOIN CHECK_OUT CO ON(CO.ID_CHECKOUT = MUL.CHECK_OUT_ID_CHECKOUT) " +
+                    "WHERE CO.RESERVA_NRO_RESERVA = :nro_reserva AND PAGADA = 'N'", Conec.Connect());
 
                 command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
 
@@ -804,12 +807,13 @@ namespace CapaNegocio
             try
             {
                 OracleCommand command = new OracleCommand("INSERT INTO MULTA " +
-                    "(ID_MULTA, DESCRIPCION, COSTO, CHECK_OUT_ID_CHECKOUT, PAGADA) " +
+                    "(ID_MULTA, DESCRIPCION, COSTO, FECHA_CREACION, CHECK_OUT_ID_CHECKOUT, PAGADA) " +
                     "VALUES (to_char(SEQ_ID_MUL.nextval), " +
-                    ":descripcion, :costo, :id_checkout, :pagada)", Conec.Connect());
+                    ":descripcion, :costo, :fecha_creacion, :id_checkout, :pagada)", Conec.Connect());
 
                 command.Parameters.Add("descripcion", OracleDbType.Varchar2, 200).Value = descripcion;
                 command.Parameters.Add("costo", OracleDbType.Varchar2, 100).Value = costo;
+                command.Parameters.Add("fecha_creacion", OracleDbType.Date).Value = DateTime.Now; ;
                 command.Parameters.Add("id_checkout", OracleDbType.Varchar2).Value = id_checkout;
                 command.Parameters.Add("pagada", OracleDbType.Varchar2, 100).Value = "N";
                 command.ExecuteNonQuery();
@@ -1310,15 +1314,16 @@ namespace CapaNegocio
         }
 
 
-        public void editMultaPagada(string id_multa)
+        public void PagarMulta(string id_multa)
         {
             try
             {
                 OracleCommand command = new OracleCommand("UPDATE MULTA " +
-                    "SET PAGADA = :pagada " +
+                    "SET PAGADA = :pagada, FECHA_PAGO = :fecha_pago " +
                     "WHERE ID_MULTA = :id_multa", Conec.Connect());
 
                 command.Parameters.Add("pagada", OracleDbType.Varchar2, 100).Value = "Y";
+                command.Parameters.Add("fecha_pago", OracleDbType.Date).Value = DateTime.Now;
                 command.Parameters.Add("id_multa", OracleDbType.Varchar2, 100).Value = id_multa;
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
