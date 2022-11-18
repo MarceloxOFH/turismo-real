@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
         Title="Login" Height="450" Width="450"  ResizeMode="NoResize" Icon="Pictures/logo_icon1.png">
-    <Grid Background="LightGray">
+   
+ <Grid Background="LightGray">
         <Image Margin="129,1,127,256" Source="Pictures/logo_blanco5.png" Stretch="Fill"/>
         <TextBox x:Name="tbUsuario" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Margin="159,224,0,0" Text="juanperez" FontWeight="Bold" FontSize="14"/>
         <Button x:Name="BtnIngresar" Content="Ingresar" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Width="78" Click="BtnIngresar_Click" Background="#FFBDB17E"/>

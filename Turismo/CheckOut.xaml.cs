@@ -26,6 +26,8 @@ namespace Turismo
         public CheckOut()
         {
             InitializeComponent();
+            LblUsuario.Content = Business.user_login;
+            LblCargo.Content = Business.usertype_login;
             dgReserva.ItemsSource = logic.ReservaCOData().DefaultView;
             LblMulta.Content = "";
             LblMulta2.Content = "";

@@ -186,7 +186,6 @@ C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\Microsoft.Extensions.Options.dll
 C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\Microsoft.Extensions.Primitives.dll
 C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\Microsoft.Net.Http.Headers.dll
 C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\Microsoft.Web.Infrastructure.dll
-C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\Microsoft.Web.Services3.dll
 C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\MQTTnet.dll
 C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\Oracle.ManagedDataAccess.dll
