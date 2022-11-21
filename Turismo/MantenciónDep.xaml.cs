@@ -14,11 +14,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 
 namespace Turismo
 {
-    public partial class MantenciónDep : Window
+    public partial class MantenciónDep : MetroWindow
     {
         public MantenciónDep(string id_departamento, string nombre_departamento)
         {
@@ -26,7 +27,8 @@ namespace Turismo
             dgMantencionTerminada.Visibility = Visibility.Hidden;
             dgMantencion.ItemsSource = logic.MantencionDepId(id_departamento).DefaultView;
             dgMantencionTerminada.ItemsSource = logic.MantencionTerminadaDepId(id_departamento).DefaultView;
-
+            btnEditar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
             this.id_departamento = id_departamento;
             this.nombre_departamento = nombre_departamento;
             tbidDepartamento.Text = id_departamento;
@@ -55,6 +57,9 @@ namespace Turismo
                 fecha_termino = DateTime.Parse(dr["FECHA_TERMINO"].ToString());
                 costo = Convert.ToInt32(dr["COSTO"]);
                 descripcion = dr["DESCRIPCION"].ToString();
+
+                btnEditar.IsEnabled = true;
+                btnEliminar.IsEnabled = true;
             }
         }
 

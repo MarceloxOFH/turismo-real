@@ -1,49 +1,52 @@
-﻿<Window x:Class="Turismo.MantenciónDep"
+﻿<mah:MetroWindow x:Class="Turismo.MantenciónDep"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Ingresar Mantención" Height="480" Width="700">
+        Title="Ingresar Mantención" Height="500" Width="700"  Background="LightGray"
+                  Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
+    Left="0" Top="0">
     <Grid>
 
-        <DataGrid x:Name="dgMantencionTerminada" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,185,37,75" SelectionChanged="dgMantencion_SelectionChanged">
+        <DataGrid x:Name="dgMantencionTerminada" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,199,37,75" SelectionChanged="dgMantencion_SelectionChanged"  FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
                     <Setter Property="BorderBrush" Value="#FF1487EE"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" Id" Binding="{Binding ID_MANTENCION}" Width="30"/>
-                <DataGridTextColumn Header=" Fecha inicio" Binding="{Binding FECHA_INICIO}" Width="130"/>
-                <DataGridTextColumn Header=" Fecha término" Binding="{Binding FECHA_TERMINO}" Width="130"/>
+                <DataGridTextColumn Header=" Id" Binding="{Binding ID_MANTENCION}" Width="40"/>
+                <DataGridTextColumn Header=" Fecha inicio" Binding="{Binding FECHA_INICIO}" Width="150"/>
+                <DataGridTextColumn Header=" Fecha término" Binding="{Binding FECHA_TERMINO}" Width="150"/>
                 <DataGridTextColumn Header=" Costo" Binding="{Binding COSTO}" Width="60"/>
                 <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="*"/>
             </DataGrid.Columns>
 
         </DataGrid>
 
-        <Rectangle x:Name="rtBtnManAge" HorizontalAlignment="Left" Height="28" Margin="496,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="152" Fill="Black"/>
+        <Rectangle x:Name="rtBtnManAge" HorizontalAlignment="Left" Height="29" Margin="497,165,0,0" VerticalAlignment="Top" Width="162" Fill="#FFC9A000"  Stroke="#FFC9A000"/>
 
-        <DataGrid x:Name="dgMantencion" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,185,37,75" SelectionChanged="dgMantencion_SelectionChanged">
+        <DataGrid x:Name="dgMantencion" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,199,37,75" SelectionChanged="dgMantencion_SelectionChanged" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
                     <Setter Property="BorderBrush" Value="#FF1487EE"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" Id" Binding="{Binding ID_MANTENCION}" Width="30"/>
-                <DataGridTextColumn Header=" Fecha inicio" Binding="{Binding FECHA_INICIO}" Width="130"/>
-                <DataGridTextColumn Header=" Fecha término" Binding="{Binding FECHA_TERMINO}" Width="130"/>
+                <DataGridTextColumn Header=" Id" Binding="{Binding ID_MANTENCION}" Width="40"/>
+                <DataGridTextColumn Header=" Fecha inicio" Binding="{Binding FECHA_INICIO}" Width="150"/>
+                <DataGridTextColumn Header=" Fecha término" Binding="{Binding FECHA_TERMINO}" Width="150"/>
                 <DataGridTextColumn Header=" Costo" Binding="{Binding COSTO}" Width="60"/>
                 <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="*"/>
             </DataGrid.Columns>
@@ -52,18 +55,18 @@
 
 
 
-        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="34,387,0,0" VerticalAlignment="Top" Width="64" Click="btnCrear_Click" Height="32"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="115,387,0,0" VerticalAlignment="Top" Width="65" Click="btnEliminar_Click" Height="31" RenderTransformOrigin="0.45,0.664"/>
-        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="198,387,0,0" VerticalAlignment="Top" Width="65" Click="btnEditar_Click" Height="31"/>
-        <Label Content="Id Departamento:" HorizontalAlignment="Left" Margin="34,71,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="34,410,0,0" VerticalAlignment="Top" Width="64" Click="btnCrear_Click" Height="32" Background="#FFD0FCCE"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="198,410,0,0" VerticalAlignment="Top" Width="66" Click="btnEliminar_Click" Height="31" RenderTransformOrigin="0.45,0.664" Background="#FFFCC5C5"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="115,410,0,0" VerticalAlignment="Top" Width="65" Click="btnEditar_Click" Height="31" Background="#FFF6F9C3"/>
+        <Label Content="Id Departamento:" HorizontalAlignment="Left" Margin="34,71,0,0" VerticalAlignment="Top" Width="178" FontSize="16" FontWeight="Bold"/>
         <Label Content="Ingresar Mantención" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Nombre Departamento:" HorizontalAlignment="Left" Margin="34,102,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
-        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="217,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
-        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="217,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False"/>
-        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="284,387,0,0" VerticalAlignment="Top" Width="66" Click="btnActualizar_Click" Height="31"/>
-        <Rectangle x:Name="rtBtnManTer" HorizontalAlignment="Left" Height="28" Margin="327,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Fill="Black"/>
-        <Button x:Name="BtnMantencionesAgendadas" Content="Mantenciones agendadas" HorizontalAlignment="Left" Margin="499,155,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnMantencionesAgendadas_Click"/>
-        <Button x:Name="btnMantencionesTerminadas" Content="Mantenciones terminadas" HorizontalAlignment="Left" Margin="330,155,0,0" VerticalAlignment="Top" Width="145" Height="22" Click="btnMantencionesTerminadas_Click"/>
+        <Label Content="Nombre Departamento:" HorizontalAlignment="Left" Margin="34,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="226,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontWeight="Bold"/>
+        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="226,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False" FontWeight="Bold"/>
+        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="282,410,0,0" VerticalAlignment="Top" Width="74" Click="btnActualizar_Click" Height="31" Background="#FFBCE1E5"/>
+        <Rectangle x:Name="rtBtnManTer" HorizontalAlignment="Left" Height="29" Margin="320,165,0,0" VerticalAlignment="Top" Width="165"  Fill="#FFC9A000"  Stroke="#FFC9A000"/>
+        <Button x:Name="BtnMantencionesAgendadas" Content="Mantenciones agendadas" HorizontalAlignment="Left" Margin="499,167,0,0" VerticalAlignment="Top" Width="158" Height="22" Click="BtnMantencionesAgendadas_Click"/>
+        <Button x:Name="btnMantencionesTerminadas" Content="Mantenciones terminadas" HorizontalAlignment="Left" Margin="322,167,0,0" VerticalAlignment="Top" Width="161" Height="22" Click="btnMantencionesTerminadas_Click"/>
 
     </Grid>
-</Window>
+</mah:MetroWindow>

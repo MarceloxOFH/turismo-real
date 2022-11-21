@@ -14,18 +14,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for Vehiculo.xaml
     /// </summary>
-    public partial class Vehiculo : Window
+    public partial class Vehiculo : MetroWindow
     {
         public Vehiculo()
         {
             InitializeComponent();
-
+            LblUsuario.Content = Business.user_login;
+            LblCargo.Content = Business.usertype_login;
             dgVehiculo.ItemsSource = logic.VehiculoData().DefaultView;
             //dgDepartamento.Items.Add(logic.DepartamentoData().DefaultView);
             BtnEliminar.IsEnabled = false;
@@ -130,10 +132,30 @@ namespace Turismo
 
         }
 
+
+
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
+
+        private void BtnDepartamentos_Click(object sender, RoutedEventArgs e)
+        {
+            new Departamentos().Show();
+            this.Close();
+        }
+
         private void BtnInventario_Click(object sender, RoutedEventArgs e)
         {
             new Inventario().Show();
             this.Close();
+        }
+
+        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
+        {
+            //new Vehiculo().Show();
+            //this.Close();
         }
 
         private void BtnConductores_Click(object sender, RoutedEventArgs e)
@@ -142,10 +164,35 @@ namespace Turismo
             this.Close();
         }
 
-        private void BtnDepartamentos(object sender, RoutedEventArgs e)
+        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
         {
-            new Departamentos().Show();
+            new CheckOut().Show();
             this.Close();
+        }
+
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnInformes_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

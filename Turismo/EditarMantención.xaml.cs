@@ -14,13 +14,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Lógica de interacción para EditarMantención.xaml
     /// </summary>
-    public partial class EditarMantención : Window
+    public partial class EditarMantención : MetroWindow
     {
         public EditarMantención(string id_departamento, string nombre_departamento, string id_mantencion, DateTime fecha_inicio, DateTime fecha_termino, int costo, string descripcion)
         {

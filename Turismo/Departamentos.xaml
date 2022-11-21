@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Departamentos" WindowTitleBrush="Gray" Background="LightGray" Height="720" Width="1080" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
+        Title="Departamentos"  Height="720" Width="1080"  Background="LightGray" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
     Left="0" Top="0">
     <Grid>
 
@@ -21,10 +21,10 @@
         </Rectangle>
 
 
-        <Label x:Name="LblUsuario" Content="Usuario" HorizontalContentAlignment="Center" Margin="12,37,922,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <Label x:Name="LblCargo" Content="Cargo" HorizontalContentAlignment="Center" Margin="12,59,922,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF727272"/>
+        <Label x:Name="LblUsuario" Content="Usuario" HorizontalContentAlignment="Center" Margin="12,37,922,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="LblCargo" Content="Cargo" HorizontalContentAlignment="Center" Margin="12,59,922,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF727272"/>
         <Rectangle x:Name="RtUsuario" HorizontalAlignment="Left" Height="79" Margin="12,9,0,0" Stroke="#FFE5E5E5" VerticalAlignment="Top" Width="146"/>
-        <Image Margin="58,11,968,643" Source="Pictures/usuario.png" Opacity="0.8"/>
+        <Image Margin="58,12,968,642" Source="Pictures/usuario.png" Opacity="0.8"/>
 
 
 
@@ -109,7 +109,7 @@
 
         <Label Content="Departamentos" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label x:Name="tbNombreDepto" Content="Nombre departamento:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="tbIdDepto" Content="Código departamento:" HorizontalAlignment="Left" Margin="191,139,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="tbIdDepto" Content="Id departamento:" HorizontalAlignment="Left" Margin="191,139,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="384,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" FontWeight="Bold"/>
         <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="384,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20" FontWeight="Bold"/>
         <Label x:Name="tbEstado" Content="Estado:" HorizontalAlignment="Left" Margin="630,103,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>

@@ -12,13 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for EditarCategoria.xaml
     /// </summary>
-    public partial class EditarCategoria : Window
+    public partial class EditarCategoria : MetroWindow
     {
         public EditarCategoria(string id_categoria, string categoria, string descripcion)
         {

@@ -1,18 +1,21 @@
-﻿<Window x:Class="Turismo.Servicio"
+﻿<mah:MetroWindow x:Class="Turismo.Servicio"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Servicio" Height="450" Width="580">
+        Title="Servicios" Height="470" Width="580"  Background="LightGray"
+                  Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
+    Left="0" Top="0">
     <Grid>
 
-        <DataGrid x:Name="dgOtrosServicios" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,185,46,75" SelectionChanged="dgOtrosServicios_SelectionChanged">
+        <DataGrid x:Name="dgOtrosServicios" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,200,46,75" SelectionChanged="dgOtrosServicios_SelectionChanged" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
                     <Setter Property="BorderBrush" Value="#FF1487EE"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
@@ -27,13 +30,13 @@
 
         </DataGrid>
 
-        <Rectangle x:Name="rtBtnSerAct" HorizontalAlignment="Left" Height="28" Margin="364,150,0,0" Stroke="Black" VerticalAlignment="Top" Width="152" Fill="Black"/>
+        <Rectangle x:Name="rtBtnSerAct" HorizontalAlignment="Left" Height="29" Margin="383,167,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="150" Fill="#FFC9A000"/>
 
-        <DataGrid x:Name="dgServiciosActuales" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,185,46,75" SelectionChanged="dgServiciosActuales_SelectionChanged">
+        <DataGrid x:Name="dgServiciosActuales" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,200,46,75" SelectionChanged="dgServiciosActuales_SelectionChanged" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
                     <Setter Property="BorderBrush" Value="#FF1487EE"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
@@ -50,21 +53,21 @@
 
 
 
-        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="34,363,0,0" VerticalAlignment="Top" Width="64" Click="btnCrear_Click" Height="32"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="115,363,0,0" VerticalAlignment="Top" Width="65" Click="btnEliminar_Click" Height="31" RenderTransformOrigin="0.45,0.664"/>
-        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="198,363,0,0" VerticalAlignment="Top" Width="65" Click="btnEditar_Click" Height="31"/>
-        <Label Content="Id Servicio:" HorizontalAlignment="Left" Margin="34,71,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="34,380,0,0" VerticalAlignment="Top" Width="64" Click="btnCrear_Click" Height="32" Background="#FFD0FCCE"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="200,380,0,0" VerticalAlignment="Top" Width="65" Click="btnEliminar_Click" Height="31" RenderTransformOrigin="0.45,0.664" Background="#FFFCC5C5"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="116,380,0,0" VerticalAlignment="Top" Width="65" Click="btnEditar_Click" Height="31" Background="#FFF6F9C3"/>
+        <Label Content="Id Servicio:" HorizontalAlignment="Left" Margin="34,75,0,0" VerticalAlignment="Top" Width="178" FontSize="16" FontWeight="Bold"/>
         <Label Content="Servicios" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Nombre Servicio:" HorizontalAlignment="Left" Margin="34,102,0,0" VerticalAlignment="Top" Width="178" FontSize="16"/>
-        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="175,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
-        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="175,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False"/>
-        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="284,363,0,0" VerticalAlignment="Top" Width="66" Click="btnActualizar_Click" Height="31"/>
-        <Rectangle x:Name="rtBtnOtrSer" HorizontalAlignment="Left" Height="28" Margin="195,150,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Fill="Black"/>
-        <Button x:Name="BtnServiciosActuales" Content="Servicios Actuales" HorizontalAlignment="Left" Margin="367,153,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnServiciosActuales_Click"/>
-        <Button x:Name="BtnOtrosServicios" Content="Todos los Servicios" HorizontalAlignment="Left" Margin="198,153,0,0" VerticalAlignment="Top" Width="145" Height="22" Click="BtnOtrosServicios_Click"/>
+        <Label Content="Nombre Servicio:" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top" Width="178" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="175,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontWeight="Bold" IsEnabled="False"/>
+        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="175,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False" FontWeight="Bold"/>
+        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="284,380,0,0" VerticalAlignment="Top" Width="79" Click="btnActualizar_Click" Height="31" Background="#FFBCE1E5"/>
+        <Rectangle x:Name="rtBtnOtrSer" HorizontalAlignment="Center" Height="29" Margin="0,167,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="150" Fill="#FFC9A000"/>
+        <Button x:Name="BtnServiciosActuales" Content="Servicios Actuales" HorizontalAlignment="Left" Margin="385,169,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnServiciosActuales_Click"/>
+        <Button x:Name="BtnOtrosServicios" Content="Todos los Servicios" HorizontalAlignment="Center" Margin="0,169,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnOtrosServicios_Click"/>
         <Label Content="MODULO EN PROGRESO" HorizontalAlignment="Left" Margin="363,31,0,0" VerticalAlignment="Top" Width="153"/>
-        <Button x:Name="BtnAgregarServicio" Content="Agregar Servicio" HorizontalAlignment="Left" Margin="428,363,0,0" VerticalAlignment="Top" Width="106" Click="btnActualizar_Click" Height="31"/>
+        <Button x:Name="BtnAgregarServicio" Content="Agregar Servicio" HorizontalAlignment="Left" Margin="428,380,0,0" VerticalAlignment="Top" Width="106" Click="btnActualizar_Click" Height="31" Background="#FFA5DF90" BorderBrush="Black"/>
 
     </Grid>
-</Window>
+</mah:MetroWindow>
 

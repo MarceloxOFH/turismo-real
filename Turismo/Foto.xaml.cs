@@ -16,13 +16,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Image = System.Windows.Controls.Image;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for Foto.xaml
     /// </summary>
-    public partial class Foto : Window
+    public partial class Foto : MetroWindow
     {
         public Foto(string id_departamento, string nombre_departamento)
         {

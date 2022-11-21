@@ -13,13 +13,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for EditarVehiculo.xaml
     /// </summary>
-    public partial class EditarVehiculo : Window
+    public partial class EditarVehiculo : MetroWindow
     {
         public EditarVehiculo(string patente, string disponibilidad, string modelo, string id_estado, int capacidad, string descripcion)
         {

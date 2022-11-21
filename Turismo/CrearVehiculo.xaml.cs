@@ -14,13 +14,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for CrearVehiculo.xaml
     /// </summary>
-    public partial class CrearVehiculo : Window
+    public partial class CrearVehiculo : MetroWindow
     {
         public CrearVehiculo()
         {

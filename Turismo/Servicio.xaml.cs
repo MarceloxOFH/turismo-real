@@ -12,13 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for Servicio.xaml
     /// </summary>
-    public partial class Servicio : Window
+    public partial class Servicio : MetroWindow
     {
         public Servicio(string id_departamento, string nombre_departamento)
         {

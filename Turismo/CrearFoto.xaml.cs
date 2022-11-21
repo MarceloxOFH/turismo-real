@@ -16,13 +16,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Image = System.Windows.Controls.Image;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for CrearFoto.xaml
     /// </summary>
-    public partial class CrearFoto : Window
+    public partial class CrearFoto : MetroWindow
     {
         public CrearFoto(Foto foto, string id_departamento, string nombre_departamento, string id_foto)
         {

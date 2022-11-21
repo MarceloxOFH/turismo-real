@@ -1,35 +1,37 @@
-﻿<Window x:Class="Turismo.EditarDepartamento"
+﻿<mah:MetroWindow x:Class="Turismo.EditarDepartamento"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Editar Departamento" Height="440" Width="850">
+        Title="Editar Departamento" Height="440" Width="850"  Background="LightGray" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
+    Left="0" Top="0">
     <Grid>
         <Label Content="Editar Departamentos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="43,297,0,0" VerticalAlignment="Top" Height="32" Width="74" Click="BtnEditar_Click"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="31,319,0,0" VerticalAlignment="Top" Height="32" Width="74" Click="BtnEditar_Click" Background="#FFF6F9C3"/>
         <Button x:Name="BtnLimpiar" Content="Limpiar" HorizontalAlignment="Left"  Margin="731,82,0,0" VerticalAlignment="Top" Height="32" Width="74"/>
-        <Label x:Name="testName_lbl" Content="Nombre:" HorizontalAlignment="Left" Margin="21,75,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy" Content="Arriendo Diario:" HorizontalAlignment="Left" Margin="21,142,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy2" Content="Habitaciones:" HorizontalAlignment="Left" Margin="21,180,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy3" Content="Baños:" HorizontalAlignment="Left" Margin="21,215,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy4" Content="Descripción:" HorizontalAlignment="Left" Margin="388,213,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy6" Content=" m²:" HorizontalAlignment="Left" Margin="388,73,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="testName_lbl_Copy7" Content="Región:" HorizontalAlignment="Left" Margin="388,141,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="484,111,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbEstado_SelectionChanged"/>
-        <Label x:Name="testName_lbl_Copy8" Content="Estado:" HorizontalAlignment="Left" Margin="388,105,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="166,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="tbArriendoDiario" HorizontalAlignment="Left" Margin="166,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="tbHabitaciones" HorizontalAlignment="Left" Margin="166,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="tbBaños" HorizontalAlignment="Left" Margin="166,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="484,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Height="77"/>
-        <TextBox x:Name="tbMetrosCuadrados" HorizontalAlignment="Left" Margin="484,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <Label x:Name="testName_lbl_Copy9" Content="Dirección" HorizontalAlignment="Left" Margin="388,177,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbDireccion" HorizontalAlignment="Left" Margin="484,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Margin="484,146,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbRegion_SelectionChanged"/>
-        <Label x:Name="testName_lbl_Copy10" Content="N°:" HorizontalAlignment="Left" Margin="21,107,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbNumero" HorizontalAlignment="Left" Margin="166,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="testName_lbl" Content="Nombre:" HorizontalAlignment="Left" Margin="21,79,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy" Content="Arriendo Diario:" HorizontalAlignment="Left" Margin="21,148,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy2" Content="Habitaciones:" HorizontalAlignment="Left" Margin="21,183,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy3" Content="Baños:" HorizontalAlignment="Left" Margin="21,216,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy4" Content="Descripción:" HorizontalAlignment="Left" Margin="388,219,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy6" Content=" m²:" HorizontalAlignment="Left" Margin="388,79,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy7" Content="Región:" HorizontalAlignment="Left" Margin="388,147,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="492,111,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbEstado_SelectionChanged" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy8" Content="Estado:" HorizontalAlignment="Left" Margin="388,111,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="166,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <TextBox x:Name="tbArriendoDiario" HorizontalAlignment="Left" Margin="166,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+        <TextBox x:Name="tbHabitaciones" HorizontalAlignment="Left" Margin="166,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+        <TextBox x:Name="tbBaños" HorizontalAlignment="Left" Margin="166,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="492,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Height="77" FontWeight="Bold"/>
+        <TextBox x:Name="tbMetrosCuadrados" HorizontalAlignment="Left" Margin="492,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy9" Content="Dirección:" HorizontalAlignment="Left" Margin="388,183,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbDireccion" HorizontalAlignment="Left" Margin="492,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <ComboBox x:Name="cbRegion" HorizontalAlignment="Left" Margin="492,146,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbRegion_SelectionChanged" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy10" Content="N°:" HorizontalAlignment="Left" Margin="21,111,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbNumero" HorizontalAlignment="Left" Margin="166,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
 
     </Grid>
-</Window>
+</mah:MetroWindow>

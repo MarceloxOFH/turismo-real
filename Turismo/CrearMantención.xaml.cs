@@ -15,10 +15,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
-    public partial class CrearMantención : Window
+    public partial class CrearMantención : MetroWindow
     {
         public CrearMantención(string id_departamento, string nombre_departamento)
         {

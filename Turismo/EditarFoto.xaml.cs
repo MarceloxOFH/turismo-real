@@ -14,13 +14,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for EditarFoto.xaml
     /// </summary>
-    public partial class EditarFoto : Window
+    public partial class EditarFoto : MetroWindow
     {
         public EditarFoto(Foto foto, string descripcion, string url_imagen, Image imgImage, string imagen, string id_departamento, string nombre_departamento, string id_foto)
         {

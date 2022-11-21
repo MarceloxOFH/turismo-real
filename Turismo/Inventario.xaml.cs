@@ -26,6 +26,8 @@ namespace Turismo
         public Inventario()
         {
             InitializeComponent();
+            LblUsuario.Content = Business.user_login;
+            LblCargo.Content = Business.usertype_login;
             dgInventario.ItemsSource = logic.InventarioData().DefaultView;
             dgInvDepartamento.ItemsSource = logic.DepartamentoData().DefaultView;
             BtnEditar.IsEnabled = false;
@@ -42,6 +44,7 @@ namespace Turismo
         string reservado;
         string id_categoria;
         string categoria;
+        string region;
 
         public void refreshDgDepartamento()
         {
@@ -91,7 +94,7 @@ namespace Turismo
             {
                 id_departamento = dr["ID_DEPARTAMENTO"].ToString();
                 nombre_departamento = dr["NOMBRE"].ToString();
-                reservado = dr["RESERVADO"].ToString();
+                region = dr["REGION"].ToString();
 
                 tbNombreDepartamento.Text = nombre_departamento;
                 tbIdDepartamento.Text = id_departamento;
@@ -168,6 +171,43 @@ namespace Turismo
         private void BtnDepartamentos_Click_1(object sender, RoutedEventArgs e)
         {
             new Departamentos().Show();
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckOut().Show();
+            this.Close();
+        }
+
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
+
+        private void BtnInformes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

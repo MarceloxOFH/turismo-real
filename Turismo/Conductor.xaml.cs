@@ -14,18 +14,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for Conductor.xaml
     /// </summary>
-    public partial class Conductor : Window
+    public partial class Conductor : MetroWindow
     {
         public Conductor()
         {
             InitializeComponent();
-
+            LblUsuario.Content = Business.user_login;
+            LblCargo.Content = Business.usertype_login;
             dgConductor.ItemsSource = logic.ConductorData().DefaultView;
             
             BtnEliminar.IsEnabled = false;
@@ -131,16 +133,59 @@ namespace Turismo
             this.Close();
         }
 
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
+
+        private void BtnDepartamentos_Click(object sender, RoutedEventArgs e)
+        {
+            new Departamentos().Show();
+            this.Close();
+        }
+
         private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
         {
             new Vehiculo().Show();
             this.Close();
         }
 
-        private void Departamentos_Click(object sender, RoutedEventArgs e)
+        private void BtnConductores_Click(object sender, RoutedEventArgs e)
         {
-            new Departamentos().Show();
+            //new Conductor().Show();
+            ///this.Close();
+        }
+
+        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckOut().Show();
             this.Close();
+        }
+
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnInformes_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

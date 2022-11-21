@@ -7,7 +7,6 @@
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
         Title="Check Out" 
-                 WindowTitleBrush="Gray"
                  Height="720" Width="1080" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
     Left="0" Top="0">
     <Grid Background="LightGray">
@@ -25,10 +24,10 @@
         </Rectangle>
 
 
-        <Label x:Name="LblUsuario" Content="Usuario" HorizontalContentAlignment="Center" Margin="12,37,922,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <Label x:Name="LblCargo" Content="Cargo" HorizontalContentAlignment="Center" Margin="12,59,922,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF727272"/>
+        <Label x:Name="LblUsuario" Content="Usuario" HorizontalContentAlignment="Center" Margin="12,37,922,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="LblCargo" Content="Cargo" HorizontalContentAlignment="Center" Margin="12,59,922,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF727272"/>
         <Rectangle x:Name="RtUsuario" HorizontalAlignment="Left" Height="79" Margin="12,9,0,0" Stroke="#FFE5E5E5" VerticalAlignment="Top" Width="146"/>
-        <Image Margin="58,11,968,643" Source="Pictures/usuario.png" Opacity="0.8"/>
+        <Image Margin="58,12,968,642" Source="Pictures/usuario.png" Opacity="0.8"/>
 
 
 

@@ -6,9 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Ver Inventario Departamento" Height="650" Width="700" FontWeight="Bold">
+        Title="Ver Inventario Departamento" Height="650" Width="700"  Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid Background="LightGray">
-        <DataGrid x:Name="dgInvGeneral" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,263,37,55" SelectionChanged="dgInvGeneral_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+        <DataGrid x:Name="dgInvGeneral" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,263,37,55" SelectionChanged="dgInvGeneral_SelectionChanged" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
@@ -26,7 +26,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid x:Name="dgInvDepartamento" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,263,37,55" SelectionChanged="dgInventario_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+        <DataGrid x:Name="dgInvDepartamento" IsReadOnly="True" AutoGenerateColumns="False"  Margin="34,263,37,55" SelectionChanged="dgInventario_SelectionChanged" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
@@ -49,13 +49,13 @@
         </DataGrid>
         <Rectangle x:Name="rtAgregar_Precio" HorizontalAlignment="Left" Height="116" Margin="438,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="225" Fill="#FFF6F6F6"/>
 
-        <Rectangle x:Name="rtBtnInvGen" HorizontalAlignment="Left" Height="27" Margin="366,231,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="122" Fill="#FFC9A000"/>
+        <Rectangle x:Name="rtBtnInvGen" HorizontalAlignment="Left" Height="29" Margin="365,230,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="124" Fill="#FFC9A000"/>
 
-        <Rectangle x:Name="rtBtnInvDep" HorizontalAlignment="Left" Height="27" Margin="499,231,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="157" Fill="#FFC9A000"/>
+        <Rectangle x:Name="rtBtnInvDep" HorizontalAlignment="Left" Height="29" Margin="498,230,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="159" Fill="#FFC9A000"/>
 
         <Label Content="Inventario Departamento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label Content="Id Depto:" HorizontalAlignment="Left" Margin="29,62,0,0" VerticalAlignment="Top" Width="178" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblPrecio" Content="Valor Unitario:" HorizontalAlignment="Left" Margin="553,71,0,0" VerticalAlignment="Top" Width="108" FontSize="14"/>
+        <Label x:Name="lblPrecio" Content="Valor Unitario:" HorizontalAlignment="Left" Margin="553,71,0,0" VerticalAlignment="Top" Width="108" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="tbNombreDepartamento" HorizontalAlignment="Left" Margin="172,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" FontWeight="Bold"/>
         <TextBox x:Name="tbIdDepartamento" HorizontalAlignment="Left" Margin="172,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" FontWeight="Bold"/>
         <Button x:Name="BtnAgregarMenos" Content="-" HorizontalAlignment="Left" Margin="446,98,0,0" VerticalAlignment="Top" Width="22" Height="32" FontWeight="Bold" FontSize="16" Click="BtnAgregarMenos_Click"/>
@@ -63,15 +63,15 @@
         <TextBox x:Name="tbCantidad" HorizontalAlignment="Left" Margin="472,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" Height="29" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
         <TextBox x:Name="tbValor" HorizontalAlignment="Left" Margin="567,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Height="29" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
         <Label Content="Nombre Depto:" HorizontalAlignment="Left" Margin="29,94,0,0" VerticalAlignment="Top" Width="127" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="BtnInventarioGeneral" Content="Inventario General" HorizontalAlignment="Left" Margin="367,232,0,0" VerticalAlignment="Top" Width="120" Height="22" Click="BtnInventarioGeneral_Click"/>
+        <Button x:Name="BtnInventarioGeneral" Content="Inventario General" HorizontalAlignment="Left" Margin="367,232,0,0" VerticalAlignment="Top" Width="120" Height="21" Click="BtnInventarioGeneral_Click"/>
         <Button x:Name="BtnInventarioDepartamento" Content="Inventario Departamento" HorizontalAlignment="Left" Margin="500,232,0,0" VerticalAlignment="Top" Width="155" Height="22" Click="BtnInventarioDepartamento_Click"/>
         <Label x:Name="lblTipoInventario" Content="Inventario Departamento:" HorizontalAlignment="Left" Margin="32,201,0,0" VerticalAlignment="Top" Width="215" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblPrecio_Copy" Content="Cantidad:" HorizontalAlignment="Left" Margin="455,70,0,0" VerticalAlignment="Top" Width="118" FontSize="14"/>
+        <Label x:Name="lblPrecio_Copy" Content="Cantidad:" HorizontalAlignment="Left" Margin="455,70,0,0" VerticalAlignment="Top" Width="118" FontSize="14" FontWeight="Bold"/>
         <Button x:Name="BtnEditarArticulo" Content="Editar Valores" HorizontalAlignment="Left" Margin="503,140,0,0" VerticalAlignment="Top" Width="100" Height="33" Background="#FFEFF662" Click="BtnEditarArticulo_Click"/>
         <Button x:Name="BtnAgregarArticulo" Content="Agregar Artículo a Departamento" HorizontalAlignment="Left" Margin="446,140,0,0" VerticalAlignment="Top" Width="206" Height="33" Click="BtnAgregarArticulo_Click" Background="#FFD0F4C7"/>
         <Label x:Name="lblartsel" Content="Nombre Artículo:" HorizontalAlignment="Left" Margin="30,152,0,0" VerticalAlignment="Top" Width="168" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="tbArticuloSeleccionado" HorizontalAlignment="Left" Margin="172,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" FontWeight="Bold"/>
-        <Label x:Name="lbldescripcion" Content="Modificar inventario de departamento" HorizontalAlignment="Left" Margin="32,227,0,0" VerticalAlignment="Top" Width="289" FontSize="14" Foreground="#FF818181"/>
+        <Label x:Name="lbldescripcion" Content="Modificar inventario de departamento" HorizontalAlignment="Left" Margin="32,227,0,0" VerticalAlignment="Top" Width="289" FontSize="14" Foreground="#FF818181" FontWeight="Bold"/>
         <Label x:Name="lblartsel_Copy" Content="Id Artículo:" HorizontalAlignment="Left" Margin="30,124,0,0" VerticalAlignment="Top" Width="168" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="tbIdArticulo" HorizontalAlignment="Left" Margin="172,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" FontWeight="Bold"/>
 

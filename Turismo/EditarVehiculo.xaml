@@ -1,21 +1,22 @@
-﻿<Window x:Class="Turismo.EditarVehiculo"
+﻿<mah:MetroWindow x:Class="Turismo.EditarVehiculo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="EditarVehiculo"  Height="400" Width="390">
+        Title="Editar Vehículo"  Height="420" Width="390" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="29,327,0,0" VerticalAlignment="Top" Width="89" Click="BtnEditar_Click"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="29,327,0,0" VerticalAlignment="Top" Width="89" Click="BtnEditar_Click" Background="#FFD0FCCE"/>
         <Label Content="Editar Vehículo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Capacidad:" HorizontalAlignment="Left" Margin="19,186,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="212,327,0,0" VerticalAlignment="Top" Width="81" Click="btnLimpiar_Click"/>
-        <Label Content="Estado:" HorizontalAlignment="Left" Margin="19,125,0,0" VerticalAlignment="Top" Width="141"/>
-        <Label Content="Patente:" HorizontalAlignment="Left" Margin="20,61,0,0" VerticalAlignment="Top" Width="141"/>
-        <TextBox x:Name="tbPatente" HorizontalAlignment="Left" Margin="139,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
-        <Label Content="Disponibilidad:" HorizontalAlignment="Left" Margin="19,95,0,0" VerticalAlignment="Top" Width="141"/>
-        <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="138,97,0,0" VerticalAlignment="Top" Width="83" SelectionChanged="cbDisponibilidad_SelectionChanged">
+        <Label Content="Capacidad:" HorizontalAlignment="Left" Margin="20,195,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="258,327,0,0" VerticalAlignment="Top" Width="81" Click="btnLimpiar_Click"/>
+        <Label Content="Estado:" HorizontalAlignment="Left" Margin="19,131,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <Label Content="Patente:" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <TextBox x:Name="tbPatente" HorizontalAlignment="Left" Margin="139,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontWeight="Bold"/>
+        <Label Content="Disponibilidad:" HorizontalAlignment="Left" Margin="19,98,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="138,97,0,0" VerticalAlignment="Top" Width="83" SelectionChanged="cbDisponibilidad_SelectionChanged" FontWeight="Bold">
             <ComboBoxItem>
                 <TextBlock><Run Text="N"/></TextBlock>
             </ComboBoxItem>
@@ -23,12 +24,12 @@
                 <TextBlock><Run Text="Y"/></TextBlock>
             </ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="tbCapacidad" HorizontalAlignment="Left" Margin="138,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
-        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="19,218,0,0" VerticalAlignment="Top" Width="141"/>
-        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="138,129,0,0" VerticalAlignment="Top" Width="155" SelectionChanged="cbEstado_SelectionChanged"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="138,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Height="73"/>
-        <Label Content="Modelo:" HorizontalAlignment="Left" Margin="19,157,0,0" VerticalAlignment="Top" Width="121"/>
-        <TextBox x:Name="tbModelo" HorizontalAlignment="Left" Margin="138,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <TextBox x:Name="tbCapacidad" HorizontalAlignment="Left" Margin="138,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" FontWeight="Bold"/>
+        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="19,228,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="138,129,0,0" VerticalAlignment="Top" Width="155" SelectionChanged="cbEstado_SelectionChanged" FontWeight="Bold"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="138,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Height="73" FontWeight="Bold"/>
+        <Label Content="Modelo:" HorizontalAlignment="Left" Margin="19,163,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
+        <TextBox x:Name="tbModelo" HorizontalAlignment="Left" Margin="138,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" FontWeight="Bold"/>
 
     </Grid>
-</Window>
+</mah:MetroWindow>

@@ -15,11 +15,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Tienda;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
 
-    public partial class EditarDepartamento : Window
+    public partial class EditarDepartamento : MetroWindow
     {
         Departamentos dep;
         string id_departamento;

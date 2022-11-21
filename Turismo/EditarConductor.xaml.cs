@@ -12,13 +12,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for EditarConductor.xaml
     /// </summary>
-    public partial class EditarConductor : Window
+    public partial class EditarConductor : MetroWindow
     {
         public EditarConductor(string rut_conductor, string nombres, string apellidos, DateTime caducidad_licencia, string disponibilidad, int sueldo)
         {

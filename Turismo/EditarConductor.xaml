@@ -1,22 +1,23 @@
-﻿<Window x:Class="Turismo.EditarConductor"
+﻿<mah:MetroWindow x:Class="Turismo.EditarConductor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"  
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="EditarConductor" Height="370" Width="360">
+        Title="Editar Conductor" Height="370" Width="360" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
         <Label Content="Editar Conductor" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="19,152,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="26,268,0,0" VerticalAlignment="Top" Width="81" Click="btnEditar_Click"/>
-        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="212,268,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label Content="Nombres:" HorizontalAlignment="Left" Margin="19,121,0,0" VerticalAlignment="Top" Width="141"/>
-        <TextBox x:Name="tbNombres" HorizontalAlignment="Left" Margin="138,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
-        <Label Content="Rut:" HorizontalAlignment="Left" Margin="20,61,0,0" VerticalAlignment="Top" Width="141"/>
-        <TextBox x:Name="tbRut" HorizontalAlignment="Left" Margin="139,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" IsEnabled="False"/>
-        <Label Content="Disponibilidad:" HorizontalAlignment="Left" Margin="19,91,0,0" VerticalAlignment="Top" Width="141"/>
-        <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="138,93,0,0" VerticalAlignment="Top" Width="83">
+        <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="19,166,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="26,284,0,0" VerticalAlignment="Top" Width="81" Click="btnEditar_Click"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="212,284,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Nombres:" HorizontalAlignment="Left" Margin="19,132,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombres" HorizontalAlignment="Left" Margin="145,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" FontWeight="Bold"/>
+        <Label Content="Rut:" HorizontalAlignment="Left" Margin="20,61,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <TextBox x:Name="tbRut" HorizontalAlignment="Left" Margin="145,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" IsEnabled="False" FontWeight="Bold"/>
+        <Label Content="Disponibilidad:" HorizontalAlignment="Left" Margin="19,98,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="145,99,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold">
             <ComboBoxItem>
                 <TextBlock><Run Text="N"/></TextBlock>
             </ComboBoxItem>
@@ -24,10 +25,10 @@
                 <TextBlock><Run Text="Y"/></TextBlock>
             </ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="tbApellidos" HorizontalAlignment="Left" Margin="138,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
-        <Label Content="Sueldo:" HorizontalAlignment="Left" Margin="19,213,0,0" VerticalAlignment="Top" Width="121"/>
-        <Label Content="Caducidad Licencia:" HorizontalAlignment="Left" Margin="19,182,0,0" VerticalAlignment="Top" Width="141"/>
-        <TextBox x:Name="tbSueldo" HorizontalAlignment="Left" Margin="138,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84"/>
-        <DatePicker x:Name="dpCaducidadLicencia" HorizontalAlignment="Left" Margin="138,183,0,0" VerticalAlignment="Top" Width="114"/>
+        <TextBox x:Name="tbApellidos" HorizontalAlignment="Left" Margin="145,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" FontWeight="Bold"/>
+        <Label Content="Sueldo:" HorizontalAlignment="Left" Margin="19,227,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
+        <Label Content="Caducidad Licencia:" HorizontalAlignment="Left" Margin="19,197,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
+        <TextBox x:Name="tbSueldo" HorizontalAlignment="Left" Margin="145,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold"/>
+        <DatePicker x:Name="dpCaducidadLicencia" HorizontalAlignment="Left" Margin="145,197,0,0" VerticalAlignment="Top" Width="114" FontWeight="Bold"/>
     </Grid>
-</Window>
+</mah:MetroWindow>

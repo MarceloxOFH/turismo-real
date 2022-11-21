@@ -13,13 +13,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
     /// Interaction logic for Categoria.xaml
     /// </summary>
-    public partial class Categoria : Window
+    public partial class Categoria : MetroWindow
     {
         public Categoria()
         {
