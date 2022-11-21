@@ -140,11 +140,9 @@
                 <DataGridTextColumn Header=" Dirección" Binding="{Binding DIRECCION}" Width="150"/>
                 <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="55"/>
                 <DataGridTextColumn Header=" Arriendo diario" Binding="{Binding ARRIENDO_DIARIO}" Width="90"/>
-                <DataGridTextColumn Header=" Reservado" Binding="{Binding RESERVADO}" Width="65"/>
                 <DataGridTextColumn Header=" Habitaciones" Binding="{Binding HABITACIONES}" Width="78"/>
                 <DataGridTextColumn Header=" Baños" Binding="{Binding BANOS}" Width="40"/>
                 <DataGridTextColumn Header=" m²" Binding="{Binding METROS_CUADRADOS}" Width="30"/>
-                <DataGridTextColumn Header=" Valoración" Binding="{Binding VALORACION}" Width="65"/>
                 <DataGridTextColumn Header=" Valor Inventario" Binding="{Binding VALOR_INVENTARIO}" Width="100"/>
                 <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="200"/>
             </DataGrid.Columns>

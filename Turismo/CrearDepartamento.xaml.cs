@@ -13,10 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapaNegocio;
+using MahApps.Metro.Controls;
 
 namespace Turismo
 {
-    public partial class CrearDepartamento : Window
+    public partial class CrearDepartamento : MetroWindow
     {
 
         Business logic = new Business();
@@ -44,18 +45,14 @@ namespace Turismo
 
         private void BtnCrear_Click(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem reservadocb = (ComboBoxItem)cbReservado.SelectedItem;
-            TextBlock reservado = (TextBlock)reservadocb.Content;
-
-
             try
             {
-                logic.newDepartamento(tbNombre.Text, Convert.ToInt32(tbNumero.Text),Convert.ToInt32(tbArriendoDiario.Text), reservado.Text, Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), idRegion, tbDireccion.Text, idEstado);
+                logic.newDepartamento(tbNombre.Text, Convert.ToInt32(tbNumero.Text),Convert.ToInt32(tbArriendoDiario.Text), Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbMetrosCuadrados.Text), idRegion, tbDireccion.Text, idEstado);
             }
             
             catch(Exception ex)
             {
-                MessageBox.Show("Se deben llenar todos los campos");
+                MessageBox.Show("Se deben llenar todos los campos","Error");
             }
         }
 

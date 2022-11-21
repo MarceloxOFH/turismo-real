@@ -32,7 +32,7 @@ namespace Turismo
         string id_region;
         //Departamentos dep = new Departamentos();
 
-        public EditarDepartamento(Departamentos dep, string id_departamento, string nombre_departamento, int numero, int arriendo_diario, int habitaciones, int baños, int valoracion, int metros_cuadrados, string direccion, string descripcion, string region, string id_region, string estado, string id_estado, string id_ubicacion, string reservado)
+        public EditarDepartamento(Departamentos dep, string id_departamento, string nombre_departamento, int numero, int arriendo_diario, int habitaciones, int baños, int metros_cuadrados, string direccion, string descripcion, string region, string id_region, string estado, string id_estado, string id_ubicacion)
         {
             InitializeComponent();
             this.dep = dep;
@@ -59,12 +59,10 @@ namespace Turismo
             tbArriendoDiario.Text = arriendo_diario.ToString();
             tbHabitaciones.Text = habitaciones.ToString();
             tbBaños.Text = baños.ToString();
-            tbValoracion.Text = valoracion.ToString();
             tbMetrosCuadrados.Text = metros_cuadrados.ToString();
             tbDescripcion.Text = descripcion.ToString();
             tbDireccion.Text = direccion.ToString();
             this.id_ubicacion = id_ubicacion;
-            cbReservado.Text = reservado;
             this.id_region = (Convert.ToInt32(cbRegion.SelectedIndex) + 1).ToString();
             this.id_estado = (Convert.ToInt32(cbEstado.SelectedIndex) + 1).ToString();
 
@@ -74,7 +72,7 @@ namespace Turismo
         {
             try
             {
-                logic.editDepartamento(id_departamento, tbNombre.Text, Convert.ToInt32(tbNumero.Text),Convert.ToInt32(tbArriendoDiario.Text), Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbValoracion.Text), Convert.ToInt32(tbMetrosCuadrados.Text), id_region, this.id_estado, tbDireccion.Text, this.id_ubicacion, cbReservado.Text);
+                logic.editDepartamento(id_departamento, tbNombre.Text, Convert.ToInt32(tbNumero.Text),Convert.ToInt32(tbArriendoDiario.Text), Convert.ToInt32(tbHabitaciones.Text), Convert.ToInt32(tbBaños.Text), tbDescripcion.Text, Convert.ToInt32(tbMetrosCuadrados.Text), id_region, this.id_estado, tbDireccion.Text, this.id_ubicacion);
                 dep.refreshDatagrid();
             }
 

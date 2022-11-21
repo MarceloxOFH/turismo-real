@@ -112,7 +112,7 @@ namespace Turismo
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            EditarDepartamento ED = new EditarDepartamento(this, id_departamento, nombre_departamento, numero, arriendo_diario, habitaciones, banos, valoracion, metros_cuadrados, direccion, descripcion, region, id_region, estado, id_estado, id_ubicacion, reservado);
+            EditarDepartamento ED = new EditarDepartamento(this, id_departamento, nombre_departamento, numero, arriendo_diario, habitaciones, banos, metros_cuadrados, direccion, descripcion, region, id_region, estado, id_estado, id_ubicacion);
             ED.Show();
         }
 
@@ -126,10 +126,8 @@ namespace Turismo
                 nombre_departamento = dr["NOMBRE"].ToString();
                 numero = Convert.ToInt32(dr["NUMERO"]);
                 arriendo_diario = Convert.ToInt32(dr["ARRIENDO_DIARIO"]);
-                reservado = dr["RESERVADO"].ToString();
                 habitaciones = Convert.ToInt32(dr["HABITACIONES"]);
                 banos = Convert.ToInt32(dr["BANOS"]);
-                valoracion = Convert.ToInt32(dr["VALORACION"]);
                 metros_cuadrados = Convert.ToInt32(dr["METROS_CUADRADOS"]);
                 descripcion = dr["DESCRIPCION"].ToString();
                 id_ubicacion = dr["ID_UBICACION"].ToString();

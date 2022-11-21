@@ -247,8 +247,8 @@ namespace CapaNegocio
         {
             OracleCommand command = new OracleCommand("SELECT DEP.ID_DEPARTAMENTO, " +
                 "DEP.NOMBRE, DEP.NUMERO, REG.NOMBRE AS REGION, UBI.DIRECCION, " +
-                "EST.NOMBRE AS ESTADO, DEP.ARRIENDO_DIARIO, DEP.RESERVADO, DEP.HABITACIONES, " +
-                "DEP.BANOS, DEP.DESCRIPCION, DEP.VALORACION, DEP.METROS_CUADRADOS, " +
+                "EST.NOMBRE AS ESTADO, DEP.ARRIENDO_DIARIO, DEP.HABITACIONES, " +
+                "DEP.BANOS, DEP.DESCRIPCION, DEP.METROS_CUADRADOS, " +
                 "DEP.VALOR_INVENTARIO, DEP.ULTIMO_INVENTARIO, REG.ID_REGION, " +
                 "DEP.UBICACION_ID_UBICACION AS ID_UBICACION, DEP.ESTADO_DEPARTAMENTO_ID_ESTADO AS ID_ESTADO " +
                 "FROM DEPARTAMENTO DEP " +
@@ -470,7 +470,7 @@ namespace CapaNegocio
         }
 
 
-        public void newDepartamento(string nombre, int numero, int arriendo_diario, string reservado, int habitaciones, int banos, string descripcion, int valoracion, int metros_cuadrados, string id_region, string direccion, string estado)
+        public void newDepartamento(string nombre, int numero, int arriendo_diario, int habitaciones, int banos, string descripcion, int metros_cuadrados, string id_region, string direccion, string estado)
         {
 
             try
@@ -480,12 +480,13 @@ namespace CapaNegocio
                 string ubi_id = getIdUbicacion();
 
                 OracleCommand command = new OracleCommand("INSERT INTO DEPARTAMENTO " +
-                    "(ID_DEPARTAMENTO, NOMBRE, NUMERO,ARRIENDO_DIARIO, RESERVADO, " +
-                    "HABITACIONES, BANOS, DESCRIPCION, VALORACION, METROS_CUADRADOS, " +
+                    "(ID_DEPARTAMENTO, NOMBRE, NUMERO,ARRIENDO_DIARIO, " +
+                    "HABITACIONES, BANOS, DESCRIPCION, METROS_CUADRADOS, " +
                     "VALOR_INVENTARIO, UBICACION_ID_UBICACION, " +
-                    "ESTADO_DEPARTAMENTO_ID_ESTADO) VALUES (to_char(seq_id_dep.nextval), " +
-                    ":nombre, :numero, :arriendo_diario, :reservado, :habitaciones, :banos, " +
-                    ":descripcion, :valoracion, :metros_cuadrados, :valor_inventario, " +
+                    "ESTADO_DEPARTAMENTO_ID_ESTADO) " +
+                    "VALUES (to_char(seq_id_dep.nextval), " +
+                    ":nombre, :numero, :arriendo_diario, :habitaciones, :banos, " +
+                    ":descripcion, :metros_cuadrados, :valor_inventario, " +
                     ":ubicacion_id_ubicacion,:estado_departamento_id_estado)", Conec.Connect());
 
                 //select to_char(seq_id_dep.nextval,'FM00') from dual;
@@ -493,12 +494,9 @@ namespace CapaNegocio
 
                 command.Parameters.Add("nombre", OracleDbType.Varchar2, 100).Value = nombre;
                 command.Parameters.Add("numero", OracleDbType.Int32, 100).Value = numero;
-                command.Parameters.Add("arriendo_diario", OracleDbType.Int32, 100).Value = arriendo_diario;
-                command.Parameters.Add("reservado", OracleDbType.Varchar2, 100).Value = reservado;
-                command.Parameters.Add("habitaciones", OracleDbType.Int32, 100).Value = habitaciones;
+                command.Parameters.Add("arriendo_diario", OracleDbType.Int32, 100).Value = arriendo_diario;                command.Parameters.Add("habitaciones", OracleDbType.Int32, 100).Value = habitaciones;
                 command.Parameters.Add("banos", OracleDbType.Int32, 100).Value = banos;
-                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
-                command.Parameters.Add("valoracion", OracleDbType.Int32, 100).Value = valoracion;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 500).Value = descripcion;
                 command.Parameters.Add("metros_cuadrados", OracleDbType.Int32, 100).Value = metros_cuadrados;
                 command.Parameters.Add("valor_inventario", OracleDbType.Int32, 100).Value = 0;
                 command.Parameters.Add("ubicacion_id_ubicacion", OracleDbType.Varchar2, 100).Value = ubi_id;
@@ -681,7 +679,7 @@ namespace CapaNegocio
             }
         }
     
-        public void editDepartamento(string id_departamento, string nombre, int numero,int arriendo_diario, int habitaciones, int banos, string descripcion, int valoracion, int metros_cuadrados, string id_region, string id_estado, string direccion, string id_ubicacion, string reservado)
+        public void editDepartamento(string id_departamento, string nombre, int numero,int arriendo_diario, int habitaciones, int banos, string descripcion, int metros_cuadrados, string id_region, string id_estado, string direccion, string id_ubicacion)
         {
             //editEstado();
 
@@ -692,8 +690,8 @@ namespace CapaNegocio
                 OracleCommand command = new OracleCommand("UPDATE DEPARTAMENTO " +
                     "SET NOMBRE = :nombre, NUMERO = :numero, ARRIENDO_DIARIO = :arriendo_diario, " +
                     "HABITACIONES = :habitaciones, BANOS = :banos, DESCRIPCION = :descripcion, " +
-                    "VALORACION = :valoracion, METROS_CUADRADOS = :metros_cuadrados, " +
-                    "RESERVADO = :reservado, ESTADO_DEPARTAMENTO_ID_ESTADO = :id_estado " +
+                    "METROS_CUADRADOS = :metros_cuadrados, " +
+                    "ESTADO_DEPARTAMENTO_ID_ESTADO = :id_estado " +
                     "WHERE ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
 
 
@@ -706,9 +704,7 @@ namespace CapaNegocio
                 command.Parameters.Add("habitaciones", OracleDbType.Int32, 100).Value = habitaciones;
                 command.Parameters.Add("banos", OracleDbType.Int32, 100).Value = banos;
                 command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
-                command.Parameters.Add("valoracion", OracleDbType.Int32, 100).Value = valoracion;
                 command.Parameters.Add("metros_cuadrados", OracleDbType.Int32, 100).Value = metros_cuadrados;
-                command.Parameters.Add("reservado", OracleDbType.Varchar2, 100).Value = reservado;
                 command.Parameters.Add("id_estado", OracleDbType.Varchar2, 100).Value = id_estado;
                 command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
 
