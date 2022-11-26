@@ -342,8 +342,14 @@
     <Compile Include="Multa.xaml.cs">
       <DependentUpon>Multa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pago.xaml.cs">
+      <DependentUpon>Pago.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RealizarCheckOut.xaml.cs">
       <DependentUpon>RealizarCheckOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RealizarPago.xaml.cs">
+      <DependentUpon>RealizarPago.xaml</DependentUpon>
     </Compile>
     <Compile Include="Return.xaml.cs">
       <DependentUpon>Return.xaml</DependentUpon>
@@ -464,7 +470,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RealizarCheckOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RealizarPago.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -534,6 +548,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\pagos.png" />
     <Resource Include="Pictures\logo_icon1.png" />
     <Resource Include="Pictures\logo_blanco5.png" />
     <Resource Include="Pictures\password.png" />

@@ -194,5 +194,11 @@ namespace Turismo
         {
 
         }
+
+        private void BtnPagos_Click(object sender, RoutedEventArgs e)
+        {
+            new Pago().Show();
+            this.Close();
+        }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Multas" Height="450" Width="620" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png">
+        Title="Multas" Height="450" Width="620" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid Background="LightGray">
         <Label Content="Multas:" HorizontalAlignment="Left" Margin="49,193,0,0" VerticalAlignment="Top" Width="93" FontSize="20" FontWeight="Bold"/>
         <DataGrid x:Name="dgMulta" IsReadOnly="True" AutoGenerateColumns="False"  Margin="49,229,68,78" SelectionChanged="dgMulta_SelectionChanged" FontWeight="Bold">
@@ -43,7 +43,7 @@
         <TextBox x:Name="tbNombreCliente" HorizontalAlignment="Left" Margin="180,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" IsEnabled="False" FontWeight="Bold"/>
         <Label x:Name="testName_lbl_Copy1" Content="N° Reserva:" HorizontalAlignment="Left" Margin="43,76,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="tbNumeroReserva" HorizontalAlignment="Left" Margin="180,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" Height="20" IsEnabled="False" FontWeight="Bold"/>
-        <Label x:Name="LblMulta" Content="mensaje multa" HorizontalAlignment="Left" Margin="128,196,0,0" VerticalAlignment="Top" Width="225" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="LblMulta" Content="mensaje multa" HorizontalAlignment="Left" Margin="128,197,0,0" VerticalAlignment="Top" Width="225" FontSize="16" FontWeight="Bold"/>
 
     </Grid>
 </mah:MetroWindow>

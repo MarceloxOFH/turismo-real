@@ -76,10 +76,10 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnInformes" HorizontalAlignment="Left" Margin="12,419,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInformes_Click">
+        <Button x:Name="BtnPagos" HorizontalAlignment="Left" Margin="12,419,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnPagos_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="Pictures/informes.png" Width="24" Height="24"/>
-                <TextBlock Text="     INFORMES" VerticalAlignment="Center" Width="106" />
+                <Image Source="/Pictures/pagos.png" Width="24" Height="24"/>
+                <TextBlock Text="     PAGOS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
@@ -137,7 +137,7 @@
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
                     <Setter Property="BorderBrush" Value="#FF1487EE"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
@@ -146,7 +146,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" Patente" Binding="{Binding PATENTE}" Width="80"/>
                 <DataGridTextColumn Header=" Disponibilidad" Binding="{Binding DISPONIBILIDAD}" Width="90"/>
-                <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="120"/>
+                <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="180"/>
                 <DataGridTextColumn Header=" Modelo" Binding="{Binding MODELO}" Width="180"/>
                 <DataGridTextColumn Header=" Capacidad" Binding="{Binding CAPACIDAD}" Width="70"/>
                 <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="*"/>
@@ -156,6 +156,7 @@
         </DataGrid>
         <Label x:Name="testName_lbl_Copy2" Content="Capacidad:" HorizontalAlignment="Left" Margin="580,138,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="tbCapacidad" HorizontalAlignment="Left" Margin="678,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Height="20" FontWeight="Bold"/>
+        
 
     </Grid>
 </mah:MetroWindow>

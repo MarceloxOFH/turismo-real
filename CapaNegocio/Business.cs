@@ -22,6 +22,8 @@ using static System.Net.Mime.MediaTypeNames;
 using Image = System.Windows.Controls.Image;
 using System.EnterpriseServices;
 using Microsoft.Web.Services3.Addressing;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media.Media3D;
 
 namespace CapaNegocio
 {
@@ -79,6 +81,43 @@ namespace CapaNegocio
                     "RES.CLIENTE_RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RD.RESERVA_TERMINO " +
                     "FROM RESERVA RES " +
+                    "LEFT JOIN CHECK_OUT CO ON(CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "RIGHT JOIN CHECK_IN CI ON(CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "INNER JOIN CLIENTE CLI ON(CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE) " +
+                    "INNER JOIN \"Reserva-Depto\" RD ON(RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "WHERE CO.ACTIVO != 'N' " +
+                    "OR " +
+                    "NOT EXISTS " +
+                    "(SELECT NULL " +
+                    "FROM CHECK_OUT " +
+                    "WHERE CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "OR " +
+                    "NOT EXISTS " +
+                    "(SELECT NULL " +
+                    "FROM CHECK_IN " +
+                    "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en ReservaCOData(): " + ex);
+                DataTable dt = new DataTable();
+                return dt;
+            }
+        }
+
+        public DataTable ReservasActivasData()
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, " +
+                    "RES.CLIENTE_RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RD.RESERVA_TERMINO " +
+                    "FROM RESERVA RES " +
                     "LEFT JOIN CHECK_OUT CO ON (CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
                     "INNER JOIN CLIENTE CLI ON (CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE) " +
                     "INNER JOIN \"Reserva-Depto\" RD ON (RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
@@ -95,11 +134,96 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error en ReservaCOData(): " + ex);
+                //MessageBox.Show("error en ReservaCOData(): " + ex);
                 DataTable dt = new DataTable();
                 return dt;
             }
         }
+
+        public DataTable ReservasFinalizadasData()
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, " +
+                    "CLI.RUT_CLIENTE, CLI.NOMBRES, " +
+                    "CLI.APELLIDOS, RES.FECHA_RESERVA, " +
+                    "RD.RESERVA_INICIO, RD.RESERVA_TERMINO, " +
+                    "CO.ACTIVO " +
+                    "FROM RESERVA RES " +
+                    "INNER JOIN CHECK_OUT CO ON CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN CLIENTE CLI ON CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE " +
+                    "INNER JOIN \"Reserva-Depto\" RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "WHERE CO.ACTIVO = 'N'", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error en Reserva: " + ex);
+                DataTable dt = new DataTable();
+                return dt;
+            }
+        }
+
+        public DataTable ReservaCODataFinalizada()
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, " +
+                    "RES.CLIENTE_RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RD.RESERVA_TERMINO " +
+                    "FROM RESERVA RES " +
+                    "LEFT JOIN CHECK_OUT CO ON (CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "INNER JOIN CLIENTE CLI ON (CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE) " +
+                    "INNER JOIN \"Reserva-Depto\" RD ON (RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA) " +
+                    "WHERE CO.ACTIVO = 'N' OR " +
+                    "NOT EXISTS " +
+                    "(SELECT NULL " +
+                    "FROM CHECK_OUT " +
+                    "WHERE CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error en ReservaCOData(): " + ex);
+                DataTable dt = new DataTable();
+                return dt;
+            }
+        }
+
+     
+
+        public DataTable PagosData(int nro_reserva)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT * " +
+                    "FROM PAGO PAG " +
+                    "INNER JOIN PAGO_RESERVA PR ON PR.PAGO_ID_PAGO = PAG.ID_PAGO " +
+                    "WHERE PR.RESERVA_NRO_RESERVA = :nro_reserva", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+                command.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                return dt;
+            }
+        }
+
 
         public DataTable FotoDataByIdDepartamento(string id_departamento)
         {
@@ -298,6 +422,8 @@ namespace CapaNegocio
                 return dt;
             }
         }
+
+
 
         public DataTable MultaData(int nro_reserva)
         {
@@ -514,6 +640,58 @@ namespace CapaNegocio
                 MessageBox.Show("Error al agregar departamento: " + ex);
             }
         }
+
+
+
+
+        public void UpdateInventarioValor(string id_departamento, int valor_inventario)
+        {
+
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE DEPARTAMENTO " +
+                    "SET VALOR_INVENTARIO = :valor_inventario " +
+                    "WHERE ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
+
+                command.Parameters.Add("valor_inventario", OracleDbType.Int32, 100).Value = valor_inventario;
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar valor del inventario del departamento: " + ex);
+            }
+        }
+
+
+        public int GetIventarioValor(string id_departamento)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("SELECT SUM(VALOR * CANTIDAD) AS VALOR_TOTAL " +
+                "FROM \"Depa-Inventario\" " +
+                "WHERE DEP_ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
+
+                command.Parameters.Add("id_departamento", OracleDbType.Int32, 100).Value = id_departamento;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                int valor_inventario = Convert.ToInt32(dt.Rows[0][0].ToString());
+
+                return valor_inventario;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error get inventario: " + ex);
+                int valor_inventario = 0;
+                return valor_inventario;
+            }
+        }
+
 
         public void newMantencion(string id_departamento, DateTime fecha_inicio, DateTime fecha_termino, int costo, string descripcion)
         {

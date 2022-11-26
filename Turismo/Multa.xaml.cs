@@ -42,6 +42,7 @@ namespace Turismo
         
 
         Business logic = new Business();
+        Multa MUL;
         CheckOut CO;
         int nro_reserva;
         string rut_cliente;
@@ -131,15 +132,8 @@ namespace Turismo
 
         private void BtnPagarMulta_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Confirmar pago de $" + costo, "Pagar Multa", System.Windows.MessageBoxButton.YesNo);
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                logic.PagarMulta(id_multa);
-                refreshDatagrid();
-                BtnEditar.IsEnabled = false;
-                BtnEliminar.IsEnabled = false;
-                BtnPagarMulta.IsEnabled = false;
-            }
+            RealizarPago RP = new RealizarPago(this, id_multa, descripcion, costo);
+            RP.Show();
         }
     }
 }

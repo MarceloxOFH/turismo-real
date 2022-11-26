@@ -77,10 +77,10 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnInformes" HorizontalAlignment="Left" Margin="12,419,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInformes_Click">
+        <Button x:Name="BtnPagos" HorizontalAlignment="Left" Margin="12,419,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnPagos_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="Pictures/informes.png" Width="24" Height="24"/>
-                <TextBlock Text="     INFORMES" VerticalAlignment="Center" Width="106" />
+                <Image Source="/Pictures/pagos.png" Width="24" Height="24"/>
+                <TextBlock Text="     PAGOS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
@@ -108,8 +108,8 @@
 
 
         <Label Content="Departamentos" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="tbNombreDepto" Content="Nombre departamento:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="tbIdDepto" Content="Id departamento:" HorizontalAlignment="Left" Margin="191,139,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="tbNombreDepto" Content="Nombre Departamento:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="tbIdDepto" Content="ID Departamento:" HorizontalAlignment="Left" Margin="191,139,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="384,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" FontWeight="Bold"/>
         <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="384,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Height="20" FontWeight="Bold"/>
         <Label x:Name="tbEstado" Content="Estado:" HorizontalAlignment="Left" Margin="630,103,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
@@ -133,17 +133,17 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" Id" Binding="{Binding ID_DEPARTAMENTO}" Width="35"/>
+                <DataGridTextColumn Header=" Id" Binding="{Binding ID_DEPARTAMENTO}" Width="37"/>
                 <DataGridTextColumn Header=" Nombre" Binding="{Binding NOMBRE}" Width="140"/>
-                <DataGridTextColumn Header=" N°" Binding="{Binding NUMERO}" Width="35"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding NUMERO}" Width="37"/>
                 <DataGridTextColumn Header=" Región" Binding="{Binding REGION}" Width="95"/>
-                <DataGridTextColumn Header=" Dirección" Binding="{Binding DIRECCION}" Width="150"/>
+                <DataGridTextColumn Header=" Dirección" Binding="{Binding DIRECCION}" Width="145"/>
                 <DataGridTextColumn Header=" Estado" Binding="{Binding ESTADO}" Width="55"/>
                 <DataGridTextColumn Header=" Arriendo diario" Binding="{Binding ARRIENDO_DIARIO}" Width="90"/>
-                <DataGridTextColumn Header=" Habitaciones" Binding="{Binding HABITACIONES}" Width="78"/>
+                <DataGridTextColumn Header=" Habitac." Binding="{Binding HABITACIONES}" Width="50"/>
                 <DataGridTextColumn Header=" Baños" Binding="{Binding BANOS}" Width="40"/>
                 <DataGridTextColumn Header=" m²" Binding="{Binding METROS_CUADRADOS}" Width="30"/>
-                <DataGridTextColumn Header=" Valor Inventario" Binding="{Binding VALOR_INVENTARIO}" Width="100"/>
+                <DataGridTextColumn Header=" Valor Inventario" Binding="{Binding VALOR_INVENTARIO}" Width="101"/>
                 <DataGridTextColumn Header=" Descripción" Binding="{Binding DESCRIPCION}" Width="200"/>
             </DataGrid.Columns>
 
@@ -157,7 +157,6 @@
         <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="931,146,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
         <Button x:Name="BtnVerFotos" Content="Fotos" HorizontalAlignment="Left" Margin="398,582,0,0" VerticalAlignment="Top" Width="56" Height="29" Click="BtnVerFotos_Click"/>
         <Button x:Name="BtnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="467,582,0,0" VerticalAlignment="Top" Width="66" Height="29" Click="BtnServicios_Click"/>
-
 
     </Grid>
 </mah:MetroWindow>

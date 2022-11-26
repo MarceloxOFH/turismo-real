@@ -41,6 +41,7 @@ namespace Turismo
         int valor;
         int cantidad;
         int cantidad_temp;
+        int valor_inventario;
 
 
         private void dgInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -146,6 +147,8 @@ namespace Turismo
                 try
                 {
                     logic.addDepaInventario(Convert.ToInt32(tbValor.Text), Convert.ToInt32(tbCantidad.Text), tbIdArticulo.Text, id_departamento);
+                    valor_inventario = logic.GetIventarioValor(id_departamento);
+                    logic.UpdateInventarioValor(id_departamento, valor_inventario);
                 }
                 catch (Exception ex)
                 {
@@ -170,12 +173,16 @@ namespace Turismo
                 if (Convert.ToInt32(tbCantidad.Text) > 0)
                 {
                     logic.editDepaInventario(Convert.ToInt32(tbValor.Text), Convert.ToInt32(tbCantidad.Text), tbIdArticulo.Text, id_departamento);
+                    valor_inventario = logic.GetIventarioValor(id_departamento);
+                    logic.UpdateInventarioValor(id_departamento, valor_inventario);
                     refreshDgInvDepartamento();
                 }
 
                 else if (Convert.ToInt32(tbCantidad.Text) == 0)
                 {
                     logic.deleteDepaInventario(id_articulo, id_departamento);
+                    valor_inventario = logic.GetIventarioValor(id_departamento);
+                    logic.UpdateInventarioValor(id_departamento, valor_inventario);
                     tbValor.Text = "";
                     tbCantidad.Text = "";
                     refreshDgInvDepartamento();
