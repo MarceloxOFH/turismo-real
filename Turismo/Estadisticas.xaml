@@ -1,0 +1,167 @@
+﻿<mah:MetroWindow x:Class="Turismo.Estadisticas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Turismo"
+        mc:Ignorable="d"
+        Title="Estadísticas" Height="720" Width="1080"  ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
+    Left="0" Top="0">
+    <Grid Background="LightGray" Margin="-4,0,0,0">
+
+
+
+
+        <Rectangle x:Name="RtFoto_Copy2" HorizontalAlignment="Left" Height="79" Margin="201,541,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
+
+
+
+
+        <Rectangle x:Name="RtFoto_Copy1" HorizontalAlignment="Left" Height="79" Margin="201,421,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
+
+
+
+
+        <Rectangle x:Name="RtFoto_Copy" HorizontalAlignment="Left" Height="79" Margin="201,303,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
+
+
+
+
+        <Rectangle x:Name="RtBarra" HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFAA9759" Offset="1"/>
+                    <GradientStop Color="#FFD5C28C" Offset="0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+
+        <Label x:Name="LblUsuario" Content="Usuario" HorizontalContentAlignment="Center" Margin="12,37,922,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="LblCargo" Content="Cargo" HorizontalContentAlignment="Center" Margin="12,59,922,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF727272"/>
+        <Rectangle x:Name="RtUsuario" HorizontalAlignment="Left" Height="79" Margin="12,9,0,0" Stroke="#FFE5E5E5" VerticalAlignment="Top" Width="146"/>
+        <Image Margin="58,12,968,642" Source="Pictures/usuario.png" Opacity="0.8"/>
+        <Rectangle x:Name="RtFoto" HorizontalAlignment="Left" Height="79" Margin="201,184,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
+
+
+
+        <Button x:Name="BtnDepartamentos" HorizontalAlignment="Left" Margin="12,105,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnDepartamentos_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/departamentos.png" Width="24" Height="24"/>
+                <TextBlock Text="     DEPARTAMENTOS" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnInventario" HorizontalAlignment="Left" Margin="12,150,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnInventario_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/inventario.png" Width="24" Height="24"/>
+                <TextBlock Text="     INVENTARIO" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnEmpleados" HorizontalAlignment="Left" Margin="12,195,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnEmpleados_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/empleados.png" Width="24" Height="24"/>
+                <TextBlock Text="     EMPLEADOS" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnClientes" HorizontalAlignment="Left" Margin="12,240,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnClientes_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/clientes.png" Width="24" Height="24"/>
+                <TextBlock Text="     CLIENTES" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnConductores" HorizontalAlignment="Left" Margin="12,285,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnConductores_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/conductores.png" Width="24" Height="24"/>
+                <TextBlock Text="     CONDUCTORES" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnVehiculos" HorizontalAlignment="Left" Margin="12,330,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnVehiculos_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/vehiculos.png" Width="24" Height="24"/>
+                <TextBlock Text="     VEHÍCULOS" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnEstadisticas" HorizontalAlignment="Left" Background="#FFEBC351" BorderBrush="White" Margin="12,376,0,0" VerticalAlignment="Top" Width="146" Click="BtnEstadisticas_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/estadisticas.png" Width="24" Height="24"/>
+                <TextBlock Text="     ESTADÍSTICAS" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnPagos" HorizontalAlignment="Left" Margin="12,421,0,0" VerticalAlignment="Top"  Background="#FFF1F0F0" Width="146" Click="BtnPagos_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Pictures/pagos.png" Width="24" Height="24"/>
+                <TextBlock Text="     PAGOS" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnCheckIn" HorizontalAlignment="Left" Margin="12,466,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCheckIn_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/checkin.png" Width="24" Height="24"/>
+                <TextBlock Text="     CHECK IN" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnCheckOut" HorizontalAlignment="Left" Margin="12,512,0,0" VerticalAlignment="Top" Width="146" Background="#FFF1F0F0" BorderBrush="White" Click="BtnCheckOut_Click" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/checkout.png" Width="24" Height="24"/>
+                <TextBlock Text="     CHECK OUT" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnCerrarSesion" HorizontalAlignment="Left" Margin="12,621,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCerrarSesion_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Pictures/cerrarsesion.png" Width="24" Height="24"/>
+                <TextBlock Text="     CERRAR SESIÓN" VerticalAlignment="Center" Width="106" />
+            </StackPanel>
+        </Button>
+
+
+        <Label Content="Estadísticas" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="lblDepart" Content="Región Departamento:" HorizontalAlignment="Left" Margin="195,102,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="cbDepartamento" HorizontalAlignment="Left" Margin="384,107,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbDepartamento_SelectionChanged" FontWeight="Bold"/>
+        <Label x:Name="lblArriendoPrecioBajo" HorizontalContentAlignment="Center" Content="Precio más bajo" HorizontalAlignment="Left" Margin="845,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblInventarioValorPromedio" HorizontalContentAlignment="Center" Content="Promedio" HorizontalAlignment="Left" Margin="220,321,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblInventarioValorTotal" HorizontalContentAlignment="Center" Content="Total" HorizontalAlignment="Left" Margin="416,321,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblDepCant" HorizontalContentAlignment="Center" Content="Cantidad" HorizontalAlignment="Left" Margin="216,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblDepBuenEstado" HorizontalContentAlignment="Center" Content="En buen estado" HorizontalAlignment="Left" Margin="417,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblArticuloMasCostoso" HorizontalContentAlignment="Center" Content="Más costoso" HorizontalAlignment="Left" Margin="604,321,0,0" VerticalAlignment="Top" Width="164" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblMantencionesTotal" HorizontalContentAlignment="Center" Content="Costo total" HorizontalAlignment="Left" Margin="426,563,0,0" VerticalAlignment="Top" Width="126" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblArticuloMasCostosoTotal" HorizontalContentAlignment="Center" Content="Total más costoso" HorizontalAlignment="Left" Margin="833,321,0,0" VerticalAlignment="Top" Width="161" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblServAsocMasComun" HorizontalContentAlignment="Center" Content="Más común" HorizontalAlignment="Left" Margin="591,441,0,0" VerticalAlignment="Top" Width="188" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblServAsocMenosComun" HorizontalContentAlignment="Center" Content="Menos común" HorizontalAlignment="Left" Margin="833,441,0,0" VerticalAlignment="Top" Width="162" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblServAsocTotal" HorizontalContentAlignment="Center" Content="Costo total" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" FontSize="16" Margin="405,441,0,0" FontWeight="Bold"/>
+        <Label x:Name="lblMantencionesCantidad" HorizontalContentAlignment="Center" Content="Cantidad" HorizontalAlignment="Left" Margin="220,563,0,0" VerticalAlignment="Top" Width="126" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblArriendoPrecioAlto" HorizontalContentAlignment="Center" Content="Precio más alto" HorizontalAlignment="Left" Margin="618,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblDep" Content="Departamentos:" HorizontalAlignment="Left" Margin="195,150,0,0" VerticalAlignment="Top" Width="281" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblInv" Content="Inventario:" HorizontalAlignment="Left" Margin="195,268,0,0" VerticalAlignment="Top" Width="281" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblServAsoc" Content="Servicios Asociados:" HorizontalAlignment="Left" Margin="195,387,0,0" VerticalAlignment="Top" Width="316" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblMan" Content="Mantenciones:" HorizontalAlignment="Left" Margin="195,507,0,0" VerticalAlignment="Top" Width="316" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblServAsocTotal_Copy" HorizontalContentAlignment="Center" Content="Cantidad contratados" HorizontalAlignment="Left" VerticalAlignment="Top" Width="183" FontSize="16" Margin="206,441,0,0" FontWeight="Bold"/>
+        <Label x:Name="lblDepart_Copy" Content="Cantidad" HorizontalAlignment="Left" Margin="245,182,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy1" Content="En Buen Estado" HorizontalAlignment="Left" Margin="421,182,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy2" Content="Mayor Precio Diario" HorizontalAlignment="Left" Margin="605,182,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy3" Content="Menor Precio Diario" HorizontalAlignment="Left" Margin="831,182,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy4" Content="Valor Promedio" HorizontalAlignment="Left" Margin="224,301,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy5" Content="Valor Total" HorizontalAlignment="Left" Margin="438,301,0,0" VerticalAlignment="Top" Width="117" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy6" Content="Artículo Más Costoso" HorizontalAlignment="Left" Margin="605,301,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy7" Content="Artículo Más Costoso Total" HorizontalAlignment="Left" Margin="806,301,0,0" VerticalAlignment="Top" Width="218" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy8" Content="Cantidad Contratados" HorizontalAlignment="Left" Margin="210,419,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy9" Content="Costo Total" HorizontalAlignment="Left" Margin="439,419,0,0" VerticalAlignment="Top" Width="117" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy10" Content="Más Común" HorizontalAlignment="Left" Margin="635,419,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy11" Content="Menos Común" HorizontalAlignment="Left" Margin="854,419,0,0" VerticalAlignment="Top" Width="218" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy12" Content="Cantidad" HorizontalAlignment="Left" Margin="245,541,0,0" VerticalAlignment="Top" Width="92" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy13" Content="Costo Total" HorizontalAlignment="Left" Margin="441,541,0,0" VerticalAlignment="Top" Width="117" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+
+
+
+
+    </Grid>
+</mah:MetroWindow>

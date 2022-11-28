@@ -41,6 +41,15 @@ namespace Turismo
                     this.Hide();
                     new Departamentos().ShowDialog();   
                 }
+
+                else if (dt.Rows[0][1].ToString() == "Funcionario")
+                {
+                    logic.Usuario(dt.Rows[0][0].ToString());
+                    logic.TipoUsuario(dt.Rows[0][1].ToString());
+                    this.Hide();
+                    new CheckOut().ShowDialog();
+                }
+
                 else
                 {
                     MessageBox.Show("error de login");

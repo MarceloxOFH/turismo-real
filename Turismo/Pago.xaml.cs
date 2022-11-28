@@ -36,55 +36,12 @@ namespace Turismo
 
         Business logic = new Business();
         int nro_reserva;
+        int monto_total;
 
         private void BtnSubirFirma_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
-        {
-            new CheckOut().Show();
-            this.Close();
-        }
-
-        private void BtnDepartamentos_Click(object sender, RoutedEventArgs e)
-        {
-            new Departamentos().Show();
-            this.Close();
-        }
-
-        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnClientes_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
-        {
-            new Login().Show();
-            this.Close();
-        }
-
-        private void BtnPagos_Click(object sender, RoutedEventArgs e)
-        {
-            //new Pago().Show();
-            //this.Close();
-        }
+        }       
 
         private void BtnPagosPendientes_Click(object sender, RoutedEventArgs e)
         {
@@ -115,20 +72,6 @@ namespace Turismo
             dgPagos.ItemsSource = null;
         }
 
-        private void BtnInventario_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnConductores_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnGenerarInforme_Click(object sender, RoutedEventArgs e)
         {
@@ -170,6 +113,8 @@ namespace Turismo
         {
             dgPagos.ItemsSource = null;
             dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
+            monto_total = logic.PagoMontoTotal(nro_reserva);
+            lblMontoTotal.Content = monto_total.ToString();
         }
 
         public void refreshDatagridReservas()
@@ -178,6 +123,69 @@ namespace Turismo
             dgReserva.ItemsSource = logic.ReservasActivasData().DefaultView;
             dgReservaFinalizada.ItemsSource = null;
             dgReservaFinalizada.ItemsSource = logic.ReservasFinalizadasData().DefaultView;
+        }
+
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
+
+        private void BtnDepartamentos_Click(object sender, RoutedEventArgs e)
+        {
+            new Departamentos().Show();
+            this.Close();
+        }
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            new Inventario().Show();
+            this.Close();
+        }
+
+        private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
+        {
+            new Vehiculo().Show();
+            this.Close();
+        }
+
+        private void BtnConductores_Click(object sender, RoutedEventArgs e)
+        {
+            new Conductor().Show();
+            this.Close();
+        }
+
+        private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckOut().Show();
+            this.Close();
+        }
+
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+            new Estadisticas().Show();
+            this.Close();
+        }
+
+        private void BtnPagos_Click(object sender, RoutedEventArgs e)
+        {
+            //new Pago().Show();
+            //this.Close();
         }
     }
 }

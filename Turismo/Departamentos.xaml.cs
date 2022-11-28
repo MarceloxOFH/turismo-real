@@ -219,7 +219,8 @@ namespace Turismo
 
         private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
         {
-
+            new Estadisticas().Show();
+            this.Close();
         }
 
         private void BtnInformes_Click(object sender, RoutedEventArgs e)

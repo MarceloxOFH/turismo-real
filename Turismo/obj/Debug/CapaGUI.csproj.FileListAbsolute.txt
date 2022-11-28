@@ -414,3 +414,5 @@ C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Pago.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarPago.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Pago.baml
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarPago.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Estadisticas.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\Estadisticas.baml

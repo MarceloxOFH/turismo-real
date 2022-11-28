@@ -24,14 +24,14 @@
         <Button x:Name="BtnTransferencia" Content="Transferencia" HorizontalAlignment="Left" Margin="186,307,0,0" VerticalAlignment="Top" Height="65" Width="99" BorderBrush="Black" Click="BtnTransferencia_Click" Background="#FFBCE1E5"/>
         <Label Content="Monto:" HorizontalAlignment="Left" Margin="39,199,0,0" VerticalAlignment="Top" Width="106" FontSize="16" FontWeight="Bold"/>
         <Button x:Name="BtnSubirComprobante" Content="Subir Comprobante" HorizontalAlignment="Left" Margin="378,50,0,0" VerticalAlignment="Top" Height="28" Width="121" BorderBrush="Black" Click="BtnSubirComprobante_Click"/>
-        <Rectangle x:Name="RtFoto" HorizontalAlignment="Left" Height="161" Margin="378,84,0,0" Stroke="Black" VerticalAlignment="Top" Width="122" Fill="White"/>
-        <Image x:Name="ImgImagen" HorizontalAlignment="Left" Height="160" Margin="378,84,0,0" VerticalAlignment="Top" Width="120"/>
+        <Rectangle x:Name="RtFoto" HorizontalAlignment="Left" Height="164" Margin="378,83,0,0" Stroke="Black" VerticalAlignment="Top" Width="122" Fill="White"/>
+        <Image x:Name="ImgImagen" HorizontalAlignment="Left" Height="160" Margin="379,85,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="BtnConfirmarPago" Content="Confirmar Pago" HorizontalAlignment="Left" Margin="376,307,0,0" VerticalAlignment="Top" Height="65" Width="122" Click="BtnConfirmarPago_Click" BorderBrush="Black" FontWeight="Bold" FontSize="12" Background="#FFD0FCCE"/>
         <Label x:Name="lblTransferencia" Content="Transferencia" HorizontalAlignment="Left" Margin="378,268,0,0" VerticalAlignment="Top" Width="122" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="lblEfectivo" Content="Efectivo" HorizontalAlignment="Left" Margin="395,268,0,0" VerticalAlignment="Top" Width="86" FontSize="18" FontWeight="Bold"/>
         <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="148,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Height="78" IsEnabled="False" FontWeight="Bold"/>
         <TextBox x:Name="tbMonto" HorizontalAlignment="Left" Margin="148,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="29" IsEnabled="False" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblEfectivo_Copy" Content="Método Pago" HorizontalAlignment="Left" Margin="110,268,0,0" VerticalAlignment="Top" Width="126" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblmediopago" Content="Medio Pago" HorizontalAlignment="Left" Margin="115,268,0,0" VerticalAlignment="Top" Width="126" FontSize="18" FontWeight="Bold"/>
 
     </Grid>
 </mah:MetroWindow>

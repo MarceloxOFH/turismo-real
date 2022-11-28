@@ -28,6 +28,21 @@ namespace Turismo
             InitializeComponent();
             LblUsuario.Content = Business.user_login;
             LblCargo.Content = Business.usertype_login;
+
+            if (Business.usertype_login == "Funcionario")
+            {
+                BtnCheckOut.Margin = new Thickness(12, 105, 0, 0);
+                BtnCheckIn.Margin = new Thickness(12, 150, 0, 0);
+                BtnDepartamentos.Visibility = Visibility.Hidden;
+                BtnInventario.Visibility = Visibility.Hidden;
+                BtnEmpleados.Visibility = Visibility.Hidden;
+                BtnClientes.Visibility = Visibility.Hidden;
+                BtnConductores.Visibility = Visibility.Hidden;
+                BtnVehiculos.Visibility = Visibility.Hidden;
+                BtnEstadisticas.Visibility = Visibility.Hidden;
+                BtnPagos.Visibility = Visibility.Hidden;
+            }
+
             dgReserva.ItemsSource = logic.ReservaCOData().DefaultView;
             LblMulta.Content = "";
             LblMulta2.Content = "";
@@ -186,6 +201,8 @@ namespace Turismo
             if (nro_reserva > 0 && firma_cliente != null && multas_activas == 0)
             {
                 logic.newCheckOut(nro_reserva, firma_cliente);
+                logic.CheckInNoActivo(nro_reserva);
+                //logic.newPagoMulta(nro_reserva,id_multa);
                 refreshDatagrid();
                 BtnGestionarMultas.IsEnabled = false;
                 LblMulta.Content = "";

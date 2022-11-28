@@ -24,6 +24,7 @@ using System.EnterpriseServices;
 using Microsoft.Web.Services3.Addressing;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Media3D;
+using System.Threading;
 
 namespace CapaNegocio
 {
@@ -207,7 +208,8 @@ namespace CapaNegocio
                 OracleCommand command = new OracleCommand("SELECT * " +
                     "FROM PAGO PAG " +
                     "INNER JOIN PAGO_RESERVA PR ON PR.PAGO_ID_PAGO = PAG.ID_PAGO " +
-                    "WHERE PR.RESERVA_NRO_RESERVA = :nro_reserva", Conec.Connect());
+                    "WHERE PR.RESERVA_NRO_RESERVA = :nro_reserva " +
+                    "ORDER BY PAG.FECHA_PAGO ASC", Conec.Connect());
                 OracleDataAdapter da = new OracleDataAdapter(command);
                 command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
                 command.ExecuteNonQuery();
@@ -537,6 +539,32 @@ namespace CapaNegocio
             {
                 string id_checkout = "0";
                 return id_checkout;
+            }
+        }
+
+        public int PagoMontoTotal(int nro_reserva)
+        {
+
+            try
+            {
+                DataTable _datatable = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) FROM PAGO PAG INNER JOIN PAGO_RESERVA PR ON PR.PAGO_ID_PAGO = PAG.ID_PAGO " +
+                "WHERE PR.RESERVA_NRO_RESERVA = :nro_reserva", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+
+                OracleDataAdapter _adapter = new OracleDataAdapter(command);
+                _adapter.Fill(_datatable);
+
+                int reserva_nro = Convert.ToInt32(_datatable.Rows[0][0].ToString());
+
+                return reserva_nro;
+            }
+            catch (Exception ex)
+            {
+                int reserva_nro = 0;
+                return reserva_nro;
             }
         }
 
@@ -976,6 +1004,27 @@ namespace CapaNegocio
             }
         }
 
+        public void CheckInNoActivo(int nro_reserva)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE CHECK_IN " +
+                    "SET ACTIVO = :activo " +
+                    "WHERE RESERVA_NRO_RESERVA = :nro_reserva", Conec.Connect());
+
+                command.Parameters.Add("activo", OracleDbType.Varchar2, 100).Value = "N";
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al finalizar Check in: " + ex);
+            }
+        }
+
+
         public void newMulta(string id_checkout, string descripcion, int costo)
         {
             try
@@ -987,7 +1036,7 @@ namespace CapaNegocio
 
                 command.Parameters.Add("descripcion", OracleDbType.Varchar2, 200).Value = descripcion;
                 command.Parameters.Add("costo", OracleDbType.Varchar2, 100).Value = costo;
-                command.Parameters.Add("fecha_creacion", OracleDbType.Date).Value = DateTime.Now; ;
+                command.Parameters.Add("fecha_creacion", OracleDbType.Date).Value = DateTime.Now; 
                 command.Parameters.Add("id_checkout", OracleDbType.Varchar2).Value = id_checkout;
                 command.Parameters.Add("pagada", OracleDbType.Varchar2, 100).Value = "N";
                 command.ExecuteNonQuery();
@@ -1029,6 +1078,79 @@ namespace CapaNegocio
             }
 
         }
+
+
+        public string getIdPago()
+        {
+
+            try
+            {
+                DataTable _datatable = new DataTable();
+                OracleDataAdapter _adapter = new OracleDataAdapter("SELECT MAX(TO_NUMBER(ID_PAGO)) FROM PAGO", Conec.Connect());
+                _adapter.Fill(_datatable);
+
+                string id_pago = _datatable.Rows[0][0].ToString();
+
+                return id_pago;
+            }
+            catch (Exception ex)
+            {
+                string id_pago = "0";
+                //MessageBox.Show("error getIdPago()" + ex);
+                return id_pago;
+            }
+        }
+
+        public void newPago(string id_pago, int monto)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO PAGO " +
+                    "(ID_PAGO, FECHA_PAGO, ESTADO, MONTO) " +
+                    "VALUES (:id_pago, " +
+                    ":fecha_pago, :estado, :monto)", Conec.Connect());
+
+                command.Parameters.Add("id_pago", OracleDbType.Int32, 100).Value = id_pago;
+                command.Parameters.Add("fecha_pago", OracleDbType.Date).Value = DateTime.Now;
+                command.Parameters.Add("estado", OracleDbType.Varchar2, 100).Value = "PAGADO";
+                command.Parameters.Add("monto", OracleDbType.Int32, 100).Value = monto;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //MessageBox.Show("newPago(..) realizado");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en newPago(..)" + ex);
+            }
+        }
+
+        public void newPagoReservaMulta(int nro_reserva, string id_pago, string medio_pago, string comprobante_transferencia)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO PAGO_RESERVA " +
+                    "(RESERVA_NRO_RESERVA, PAGO_ID_PAGO, DESCRIPCION, MEDIO_PAGO, COMPROBANTE_TRANSFERENCIA) " +
+                    "VALUES (:nro_reserva, :id_pago, :descripcion, :medio_pago, :comprobante_transferencia)", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+                command.Parameters.Add("id_pago", OracleDbType.Varchar2, 100).Value = id_pago;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = "Multa";
+                command.Parameters.Add("medio_pago", OracleDbType.Varchar2, 100).Value = medio_pago;
+                command.Parameters.Add("comprobante_transferencia", OracleDbType.Varchar2, 12000000).Value = comprobante_transferencia;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //MessageBox.Show("newPagoReservaMulta(..) realizado");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en newPagoReservaMulta(..)" + ex);
+            }
+        }
+
+
 
         public void editPendingCheckOut(int nro_reserva, string firma_cliente)
         {

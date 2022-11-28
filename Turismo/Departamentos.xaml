@@ -70,28 +70,28 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnEstadisticas" HorizontalAlignment="Left" Margin="12,374,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnEstadisticas_Click">
+        <Button x:Name="BtnEstadisticas" HorizontalAlignment="Left" Margin="12,375,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnEstadisticas_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/estadisticas.png" Width="24" Height="24"/>
                 <TextBlock Text="     ESTADÍSTICAS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnPagos" HorizontalAlignment="Left" Margin="12,419,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnPagos_Click">
+        <Button x:Name="BtnPagos" HorizontalAlignment="Left" Margin="12,420,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnPagos_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Pictures/pagos.png" Width="24" Height="24"/>
                 <TextBlock Text="     PAGOS" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnCheckIn" HorizontalAlignment="Left" Margin="12,464,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCheckIn_Click">
+        <Button x:Name="BtnCheckIn" HorizontalAlignment="Left" Margin="12,465,0,0" VerticalAlignment="Top" Background="#FFF1F0F0" Width="146" Click="BtnCheckIn_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/checkin.png" Width="24" Height="24"/>
                 <TextBlock Text="     CHECK IN" VerticalAlignment="Center" Width="106" />
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnCheckOut" HorizontalAlignment="Left" Margin="12,510,0,0" VerticalAlignment="Top" Width="146" Background="#FFF1F0F0" Click="BtnCheckOut_Click" >
+        <Button x:Name="BtnCheckOut" HorizontalAlignment="Left" Margin="12,511,0,0" VerticalAlignment="Top" Width="146" Background="#FFF1F0F0" Click="BtnCheckOut_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="Pictures/checkout.png" Width="24" Height="24"/>
                 <TextBlock Text="     CHECK OUT" VerticalAlignment="Center" Width="106" />

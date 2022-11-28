@@ -132,7 +132,7 @@ namespace Turismo
 
         private void BtnPagarMulta_Click(object sender, RoutedEventArgs e)
         {
-            RealizarPago RP = new RealizarPago(this, id_multa, descripcion, costo);
+            RealizarPago RP = new RealizarPago(this, id_multa, descripcion, costo, nro_reserva);
             RP.Show();
         }
     }
