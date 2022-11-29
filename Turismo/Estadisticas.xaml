@@ -13,7 +13,7 @@
 
 
 
-        <Rectangle x:Name="RtFoto_Copy2" HorizontalAlignment="Left" Height="79" Margin="201,541,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
+        <Rectangle x:Name="RtFoto_Copy2" HorizontalAlignment="Left" Height="79" Margin="201,513,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
 
 
 
@@ -23,7 +23,7 @@
 
 
 
-        <Rectangle x:Name="RtFoto_Copy" HorizontalAlignment="Left" Height="79" Margin="201,303,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
+        <Rectangle x:Name="RtFoto_Copy" HorizontalAlignment="Left" Height="79" Margin="201,277,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="827" Fill="#FFDCD9C8"/>
 
 
 
@@ -127,38 +127,38 @@
         <Label Content="Estadísticas" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label x:Name="lblDepart" Content="Región Departamento:" HorizontalAlignment="Left" Margin="195,102,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold"/>
         <ComboBox x:Name="cbDepartamento" HorizontalAlignment="Left" Margin="384,107,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbDepartamento_SelectionChanged" FontWeight="Bold"/>
-        <Label x:Name="lblArriendoPrecioBajo" HorizontalContentAlignment="Center" Content="Precio más bajo" HorizontalAlignment="Left" Margin="845,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblInventarioValorPromedio" HorizontalContentAlignment="Center" Content="Promedio" HorizontalAlignment="Left" Margin="220,321,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblInventarioValorTotal" HorizontalContentAlignment="Center" Content="Total" HorizontalAlignment="Left" Margin="416,321,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblDepCant" HorizontalContentAlignment="Center" Content="Cantidad" HorizontalAlignment="Left" Margin="216,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblDepBuenEstado" HorizontalContentAlignment="Center" Content="En buen estado" HorizontalAlignment="Left" Margin="417,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblArticuloMasCostoso" HorizontalContentAlignment="Center" Content="Más costoso" HorizontalAlignment="Left" Margin="604,321,0,0" VerticalAlignment="Top" Width="164" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblMantencionesTotal" HorizontalContentAlignment="Center" Content="Costo total" HorizontalAlignment="Left" Margin="426,563,0,0" VerticalAlignment="Top" Width="126" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblArticuloMasCostosoTotal" HorizontalContentAlignment="Center" Content="Total más costoso" HorizontalAlignment="Left" Margin="833,321,0,0" VerticalAlignment="Top" Width="161" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblServAsocMasComun" HorizontalContentAlignment="Center" Content="Más común" HorizontalAlignment="Left" Margin="591,441,0,0" VerticalAlignment="Top" Width="188" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblServAsocMenosComun" HorizontalContentAlignment="Center" Content="Menos común" HorizontalAlignment="Left" Margin="833,441,0,0" VerticalAlignment="Top" Width="162" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblServAsocTotal" HorizontalContentAlignment="Center" Content="Costo total" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" FontSize="16" Margin="405,441,0,0" FontWeight="Bold"/>
-        <Label x:Name="lblMantencionesCantidad" HorizontalContentAlignment="Center" Content="Cantidad" HorizontalAlignment="Left" Margin="220,563,0,0" VerticalAlignment="Top" Width="126" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblArriendoPrecioAlto" HorizontalContentAlignment="Center" Content="Precio más alto" HorizontalAlignment="Left" Margin="618,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblArriendoPrecioBajo" HorizontalContentAlignment="Center" Content="Precio más bajo" HorizontalAlignment="Left" Margin="441,300,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblInventarioValorPromedio" HorizontalContentAlignment="Center" Content="Promedio" HorizontalAlignment="Left" Margin="634,295,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblInventarioValorTotal" HorizontalContentAlignment="Center" Content="Total" HorizontalAlignment="Left" Margin="846,295,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblDepCant" HorizontalContentAlignment="Center" Content="Cantidad" HorizontalAlignment="Left" Margin="234,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblDepBuenEstado" HorizontalContentAlignment="Center" Content="En buen estado" HorizontalAlignment="Left" Margin="435,203,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblArticuloMasCostoso" HorizontalContentAlignment="Center" Content="Utilizados Actualmente" HorizontalAlignment="Left" Margin="606,203,0,0" VerticalAlignment="Top" Width="197" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblMantencionesTotal" HorizontalContentAlignment="Center" Content="Costo total" HorizontalAlignment="Left" Margin="444,535,0,0" VerticalAlignment="Top" Width="126" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblArticuloMasCostosoTotal" HorizontalContentAlignment="Center" Content="" HorizontalAlignment="Left" Margin="847,203,0,0" VerticalAlignment="Top" Width="161" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblEstadiasActuales" HorizontalContentAlignment="Center" Content="Estadías Actuales" HorizontalAlignment="Left" Margin="609,441,0,0" VerticalAlignment="Top" Width="188" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblReservasFinalizadas" HorizontalContentAlignment="Center" Content="Reservas Finalizadas" HorizontalAlignment="Left" Margin="839,441,0,0" VerticalAlignment="Top" Width="162" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblServAsocTotal" HorizontalContentAlignment="Center" Content="Reservas Agendadas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" FontSize="16" Margin="423,441,0,0" FontWeight="Bold"/>
+        <Label x:Name="lblMantencionesCantidad" HorizontalContentAlignment="Center" Content="Cantidad" HorizontalAlignment="Left" Margin="238,535,0,0" VerticalAlignment="Top" Width="126" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblArriendoPrecioAlto" HorizontalContentAlignment="Center" Content="Precio más alto" HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="lblDep" Content="Departamentos:" HorizontalAlignment="Left" Margin="195,150,0,0" VerticalAlignment="Top" Width="281" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="lblInv" Content="Inventario:" HorizontalAlignment="Left" Margin="195,268,0,0" VerticalAlignment="Top" Width="281" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="lblServAsoc" Content="Servicios Asociados:" HorizontalAlignment="Left" Margin="195,387,0,0" VerticalAlignment="Top" Width="316" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="lblMan" Content="Mantenciones:" HorizontalAlignment="Left" Margin="195,507,0,0" VerticalAlignment="Top" Width="316" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="lblServAsocTotal_Copy" HorizontalContentAlignment="Center" Content="Cantidad contratados" HorizontalAlignment="Left" VerticalAlignment="Top" Width="183" FontSize="16" Margin="206,441,0,0" FontWeight="Bold"/>
-        <Label x:Name="lblDepart_Copy" Content="Cantidad" HorizontalAlignment="Left" Margin="245,182,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy1" Content="En Buen Estado" HorizontalAlignment="Left" Margin="421,182,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy2" Content="Mayor Precio Diario" HorizontalAlignment="Left" Margin="605,182,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy3" Content="Menor Precio Diario" HorizontalAlignment="Left" Margin="831,182,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy4" Content="Valor Promedio" HorizontalAlignment="Left" Margin="224,301,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy5" Content="Valor Total" HorizontalAlignment="Left" Margin="438,301,0,0" VerticalAlignment="Top" Width="117" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy6" Content="Artículo Más Costoso" HorizontalAlignment="Left" Margin="605,301,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy7" Content="Artículo Más Costoso Total" HorizontalAlignment="Left" Margin="806,301,0,0" VerticalAlignment="Top" Width="218" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy8" Content="Cantidad Contratados" HorizontalAlignment="Left" Margin="210,419,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy9" Content="Costo Total" HorizontalAlignment="Left" Margin="439,419,0,0" VerticalAlignment="Top" Width="117" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy10" Content="Más Común" HorizontalAlignment="Left" Margin="635,419,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy11" Content="Menos Común" HorizontalAlignment="Left" Margin="854,419,0,0" VerticalAlignment="Top" Width="218" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy12" Content="Cantidad" HorizontalAlignment="Left" Margin="245,541,0,0" VerticalAlignment="Top" Width="92" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
-        <Label x:Name="lblDepart_Copy13" Content="Costo Total" HorizontalAlignment="Left" Margin="441,541,0,0" VerticalAlignment="Top" Width="117" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblReservas" Content="Reservas:" HorizontalAlignment="Left" Margin="195,387,0,0" VerticalAlignment="Top" Width="316" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblReservasTotales" HorizontalContentAlignment="Center" Content="Reservas Totales" HorizontalAlignment="Left" VerticalAlignment="Top" Width="183" FontSize="16" Margin="224,441,0,0" FontWeight="Bold"/>
+        <Label x:Name="lblDepart_Copy" Content="Cantidad" HorizontalAlignment="Left" Margin="263,182,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy1" Content="En Buen Estado" HorizontalAlignment="Left" Margin="439,182,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy2" Content="Mayor Precio Diario" HorizontalAlignment="Left" Margin="237,279,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy3" Content="Menor Precio Diario" HorizontalAlignment="Left" Margin="435,275,0,0" VerticalAlignment="Top" Width="206" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy4" Content="Valor Inventario Promedio" HorizontalAlignment="Left" Margin="609,275,0,0" VerticalAlignment="Top" Width="210" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy5" Content="Valor Inventario Total" HorizontalAlignment="Left" Margin="836,275,0,0" VerticalAlignment="Top" Width="176" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy6" Content="Utilizados Actualmente" HorizontalAlignment="Left" Margin="612,183,0,0" VerticalAlignment="Top" Width="188" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy7" Content="" HorizontalAlignment="Left" Margin="820,183,0,0" VerticalAlignment="Top" Width="218" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblxReservasTotales" Content="Reservas Totales" HorizontalAlignment="Left" Margin="228,419,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy9" Content="Reservas Agendadas" HorizontalAlignment="Left" Margin="423,419,0,0" VerticalAlignment="Top" Width="175" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy10" Content="Estadías Actuales" HorizontalAlignment="Left" Margin="627,419,0,0" VerticalAlignment="Top" Width="145" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy11" Content="Reservas Finalizadas" HorizontalAlignment="Left" Margin="832,419,0,0" VerticalAlignment="Top" Width="218" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy12" Content="Ingresos Reserva Web" HorizontalAlignment="Left" Margin="224,513,0,0" VerticalAlignment="Top" Width="220" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblDepart_Copy13" Content="Ingresos Check In" HorizontalAlignment="Left" Margin="431,513,0,0" VerticalAlignment="Top" Width="163" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
+        <Label x:Name="lblMantencionesTotal_Copy" HorizontalContentAlignment="Center" Content="Costo total" HorizontalAlignment="Left" Margin="634,535,0,0" VerticalAlignment="Top" Width="126" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblDepart_Copy8" Content="Costos por Multas" HorizontalAlignment="Left" Margin="622,513,0,0" VerticalAlignment="Top" Width="162" FontSize="16" FontWeight="Bold" Foreground="#FF726F6F"/>
 
 
 
