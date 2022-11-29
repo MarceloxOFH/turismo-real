@@ -273,8 +273,14 @@
     <Compile Include="Categoria.xaml.cs">
       <DependentUpon>Categoria.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CheckIn.xaml.cs">
+      <DependentUpon>CheckIn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CheckOut.xaml.cs">
       <DependentUpon>CheckOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.xaml.cs">
+      <DependentUpon>Clientes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Conductor.xaml.cs">
       <DependentUpon>Conductor.xaml</DependentUpon>
@@ -327,6 +333,9 @@
     <Compile Include="EditarVehiculo.xaml.cs">
       <DependentUpon>EditarVehiculo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Empleados.xaml.cs">
+      <DependentUpon>Empleados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Estadisticas.xaml.cs">
       <DependentUpon>Estadisticas.xaml</DependentUpon>
     </Compile>
@@ -370,7 +379,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CheckIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CheckOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Clientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -450,6 +467,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditarVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Empleados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

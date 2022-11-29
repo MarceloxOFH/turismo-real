@@ -17,11 +17,11 @@ using MahApps.Metro.Controls;
 namespace Turismo
 {
     /// <summary>
-    /// Interaction logic for Estadisticas.xaml
+    /// Interaction logic for Clientes.xaml
     /// </summary>
-    public partial class Estadisticas : MetroWindow
+    public partial class Clientes : MetroWindow
     {
-        public Estadisticas()
+        public Clientes()
         {
             InitializeComponent();
             LblUsuario.Content = Business.user_login;
@@ -64,6 +64,12 @@ namespace Turismo
             this.Close();
         }
 
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckIn().Show();
+            this.Close();
+        }
+
         private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
         {
             new Empleados().Show();
@@ -72,36 +78,20 @@ namespace Turismo
 
         private void BtnClientes_Click(object sender, RoutedEventArgs e)
         {
-            new Clientes().Show();
-            this.Close();
-        }
-
-        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
-        {
-            new CheckIn().Show();
-            this.Close();
+            //new Clientes().Show();
+            //this.Close();
         }
 
         private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
         {
-            //new Estadisticas().Show();
-            //this.Close();
+            new Estadisticas().Show();
+            this.Close();
         }
 
         private void BtnPagos_Click(object sender, RoutedEventArgs e)
         {
             new Pago().Show();
             this.Close();
-        }
-
-        private void dgDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void cbDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

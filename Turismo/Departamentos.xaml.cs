@@ -168,18 +168,6 @@ namespace Turismo
         }
 
 
-        private void BtnInventario_Click(object sender, RoutedEventArgs e)
-        {
-            new Inventario().Show();
-            this.Close();
-        }
-
-        private void BtnConductores_Click(object sender, RoutedEventArgs e)
-        {
-            new Conductor().Show();
-            this.Close();
-        }
-
         private void BtnVehiculos_Click(object sender, RoutedEventArgs e)
         {
             new Vehiculo().Show();
@@ -196,6 +184,19 @@ namespace Turismo
             new Servicio(id_departamento, nombre_departamento).Show();
         }
 
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            new Inventario().Show();
+            this.Close();
+        }
+
+        private void BtnConductores_Click(object sender, RoutedEventArgs e)
+        {
+            new Conductor().Show();
+            this.Close();
+        }
+
         private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
         {
             new CheckOut().Show();
@@ -209,12 +210,20 @@ namespace Turismo
 
         private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
         {
-
+            new Empleados().Show();
+            this.Close();
         }
 
         private void BtnClientes_Click(object sender, RoutedEventArgs e)
         {
+            new Clientes().Show();
+            this.Close();
+        }
 
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckIn().Show();
+            this.Close();
         }
 
         private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
@@ -223,15 +232,6 @@ namespace Turismo
             this.Close();
         }
 
-        private void BtnInformes_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {

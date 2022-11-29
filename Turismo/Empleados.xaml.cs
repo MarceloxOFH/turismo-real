@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaNegocio;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +13,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CapaNegocio;
-using MahApps.Metro.Controls;
 
 namespace Turismo
 {
     /// <summary>
-    /// Interaction logic for Estadisticas.xaml
+    /// Interaction logic for Empleados.xaml
     /// </summary>
-    public partial class Estadisticas : MetroWindow
+    public partial class Empleados : MetroWindow
     {
-        public Estadisticas()
+        public Empleados()
         {
             InitializeComponent();
             LblUsuario.Content = Business.user_login;
             LblCargo.Content = Business.usertype_login;
         }
+
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
@@ -64,10 +65,16 @@ namespace Turismo
             this.Close();
         }
 
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckIn().Show();
+            this.Close();
+        }
+
         private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
         {
-            new Empleados().Show();
-            this.Close();
+            //new Empleados().Show();
+            //this.Close();
         }
 
         private void BtnClientes_Click(object sender, RoutedEventArgs e)
@@ -76,32 +83,16 @@ namespace Turismo
             this.Close();
         }
 
-        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
-        {
-            new CheckIn().Show();
-            this.Close();
-        }
-
         private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
         {
-            //new Estadisticas().Show();
-            //this.Close();
+            new Estadisticas().Show();
+            this.Close();
         }
 
         private void BtnPagos_Click(object sender, RoutedEventArgs e)
         {
             new Pago().Show();
             this.Close();
-        }
-
-        private void dgDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void cbDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

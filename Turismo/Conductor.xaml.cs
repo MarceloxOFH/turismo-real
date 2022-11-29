@@ -163,30 +163,30 @@ namespace Turismo
             this.Close();
         }
 
-        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
         {
-
+            new Empleados().Show();
+            this.Close();
         }
 
         private void BtnClientes_Click(object sender, RoutedEventArgs e)
         {
+            new Clientes().Show();
+            this.Close();
+        }
 
+        private void BtnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckIn().Show();
+            this.Close();
         }
 
         private void BtnEstadisticas_Click(object sender, RoutedEventArgs e)
         {
-
+            new Estadisticas().Show();
+            this.Close();
         }
 
-        private void BtnInformes_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnPagos_Click(object sender, RoutedEventArgs e)
         {
