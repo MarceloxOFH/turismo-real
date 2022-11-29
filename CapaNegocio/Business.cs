@@ -1126,6 +1126,31 @@ namespace CapaNegocio
             }
         }
 
+        public void newPagoReservaEstadía(int nro_reserva, string id_pago, string medio_pago, string comprobante_transferencia)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO PAGO_RESERVA " +
+                    "(RESERVA_NRO_RESERVA, PAGO_ID_PAGO, DESCRIPCION, MEDIO_PAGO, COMPROBANTE_TRANSFERENCIA) " +
+                    "VALUES (:nro_reserva, :id_pago, :descripcion, :medio_pago, :comprobante_transferencia)", Conec.Connect());
+
+                command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
+                command.Parameters.Add("id_pago", OracleDbType.Varchar2, 100).Value = id_pago;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = "Estadía";
+                command.Parameters.Add("medio_pago", OracleDbType.Varchar2, 100).Value = medio_pago;
+                command.Parameters.Add("comprobante_transferencia", OracleDbType.Varchar2, 12000000).Value = comprobante_transferencia;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //MessageBox.Show("newPagoReservaMulta(..) realizado");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en newPagoReservaMulta(..)" + ex);
+            }
+        }
+
+
         public void newPagoReservaMulta(int nro_reserva, string id_pago, string medio_pago, string comprobante_transferencia)
         {
             try
@@ -1754,6 +1779,389 @@ namespace CapaNegocio
 
         public static string user_login { get; set; }
         public static string usertype_login { get; set; }
+
+
+
+
+
+
+        //
+
+
+        public DataTable ReservaData()
+        {
+            OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, RES.TOTAL_PERSONAS, " +
+                "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                "CLI.NOMBRES, CLI.APELLIDOS, " +
+                "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
+                "FROM RESERVA RES " +
+                "INNER JOIN \"Reserva-Depto\" RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                "INNER JOIN CLIENTE CLI ON CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE " +
+                "LEFT JOIN CHECK_IN CI ON CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                "WHERE NOT EXISTS " +
+                    "(SELECT NULL " +
+                    "FROM CHECK_IN " +
+                    "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)", Conec.Connect());
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+
+        }
+
+
+        public DataTable CheckInData()
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT  CI.RESERVA_NRO_RESERVA, " +
+                "CI.ID_CHECKIN, CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                "CI.PAGO_ESTADIA, CI.CONDICION_DEPARTAMENTO, CI.HORA_INGRESO, RD.RESERVA_INICIO, " +
+                "RD.RESERVA_TERMINO, CI.ACTIVO, CI.ANOTACIONES, REGA.CONTENIDO, CI.REGALO_ID_REGALO " +
+                "FROM CHECK_IN CI " +
+                "INNER JOIN REGALO REGA ON REGA.ID_REGALO = CI.REGALO_ID_REGALO " +
+                "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = CI.RESERVA_NRO_RESERVA " +
+                "INNER JOIN CLIENTE CLI ON(CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE) " +
+                "INNER JOIN \"Reserva-Depto\" RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                "WHERE CI.ACTIVO = 'Y'", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("check in data error" + ex);
+                DataTable dt = null;
+                return dt;
+            }
+        }
+
+
+        public DataTable dtestadoNroReservaInData()
+        {
+
+            OracleCommand command = new OracleCommand("SELECT NRO_RESERVA FROM RESERVA", Conec.Connect());
+            OracleDataReader dr = command.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            //DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da = new OracleDataAdapter(command);
+            da.Fill(dt);
+
+
+            return dt;
+        }
+        public DataTable dtestadoRegaloInData()
+        {
+
+            OracleCommand command = new OracleCommand("SELECT ID_REGALO, CONTENIDO FROM REGALO", Conec.Connect());
+            OracleDataReader dr = command.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            //DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da = new OracleDataAdapter(command);
+            da.Fill(dt);
+
+
+            return dt;
+        }
+
+        public DataTable ClientesData()
+        {
+
+
+            OracleCommand command = new OracleCommand("SELECT CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, CLI.TELEFONO," +
+                "CLI.EMAIL, CLI.CONTRASENA " +
+                "FROM CLIENTE CLI " +
+                "WHERE CLI.RUT_CLIENTE != '0'", Conec.Connect());
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
+
+        public void deleteCliente(string rut_cliente)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("DELETE FROM CLIENTE " +
+                    "WHERE RUT_CLIENTE = :rut_cliente", Conec.Connect());
+
+                command.Parameters.Add("rut_cliente", OracleDbType.Varchar2, 100).Value = rut_cliente;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Cliente eliminado");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar empleado: " + ex);
+            }
+        }
+
+
+        public void editCliente(string rut_cliente, string nombres, string apellidos, int telefono, string email, string contrasena)
+        {
+            //editEstado();
+
+
+            try
+            {
+                //MessageBox.Show("id_estado: " + id_estado);
+                OracleCommand command = new OracleCommand("UPDATE CLIENTE " +
+                    "SET NOMBRES = :nombres, APELLIDOS = :apellidos, " +
+                    "TELEFONO = :telefono, EMAIL = :email, CONTRASENA = :contrasena " +
+                    "WHERE RUT_CLIENTE = :rut_cliente", Conec.Connect());
+
+
+                //MessageBox.Show("reservado: " + reservado);
+                //MessageBox.Show("metros_cuadrados: " + metros_cuadrados.ToString());
+
+                command.Parameters.Add("nombres", OracleDbType.Varchar2, 100).Value = nombres;
+                command.Parameters.Add("apellidos", OracleDbType.Varchar2, 100).Value = apellidos;
+                command.Parameters.Add("telefono", OracleDbType.Int32, 100).Value = telefono;
+                command.Parameters.Add("email", OracleDbType.Varchar2, 100).Value = email;
+                command.Parameters.Add("contrasena", OracleDbType.Varchar2, 100).Value = contrasena;
+                command.Parameters.Add("rut_cliente", OracleDbType.Varchar2, 100).Value = rut_cliente;
+
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Cliente agregado");
+                //Departamento dep = new Departamento();
+                //dep.
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar cliente: " + ex);
+            }
+        }
+
+
+
+        public void newClientes(string rut_cliente, string nombres, string apellidos, int telefono, string email, string contrasena)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO CLIENTE " +
+                    "(RUT_CLIENTE, NOMBRES, APELLIDOS, TELEFONO, EMAIL, CONTRASENA) VALUES  (:rut_cliente, :nombres, :apellidos, :telefono, :email, :contrasena) ", Conec.Connect());
+
+
+                command.Parameters.Add("rut_cliente", OracleDbType.Varchar2, 100).Value = rut_cliente;
+                command.Parameters.Add("nombres", OracleDbType.Varchar2, 100).Value = nombres;
+                command.Parameters.Add("apellidos", OracleDbType.Varchar2, 100).Value = apellidos;
+                command.Parameters.Add("telefono", OracleDbType.Int32, 100).Value = telefono;
+                command.Parameters.Add("email", OracleDbType.Varchar2, 100).Value = email;
+                command.Parameters.Add("contrasena", OracleDbType.Varchar2, 100).Value = contrasena;
+
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                MessageBox.Show("Cliente Creado");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar cliente: " + ex);
+            }
+        }
+
+
+        public DataTable EmpleadosData()
+        {
+            OracleCommand command = new OracleCommand("SELECT EMP.ID_EMPLEADO," +
+                "EMP.NOMBRES, EMP.APELLIDOS, EMP.ANNO_CONTRATACION AS AÑO_CONTRATACION, " +
+                "CAR.NOMBRE AS CARGO, EMP.SUELDO, " +
+                "EMP.CARGO_ID_CARGO AS ID_CARGO, EMP.ACCESO_USERNAME AS USERNAME " +
+                "FROM EMPLEADO EMP " +
+                "INNER JOIN CARGO CAR ON CAR.ID_CARGO = EMP.CARGO_ID_CARGO " +
+                "WHERE EMP.ID_EMPLEADO != '0'", Conec.Connect());
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
+
+        public void deleteEmpleado(string id_empleado)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("DELETE FROM EMPLEADO " +
+                    "WHERE ID_EMPLEADO = :id_empleado", Conec.Connect());
+
+                command.Parameters.Add("id_empleado", OracleDbType.Varchar2, 100).Value = id_empleado;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Empleado eliminado");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar empleado: " + ex);
+            }
+        }
+
+        public DataTable dtestadoEmpleadoData()
+        {
+
+            OracleCommand command = new OracleCommand("SELECT ID_CARGO, NOMBRE FROM CARGO", Conec.Connect());
+            OracleDataReader dr = command.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            //DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da = new OracleDataAdapter(command);
+            da.Fill(dt);
+
+
+            return dt;
+        }
+
+
+        public void newEmpleado(string nombres, string apellidos, DateTime anno_contratacion, int sueldo, string id_cargo, string acceso_username)
+        {
+
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO EMPLEADO " +
+                    "(ID_EMPLEADO, NOMBRES, APELLIDOS, ANNO_CONTRATACION, " +
+                    "SUELDO, " +
+                    "CARGO_ID_CARGO, ACCESO_USERNAME) VALUES (to_char(seq_id_emp.nextval), " +
+                    ":nombres, :apellidos, :anno_contratacion, :sueldo, " +
+                    ":cargo_id_cargo, :acceso_username)", Conec.Connect());
+
+                //select to_char(seq_id_dep.nextval,'FM00') from dual;
+
+
+                command.Parameters.Add("nombres", OracleDbType.Varchar2, 100).Value = nombres;
+                command.Parameters.Add("apellidos", OracleDbType.Varchar2, 100).Value = apellidos;
+                command.Parameters.Add("anno_contratacion", OracleDbType.Date, 100).Value = anno_contratacion;
+                command.Parameters.Add("sueldo", OracleDbType.Int32, 100).Value = sueldo;
+                command.Parameters.Add("cargo_id_cargo", OracleDbType.Varchar2, 100).Value = id_cargo;
+                command.Parameters.Add("acceso_username", OracleDbType.Varchar2, 100).Value = acceso_username;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Empleado agregado");
+                //Departamento dep = new Departamento();
+                //dep.
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar Empleado: " + ex);
+            }
+        }
+
+
+
+        public void newAcceso(string username, string contrasena, string email, string token)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO ACCESO " +
+                    "(USERNAME, CONTRASENA, EMAIL, TOKEN) VALUES (:username, :contrasena, :email, :token) ", Conec.Connect());
+
+
+
+                command.Parameters.Add("username", OracleDbType.Varchar2, 100).Value = username;
+                command.Parameters.Add("contrasena", OracleDbType.Varchar2, 100).Value = contrasena;
+                command.Parameters.Add("email", OracleDbType.Varchar2, 100).Value = email;
+                command.Parameters.Add("token", OracleDbType.Varchar2, 300).Value = token;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                MessageBox.Show("Acceso agregado");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar Acceso: " + ex);
+            }
+        }
+
+        public void newCargo(string nombre, string descripcion)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO CARGO " +
+                    "(ID_CARGO, NOMBRE, DESCRIPCION) VALUES (to_char(seq_id_car.nextval), " +
+                    ":nombre, :descripcion)", Conec.Connect());
+
+                command.Parameters.Add("nombre", OracleDbType.Varchar2, 100).Value = nombre;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                MessageBox.Show("Cargo Creado");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar ubicación: " + ex);
+            }
+        }
+
+
+        public void newCheckIn(string condicion_departamento, int pago_estadia, int reserva_nro_reserva, string firma_cliente, string anotaciones)
+        {
+
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO CHECK_IN " +
+                    "(ID_CHECKIN, CONDICION_DEPARTAMENTO, HORA_INGRESO, PAGO_ESTADIA, " +
+                    "RESERVA_NRO_RESERVA, FIRMA_CONFORMIDAD, REGALO_ID_REGALO, ACTIVO, ANOTACIONES) VALUES (to_char(seq_id_check.nextval)," +
+                    ":condicion_departamento, :hora_ingreso, :pago_estadia, :reserva_nro_reserva, :firma_conformidad, :regalo_id_regalo, :activo, :anotaciones) ", Conec.Connect());
+
+
+                command.Parameters.Add("condicion_departamento", OracleDbType.Varchar2, 500).Value = condicion_departamento;
+                command.Parameters.Add("hora_ingreso", OracleDbType.Date, 100).Value = DateTime.Now;
+                command.Parameters.Add("pago_estadia", OracleDbType.Int32, 100).Value = pago_estadia;
+                command.Parameters.Add("reserva_nro_reserva", OracleDbType.Int32, 100).Value = reserva_nro_reserva;
+                command.Parameters.Add("firma_conformidad", OracleDbType.Varchar2, 400000000).Value = firma_cliente;
+                command.Parameters.Add("regalo_id_regalo", OracleDbType.Varchar2, 100).Value = 1;
+                command.Parameters.Add("activo", OracleDbType.Varchar2, 1).Value = "Y";
+                command.Parameters.Add("anotaciones", OracleDbType.Varchar2, 500).Value = anotaciones;
+
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                MessageBox.Show("Check In Creado");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar cliente: " + ex);
+            }
+        }
 
     }
 }

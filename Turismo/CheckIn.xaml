@@ -10,6 +10,61 @@
                  Height="720" Width="1080" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" 
     Left="0" Top="0">
     <Grid Background="LightGray">
+        <Label Content="Check In" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="BtnCrear" Content="Realizar Check In" HorizontalAlignment="Left" Margin="782,124,0,0" VerticalAlignment="Top" Height="64" Width="177" Click="BtnCrear_Click" />
+        <Button x:Name="btnRegalos" Content="Lista de Regalos" HorizontalAlignment="Left" Margin="194,582,0,0" VerticalAlignment="Top" Height="29" Width="112" Click="btnRegalos_Click" />
+        <Button x:Name="actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="928,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="actualizar_Click" />
+
+
+        <DataGrid x:Name="dgReserva" IsReadOnly="True" AutoGenerateColumns="False"  Margin="196,320,48,139" SelectionChanged="dgReserva_SelectionChanged" BorderThickness="2" FontWeight="Bold" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding CLIENTE_RUT_CLIENTE}" Width="80"/>
+                <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="150"/>
+                <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="150"/>
+                <DataGridTextColumn Header=" Valor Servicios Extra" Binding="{Binding VALOR_SERVICIOS_EXTRA}" Width="120"/>
+                <DataGridTextColumn Header=" Valor Diario" Binding="{Binding VALOR_POR_DIAS}" Width="70"/>
+                <DataGridTextColumn Header=" Valor Total" Binding="{Binding VALOR_TOTAL}" Width="75"/>
+                <DataGridTextColumn Header=" Personas" Binding="{Binding TOTAL_PERSONAS}" Width="55"/>
+                <DataGridTextColumn Header=" Adultos" Binding="{Binding CANTIDAD_ADULTOS}" Width="50"/>
+                <DataGridTextColumn Header=" Niños" Binding="{Binding CANTIDAD_NINOS}" Width="*"/>
+
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+
+        </DataGrid>
+        <DataGrid x:Name="dgCheckIn" IsReadOnly="True" AutoGenerateColumns="False"  Margin="196,320,48,139"  BorderThickness="2" SelectionChanged="dgCheckIn_SelectionChanged" FontWeight="Bold" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" N°" Binding="{Binding RESERVA_NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" ID Check In" Binding="{Binding ID_CHECKIN}" Width="70"/>
+                <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding RUT_CLIENTE}" Width="80"/>
+                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="130"/>
+                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="130"/>
+                <DataGridTextColumn Header=" Fecha Ingreso" Binding="{Binding HORA_INGRESO}" Width="150"/>
+                <DataGridTextColumn Header=" Fecha Termino" Binding="{Binding RESERVA_TERMINO}" Width="150"/>
+                <DataGridTextColumn Header=" Pago Estadía" Binding="{Binding PAGO_ESTADIA}" Width="120"/>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+
+        </DataGrid>
+        <Button x:Name="btnReservas" Content="Reservas Agendadas" HorizontalAlignment="Left" Margin="721,271,0,0" VerticalAlignment="Top" Width="140" Click="btnReservas_Click"/>
+        <Button x:Name="btndgCheckIn" Content="Check In Realizado" HorizontalAlignment="Left" Margin="886,271,0,0" VerticalAlignment="Top" Width="146" Click="btndgCheckIn_Click"/>
+
+
 
 
 
@@ -111,5 +166,10 @@
 
 
         <Label Content="Check In" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Label Content="Reservas:" HorizontalAlignment="Left" Margin="194,263,0,0" VerticalAlignment="Top" Width="311" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl" Content="Rut Cliente:" HorizontalAlignment="Left" Margin="191,88,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="testName_lbl_Copy" Content="Nombre Cliente:" HorizontalAlignment="Left" Margin="191,125,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbRutCliente" HorizontalAlignment="Left" Margin="328,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" Height="20" IsEnabled="False" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombreCliente" HorizontalAlignment="Left" Margin="328,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" IsEnabled="False" FontWeight="Bold"/>
     </Grid>
 </mah:MetroWindow>

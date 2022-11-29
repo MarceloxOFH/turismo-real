@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,84 @@ namespace Turismo
             InitializeComponent();
             LblUsuario.Content = Business.user_login;
             LblCargo.Content = Business.usertype_login;
+            dgClientes.ItemsSource = logic.ClientesData().DefaultView;
+
+
+        }
+
+        Business logic = new Business();
+        string rut_cliente;
+        string nombres;
+        string apellidos;
+        int telefono;
+        string email;
+        string contrasena;
+
+
+
+        public void actualizarDatagrid()
+        {
+            dgClientes.ItemsSource = null;
+            dgClientes.ItemsSource = logic.ClientesData().DefaultView;
+        }
+
+        private void dgEmpleados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid dg = sender as DataGrid;
+            DataRowView dr = dg.SelectedItem as DataRowView;
+            if (dr != null)
+            {
+                rut_cliente = dr["RUT_CLIENTE"].ToString();
+                nombres = dr["NOMBRES"].ToString();
+                apellidos = dr["APELLIDOS"].ToString();
+                telefono = Convert.ToInt32(dr["TELEFONO"]);
+                email = dr["EMAIL"].ToString();
+                contrasena = dr["CONTRASENA"].ToString();
+
+
+                tbClienteNombre.Text = nombres;
+                tbClienteRut.Text = rut_cliente;
+
+
+            }
+        }
+
+        private void BtnCrearCliente_Click(object sender, RoutedEventArgs e)
+        {
+            new CrearCliente().Show();
+        }
+
+        private void BtnEliminarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estás seguro que deseas borrar el cliente '" + tbClienteNombre.Text + "' ", "Eliminar empleado", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+
+                try
+                {
+                    logic.deleteCliente(rut_cliente);
+                    actualizarDatagrid();
+                    tbClienteNombre.Text = "";
+                    tbClienteRut.Text = "";
+                    BtnEliminarCliente.IsEnabled = false;
+                    rut_cliente = null;
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hubo un problema para eliminar el cliente seleccionado: " + ex);
+                }
+        }
+
+        private void BtnEditarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            new EditarCliente(rut_cliente, nombres, apellidos, telefono, email, contrasena).Show();
+
+        }
+
+        private void btnActualizarEditar_Click(object sender, RoutedEventArgs e)
+        {
+            actualizarDatagrid();
         }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)

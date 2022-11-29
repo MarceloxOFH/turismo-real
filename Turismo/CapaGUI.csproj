@@ -285,17 +285,32 @@
     <Compile Include="Conductor.xaml.cs">
       <DependentUpon>Conductor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrearAcceso.xaml.cs">
+      <DependentUpon>CrearAcceso.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearArticulo.xaml.cs">
       <DependentUpon>CrearArticulo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrearCargo.xaml.cs">
+      <DependentUpon>CrearCargo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearCategoria.xaml.cs">
       <DependentUpon>CrearCategoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrearCheckIn.xaml.cs">
+      <DependentUpon>CrearCheckIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrearCliente.xaml.cs">
+      <DependentUpon>CrearCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="CrearConductor.xaml.cs">
       <DependentUpon>CrearConductor.xaml</DependentUpon>
     </Compile>
     <Compile Include="CrearDepartamento.xaml.cs">
       <DependentUpon>CrearDepartamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrearEmpleado.xaml.cs">
+      <DependentUpon>CrearEmpleado.xaml</DependentUpon>
     </Compile>
     <Compile Include="CrearFoto.xaml.cs">
       <DependentUpon>CrearFoto.xaml</DependentUpon>
@@ -315,11 +330,17 @@
     <Compile Include="EditarCategoria.xaml.cs">
       <DependentUpon>EditarCategoria.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditarCliente.xaml.cs">
+      <DependentUpon>EditarCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarConductor.xaml.cs">
       <DependentUpon>EditarConductor.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditarDepartamento.xaml.cs">
       <DependentUpon>EditarDepartamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarEmpleado.xaml.cs">
+      <DependentUpon>EditarEmpleado.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditarFoto.xaml.cs">
       <DependentUpon>EditarFoto.xaml</DependentUpon>
@@ -357,11 +378,17 @@
     <Compile Include="Pago.xaml.cs">
       <DependentUpon>Pago.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RealizarCheckOut.xaml.cs">
-      <DependentUpon>RealizarCheckOut.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RealizarPago.xaml.cs">
       <DependentUpon>RealizarPago.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RealizarPagoEstadia.xaml.cs">
+      <DependentUpon>RealizarPagoEstadia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Regalos.xaml.cs">
+      <DependentUpon>Regalos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reservas.xaml.cs">
+      <DependentUpon>Reservas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Return.xaml.cs">
       <DependentUpon>Return.xaml</DependentUpon>
@@ -395,11 +422,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CrearAcceso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CrearArticulo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CrearCargo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CrearCategoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearCheckIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -408,6 +451,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CrearDepartamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -439,6 +486,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditarConductor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -454,6 +505,10 @@
     <Compile Include="Departamentos.xaml.cs">
       <DependentUpon>Departamentos.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditarEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditarFoto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -502,11 +557,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RealizarCheckOut.xaml">
+    <Page Include="RealizarPago.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RealizarPago.xaml">
+    <Page Include="RealizarPagoEstadia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Regalos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reservas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

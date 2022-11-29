@@ -12,6 +12,42 @@
     <Grid Background="LightGray">
 
 
+        <Label Content="Empleados" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="lbl_Nombre" Content="Nombre Empleado:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <Label x:Name="lbl_Apellido" Content="Apellido Empleado:" HorizontalAlignment="Left" Margin="191,139,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <TextBox x:Name="tbnombreEmpleado" HorizontalAlignment="Left" Margin="370,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
+        <TextBox x:Name="tbApellidoEmpleado" HorizontalAlignment="Left" Margin="370,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
+        <Label x:Name="lbl_Cargo" Content="Cargo:" HorizontalAlignment="Left" Margin="616,103,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <ComboBox x:Name="cbCargo" SelectedValuePath="id_estado" HorizontalAlignment="Left" Margin="682,108,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="643,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
+        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="737,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
+        <Button x:Name="BtnCrearCargo" Content="Crear Cargo" HorizontalAlignment="Left" Margin="193,582,0,0" VerticalAlignment="Top" Height="29" Width="96" Click="BtnCrearCargo_Click" />
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="831,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click"/>
+        <Button x:Name="btnAcceso" Content="Crear Acceso" HorizontalAlignment="Left" Margin="322,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="btnAcceso_Click"/>
+        <Button x:Name="actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="928,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="actualizar_Click"/>
+
+        <DataGrid x:Name="dgEmpleados" IsReadOnly="True" AutoGenerateColumns="False"  Margin="191,196,61,139" SelectionChanged="dgEmpleados_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding ID_EMPLEADO}" Width="30"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding NOMBRES}" Width="140"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding APELLIDOS}" Width="140"/>
+                <DataGridTextColumn Header="Año contratacion" Binding="{Binding AÑO_CONTRATACION}" Width="110"/>
+                <DataGridTextColumn Header="Cargo" Binding="{Binding CARGO}" Width="100"/>
+                <DataGridTextColumn Header="Sueldo" Binding="{Binding SUELDO}" Width="80"/>
+                <DataGridTextColumn Header="Username" Binding="{Binding USERNAME}" Width="100"/>
+
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+
+        </DataGrid>
+
 
 
         <Rectangle x:Name="RtBarra" HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">

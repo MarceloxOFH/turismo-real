@@ -11,10 +11,42 @@
     Left="0" Top="0">
     <Grid Background="LightGray">
 
+        <Label Content="Clientes" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="lblClienteNombre" Content="Nombre:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <Label x:Name="lblClienteRut" Content="Rut:" HorizontalAlignment="Left" Margin="573,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <TextBox x:Name="tbClienteNombre" HorizontalAlignment="Left" Margin="284,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
+        <TextBox x:Name="tbClienteRut" HorizontalAlignment="Left" Margin="643,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
+        <Button x:Name="BtnEliminarCliente" Content="Eliminar" HorizontalAlignment="Left" Margin="643,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminarCliente_Click"/>
+        <Button x:Name="BtnCrearCliente" Content="Crear" HorizontalAlignment="Left" Margin="737,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrearCliente_Click"/>
+        <Button x:Name="BtnEditarCliente" Content="Editar" HorizontalAlignment="Left" Margin="831,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditarCliente_Click"/>
+
+        <DataGrid x:Name="dgClientes" IsReadOnly="True" AutoGenerateColumns="False"  Margin="191,196,61,139" SelectionChanged="dgEmpleados_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="RUT" Binding="{Binding RUT_CLIENTE}" Width="140"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding NOMBRES}" Width="140"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding APELLIDOS}" Width="140"/>
+                <DataGridTextColumn Header="Telefono" Binding="{Binding TELEFONO}" Width="110"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding EMAIL}" Width="140"/>
+                <DataGridTextColumn Header="Contraseña" Binding="{Binding CONTRASENA}" Width="140"/>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+
+        </DataGrid>
+        <Button x:Name="btnActualizarEditar" Content="Actualizar" HorizontalAlignment="Left" Margin="941,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="btnActualizarEditar_Click"/>
 
 
 
-        <Rectangle x:Name="RtBarra" HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
+    
+
+
+    <Rectangle x:Name="RtBarra" HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFAA9759" Offset="1"/>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="Turismo.CrearCheckIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Turismo"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        mc:Ignorable="d"
+        Title="Realizar Check In" Height="580" Width="630">
+    <Grid>
+        <Rectangle x:Name="RtPago" HorizontalAlignment="Left" Height="168" Margin="314,340,0,0" Stroke="Black" VerticalAlignment="Top" Width="265" Fill="White"/>
+
+
+
+
+
+
+
+
+        <Label Content="Realizar Check In" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="lblCondicionDepto" Content="Condicion Departamento:" HorizontalAlignment="Left" Margin="28,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblPagoEstadia" Content="Nombre Cliente:" HorizontalAlignment="Left" Margin="315,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombreCliente" HorizontalAlignment="Left" Margin="419,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" FontWeight="Bold"/>
+        <Label x:Name="lblNroReserva" Content="N° de reserva:" HorizontalAlignment="Left" Margin="28,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnSubirFirma" Content="Subir Firma" HorizontalAlignment="Left" Margin="103,310,0,0" VerticalAlignment="Top" Click="btnSubirFirma_Click" Width="98"/>
+        <Label x:Name="LblFirma" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="92,513,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="btnRealizarPagoEstadia" Content="Proceder al Pago" HorizontalAlignment="Left" Margin="380,434,0,0" VerticalAlignment="Top" Width="132" Click="btnRealizarPagoEstadia_Click" Height="58"/>
+        <TextBox x:Name="tbCondicionDepto" HorizontalAlignment="Left" Margin="28,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249" Height="107" FontWeight="Bold"/>
+        <Label x:Name="lblAnotaciones" Content="Anotaciones:" HorizontalAlignment="Left" Margin="316,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbAnotaciones" HorizontalAlignment="Left" Margin="314,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="265" Height="107" FontWeight="Bold"/>
+        <Label x:Name="lblRegalos" Content="Regalo:" HorizontalAlignment="Left" Margin="316,114,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cbRegalo" HorizontalAlignment="Left" Margin="419,116,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="cbRegalo_SelectionChanged_1" FontWeight="Bold" />
+        <TextBox x:Name="tbNumeroReserva" HorizontalAlignment="Left" Margin="153,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="57" IsEnabled="False" FontWeight="Bold"/>
+        <Label x:Name="lblPagoEstadia_Copy" Content="Rut Cliente:" HorizontalAlignment="Left" Margin="28,116,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbRutCliente" HorizontalAlignment="Left" Margin="153,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" FontWeight="Bold"/>
+        <Label x:Name="lblPagoEstadia_Copy1" Content="Pago por estadia:" HorizontalAlignment="Left" Margin="376,348,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Rectangle x:Name="RtFoto" HorizontalAlignment="Left" Height="164" Margin="91,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="122" Fill="White"/>
+        <Image x:Name="ImgImagen" HorizontalAlignment="Left" Height="160" Margin="92,346,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblMontoPago" Content="0000" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="394,377,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Width="108"/>
+        <Label x:Name="lblPagoEstadia_Copy2" Content="$" HorizontalAlignment="Left" Margin="380,377,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Width="28"/>
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>
