@@ -321,6 +321,9 @@
     <Compile Include="CrearMulta.xaml.cs">
       <DependentUpon>CrearMulta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrearRegalo.xaml.cs">
+      <DependentUpon>CrearRegalo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearVehiculo.xaml.cs">
       <DependentUpon>CrearVehiculo.xaml</DependentUpon>
     </Compile>
@@ -467,6 +470,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CrearMulta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrearRegalo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

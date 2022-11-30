@@ -440,3 +440,5 @@ C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarCliente.baml
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarEmpleado.baml
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarPagoEstadia.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarPagoEstadia.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearRegalo.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearRegalo.baml

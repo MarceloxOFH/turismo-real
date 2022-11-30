@@ -11,7 +11,7 @@
     Left="0" Top="0">
     <Grid Background="LightGray">
         <Label Content="Check In" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Button x:Name="BtnCrear" Content="Realizar Check In" HorizontalAlignment="Left" Margin="782,124,0,0" VerticalAlignment="Top" Height="64" Width="177" Click="BtnCrear_Click" />
+        <Button x:Name="BtnCrear" Content="Realizar Check In" HorizontalAlignment="Left" Margin="829,77,0,0" VerticalAlignment="Top" Height="64" Width="177" Click="BtnCrear_Click" />
         <Button x:Name="btnRegalos" Content="Lista de Regalos" HorizontalAlignment="Left" Margin="194,582,0,0" VerticalAlignment="Top" Height="29" Width="112" Click="btnRegalos_Click" />
         <Button x:Name="actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="928,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="actualizar_Click" />
 
@@ -62,7 +62,7 @@
 
         </DataGrid>
         <Button x:Name="btnReservas" Content="Reservas Agendadas" HorizontalAlignment="Left" Margin="721,271,0,0" VerticalAlignment="Top" Width="140" Click="btnReservas_Click"/>
-        <Button x:Name="btndgCheckIn" Content="Check In Realizado" HorizontalAlignment="Left" Margin="886,271,0,0" VerticalAlignment="Top" Width="146" Click="btndgCheckIn_Click"/>
+        <Button x:Name="btndgCheckIn" Content="Check In Realizado" HorizontalAlignment="Left" Margin="883,271,0,0" VerticalAlignment="Top" Width="146" Click="btndgCheckIn_Click"/>
 
 
 

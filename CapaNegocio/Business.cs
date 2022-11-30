@@ -2130,7 +2130,7 @@ namespace CapaNegocio
         }
 
 
-        public void newCheckIn(string condicion_departamento, int pago_estadia, int reserva_nro_reserva, string firma_cliente, string anotaciones)
+        public bool newCheckIn(string condicion_departamento, int pago_estadia, int reserva_nro_reserva, string firma_cliente, string anotaciones, string id_regalo)
         {
 
             try
@@ -2147,7 +2147,7 @@ namespace CapaNegocio
                 command.Parameters.Add("pago_estadia", OracleDbType.Int32, 100).Value = pago_estadia;
                 command.Parameters.Add("reserva_nro_reserva", OracleDbType.Int32, 100).Value = reserva_nro_reserva;
                 command.Parameters.Add("firma_conformidad", OracleDbType.Varchar2, 400000000).Value = firma_cliente;
-                command.Parameters.Add("regalo_id_regalo", OracleDbType.Varchar2, 100).Value = 1;
+                command.Parameters.Add("regalo_id_regalo", OracleDbType.Varchar2, 100).Value = id_regalo;
                 command.Parameters.Add("activo", OracleDbType.Varchar2, 1).Value = "Y";
                 command.Parameters.Add("anotaciones", OracleDbType.Varchar2, 500).Value = anotaciones;
 
@@ -2156,12 +2156,79 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
                 MessageBox.Show("Check In Creado");
 
+                return true;
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar cliente: " + ex);
+                MessageBox.Show("Error al ingresar check in: " + ex);
+                return false;
             }
         }
+
+
+        public DataTable RegalosData()
+        {
+            OracleCommand command = new OracleCommand("SELECT REGA.ID_REGALO, REGA.CONTENIDO," +
+                "REGA.VALOR " +
+                "FROM REGALO REGA " +
+                "WHERE REGA.ID_REGALO != '0'", Conec.Connect());
+            OracleDataAdapter da = new OracleDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
+
+        public void deleteRegalo(string id_regalo)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("DELETE FROM REGALO " +
+                    "WHERE ID_REGALO = :id_regalo", Conec.Connect());
+
+                command.Parameters.Add("id_checkin", OracleDbType.Varchar2, 100).Value = id_regalo;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Regalo eliminado");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar regalo: " + ex);
+            }
+        }
+
+
+        public void newRegalo(string contenido, int valor)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO REGALO " +
+                    "(ID_REGALO, CONTENIDO, VALOR) VALUES (to_char(seq_id_rega.nextval)," +
+                    ":contenido, :valor) ", Conec.Connect());
+
+
+                command.Parameters.Add("contenido", OracleDbType.Varchar2, 500).Value = contenido;
+                command.Parameters.Add("valor", OracleDbType.Int32, 100).Value = valor;
+
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                MessageBox.Show("Regalo Creado");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar Regalo: " + ex);
+            }
+        }
+
 
     }
 }

@@ -41,7 +41,7 @@ namespace Turismo
 
         Business logic = new Business();
         int nro_reserva;
-        int pago_estadia;
+        int pago_total;
         string rut_cliente;
         string nombres;
         string apellidos;
@@ -64,8 +64,8 @@ namespace Turismo
 
         public void actualizarDatagridCheck()
         {
-            dgReserva.ItemsSource = null;
-            dgReserva.ItemsSource = logic.CheckInData().DefaultView;
+            dgCheckIn.ItemsSource = null;
+            dgCheckIn.ItemsSource = logic.CheckInData().DefaultView;
         }
 
 
@@ -138,6 +138,7 @@ namespace Turismo
                 rut_cliente = dr["CLIENTE_RUT_CLIENTE"].ToString();
                 nombres = dr["NOMBRES"].ToString();
                 apellidos = dr["APELLIDOS"].ToString();
+                pago_total = Convert.ToInt32(dr["VALOR_TOTAL"].ToString());
                 nombre_completo = nombres + " " + apellidos;
                 tbRutCliente.Text = rut_cliente;
                 tbNombreCliente.Text = nombre_completo;
@@ -185,7 +186,7 @@ namespace Turismo
         {
             if (nro_reserva != 0)
             {
-                new CrearCheckIn(nro_reserva, pago_estadia, nombre_completo, rut_cliente).Show();
+                new CrearCheckIn(nro_reserva, pago_total*4, nombre_completo, rut_cliente).Show();
             }
             else 
             {

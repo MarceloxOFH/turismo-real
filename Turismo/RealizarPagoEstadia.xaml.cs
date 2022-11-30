@@ -23,7 +23,7 @@ namespace Turismo
     /// </summary>
     public partial class RealizarPagoEstadia : MetroWindow
     {
-        public RealizarPagoEstadia(CrearCheckIn CCI, int nro_reserva, string rut_cliente, string nombres, int pago_estadia, string condicion_departamento, string firma_cliente, string anotaciones)
+        public RealizarPagoEstadia(CrearCheckIn CCI, int nro_reserva, string rut_cliente, string nombres, int pago_estadia, string condicion_departamento, string firma_cliente, string anotaciones, string id_regalo)
         {
             InitializeComponent();
             this.CCI = CCI;
@@ -43,6 +43,10 @@ namespace Turismo
             RtEfectivoSeleccionado.Visibility = Visibility.Hidden;
             RtTransferenciaSeleccionado.Visibility = Visibility.Hidden;
             this.pago_estadia = pago_estadia;
+            this.condicion_departamento = condicion_departamento;
+            this.firma_cliente = firma_cliente;
+            this.anotaciones = anotaciones;
+            this.id_regalo = id_regalo;
         }
 
         Business logic = new Business();
@@ -55,6 +59,7 @@ namespace Turismo
         string condicion_departamento;
         string firma_cliente;
         string anotaciones;
+        string id_regalo;
 
         private void BtnConfirmarPago_Click(object sender, RoutedEventArgs e)
         {
@@ -66,15 +71,24 @@ namespace Turismo
                 {
                     try
                     {
-                        logic.newCheckIn(condicion_departamento, pago_estadia, nro_reserva, firma_cliente, anotaciones);
+                        bool checkin_realizado = false;
+                        checkin_realizado = logic.newCheckIn(condicion_departamento, pago_estadia, nro_reserva, firma_cliente, anotaciones, id_regalo);
 
+                        if (checkin_realizado == true)
+                        {
                         //tablas de pago
                         string id_pago = (Convert.ToInt32(logic.getIdPago()) + 1).ToString();
                         logic.newPago(id_pago, pago_estadia);
                         logic.newPagoReservaEstadía(nro_reserva, id_pago, "Efectivo", "");
 
+
                         CCI.Close();
                         this.Close();
+                        }
+                        else
+                        {
+
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -91,15 +105,23 @@ namespace Turismo
                         MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Confirmar Pago con Transferencia de: $" + tbMonto.Text, "Pago con Transferencia", System.Windows.MessageBoxButton.YesNo);
                         if (messageBoxResult == MessageBoxResult.Yes)
                         {
-                            logic.newCheckIn(condicion_departamento, pago_estadia, nro_reserva, firma_cliente, anotaciones);
+                            bool checkin_realizado = false;
+                            checkin_realizado = logic.newCheckIn(condicion_departamento, pago_estadia, nro_reserva, firma_cliente, anotaciones, id_regalo);
 
-                            //tablas de pago
-                            string id_pago = (Convert.ToInt32(logic.getIdPago()) + 1).ToString();
-                            logic.newPago(id_pago, pago_estadia);
-                            logic.newPagoReservaEstadía(nro_reserva, id_pago, "Transferencia", comprobante_transferencia);
+                            if (checkin_realizado == true)
+                            {
+                                //tablas de pago
+                                string id_pago = (Convert.ToInt32(logic.getIdPago()) + 1).ToString();
+                                logic.newPago(id_pago, pago_estadia);
+                                logic.newPagoReservaEstadía(nro_reserva, id_pago, "Transferencia", comprobante_transferencia);
 
-                            CCI.Close();
-                            this.Close();
+                                CCI.Close();
+                                this.Close();
+                            }
+                            else 
+                            {
+                                
+                            }
                         }
                     }
                     else

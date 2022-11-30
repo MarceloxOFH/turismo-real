@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Regalos" Height="450" Width="800">
+        Title="Regalos" Height="520" Width="361">
     <Grid>
-        
+
+        <Label Content="Lista de Regalos disponibles" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="329" FontSize="24" FontWeight="Bold"/>
+        <DataGrid x:Name="dgRegalos" IsReadOnly="True" AutoGenerateColumns="False"  Margin="23,142,22,124" SelectionChanged="dgRegalos_SelectionChanged" BorderThickness="2"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding ID_REGALO}" Width="30"/>
+                <DataGridTextColumn Header="Contenido" Binding="{Binding CONTENIDO}" Width="120"/>
+                <DataGridTextColumn Header="Valor" Binding="{Binding VALOR}" Width="80"/>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE4EEF7"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="#FF1487EE"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.Resources>
+
+        </DataGrid>
+        <Button x:Name="btnCrearRegalo" Content="Crear" HorizontalAlignment="Left" Margin="181,403,0,0" VerticalAlignment="Top" Width="68" Click="btnCrearRegalo_Click"/>
+        <Button x:Name="btnEditarRegalo" Content="Editar" HorizontalAlignment="Left" Margin="106,403,0,0" VerticalAlignment="Top" Width="68"/>
+        <Button x:Name="btnEliminarRegalo" Content="Eliminar" HorizontalAlignment="Left" Margin="23,403,0,0" VerticalAlignment="Top" Width="68" Click="btnEliminarRegalo_Click"/>
+        <Button x:Name="btnActualizarRegalo" Content="Actualizar" HorizontalAlignment="Left" Margin="267,403,0,0" VerticalAlignment="Top" Click="btnActualizarRegalo_Click"/>
+
     </Grid>
 </Window>
