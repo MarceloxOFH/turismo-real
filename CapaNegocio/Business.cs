@@ -1,30 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CapaConexion;
-using CapaDatos;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
-using System.Configuration;
 using System.Windows;
 using System.Web.Mvc;
-using System.Windows.Controls;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Windows.Media;
-//using Microsoft.Web.Services3.Addressing;
-using System.Reflection;
 using System.IO;
 using System.Windows.Media.Imaging;
-using static System.Net.Mime.MediaTypeNames;
 using Image = System.Windows.Controls.Image;
-using System.EnterpriseServices;
-using Microsoft.Web.Services3.Addressing;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media.Media3D;
-using System.Threading;
+
 
 namespace CapaNegocio
 {
@@ -44,7 +27,14 @@ namespace CapaNegocio
 
         public void configConnection()
         {
-            this.Conec = new Connection();
+            try
+            {
+                this.Conec = new Connection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexión en configConnection(): " + ex);
+            }
 
         }
 
@@ -1751,21 +1741,19 @@ namespace CapaNegocio
             }
         }
 
-        public static BitmapSource BitmapFromBase64(string b64string)
-        {
-            var bytes = Convert.FromBase64String(b64string);
-
-            using (var stream = new MemoryStream(bytes))
-            {
-                return BitmapFrame.Create(stream,
-                    BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
-            }
-        }
-
         public string ConvertImageToBase64String(byte[] image_array)
         {
-            string base64ImageRepresentation = Convert.ToBase64String(image_array);
-            return base64ImageRepresentation;
+            try
+            {
+                string base64ImageRepresentation = Convert.ToBase64String(image_array);
+                return base64ImageRepresentation;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en ConvertImageToBase64String(byte[] image_array)");
+                string base64ImageRepresentation = "";
+                return base64ImageRepresentation;
+            }
         }
 
         public void Usuario(string _usuario)
@@ -1790,7 +1778,9 @@ namespace CapaNegocio
 
         public DataTable ReservaData()
         {
-            OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, RES.TOTAL_PERSONAS, " +
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, RES.TOTAL_PERSONAS, " +
                 "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
                 "CLI.NOMBRES, CLI.APELLIDOS, " +
                 "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
@@ -1802,11 +1792,18 @@ namespace CapaNegocio
                     "(SELECT NULL " +
                     "FROM CHECK_IN " +
                     "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)", Conec.Connect());
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en ReservaData()" + ex);
+                DataTable dt = null;
+                return dt;
+            }
 
         }
 
@@ -1834,7 +1831,6 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("check in data error" + ex);
                 DataTable dt = null;
                 return dt;
@@ -1844,48 +1840,75 @@ namespace CapaNegocio
 
         public DataTable dtestadoNroReservaInData()
         {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT NRO_RESERVA FROM RESERVA", Conec.Connect());
+                OracleDataReader dr = command.ExecuteReader();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
 
-            OracleCommand command = new OracleCommand("SELECT NRO_RESERVA FROM RESERVA", Conec.Connect());
-            OracleDataReader dr = command.ExecuteReader();
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            //DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-
-            da = new OracleDataAdapter(command);
-            da.Fill(dt);
+                da = new OracleDataAdapter(command);
+                da.Fill(dt);
 
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en dtestadoNroReservaInData()" + ex);
+                DataTable dt = null;
+                return dt;
+            }
+
         }
         public DataTable dtestadoRegaloInData()
         {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT ID_REGALO, CONTENIDO FROM REGALO", Conec.Connect());
+                OracleDataReader dr = command.ExecuteReader();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
 
-            OracleCommand command = new OracleCommand("SELECT ID_REGALO, CONTENIDO FROM REGALO", Conec.Connect());
-            OracleDataReader dr = command.ExecuteReader();
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            //DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-
-            da = new OracleDataAdapter(command);
-            da.Fill(dt);
+                da = new OracleDataAdapter(command);
+                da.Fill(dt);
 
 
-            return dt;
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en dtestadoRegaloInData()" + ex);
+                DataTable dt = null;
+                return dt;
+            }
+
         }
 
         public DataTable ClientesData()
         {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, CLI.TELEFONO," +
+                    "CLI.EMAIL, CLI.CONTRASENA " +
+                    "FROM CLIENTE CLI " +
+                    "WHERE CLI.RUT_CLIENTE != '0'", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
+                return dt;
+            }
 
-            OracleCommand command = new OracleCommand("SELECT CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, CLI.TELEFONO," +
-                "CLI.EMAIL, CLI.CONTRASENA " +
-                "FROM CLIENTE CLI " +
-                "WHERE CLI.RUT_CLIENTE != '0'", Conec.Connect());
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            return dt;
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en ClientesData()" + ex);
+                DataTable dt = null;
+                return dt;
+            }
         }
 
 
@@ -1985,18 +2008,29 @@ namespace CapaNegocio
 
         public DataTable EmpleadosData()
         {
-            OracleCommand command = new OracleCommand("SELECT EMP.ID_EMPLEADO," +
-                "EMP.NOMBRES, EMP.APELLIDOS, EMP.ANNO_CONTRATACION AS AÑO_CONTRATACION, " +
-                "CAR.NOMBRE AS CARGO, EMP.SUELDO, " +
-                "EMP.CARGO_ID_CARGO AS ID_CARGO, EMP.ACCESO_USERNAME AS USERNAME " +
-                "FROM EMPLEADO EMP " +
-                "INNER JOIN CARGO CAR ON CAR.ID_CARGO = EMP.CARGO_ID_CARGO " +
-                "WHERE EMP.ID_EMPLEADO != '0'", Conec.Connect());
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT EMP.ID_EMPLEADO," +
+                    "EMP.NOMBRES, EMP.APELLIDOS, EMP.ANNO_CONTRATACION AS AÑO_CONTRATACION, " +
+                    "CAR.NOMBRE AS CARGO, EMP.SUELDO, " +
+                    "EMP.CARGO_ID_CARGO AS ID_CARGO, EMP.ACCESO_USERNAME AS USERNAME " +
+                    "FROM EMPLEADO EMP " +
+                    "INNER JOIN CARGO CAR ON CAR.ID_CARGO = EMP.CARGO_ID_CARGO " +
+                    "WHERE EMP.ID_EMPLEADO != '0'", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            return dt;
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en EmpleadosData()" + ex);
+                DataTable dt = null;
+                return dt;
+            }
+
         }
 
 
@@ -2024,18 +2058,26 @@ namespace CapaNegocio
 
         public DataTable dtestadoEmpleadoData()
         {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT ID_CARGO, NOMBRE FROM CARGO", Conec.Connect());
+                OracleDataReader dr = command.ExecuteReader();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
 
-            OracleCommand command = new OracleCommand("SELECT ID_CARGO, NOMBRE FROM CARGO", Conec.Connect());
-            OracleDataReader dr = command.ExecuteReader();
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            //DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
+                da = new OracleDataAdapter(command);
+                da.Fill(dt);
 
-            da = new OracleDataAdapter(command);
-            da.Fill(dt);
+                return dt;
+            }
 
-
-            return dt;
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en dtestadoEmpleadoData()" + ex);
+                DataTable dt = null;
+                return dt;
+            }
         }
 
 
