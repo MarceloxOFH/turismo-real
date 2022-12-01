@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Turismo"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"          
         mc:Ignorable="d"
-        Title="CrearEmpleado" Height="520" Width="361">
+        Title="Crear Empleado" Height="480" Width="386" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
         <Label Content="Crear Empleado" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label x:Name="lblNombres" Content="Nombres:" HorizontalAlignment="Left" Margin="26,75,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
@@ -16,11 +16,11 @@
         <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="170,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
         <TextBox x:Name="tbApellido" HorizontalAlignment="Left" Margin="172,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
         <TextBox x:Name="tbSueldo" HorizontalAlignment="Left" Margin="170,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
-        <Button x:Name="BtnLimpiarEmpleado" Content="Limpiar" HorizontalAlignment="Left"  Margin="247,447,0,0" VerticalAlignment="Top" Height="32" Width="74"/>
+        <Button x:Name="BtnLimpiarEmpleado" Content="Limpiar" HorizontalAlignment="Left"  Margin="256,344,0,0" VerticalAlignment="Top" Height="32" Width="74"/>
         <ComboBox x:Name="cbCargo" HorizontalAlignment="Left" Margin="170,152,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbCargo_SelectionChanged"/>
-        <Button x:Name="BtnCrearEmpleado" Content="Crear" HorizontalAlignment="Center" Margin="0,447,0,0" VerticalAlignment="Top"  Height="32" Width="74" Click="BtnCrearEmpleado_Click"/>
+        <Button x:Name="BtnCrearEmpleado" Content="Crear" HorizontalAlignment="Left" Margin="166,344,0,0" VerticalAlignment="Top"  Height="32" Width="74" Click="BtnCrearEmpleado_Click"/>
         <Label x:Name="lblAnnoContratacion" Content="Año Contratacion:" HorizontalAlignment="Left" Margin="26,252,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <DatePicker x:Name="dtpAnnoContrato" HorizontalAlignment="Left" Margin="190,255,0,0" VerticalAlignment="Top" />
+        <DatePicker x:Name="dtpAnnoContrato" HorizontalAlignment="Left" Margin="172,255,0,0" VerticalAlignment="Top" />
         <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="26,214,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
         <TextBox x:Name="tbAccesoUsername" HorizontalAlignment="Left" Margin="170,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
     </Grid>

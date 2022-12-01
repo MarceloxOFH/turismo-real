@@ -26,7 +26,7 @@ namespace Turismo
             InitializeComponent();
             dgOtrosServicios.Visibility = Visibility.Hidden;
             dgServiciosActuales.ItemsSource = logic.ServiciosActuales(id_departamento).DefaultView;
-            dgOtrosServicios.ItemsSource = logic.ServiciosOtros(id_departamento).DefaultView;
+            dgOtrosServicios.ItemsSource = logic.ServiciosOtros().DefaultView;
 
             this.id_departamento = id_departamento;
             this.nombre_departamento = nombre_departamento;
@@ -49,7 +49,7 @@ namespace Turismo
         private void refreshDatagridOtrSer()
         {
             dgOtrosServicios.ItemsSource = null;
-            dgOtrosServicios.ItemsSource = logic.ServiciosOtros(id_departamento).DefaultView;
+            dgOtrosServicios.ItemsSource = logic.ServiciosOtros().DefaultView;
         }
         private void BtnServiciosActuales_Click(object sender, RoutedEventArgs e)
         {

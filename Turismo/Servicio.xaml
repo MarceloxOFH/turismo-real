@@ -65,7 +65,7 @@
         <Rectangle x:Name="rtBtnOtrSer" HorizontalAlignment="Center" Height="29" Margin="0,167,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="150" Fill="#FFC9A000"/>
         <Button x:Name="BtnServiciosActuales" Content="Servicios Actuales" HorizontalAlignment="Left" Margin="385,169,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnServiciosActuales_Click"/>
         <Button x:Name="BtnOtrosServicios" Content="Todos los Servicios" HorizontalAlignment="Center" Margin="0,169,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnOtrosServicios_Click"/>
-        <Button x:Name="BtnAgregarServicio" Content="Agregar Servicio" HorizontalAlignment="Left" Margin="428,380,0,0" VerticalAlignment="Top" Width="106" Click="btnActualizar_Click" Height="31" Background="#FFA5DF90" BorderBrush="Black"/>
+        <Button x:Name="BtnAgregarServicio" Content="Mover Servicio" HorizontalAlignment="Left" Margin="428,380,0,0" VerticalAlignment="Top" Width="106" Click="btnActualizar_Click" Height="31" Background="#FFA5DF90" BorderBrush="Black"/>
 
     </Grid>
 </mah:MetroWindow>

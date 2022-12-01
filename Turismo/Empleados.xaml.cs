@@ -86,27 +86,33 @@ namespace Turismo
 
         private void dgEmpleados_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                id_empleado = dr["ID_EMPLEADO"].ToString();
-                nombres = dr["NOMBRES"].ToString();
-                apellidos = dr["APELLIDOS"].ToString();
-                anno_contratacion = Convert.ToDateTime(dr["AÑO_CONTRATACION"]);
-                cargo = dr["CARGO"].ToString();
-                sueldo = Convert.ToInt32(dr["SUELDO"]);
-                id_cargo = dr["ID_CARGO"].ToString();
-                acceso_username = dr["USERNAME"].ToString();
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    id_empleado = dr["ID_EMPLEADO"].ToString();
+                    nombres = dr["NOMBRES"].ToString();
+                    apellidos = dr["APELLIDOS"].ToString();
+                    anno_contratacion = Convert.ToDateTime(dr["AÑO_CONTRATACION"]);
+                    cargo = dr["CARGO"].ToString();
+                    sueldo = Convert.ToInt32(dr["SUELDO"]);
+                    id_cargo = dr["ID_CARGO"].ToString();
+                    acceso_username = dr["USERNAME"].ToString();
 
 
-                tbnombreEmpleado.Text = nombres;
-                tbApellidoEmpleado.Text = apellidos;
-                BtnEliminar.IsEnabled = true;
-                BtnEditar.IsEnabled = true;
+                    tbnombreEmpleado.Text = nombres;
+                    tbApellidoEmpleado.Text = apellidos;
+                    BtnEliminar.IsEnabled = true;
+                    BtnEditar.IsEnabled = true;
 
-                cbCargo.SelectedIndex = Convert.ToInt32(id_cargo) - 1;
+                    cbCargo.SelectedIndex = Convert.ToInt32(id_cargo) - 1;
 
+                }
+            }
+            catch (Exception ex)
+            { 
             }
         }
 

@@ -12,15 +12,15 @@
     <Grid Background="LightGray">
 
         <Label Content="Clientes" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="lblClienteNombre" Content="Nombre:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblClienteRut" Content="Rut:" HorizontalAlignment="Left" Margin="573,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbClienteNombre" HorizontalAlignment="Left" Margin="284,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
-        <TextBox x:Name="tbClienteRut" HorizontalAlignment="Left" Margin="643,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
+        <Label x:Name="lblClienteNombre" Content="Nombre:" HorizontalAlignment="Left" Margin="191,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblClienteRut" Content="Rut:" HorizontalAlignment="Left" Margin="573,102,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbClienteNombre" HorizontalAlignment="Left" Margin="284,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" FontWeight="Bold"/>
+        <TextBox x:Name="tbClienteRut" HorizontalAlignment="Left" Margin="643,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" FontWeight="Bold"/>
         <Button x:Name="BtnEliminarCliente" Content="Eliminar" HorizontalAlignment="Left" Margin="643,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminarCliente_Click"/>
         <Button x:Name="BtnCrearCliente" Content="Crear" HorizontalAlignment="Left" Margin="737,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrearCliente_Click"/>
         <Button x:Name="BtnEditarCliente" Content="Editar" HorizontalAlignment="Left" Margin="831,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditarCliente_Click"/>
 
-        <DataGrid x:Name="dgClientes" IsReadOnly="True" AutoGenerateColumns="False"  Margin="191,196,61,139" SelectionChanged="dgEmpleados_SelectionChanged">
+        <DataGrid x:Name="dgClientes" IsReadOnly="True" AutoGenerateColumns="False"  Margin="191,196,61,139" SelectionChanged="dgEmpleados_SelectionChanged" FontWeight="Bold">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="RUT" Binding="{Binding RUT_CLIENTE}" Width="140"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding NOMBRES}" Width="140"/>
@@ -43,10 +43,10 @@
 
 
 
-    
 
 
-    <Rectangle x:Name="RtBarra" HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
+
+        <Rectangle x:Name="RtBarra" HorizontalAlignment="Left" Height="727" VerticalAlignment="Center" Width="177" OpacityMask="White" Margin="-6,0,0,0" Stroke="#FFC69C31">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFAA9759" Offset="1"/>

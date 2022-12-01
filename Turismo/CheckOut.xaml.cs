@@ -31,8 +31,8 @@ namespace Turismo
 
             if (Business.usertype_login == "Funcionario")
             {
-                BtnCheckOut.Margin = new Thickness(12, 105, 0, 0);
-                BtnCheckIn.Margin = new Thickness(12, 150, 0, 0);
+                BtnCheckIn.Margin = new Thickness(12, 105, 0, 0);
+                BtnCheckOut.Margin = new Thickness(12, 150, 0, 0);
                 BtnDepartamentos.Visibility = Visibility.Hidden;
                 BtnInventario.Visibility = Visibility.Hidden;
                 BtnEmpleados.Visibility = Visibility.Hidden;

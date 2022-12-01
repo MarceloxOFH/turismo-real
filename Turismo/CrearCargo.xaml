@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"          
-        Title="CrearCargo" Height="520" Width="361">
+        Title="Crear Cargo" Height="520" Width="361" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
         <Label Content="Crear Cargo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="lblNombreCargo" Content="Cargo" HorizontalAlignment="Left" Margin="39,118,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblDescripcion" Content="Descripcion" HorizontalAlignment="Left" Margin="39,185,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbCargoNombre" HorizontalAlignment="Left" Margin="135,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Center" Margin="0,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="282" Height="111"/>
+        <Label x:Name="lblNombreCargo" Content="Cargo" HorizontalAlignment="Left" Margin="39,118,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblDescripcion" Content="Descripcion" HorizontalAlignment="Left" Margin="39,185,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbCargoNombre" HorizontalAlignment="Left" Margin="135,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Center" Margin="0,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="282" Height="111" FontWeight="Bold"/>
         <Button x:Name="btnCrearCargo" Content="Crear" HorizontalAlignment="Left" Margin="231,434,0,0" VerticalAlignment="Top" Height="32" Width="74" Click="btnCrearCargo_Click"/>
 
     </Grid>

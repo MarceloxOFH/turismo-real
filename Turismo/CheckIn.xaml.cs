@@ -23,6 +23,25 @@ namespace Turismo
         public CheckIn()
         {
             InitializeComponent();
+
+
+            LblUsuario.Content = Business.user_login;
+            LblCargo.Content = Business.usertype_login;
+
+            if (Business.usertype_login == "Funcionario")
+            {
+                BtnCheckIn.Margin = new Thickness(12, 105, 0, 0);
+                BtnCheckOut.Margin = new Thickness(12, 150, 0, 0);
+                BtnDepartamentos.Visibility = Visibility.Hidden;
+                BtnInventario.Visibility = Visibility.Hidden;
+                BtnEmpleados.Visibility = Visibility.Hidden;
+                BtnClientes.Visibility = Visibility.Hidden;
+                BtnConductores.Visibility = Visibility.Hidden;
+                BtnVehiculos.Visibility = Visibility.Hidden;
+                BtnEstadisticas.Visibility = Visibility.Hidden;
+                BtnPagos.Visibility = Visibility.Hidden;
+            }
+
             dgReserva.ItemsSource = logic.ReservaData().DefaultView;
             dgCheckIn.ItemsSource = logic.CheckInData().DefaultView;
             dgCheckIn.Visibility = Visibility.Hidden;
@@ -186,7 +205,7 @@ namespace Turismo
         {
             if (nro_reserva != 0)
             {
-                new CrearCheckIn(nro_reserva, pago_total*4, nombre_completo, rut_cliente).Show();
+                new CrearCheckIn(nro_reserva, (pago_total/2)*3 , nombre_completo, rut_cliente).Show();
             }
             else 
             {

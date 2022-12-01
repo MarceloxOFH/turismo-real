@@ -48,7 +48,7 @@ namespace Turismo
         {
 
 
-            MessageBox.Show("id cargo" + idCargo);
+            //MessageBox.Show("id cargo" + idCargo);
             try
             {
                 logic.newEmpleado(tbNombre.Text, tbApellido.Text, Convert.ToDateTime(dtpAnnoContrato.Text), Convert.ToInt32(tbSueldo.Text), idCargo, tbAccesoUsername.Text);

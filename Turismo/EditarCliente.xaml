@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Turismo"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"          
         mc:Ignorable="d"
-        Title="EditarCliente" Height="520" Width="361">
+        Title="Editar Cliente" Height="520" Width="361" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
         <Label Content="Editar Cliente" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label x:Name="lblRut" Content="Rut:" HorizontalAlignment="Left" Margin="16,81,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>

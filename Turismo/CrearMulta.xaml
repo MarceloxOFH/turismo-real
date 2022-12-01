@@ -12,9 +12,9 @@
         <Label Content="Crear Multa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="168,191,0,0" VerticalAlignment="Top" Width="81" Click="btnLimpiar_Click"/>
         <Label Content="Costo:" HorizontalAlignment="Left" Margin="24,123,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="104,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Height="46"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="104,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Height="46" FontWeight="Bold"/>
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="23,66,0,0" VerticalAlignment="Top" Width="81" FontWeight="Bold"/>
-        <TextBox x:Name="tbCosto" HorizontalAlignment="Center" Margin="0,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Height="18"/>
+        <TextBox x:Name="tbCosto" HorizontalAlignment="Center" Margin="0,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Height="18" FontWeight="Bold"/>
 
     </Grid>
 </mah:MetroWindow>

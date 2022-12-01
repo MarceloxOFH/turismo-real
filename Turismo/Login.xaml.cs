@@ -47,7 +47,7 @@ namespace Turismo
                     logic.Usuario(dt.Rows[0][0].ToString());
                     logic.TipoUsuario(dt.Rows[0][1].ToString());
                     this.Hide();
-                    new CheckOut().ShowDialog();
+                    new CheckIn().ShowDialog();
                 }
 
                 else

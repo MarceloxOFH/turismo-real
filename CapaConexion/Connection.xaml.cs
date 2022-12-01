@@ -27,7 +27,7 @@ namespace CapaConexion
 
         public OracleConnection Connect()
         {
-            OracleConnection conexion = new OracleConnection(ConfigurationManager.ConnectionStrings["TURISMOREAL4"].ConnectionString);
+            OracleConnection conexion = new OracleConnection(ConfigurationManager.ConnectionStrings["TURISMOREAL3"].ConnectionString);
             conexion.Open();
             return conexion;
         }
