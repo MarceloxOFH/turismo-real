@@ -15,7 +15,6 @@ namespace CapaNegocio
     {
         public Business()
         {
-            //InitializeComponent();
             configConnection();
         }
 
@@ -240,12 +239,21 @@ namespace CapaNegocio
 
         public DataTable ConductorData()
         {
-            OracleCommand command = new OracleCommand("SELECT * FROM CONDUCTOR", Conec.Connect());
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT * FROM CONDUCTOR", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
         }
 
         public DataTable getInventarioDep(string id_departamento)
@@ -281,14 +289,24 @@ namespace CapaNegocio
 
         public DataTable MantencionData()
         {
-            OracleCommand command = new OracleCommand("SELECT DEPARTAMENTO_ID_DEPARTAMENTO AS ID_DEPARTAMENTO, " +
-                "ID_MANTENCION, FECHA_INICIO, FECHA_TERMINO, COSTO, DESCRIPCION " +
-                "FROM MANTENCION_DEPARTAMENTO", Conec.Connect());
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
 
-            return dt;
+                OracleCommand command = new OracleCommand("SELECT DEPARTAMENTO_ID_DEPARTAMENTO AS ID_DEPARTAMENTO, " +
+                    "ID_MANTENCION, FECHA_INICIO, FECHA_TERMINO, COSTO, DESCRIPCION " +
+                    "FROM MANTENCION_DEPARTAMENTO", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
         }
 
         public DataTable MantencionDepId(string id_departamento)
@@ -319,41 +337,61 @@ namespace CapaNegocio
 
         public DataTable ServiciosActuales(string id_departamento)
         {
-            OracleCommand command = new OracleCommand("SELECT DSA.DEPARTAMENTO_ID_DEPARTAMENTO AS ID_DEPARTAMENTO, " +
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT DSA.DEPARTAMENTO_ID_DEPARTAMENTO AS ID_DEPARTAMENTO, " +
                 "DSA.SERVICIO_ASOCIADO_ID_SERVICIO AS ID_SERVICIO, SA.NOMBRE_SERVICIO, SA.DESCRIPCION, SA.COSTO " +
                 "FROM DEPA_ASOC DSA " +
                 "INNER JOIN SERVICIO_ASOCIADO SA ON SA.ID_SERVICIO = DSA.SERVICIO_ASOCIADO_ID_SERVICIO " +
                 "WHERE DSA.DEPARTAMENTO_ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
 
-            command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
-            command.ExecuteNonQuery();
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex) 
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
+
         }
 
         public DataTable ServiciosOtros()
         {
-            OracleCommand command = new OracleCommand("SELECT ID_SERVICIO, NOMBRE_SERVICIO, DESCRIPCION, COSTO FROM SERVICIO_ASOCIADO", Conec.Connect());
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT ID_SERVICIO, NOMBRE_SERVICIO, DESCRIPCION, COSTO FROM SERVICIO_ASOCIADO", Conec.Connect());
 
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
         }
 
         public DataTable MantencionTerminadaDepId(string id_departamento)
         {
             try
             {
+
                 OracleCommand command = new OracleCommand("SELECT DEPARTAMENTO_ID_DEPARTAMENTO AS ID_DEPARTAMENTO, " +
                     "ID_MANTENCION, FECHA_INICIO, FECHA_TERMINO, COSTO, DESCRIPCION " +
                     "FROM MANTENCION_DEPARTAMENTO " +
                     "WHERE DEPARTAMENTO_ID_DEPARTAMENTO = :id_departamento AND " +
-                    "FECHA_TERMINO < CURRENT_DATE", Conec.Connect());
+                    "FECHA_TERMINO < to_char(CURRENT_DATE)", Conec.Connect());
 
                 command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
                 command.ExecuteNonQuery();
@@ -402,18 +440,28 @@ namespace CapaNegocio
 
         public DataTable VehiculoData()
         {
-            OracleCommand command = new OracleCommand("SELECT VE.PATENTE, " +
-                "VE.DISPONIBILIDAD, VE.MODELO, " +
-                "EV.ID_ESTADO_VEHI AS ID_ESTADO, " +
-                "EV.NOMBRE AS ESTADO, VE.CAPACIDAD, VE.DESCRIPCION " +
-                "FROM VEHICULO VE " +
-                "INNER JOIN ESTADO_VEHICULO EV ON EV.ID_ESTADO_VEHI = VE.ESTADO_VEHICULO_ID_ESTADO_VEHI " +
-                "ORDER BY PATENTE ASC", Conec.Connect());
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
 
-            return dt;
+                OracleCommand command = new OracleCommand("SELECT VE.PATENTE, " +
+                    "VE.DISPONIBILIDAD, VE.MODELO, " +
+                    "EV.ID_ESTADO_VEHI AS ID_ESTADO, " +
+                    "EV.NOMBRE AS ESTADO, VE.CAPACIDAD, VE.DESCRIPCION " +
+                    "FROM VEHICULO VE " +
+                    "INNER JOIN ESTADO_VEHICULO EV ON EV.ID_ESTADO_VEHI = VE.ESTADO_VEHICULO_ID_ESTADO_VEHI " +
+                    "ORDER BY PATENTE ASC", Conec.Connect());
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
         }
 
         public DataTable CategoriaData()
@@ -467,50 +515,74 @@ namespace CapaNegocio
 
         public DataTable dtestadoDepartamentoData()
         {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT ID_ESTADO, NOMBRE FROM ESTADO_DEPARTAMENTO", Conec.Connect());
+                OracleDataReader dr = command.ExecuteReader();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
 
-            OracleCommand command = new OracleCommand("SELECT ID_ESTADO, NOMBRE FROM ESTADO_DEPARTAMENTO", Conec.Connect());
-            OracleDataReader dr = command.ExecuteReader();
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            //DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-
-            da = new OracleDataAdapter(command);
-            da.Fill(dt);
+                da = new OracleDataAdapter(command);
+                da.Fill(dt);
 
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
         }
 
         public DataTable dtestadoVehiculoData()
         {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT ID_ESTADO_VEHI AS ID_ESTADO, NOMBRE, DESCRIPCION FROM ESTADO_VEHICULO ORDER BY ID_ESTADO ASC", Conec.Connect());
+                OracleDataReader dr = command.ExecuteReader();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
 
-            OracleCommand command = new OracleCommand("SELECT ID_ESTADO_VEHI AS ID_ESTADO, NOMBRE, DESCRIPCION FROM ESTADO_VEHICULO ORDER BY ID_ESTADO ASC", Conec.Connect());
-            OracleDataReader dr = command.ExecuteReader();
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            //DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-
-            da = new OracleDataAdapter(command);
-            da.Fill(dt);
+                da = new OracleDataAdapter(command);
+                da.Fill(dt);
 
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
         }
 
         public DataTable dtregionData()
         {
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT ID_REGION, NOMBRE FROM REGION", Conec.Connect());
+                OracleDataReader dr = command.ExecuteReader();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                //DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
 
-            OracleCommand command = new OracleCommand("SELECT ID_REGION, NOMBRE FROM REGION", Conec.Connect());
-            OracleDataReader dr = command.ExecuteReader();
-            OracleDataAdapter da = new OracleDataAdapter(command);
-            //DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-
-            da = new OracleDataAdapter(command);
-            da.Fill(dt);
+                da = new OracleDataAdapter(command);
+                da.Fill(dt);
 
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+
+                return dt;
+            }
         }
 
         public string getIdUbicacion()
@@ -743,8 +815,8 @@ namespace CapaNegocio
                     ":fecha_inicio, :fecha_termino, :costo, :descripcion)", Conec.Connect());
 
                 command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
-                command.Parameters.Add("fecha_inicio", OracleDbType.Varchar2, 100).Value = fecha_inicio.ToString("MM/dd/yyyy HH:mm");
-                command.Parameters.Add("fecha_termino", OracleDbType.Varchar2, 100).Value = fecha_termino.ToString("MM/dd/yyyy HH:mm");
+                command.Parameters.Add("fecha_inicio", OracleDbType.Varchar2, 100).Value = fecha_inicio.ToString("dd/MM/yyyy HH:mm");
+                command.Parameters.Add("fecha_termino", OracleDbType.Varchar2, 100).Value = fecha_termino.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("costo", OracleDbType.Int32, 100).Value = costo;
                 command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
                 command.ExecuteNonQuery();
@@ -773,7 +845,7 @@ namespace CapaNegocio
                 command.Parameters.Add("rut_conductor", OracleDbType.Varchar2, 100).Value = rut_conductor;
                 command.Parameters.Add("nombres", OracleDbType.Varchar2, 100).Value = nombres;
                 command.Parameters.Add("apellidos", OracleDbType.Varchar2, 100).Value = apellidos;
-                command.Parameters.Add("caducidad_licencia", OracleDbType.Varchar2, 100).Value = caducidad_licencia.ToString("MM/dd/yyyy");
+                command.Parameters.Add("caducidad_licencia", OracleDbType.Varchar2, 100).Value = caducidad_licencia.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("disponibilidad", OracleDbType.Varchar2, 100).Value = disponibilidad;
                 command.Parameters.Add("sueldo", OracleDbType.Int32, 100).Value = sueldo;
 
@@ -813,6 +885,52 @@ namespace CapaNegocio
             catch (Exception ex)
             {
                 MessageBox.Show("Error al agregar Foto: " + ex);
+            }
+        }
+
+        public void newFotoPrincipal(string url_imagen, string id_departamento)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("INSERT INTO FOTO_MUESTRA " +
+                    "(DEPARTAMENTO_ID_DEPARTAMENTO, URL_IMAGEN) VALUES (:id_departamento, :url_imagen)", Conec.Connect());
+
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+                command.Parameters.Add("url_imagen", OracleDbType.Varchar2, 100).Value = url_imagen;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Foto asignada como Principal", "Foto");
+
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error al asignar Foto Principal: " + ex);
+                editFotoPrincipal(url_imagen, id_departamento);
+            }
+        }
+
+        public void editFotoPrincipal(string url_imagen, string id_departamento)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE FOTO_MUESTRA " +
+                    "SET URL_IMAGEN = :url_imagen " +
+                    "WHERE DEPARTAMENTO_ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
+
+                command.Parameters.Add("url_imagen", OracleDbType.Varchar2, 100).Value = url_imagen;
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Foto asignada como Principal", "Foto");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error al editar Foto Principal: " + ex);
             }
         }
 
@@ -999,7 +1117,7 @@ namespace CapaNegocio
 
                 command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
                 command.Parameters.Add("activo", OracleDbType.Varchar2, 100).Value = "N";
-                command.Parameters.Add("hora_salida", OracleDbType.Varchar2).Value = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                command.Parameters.Add("hora_salida", OracleDbType.Varchar2).Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("firma_cliente", OracleDbType.Varchar2, 12000000).Value = firma_cliente;
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
@@ -1046,7 +1164,7 @@ namespace CapaNegocio
 
                 command.Parameters.Add("descripcion", OracleDbType.Varchar2, 200).Value = descripcion;
                 command.Parameters.Add("costo", OracleDbType.Varchar2, 100).Value = costo;
-                command.Parameters.Add("fecha_creacion", OracleDbType.Varchar2).Value = DateTime.Now.ToString("MM/dd/yyyy HH:mm"); 
+                command.Parameters.Add("fecha_creacion", OracleDbType.Varchar2).Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm"); 
                 command.Parameters.Add("id_checkout", OracleDbType.Varchar2).Value = id_checkout;
                 command.Parameters.Add("pagada", OracleDbType.Varchar2, 100).Value = "N";
                 command.ExecuteNonQuery();
@@ -1122,7 +1240,7 @@ namespace CapaNegocio
                     ":fecha_pago, :estado, :monto)", Conec.Connect());
 
                 command.Parameters.Add("id_pago", OracleDbType.Int32, 100).Value = id_pago;
-                command.Parameters.Add("fecha_pago", OracleDbType.Varchar2).Value = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                command.Parameters.Add("fecha_pago", OracleDbType.Varchar2).Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("estado", OracleDbType.Varchar2, 100).Value = "PAGADO";
                 command.Parameters.Add("monto", OracleDbType.Int32, 100).Value = monto;
 
@@ -1198,7 +1316,7 @@ namespace CapaNegocio
 
                 command.Parameters.Add("activo", OracleDbType.Varchar2, 100).Value = "N";
                 command.Parameters.Add("firma_cliente", OracleDbType.Varchar2, 12000000).Value = firma_cliente;
-                command.Parameters.Add("hora_salida", OracleDbType.Varchar2).Value = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                command.Parameters.Add("hora_salida", OracleDbType.Varchar2).Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("nro_reserva", OracleDbType.Int32, 100).Value = nro_reserva;
 
                 command.ExecuteNonQuery();
@@ -1325,7 +1443,7 @@ namespace CapaNegocio
 
                 command.Parameters.Add("nombres", OracleDbType.Varchar2, 100).Value = nombres;
                 command.Parameters.Add("apellidos", OracleDbType.Varchar2, 100).Value = apellidos;
-                command.Parameters.Add("caducidad_licencia", OracleDbType.Varchar2, 100).Value = caducidad_licencia.ToString("MM/dd/yyyy");
+                command.Parameters.Add("caducidad_licencia", OracleDbType.Varchar2, 100).Value = caducidad_licencia.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("disponibilidad", OracleDbType.Varchar2, 100).Value = disponibilidad;
                 command.Parameters.Add("sueldo", OracleDbType.Int32, 100).Value = sueldo;
                 command.Parameters.Add("rut_conductor", OracleDbType.Varchar2, 100).Value = rut_conductor;
@@ -1585,8 +1703,8 @@ namespace CapaNegocio
                     "WHERE ID_MANTENCION = :id_mantencion", Conec.Connect());
 
                 command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
-                command.Parameters.Add("fecha_inicio", OracleDbType.Varchar2, 100).Value = fecha_inicio.ToString("MM/dd/yyyy HH:mm");
-                command.Parameters.Add("fecha_termino", OracleDbType.Varchar2, 100).Value = fecha_termino.ToString("MM/dd/yyyy HH:mm");
+                command.Parameters.Add("fecha_inicio", OracleDbType.Varchar2, 100).Value = fecha_inicio.ToString("dd/MM/yyyy HH:mm");
+                command.Parameters.Add("fecha_termino", OracleDbType.Varchar2, 100).Value = fecha_termino.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("costo", OracleDbType.Int32, 100).Value = costo;
                 command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
                 command.Parameters.Add("id_mantencion", OracleDbType.Varchar2, 100).Value = id_mantencion;
@@ -1615,10 +1733,34 @@ namespace CapaNegocio
 
                 MessageBox.Show("Departamento eliminado exitosamente","Eliminar");
 
+                deleteFotoPrincipal(id_departamento);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar departamento: " + ex);
+                MessageBox.Show("El Departamento no se pudo eliminar", "Error");
+            }
+        }
+
+        public void deleteFotoPrincipal(string id_departamento)
+        {
+            try
+            {
+
+                OracleCommand command = new OracleCommand("DELETE FROM FOTO_MUESTRA " +
+                    "WHERE DEPARTAMENTO_ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
+
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                //MessageBox.Show("Departamento eliminado exitosamente", "Eliminar");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en deleteFotoPrincipal() " + ex);
             }
         }
 
@@ -1654,7 +1796,7 @@ namespace CapaNegocio
                     "WHERE ID_MULTA = :id_multa", Conec.Connect());
 
                 command.Parameters.Add("pagada", OracleDbType.Varchar2, 100).Value = "Y";
-                command.Parameters.Add("fecha_pago", OracleDbType.Varchar2).Value = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                command.Parameters.Add("fecha_pago", OracleDbType.Varchar2).Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("id_multa", OracleDbType.Varchar2, 100).Value = id_multa;
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
@@ -1778,11 +1920,23 @@ namespace CapaNegocio
 
         public void Usuario(string _usuario)
         {
-            user_login = _usuario;
+            try
+            {
+                user_login = _usuario;
+            }
+            catch (Exception ex)
+            {
+            }
         }
         public void TipoUsuario(string _usertype_login)
         {
-            usertype_login = _usertype_login;
+            try
+            {
+                usertype_login = _usertype_login;
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         public static string user_login { get; set; }
@@ -2119,7 +2273,7 @@ namespace CapaNegocio
 
                 command.Parameters.Add("nombres", OracleDbType.Varchar2, 100).Value = nombres;
                 command.Parameters.Add("apellidos", OracleDbType.Varchar2, 100).Value = apellidos;
-                command.Parameters.Add("anno_contratacion", OracleDbType.Varchar2, 100).Value = anno_contratacion.ToString("MM/dd/yyyy"); ;
+                command.Parameters.Add("anno_contratacion", OracleDbType.Varchar2, 100).Value = anno_contratacion.ToString("dd/MM/yyyy HH:mm"); ;
                 command.Parameters.Add("sueldo", OracleDbType.Int32, 100).Value = sueldo;
                 command.Parameters.Add("cargo_id_cargo", OracleDbType.Varchar2, 100).Value = id_cargo;
                 command.Parameters.Add("acceso_username", OracleDbType.Varchar2, 100).Value = acceso_username;
@@ -2140,7 +2294,7 @@ namespace CapaNegocio
 
 
 
-        public void newAcceso(string username, string contrasena, string email, string token)
+        public void newAcceso(string username, string contrasena, string email)
         {
             try
             {
@@ -2153,7 +2307,7 @@ namespace CapaNegocio
                 command.Parameters.Add("username", OracleDbType.Varchar2, 100).Value = username;
                 command.Parameters.Add("contrasena", OracleDbType.Varchar2, 100).Value = contrasena;
                 command.Parameters.Add("email", OracleDbType.Varchar2, 100).Value = email;
-                command.Parameters.Add("token", OracleDbType.Varchar2, 300).Value = token;
+                command.Parameters.Add("token", OracleDbType.Varchar2, 300).Value = "AZ";
 
                 command.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(command);
@@ -2205,7 +2359,7 @@ namespace CapaNegocio
 
 
                 command.Parameters.Add("condicion_departamento", OracleDbType.Varchar2, 500).Value = condicion_departamento;
-                command.Parameters.Add("hora_ingreso", OracleDbType.Varchar2, 100).Value = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                command.Parameters.Add("hora_ingreso", OracleDbType.Varchar2, 100).Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                 command.Parameters.Add("pago_estadia", OracleDbType.Int32, 100).Value = pago_estadia;
                 command.Parameters.Add("reserva_nro_reserva", OracleDbType.Int32, 100).Value = reserva_nro_reserva;
                 command.Parameters.Add("firma_conformidad", OracleDbType.Varchar2, 400000000).Value = firma_cliente;

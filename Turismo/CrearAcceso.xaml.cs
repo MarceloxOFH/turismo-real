@@ -33,7 +33,7 @@ namespace Turismo
         {
             try
             {
-                logic.newAcceso(tbUsername.Text, tbContraseña.Text, tbEmail.Text, tbToken.Text);
+                logic.newAcceso(tbUsername.Text, tbContraseña.Text, tbEmail.Text);
             }
 
             catch (Exception ex)

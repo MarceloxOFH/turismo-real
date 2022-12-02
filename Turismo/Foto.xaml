@@ -6,11 +6,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Fotos" Height="520" Width="830" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
+        Title="Fotos" Height="550" Width="830" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="59" Margin="475,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="321"/>
 
-        <DataGrid x:Name="dgFoto" IsReadOnly="True" AutoGenerateColumns="False"  Margin="20,154,379,91" SelectionChanged="dgFoto_SelectionChanged" RenderTransformOrigin="0.457,0.379" FontWeight="Bold">
+        <DataGrid x:Name="dgFoto" IsReadOnly="True" AutoGenerateColumns="False"  Margin="20,154,379,67" SelectionChanged="dgFoto_SelectionChanged" RenderTransformOrigin="0.457,0.379" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFE4EEF7"/>
@@ -28,12 +28,12 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="302,423,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click"/>
+        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="302,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click"/>
         <Rectangle HorizontalAlignment="Left" Height="242" Margin="475,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="322" Fill="#FF9A9797"/>
 
-        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="208,423,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
-        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="20,423,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="115,423,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click" RenderTransformOrigin="0.368,1.611"/>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="208,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
+        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="20,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="114,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click" RenderTransformOrigin="0.368,1.611"/>
         <Image x:Name="ImgImagen" HorizontalAlignment="Left" Height="239" Margin="476,156,0,0" VerticalAlignment="Top" Width="320" OpacityMask="#FFC09666"/>
         <Button x:Name="BtnAnterior" Content="▲" HorizontalAlignment="Left" Margin="476,102,0,0" VerticalAlignment="Top" Height="48" Width="321" FontSize="20" Click="BtnAnterior_Click" FontWeight="Bold"/>
         <Label Content="Gestionar Fotos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
@@ -45,7 +45,8 @@
         <Label x:Name="lblDescripción_Copy" Content="Foto:" HorizontalAlignment="Left" Margin="479,21,0,0" VerticalAlignment="Top" Width="49" FontWeight="Bold" FontSize="16" Height="34"/>
         <Label x:Name="lblIdFoto" Content="" HorizontalAlignment="Left" Margin="523,46,0,0" VerticalAlignment="Top" Width="257" FontSize="16" Height="34" FontWeight="Bold"/>
         <Label x:Name="lblDescripción_Copy2" Content="Id:" HorizontalAlignment="Left" Margin="479,46,0,0" VerticalAlignment="Top" Width="32" FontSize="16" Height="34" FontWeight="Bold"/>
-        <Button x:Name="btnSiguiente" Content="▼" HorizontalAlignment="Left" Margin="475,400,0,0" VerticalAlignment="Top" Height="48" Width="322" FontSize="20" Click="btnSiguiente_Click" FontWeight="Bold"/>
+        <Button x:Name="btnSiguiente" Content="▼" HorizontalAlignment="Left" Margin="475,403,0,0" VerticalAlignment="Top" Height="48" Width="322" FontSize="20" Click="btnSiguiente_Click" FontWeight="Bold"/>
+        <Button x:Name="BtnFotoPrincipal" Content="Asignar como Foto Principal" HorizontalAlignment="Left" Margin="475,467,0,0" VerticalAlignment="Top" Height="29" Width="321" Click="BtnFotoPrincipal_Click" Background="#FFCAE7C4"/>
 
     </Grid>
 </mah:MetroWindow>

@@ -84,6 +84,7 @@ namespace Turismo
                 try
                 {
                     logic.deleteFoto(id_foto);
+                    logic.deleteFotoPrincipal(id_departamento);
                     refreshDatagrid();
                     //lblDescripción.Content = "";
                     //lblIdFoto.Content = "";
@@ -147,5 +148,9 @@ namespace Turismo
             
         }
 
+        private void BtnFotoPrincipal_Click(object sender, RoutedEventArgs e)
+        {
+            logic.newFotoPrincipal(url_imagen, id_departamento);
+        }
     }
 }

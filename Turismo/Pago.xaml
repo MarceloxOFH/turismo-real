@@ -131,7 +131,7 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="80"/>
                 <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding CLIENTE_RUT_CLIENTE}" Width="85"/>
                 <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="115"/>
                 <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="115"/>
@@ -153,9 +153,9 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" N°" Binding="{Binding RESERVA_NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding RESERVA_NRO_RESERVA}" Width="80"/>
                 <DataGridTextColumn Header=" ID Pago" Binding="{Binding ID_PAGO}" Width="50"/>
-                <DataGridTextColumn Header=" Pago" Binding="{Binding DESCRIPCION}" Width="150"/>
+                <DataGridTextColumn Header=" Pago" Binding="{Binding DESCRIPCION}" Width="120"/>
                 <DataGridTextColumn Header=" Medio Pago" Binding="{Binding MEDIO_PAGO}" Width="120"/>
                 <DataGridTextColumn Header=" Fecha Pago" Binding="{Binding FECHA_PAGO}" Width="150"/>
                 <DataGridTextColumn Header=" Monto" Binding="{Binding MONTO}" Width="70"/>
@@ -177,10 +177,10 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="80"/>
                 <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding RUT_CLIENTE}" Width="85"/>
-                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="115"/>
-                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="115"/>
+                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="105"/>
+                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="105"/>
                 <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="150"/>
                 <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="150"/>
                 <DataGridTextColumn Header=" Reserva Termino" Binding="{Binding RESERVA_TERMINO}" Width="*"/>
@@ -188,7 +188,7 @@
 
         </DataGrid>
         <Label x:Name="testName_lbl_Copy1" Content="Monto Total:" HorizontalAlignment="Left" Margin="920,442,0,0" VerticalAlignment="Top" Width="113" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblMontoTotal"  HorizontalContentAlignment="Center" Content="0000" HorizontalAlignment="Left" Margin="925,466,0,0" VerticalAlignment="Top" Width="104" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblMontoTotal"  HorizontalContentAlignment="Center" Content="0" HorizontalAlignment="Left" Margin="925,466,0,0" VerticalAlignment="Top" Width="100" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="testName_lbl_Copy2" Content="$" HorizontalAlignment="Left" Margin="914,465,0,0" VerticalAlignment="Top" Width="24" FontSize="16" FontWeight="Bold"/>
 
 

@@ -123,12 +123,12 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="80"/>
                 <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding CLIENTE_RUT_CLIENTE}" Width="85"/>
                 <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="115"/>
                 <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="115"/>
-                <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="150"/>
-                <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="150"/>
+                <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="135"/>
+                <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="135"/>
                 <DataGridTextColumn Header=" Reserva Termino" Binding="{Binding RESERVA_TERMINO}" Width="*"/>
             </DataGrid.Columns>
 

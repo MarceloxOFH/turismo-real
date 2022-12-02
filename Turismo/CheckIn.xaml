@@ -18,11 +18,11 @@
 
         <DataGrid x:Name="dgReserva" IsReadOnly="True" AutoGenerateColumns="False"  Margin="196,320,48,139" SelectionChanged="dgReserva_SelectionChanged" BorderThickness="2" FontWeight="Bold" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="80"/>
                 <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding CLIENTE_RUT_CLIENTE}" Width="80"/>
-                <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="150"/>
-                <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="150"/>
-                <DataGridTextColumn Header=" Valor Servicios Extra" Binding="{Binding VALOR_SERVICIOS_EXTRA}" Width="120"/>
+                <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="140"/>
+                <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="140"/>
+                <DataGridTextColumn Header=" Valor Serv. Extra" Binding="{Binding VALOR_SERVICIOS_EXTRA}" Width="100"/>
                 <DataGridTextColumn Header=" Valor Diario" Binding="{Binding VALOR_POR_DIAS}" Width="70"/>
                 <DataGridTextColumn Header=" Valor Total" Binding="{Binding VALOR_TOTAL}" Width="75"/>
                 <DataGridTextColumn Header=" Personas" Binding="{Binding TOTAL_PERSONAS}" Width="55"/>
@@ -42,14 +42,14 @@
         </DataGrid>
         <DataGrid x:Name="dgCheckIn" IsReadOnly="True" AutoGenerateColumns="False"  Margin="196,320,48,139"  BorderThickness="2" SelectionChanged="dgCheckIn_SelectionChanged" FontWeight="Bold" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" N°" Binding="{Binding RESERVA_NRO_RESERVA}" Width="40"/>
+                <DataGridTextColumn Header=" N°" Binding="{Binding RESERVA_NRO_RESERVA}" Width="80"/>
                 <DataGridTextColumn Header=" ID Check In" Binding="{Binding ID_CHECKIN}" Width="70"/>
                 <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding RUT_CLIENTE}" Width="80"/>
-                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="130"/>
-                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="130"/>
+                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="110"/>
+                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="110"/>
                 <DataGridTextColumn Header=" Fecha Ingreso" Binding="{Binding HORA_INGRESO}" Width="150"/>
                 <DataGridTextColumn Header=" Fecha Termino" Binding="{Binding RESERVA_TERMINO}" Width="150"/>
-                <DataGridTextColumn Header=" Pago Estadía" Binding="{Binding PAGO_ESTADIA}" Width="120"/>
+                <DataGridTextColumn Header=" Pago Estadía" Binding="{Binding PAGO_ESTADIA}" Width="*"/>
             </DataGrid.Columns>
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
