@@ -140,10 +140,6 @@
       <Project>{16f40d01-bd7d-4a7e-a739-84792d01f44e}</Project>
       <Name>CapaConexion</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{7ab60626-a86a-4e57-bf2d-07ff2c8a730f}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

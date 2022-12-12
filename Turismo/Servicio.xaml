@@ -56,16 +56,16 @@
         <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="34,380,0,0" VerticalAlignment="Top" Width="64" Click="btnCrear_Click" Height="32" Background="#FFD0FCCE"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="200,380,0,0" VerticalAlignment="Top" Width="65" Click="btnEliminar_Click" Height="31" RenderTransformOrigin="0.45,0.664" Background="#FFFCC5C5"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="116,380,0,0" VerticalAlignment="Top" Width="65" Click="btnEditar_Click" Height="31" Background="#FFF6F9C3"/>
-        <Label Content="Id Servicio:" HorizontalAlignment="Left" Margin="34,75,0,0" VerticalAlignment="Top" Width="178" FontSize="16" FontWeight="Bold"/>
+        <Label Content="ID Departamento:" HorizontalAlignment="Left" Margin="34,75,0,0" VerticalAlignment="Top" Width="178" FontSize="16" FontWeight="Bold"/>
         <Label Content="Servicios" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Nombre Servicio:" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top" Width="178" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="175,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontWeight="Bold" IsEnabled="False"/>
-        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="175,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False" FontWeight="Bold"/>
+        <Label Content="Nombre Departamento:" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top" Width="194" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbnombreDepartamento" HorizontalAlignment="Left" Margin="233,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontWeight="Bold" IsEnabled="False"/>
+        <TextBox x:Name="tbidDepartamento" HorizontalAlignment="Left" Margin="233,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False" FontWeight="Bold"/>
         <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="284,380,0,0" VerticalAlignment="Top" Width="79" Click="btnActualizar_Click" Height="31" Background="#FFBCE1E5"/>
         <Rectangle x:Name="rtBtnOtrSer" HorizontalAlignment="Center" Height="29" Margin="0,167,0,0" Stroke="#FFC9A000" VerticalAlignment="Top" Width="150" Fill="#FFC9A000"/>
         <Button x:Name="BtnServiciosActuales" Content="Servicios Actuales" HorizontalAlignment="Left" Margin="385,169,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnServiciosActuales_Click"/>
         <Button x:Name="BtnOtrosServicios" Content="Todos los Servicios" HorizontalAlignment="Center" Margin="0,169,0,0" VerticalAlignment="Top" Width="146" Height="22" Click="BtnOtrosServicios_Click"/>
-        <Button x:Name="BtnAgregarServicio" Content="Mover Servicio" HorizontalAlignment="Left" Margin="428,380,0,0" VerticalAlignment="Top" Width="106" Click="btnActualizar_Click" Height="31" Background="#FFA5DF90" BorderBrush="Black"/>
+        <Button x:Name="BtnMoverServicio" Content="Mover Servicio" HorizontalAlignment="Left" Margin="428,380,0,0" VerticalAlignment="Top" Width="106" Click="btnMoverServicio_Click" Height="31" Background="#FFA5DF90" BorderBrush="Black"/>
 
     </Grid>
 </mah:MetroWindow>

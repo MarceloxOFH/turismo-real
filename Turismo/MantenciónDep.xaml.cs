@@ -48,18 +48,26 @@ namespace Turismo
 
         private void dgMantencion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                id_mantencion = dr["ID_MANTENCION"].ToString();
-                fecha_inicio = DateTime.Parse(dr["FECHA_INICIO"].ToString());
-                fecha_termino = DateTime.Parse(dr["FECHA_TERMINO"].ToString());
-                costo = Convert.ToInt32(dr["COSTO"]);
-                descripcion = dr["DESCRIPCION"].ToString();
 
-                btnEditar.IsEnabled = true;
-                btnEliminar.IsEnabled = true;
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    id_mantencion = dr["ID_MANTENCION"].ToString();
+                    fecha_inicio = DateTime.Parse(dr["FECHA_INICIO"].ToString());
+                    fecha_termino = DateTime.Parse(dr["FECHA_TERMINO"].ToString());
+                    costo = Convert.ToInt32(dr["COSTO"]);
+                    descripcion = dr["DESCRIPCION"].ToString();
+
+                    btnEditar.IsEnabled = true;
+                    btnEliminar.IsEnabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("mantencion selection changed error: " + ex);
             }
         }
 

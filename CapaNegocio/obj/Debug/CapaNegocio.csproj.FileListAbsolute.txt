@@ -125,7 +125,6 @@ C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaNegocio.dll.config
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaNegocio.dll
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaNegocio.pdb
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaConexion.exe
-C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaDatos.dll
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\Microsoft.AspNetCore.Http.dll
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
@@ -154,8 +153,6 @@ C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\System.Web.WebPages.dll
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaConexion.pdb
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaConexion.exe.config
-C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaDatos.pdb
-C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\CapaDatos.dll.config
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\Microsoft.AspNetCore.Http.xml
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
 C:\Users\Marcelo\TurismoReal\CapaNegocio\bin\Debug\Microsoft.AspNetCore.Http.Features.xml

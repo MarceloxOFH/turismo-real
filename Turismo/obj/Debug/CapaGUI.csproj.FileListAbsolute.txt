@@ -442,3 +442,7 @@ C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarPagoEstadia.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\RealizarPagoEstadia.baml
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearRegalo.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearRegalo.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearServicio.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarServicio.g.cs
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearServicio.baml
+C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarServicio.baml

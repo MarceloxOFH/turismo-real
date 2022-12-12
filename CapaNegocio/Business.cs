@@ -959,6 +959,124 @@ namespace CapaNegocio
             }
         }
 
+        public void newServicio(string nombre_servicio, string descripcion, int costo)
+        {
+
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO SERVICIO_ASOCIADO " +
+                    "(ID_SERVICIO, NOMBRE_SERVICIO, DESCRIPCION, COSTO, ESTADO) " +
+                    "VALUES (to_char(SEQ_ID_SER.nextval), :nombre_servicio, :descripcion, :costo, :estado)", Conec.Connect());
+
+                command.Parameters.Add("nombre_servicio", OracleDbType.Varchar2, 100).Value = nombre_servicio;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 500).Value = descripcion;
+                command.Parameters.Add("costo", OracleDbType.Int32, 100).Value = costo;
+                command.Parameters.Add("estado", OracleDbType.Varchar2, 100).Value = "Activo";
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Servicio agregado exitosamente", "Agregar");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar Servicio: " + ex);
+            }
+        }
+
+        public void editServicio(string id_servicio, string nombre_servicio, string descripcion, int costo)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE SERVICIO_ASOCIADO " +
+                    "SET NOMBRE_SERVICIO = :nombre_servicio, " +
+                    "DESCRIPCION = :descripcion, COSTO = :costo " +
+                    "WHERE ID_SERVICIO = :id_servicio", Conec.Connect());
+
+                command.Parameters.Add("nombre_servicio", OracleDbType.Varchar2, 100).Value = nombre_servicio;
+                command.Parameters.Add("descripcion", OracleDbType.Varchar2, 100).Value = descripcion;
+                command.Parameters.Add("costo", OracleDbType.Int32, 100).Value = costo;
+                command.Parameters.Add("id_servicio", OracleDbType.Varchar2, 100).Value = id_servicio;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Servicio editado exitosamente", "Editar");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar Servicio: " + ex);
+            }
+        }
+
+        public void deleteServicio(string id_servicio)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("DELETE FROM SERVICIO_ASOCIADO " +
+                    "WHERE ID_SERVICIO = :id_servicio", Conec.Connect());
+
+                command.Parameters.Add("id_servicio", OracleDbType.Varchar2, 100).Value = id_servicio;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Servicio eliminado exitosamente", "Eliminar");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar Servicio: " + ex);
+            }
+        }
+
+        public void deleteServAsoc(string id_servicio, string id_departamento)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("DELETE FROM DEPA_ASOC " +
+                    "WHERE SERVICIO_ASOCIADO_ID_SERVICIO = :id_servicio AND DEPARTAMENTO_ID_DEPARTAMENTO = :id_departamento", Conec.Connect());
+
+                command.Parameters.Add("id_servicio", OracleDbType.Varchar2, 100).Value = id_servicio;
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Servicio quitado exitosamente", "Quitar");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al quitar Servicio: " + ex);
+            }
+        }
+
+        public void MoveServAsoc(string id_servicio, string id_departamento)
+        {
+
+            try
+            {
+
+                OracleCommand command = new OracleCommand("INSERT INTO DEPA_ASOC " +
+                    "(SERVICIO_ASOCIADO_ID_SERVICIO, DEPARTAMENTO_ID_DEPARTAMENTO) " +
+                    "VALUES (:id_servicio, :id_departamento)", Conec.Connect());
+
+                command.Parameters.Add("id_servicio", OracleDbType.Varchar2, 100).Value = id_servicio;
+                command.Parameters.Add("id_departamento", OracleDbType.Varchar2, 100).Value = id_departamento;
+
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Servicio movido exitosamente", "Mover");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mover Servicio: " + ex);
+            }
+        }
+
         public void newVehiculo(string patente, string disponibilidad, string modelo, string id_estado, int capacidad, string descripcion)
         {
 
@@ -2036,6 +2154,953 @@ namespace CapaNegocio
             }
 
         }
+
+
+        public string EstDepCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(ID_DEPARTAMENTO) " +
+                    "FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string EstDepBuenEstado(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(ID_DEPARTAMENTO) " +
+                    "FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string EstDepPrecioPromedio(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT ROUND(AVG(ARRIENDO_DIARIO), 0) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region AND ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string EstDepPrecioMasAlto(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT MAX(ARRIENDO_DIARIO) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region AND ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string EstDepPrecioMasBajo(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT MIN(ARRIENDO_DIARIO) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region AND ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string EstDepValorInventarioTotal(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(VALOR_INVENTARIO) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region AND ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string EstDepValorInventarioPromedio(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT ROUND(AVG(VALOR_INVENTARIO), 0) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region AND ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+
+        public string EstResReservasCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(NRO_RESERVA) " +
+                    "FROM RESERVA RES " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string EstResReservasAgendadasCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), RES.TOTAL_PERSONAS, " + 
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
+                    "FROM RESERVA RES " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN CLIENTE CLI ON CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "LEFT JOIN CHECK_IN CI ON CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region " +
+                    "AND NOT EXISTS " +
+                    "(SELECT NULL " +
+                    "FROM CHECK_IN " +
+                    "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)" +
+                    "GROUP BY RES.TOTAL_PERSONAS, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+
+        public string EstResReservasActualesCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(CI.RESERVA_NRO_RESERVA), " +
+                    "CI.ID_CHECKIN, CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "CI.PAGO_ESTADIA, CI.CONDICION_DEPARTAMENTO, CI.HORA_INGRESO, RD.RESERVA_INICIO, " +
+                    "RD.RESERVA_TERMINO, CI.ACTIVO, CI.ANOTACIONES, REGA.CONTENIDO, CI.REGALO_ID_REGALO " +
+                    "FROM CHECK_IN CI " +
+                    "INNER JOIN REGALO REGA ON REGA.ID_REGALO = CI.REGALO_ID_REGALO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = CI.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN CLIENTE CLI ON(CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE) " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE CI.ACTIVO = 'Y' AND UBI.REGION_ID_REGION = :id_region " +
+                    "GROUP BY CI.ID_CHECKIN, CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "CI.PAGO_ESTADIA, CI.CONDICION_DEPARTAMENTO, CI.HORA_INGRESO, RD.RESERVA_INICIO, " +
+                    "RD.RESERVA_TERMINO, CI.ACTIVO, CI.ANOTACIONES, REGA.CONTENIDO, CI.REGALO_ID_REGALO ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+
+        public string EstResReservasFinalizadasCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), " +
+                    "CLI.RUT_CLIENTE, CLI.NOMBRES, " +
+                    "CLI.APELLIDOS, RES.FECHA_RESERVA, " +
+                    "RD.RESERVA_INICIO, RD.RESERVA_TERMINO, " +
+                    "CO.ACTIVO " +
+                    "FROM RESERVA RES " +
+                    "INNER JOIN CHECK_OUT CO ON CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN CLIENTE CLI ON CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE CO.ACTIVO = 'N' AND UBI.REGION_ID_REGION = :id_region " +
+                    "GROUP BY CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, RES.FECHA_RESERVA, " +
+                    "RD.RESERVA_INICIO, RD.RESERVA_TERMINO, CO.ACTIVO ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string EstResIngresosReserva(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE PR.DESCRIPCION = 'Reserva' AND UBI.REGION_ID_REGION = :id_region", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string EstResIngresosCheckIn(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE PR.DESCRIPCION = 'Estadía' AND UBI.REGION_ID_REGION = :id_region", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string EstResCostosMultas(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE PR.DESCRIPCION = 'Multa' AND UBI.REGION_ID_REGION = :id_region", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string EstResCostoReservaTotal(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE UBI.REGION_ID_REGION = :id_region", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+
+
+
+
+
+
+        ///
+        public string TEstDepCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(ID_DEPARTAMENTO) " +
+                    "FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string TEstDepBuenEstado(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(ID_DEPARTAMENTO) " +
+                    "FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string TEstDepPrecioPromedio(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT ROUND(AVG(ARRIENDO_DIARIO), 0) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string TEstDepPrecioMasAlto(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT MAX(ARRIENDO_DIARIO) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string TEstDepPrecioMasBajo(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT MIN(ARRIENDO_DIARIO) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string TEstDepValorInventarioTotal(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(VALOR_INVENTARIO) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string TEstDepValorInventarioPromedio(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT ROUND(AVG(VALOR_INVENTARIO), 0) FROM DEPARTAMENTO DEP " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE ARRIENDO_DIARIO != 0", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+
+        public string TEstResReservasCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(NRO_RESERVA) " +
+                    "FROM RESERVA RES " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string TEstResReservasAgendadasCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), RES.TOTAL_PERSONAS, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
+                    "FROM RESERVA RES " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN CLIENTE CLI ON CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "LEFT JOIN CHECK_IN CI ON CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "WHERE NOT EXISTS " +
+                    "(SELECT NULL " +
+                    "FROM CHECK_IN " +
+                    "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)" +
+                    "GROUP BY RES.TOTAL_PERSONAS, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+
+        public string TEstResReservasActualesCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(CI.RESERVA_NRO_RESERVA), " +
+                    "CI.ID_CHECKIN, CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "CI.PAGO_ESTADIA, CI.CONDICION_DEPARTAMENTO, CI.HORA_INGRESO, RD.RESERVA_INICIO, " +
+                    "RD.RESERVA_TERMINO, CI.ACTIVO, CI.ANOTACIONES, REGA.CONTENIDO, CI.REGALO_ID_REGALO " +
+                    "FROM CHECK_IN CI " +
+                    "INNER JOIN REGALO REGA ON REGA.ID_REGALO = CI.REGALO_ID_REGALO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = CI.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN CLIENTE CLI ON(CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE) " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE CI.ACTIVO = 'Y'" +
+                    "GROUP BY CI.ID_CHECKIN, CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, " +
+                    "CI.PAGO_ESTADIA, CI.CONDICION_DEPARTAMENTO, CI.HORA_INGRESO, RD.RESERVA_INICIO, " +
+                    "RD.RESERVA_TERMINO, CI.ACTIVO, CI.ANOTACIONES, REGA.CONTENIDO, CI.REGALO_ID_REGALO ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+
+        public string TEstResReservasFinalizadasCantidad(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), " +
+                    "CLI.RUT_CLIENTE, CLI.NOMBRES, " +
+                    "CLI.APELLIDOS, RES.FECHA_RESERVA, " +
+                    "RD.RESERVA_INICIO, RD.RESERVA_TERMINO, " +
+                    "CO.ACTIVO " +
+                    "FROM RESERVA RES " +
+                    "INNER JOIN CHECK_OUT CO ON CO.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN CLIENTE CLI ON CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE CO.ACTIVO = 'N'" +
+                    "GROUP BY CLI.RUT_CLIENTE, CLI.NOMBRES, CLI.APELLIDOS, RES.FECHA_RESERVA, " +
+                    "RD.RESERVA_INICIO, RD.RESERVA_TERMINO, CO.ACTIVO ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string TEstResIngresosReserva(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE PR.DESCRIPCION = 'Reserva'", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string TEstResIngresosCheckIn(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE PR.DESCRIPCION = 'Estadía'", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string TEstResCostosMultas(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION " +
+                    "WHERE PR.DESCRIPCION = 'Multa'", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+        public string TEstResCostoReservaTotal(string id_region)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT SUM(MONTO) " +
+                    "FROM PAGO_RESERVA PR " +
+                    "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
+                    "INNER JOIN RESERVA RES ON RES.NRO_RESERVA = PR.RESERVA_NRO_RESERVA " +
+                    "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                    "INNER JOIN DEPARTAMENTO DEP ON DEP.ID_DEPARTAMENTO = RD.DEPARTAMENTO_ID_DEPARTAMENTO " +
+                    "INNER JOIN UBICACION UBI ON UBI.ID_UBICACION = DEP.UBICACION_ID_UBICACION ", Conec.Connect());
+
+                command.Parameters.Add("id_region", OracleDbType.Varchar2, 100).Value = id_region;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch (Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+
+        }
+
+
+        /// 
+
+
+
+
+
+
+
         public DataTable dtestadoRegaloInData()
         {
             try

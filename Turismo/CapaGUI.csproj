@@ -324,6 +324,9 @@
     <Compile Include="CrearRegalo.xaml.cs">
       <DependentUpon>CrearRegalo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrearServicio.xaml.cs">
+      <DependentUpon>CrearServicio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearVehiculo.xaml.cs">
       <DependentUpon>CrearVehiculo.xaml</DependentUpon>
     </Compile>
@@ -353,6 +356,9 @@
     </Compile>
     <Compile Include="EditarMulta.xaml.cs">
       <DependentUpon>EditarMulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarServicio.xaml.cs">
+      <DependentUpon>EditarServicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditarVehiculo.xaml.cs">
       <DependentUpon>EditarVehiculo.xaml</DependentUpon>
@@ -477,6 +483,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CrearServicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CrearVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -525,6 +535,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditarMulta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarServicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

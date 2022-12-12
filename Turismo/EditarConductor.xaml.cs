@@ -44,9 +44,9 @@ namespace Turismo
             {
                 DateTime? dtCaducidadLicencia = dpCaducidadLicencia.SelectedDate;
 
-                string stCaducidadLicencia = dtCaducidadLicencia.Value.Date.ToString("dd/MM/yyyy") + " 00:00:00";
+                string stCaducidadLicencia = dtCaducidadLicencia.Value.Date.ToString("dd/MM/yyyy") + " 00:00";
 
-                caducidad_licencia = DateTime.ParseExact(stCaducidadLicencia, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                caducidad_licencia = DateTime.ParseExact(stCaducidadLicencia, "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
 
                 logic.editConductor(tbRut.Text, tbNombres.Text, tbApellidos.Text, caducidad_licencia, cbDisponibilidad.Text, Convert.ToInt32(tbSueldo.Text));
             }

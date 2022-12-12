@@ -52,24 +52,31 @@ namespace Turismo
 
         private void dgConductor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                rut_conductor = dr["RUT_CONDUCTOR"].ToString();
-                nombres = dr["NOMBRES"].ToString();
-                apellidos = dr["APELLIDOS"].ToString();
-                caducidad_licencia = DateTime.Parse(dr["CADUCIDAD_LICENCIA"].ToString()); 
-                disponibilidad = dr["DISPONIBILIDAD"].ToString();
-                sueldo = Convert.ToInt32(dr["SUELDO"]);
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    rut_conductor = dr["RUT_CONDUCTOR"].ToString();
+                    nombres = dr["NOMBRES"].ToString();
+                    apellidos = dr["APELLIDOS"].ToString();
+                    caducidad_licencia = DateTime.Parse(dr["CADUCIDAD_LICENCIA"].ToString());
+                    disponibilidad = dr["DISPONIBILIDAD"].ToString();
+                    sueldo = Convert.ToInt32(dr["SUELDO"]);
 
-                tbRut.Text = rut_conductor;
-                tbNombres.Text = nombres;
-                tbApellidos.Text = apellidos;
-                cbDisponibilidad.Text = disponibilidad;
+                    tbRut.Text = rut_conductor;
+                    tbNombres.Text = nombres;
+                    tbApellidos.Text = apellidos;
+                    cbDisponibilidad.Text = disponibilidad;
 
-                BtnEliminar.IsEnabled = true;
-                BtnEditar.IsEnabled = true;
+                    BtnEliminar.IsEnabled = true;
+                    BtnEditar.IsEnabled = true;
+                }
+            }
+            catch 
+            {
+               MessageBox.Show("conductor selection change error");
             }
         }
 
