@@ -884,7 +884,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar Foto: " + ex);
+                MessageBox.Show("Asegurese de que se ingresó toda la información","Error al agregar Foto");
             }
         }
 
@@ -2073,7 +2073,7 @@ namespace CapaNegocio
             try
             {
                 OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, RES.TOTAL_PERSONAS, " +
-                "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
+                "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                 "CLI.NOMBRES, CLI.APELLIDOS, " +
                 "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
                 "FROM RESERVA RES " +
@@ -2378,7 +2378,7 @@ namespace CapaNegocio
                 DataTable dt = new DataTable();
 
                 OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), RES.TOTAL_PERSONAS, " + 
-                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, " +
                     "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
@@ -2394,7 +2394,7 @@ namespace CapaNegocio
                     "FROM CHECK_IN " +
                     "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)" +
                     "GROUP BY RES.TOTAL_PERSONAS, " +
-                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, " +
                     "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS", Conec.Connect());
@@ -2849,7 +2849,7 @@ namespace CapaNegocio
                 DataTable dt = new DataTable();
 
                 OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), RES.TOTAL_PERSONAS, " +
-                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, " +
                     "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
@@ -2864,7 +2864,7 @@ namespace CapaNegocio
                     "FROM CHECK_IN " +
                     "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)" +
                     "GROUP BY RES.TOTAL_PERSONAS, " +
-                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
+                    "RES.FECHA_RESERVA, RD.RESERVA_INICIO, " +
                     "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS", Conec.Connect());

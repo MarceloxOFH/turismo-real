@@ -51,7 +51,6 @@
                 <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding CLIENTE_RUT_CLIENTE}" Width="80"/>
                 <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="140"/>
                 <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="140"/>
-                <DataGridTextColumn Header=" Valor Serv. Extra" Binding="{Binding VALOR_SERVICIOS_EXTRA}" Width="100"/>
                 <DataGridTextColumn Header=" Valor Diario" Binding="{Binding VALOR_DIAS}" Width="70"/>
                 <DataGridTextColumn Header=" Valor Total" Binding="{Binding VALOR_TOTAL}" Width="75"/>
                 <DataGridTextColumn Header=" Personas" Binding="{Binding TOTAL_PERSONAS}" Width="55"/>

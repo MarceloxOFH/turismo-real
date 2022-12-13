@@ -29,10 +29,12 @@ namespace Turismo
             this.foto = foto;
             //logic.fromStringToPhoto( ,img);
             tbDescripcion.Text = descripcion;
+            descripcion_inicial = descripcion;
             //tbUrlImage.Text = url_imagen;
             tbIdDepartamento.Text = id_departamento;
             tbNombreDepartamento.Text = nombre_departamento;
             //this.imagen = imagen;
+            this.id_departamento = id_departamento;
             this.id_foto = id_foto;
             this.base64Text = imagen;
             //ImgImagen.Source = imagen;
@@ -55,12 +57,15 @@ namespace Turismo
         //string imagen;
         string id_foto;
         Foto foto;
+        string id_departamento;
+        string descripcion_inicial;
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
             try 
             {
                 logic.editFoto(tbDescripcion.Text, "dep-" + tbIdDepartamento.Text + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", base64Text, id_foto);
+                File.WriteAllBytes(@"C:\Users\Marcelo\Desktop\" + "dep-" + id_departamento + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", Convert.FromBase64String(base64Text));
                 foto.refreshDatagrid();
             }
             catch 

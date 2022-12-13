@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Image = System.Windows.Controls.Image;
 using MahApps.Metro.Controls;
+using Path = System.IO.Path;
 
 namespace Turismo
 {
@@ -86,13 +87,21 @@ namespace Turismo
                     logic.deleteFoto(id_foto);
                     logic.deleteFotoPrincipal(id_departamento);
                     refreshDatagrid();
-                    //lblDescripción.Content = "";
-                    //lblIdFoto.Content = "";
-                    //tbidDepartamento.Text = "";
-                    //tbnombreDepartamento.Text = "";
-                    //BtnEditar.IsEnabled = false;
-                    //BtnEliminar.IsEnabled = false;
-                    //id_foto = null;
+
+                    //borrar foto carpeta local
+                    try
+                    {
+                        // recvisa que la direccion de la foto existe  
+                        if (File.Exists(Path.Combine(@"C:\Users\Marcelo\Desktop\", "dep-" + id_departamento + "-" + (descripcion).Replace(' ', '-') + ".jpg")))
+                        {
+                            // si es que existe, se elimina    
+                            File.Delete(Path.Combine(@"C:\Users\Marcelo\Desktop\", "dep-" + id_departamento + "-" + (descripcion).Replace(' ', '-') + ".jpg"));
+                        }
+                    }
+                    catch
+                    {
+                    }
+
                     dgFoto.SelectedIndex = 0;
                 }
 
