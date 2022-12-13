@@ -45,6 +45,7 @@ namespace Turismo
             dgReserva.ItemsSource = logic.ReservaData().DefaultView;
             dgCheckIn.ItemsSource = logic.CheckInData().DefaultView;
             dgCheckIn.Visibility = Visibility.Hidden;
+            rtCheckInRealizado.Visibility = Visibility.Hidden;
 
             DataTable dted = logic.dtestadoNroReservaInData();
 
@@ -88,52 +89,7 @@ namespace Turismo
         }
 
 
-        //private void BtnEliminar_Click(object sender, RoutedEventArgs e)
-        //{
-        //    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estás seguro que deseas borrar la reserva '" + tbIdCheckIn.Text + "' ", "Eliminar Reserva", System.Windows.MessageBoxButton.YesNo);
-        //    if (messageBoxResult == MessageBoxResult.Yes)
-
-        //        try
-        //        {
-        //            logic.deleteCheckIn(id_checkin);
-        //            actualizarDatagrid();
-        //            tbIdCheckIn.Text = "";
-        //            tbNroReserva.Text = "";
-        //            BtnEliminar.IsEnabled = false;
-
-
-        //        }
-
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Hubo un problema para eliminar el cliente seleccionado: " + ex);
-        //        }
-        //}
-
-        //private void BtnVerReservas_Click(object sender, RoutedEventArgs e)
-        //{
-        //    new Reservas().Show();
-        //}
-
         
-
-        //private void dgCheckIn_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    DataGrid dg = sender as DataGrid;
-        //    DataRowView dr = dg.SelectedItem as DataRowView;
-        //    if (dr != null)
-        //    {
-        //        id_checkin = dr["ID_CHECKIN"].ToString();
-        //        condicion_departamento = dr["CONDICION_DEPARTAMENTO"].ToString();
-        //        hora_ingreso = Convert.ToDateTime(dr["HORA_INGRESO"]);
-        //        pago_estadia = Convert.ToInt32(dr["PAGO_ESTADIA"]);
-        //        reserva_nro_reserva = Convert.ToInt32(dr["RESERVA_NRO_RESERVA"]);
-        //        firma_conformidad = dr["FIRMA_CONFORMIDAD"].ToString();               
-        //        regalo_id_regalo = dr["REGALO_ID_REGALO"].ToString();
-
-
-        //    }
-        //}
 
         private void btnRegalos_Click(object sender, RoutedEventArgs e)
         {
@@ -148,6 +104,8 @@ namespace Turismo
 
         private void dgReserva_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -162,6 +120,11 @@ namespace Turismo
                 tbRutCliente.Text = rut_cliente;
                 tbNombreCliente.Text = nombre_completo;
             }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -171,6 +134,8 @@ namespace Turismo
 
         private void btnReservas_Click(object sender, RoutedEventArgs e)
         {
+            rtReservasAgendadas.Visibility = Visibility.Visible;
+            rtCheckInRealizado.Visibility = Visibility.Hidden;
             nro_reserva = 0;
             rut_cliente = "";
             nombres = "";
@@ -187,6 +152,8 @@ namespace Turismo
 
         private void btndgCheckIn_Click(object sender, RoutedEventArgs e)
         {
+            rtCheckInRealizado.Visibility = Visibility.Visible;
+            rtReservasAgendadas.Visibility = Visibility.Hidden;
             nro_reserva = 0;
             rut_cliente = "";
             nombres = "";
@@ -215,6 +182,8 @@ namespace Turismo
 
         private void dgCheckIn_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -227,6 +196,11 @@ namespace Turismo
                 nombre_completo = nombres + " " + apellidos;
                 tbRutCliente.Text = rut_cliente;
                 tbNombreCliente.Text = nombre_completo;
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 

@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
-
+using System.Globalization;
 
 namespace Turismo
 {
@@ -56,8 +56,8 @@ namespace Turismo
                 if (dr != null)
                 {
                     id_mantencion = dr["ID_MANTENCION"].ToString();
-                    fecha_inicio = DateTime.Parse(dr["FECHA_INICIO"].ToString());
-                    fecha_termino = DateTime.Parse(dr["FECHA_TERMINO"].ToString());
+                    fecha_inicio = DateTime.ParseExact(dr["FECHA_INICIO"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                    fecha_termino = DateTime.ParseExact(dr["FECHA_TERMINO"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
                     costo = Convert.ToInt32(dr["COSTO"]);
                     descripcion = dr["DESCRIPCION"].ToString();
 
@@ -67,7 +67,7 @@ namespace Turismo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("mantencion selection changed error: " + ex);
+                //MessageBox.Show("mantencion selection changed error: " + ex);
             }
         }
 

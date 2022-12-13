@@ -50,6 +50,8 @@ namespace Turismo
 
         private void dgEmpleados_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -59,13 +61,18 @@ namespace Turismo
                 apellidos = dr["APELLIDOS"].ToString();
                 telefono = Convert.ToInt32(dr["TELEFONO"]);
                 email = dr["EMAIL"].ToString();
-                contrasena = dr["CONTRASENA"].ToString();
+                //contrasena = dr["CONTRASENA"].ToString();
 
 
                 tbClienteNombre.Text = nombres;
                 tbClienteRut.Text = rut_cliente;
 
 
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 

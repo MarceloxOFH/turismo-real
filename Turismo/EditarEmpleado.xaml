@@ -9,20 +9,18 @@
         Title="Editar Empleado" Height="520" Width="361" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
         <Label Content="Editar Empleado" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="lblNombres" Content="Nombres:" HorizontalAlignment="Left" Margin="16,81,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblApellidos" Content="Apellidos:" HorizontalAlignment="Left" Margin="16,111,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblCargo" Content="Cargo:" HorizontalAlignment="Left" Margin="16,141,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblSueldo" Content="Sueldo:" HorizontalAlignment="Left" Margin="16,177,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="161,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="tbApellido" HorizontalAlignment="Left" Margin="161,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="tbSueldo" HorizontalAlignment="Left" Margin="161,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <ComboBox x:Name="cbCargo" HorizontalAlignment="Left" Margin="161,147,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbCargo_SelectionChanged"/>
+        <Label x:Name="lblNombres" Content="Nombres:" HorizontalAlignment="Left" Margin="16,81,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblApellidos" Content="Apellidos:" HorizontalAlignment="Left" Margin="16,111,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblCargo" Content="Cargo:" HorizontalAlignment="Left" Margin="16,145,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblSueldo" Content="Sueldo:" HorizontalAlignment="Left" Margin="16,178,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="161,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <TextBox x:Name="tbApellido" HorizontalAlignment="Left" Margin="161,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <TextBox x:Name="tbSueldo" HorizontalAlignment="Left" Margin="161,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <ComboBox x:Name="cbCargo" HorizontalAlignment="Left" Margin="161,151,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="cbCargo_SelectionChanged" FontWeight="Bold"/>
         <Button x:Name="BtnEditarEmpleados" Content="Editar" HorizontalAlignment="Left" Margin="248,446,0,0" VerticalAlignment="Top"  Height="32" Width="74" Click="BtnEditarEmpleados_Click"/>
-        <Label x:Name="lblAnnoContratacion" Content="Año Contratacion:" HorizontalAlignment="Left" Margin="16,261,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <DatePicker x:Name="dtpAnnoContrato" HorizontalAlignment="Left" Margin="161,262,0,0" VerticalAlignment="Top" />
-        <Label x:Name="lblHorario" Content="Horario trabajo:" HorizontalAlignment="Left" Margin="16,317,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <DatePicker x:Name="dtpHorario" HorizontalAlignment="Left" Margin="161,322,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="16,208,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbAccesoUsername" HorizontalAlignment="Left" Margin="161,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <Label x:Name="lblAnnoContratacion" Content="Año Contratacion:" HorizontalAlignment="Left" Margin="16,251,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <DatePicker x:Name="dtpAnnoContrato" HorizontalAlignment="Left" Margin="161,252,0,0" VerticalAlignment="Top" FontWeight="Bold" />
+        <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="16,211,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbAccesoUsername" HorizontalAlignment="Left" Margin="161,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold" IsEnabled="False"/>
     </Grid>
 </Controls:MetroWindow>

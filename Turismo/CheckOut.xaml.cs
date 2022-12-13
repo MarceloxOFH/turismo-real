@@ -133,6 +133,8 @@ namespace Turismo
 
         private void dgMulta_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -142,10 +144,17 @@ namespace Turismo
                 costo = Convert.ToInt32(dr["COSTO"]);
                 pagada = dr["PAGADA"].ToString();
             }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         private void dgReserva_Click(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -167,6 +176,11 @@ namespace Turismo
 
                 multas_activas = logic.getMultas(nro_reserva);
                 CheckMultasStatus();
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 
@@ -198,6 +212,8 @@ namespace Turismo
 
         private async void BtnRealizarCheckOut_Click(object sender, RoutedEventArgs e)
         {
+            try
+            { 
             if (nro_reserva > 0 && firma_cliente != null && multas_activas == 0)
             {
                 logic.newCheckOut(nro_reserva, firma_cliente);
@@ -225,6 +241,11 @@ namespace Turismo
             {
                 MessageBox.Show("Verificar Firma y Multas.", "Check Out incompleto");
             }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         private void BtnGestionarMultas_Click(object sender, RoutedEventArgs e)
@@ -237,10 +258,17 @@ namespace Turismo
 
         public void refreshDatagrid()
         {
+            try
+            { 
             dgReserva.ItemsSource = null;
             dgReserva.ItemsSource = logic.ReservaCOData().DefaultView;
             multas_activas = logic.getMultas(nro_reserva);
             CheckMultasStatus();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)

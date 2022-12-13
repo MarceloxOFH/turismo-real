@@ -30,7 +30,7 @@ namespace Turismo
         {
             InitializeComponent();
 
-            DataTable dted = logic.dtestadoEmpleadoData();
+            DataTable dted = logic.dtCargoEmpleadoData();
             cbCargo.ItemsSource = dted.AsDataView();
             cbCargo.DisplayMemberPath = "NOMBRE";
             cbCargo.SelectedValuePath = "ID_CARGO";

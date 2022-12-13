@@ -80,6 +80,8 @@ namespace Turismo
 
         private void dgReserva_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try 
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -88,6 +90,11 @@ namespace Turismo
                 //MessageBox.Show(nro_reserva.ToString());
                 refreshDatagrid();
                //dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 
@@ -98,6 +105,8 @@ namespace Turismo
 
         private void dgReservaFinalizada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -107,22 +116,42 @@ namespace Turismo
                 refreshDatagrid();
                 //dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
             }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         public void refreshDatagrid()
         {
-            dgPagos.ItemsSource = null;
-            dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
-            monto_total = logic.PagoMontoTotal(nro_reserva);
-            lblMontoTotal.Content = monto_total.ToString();
+            try
+            {
+                dgPagos.ItemsSource = null;
+                dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
+                monto_total = logic.PagoMontoTotal(nro_reserva);
+                lblMontoTotal.Content = monto_total.ToString();
+            }
+            
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         public void refreshDatagridReservas()
         {
+            try
+            { 
             dgReserva.ItemsSource = null;
             dgReserva.ItemsSource = logic.ReservasActivasData().DefaultView;
             dgReservaFinalizada.ItemsSource = null;
             dgReservaFinalizada.ItemsSource = logic.ReservasFinalizadasData().DefaultView;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)

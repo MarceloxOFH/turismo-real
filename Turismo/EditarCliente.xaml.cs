@@ -33,15 +33,15 @@ namespace Turismo
 
         private void btnEditarCliente_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                logic.editCliente(tbEditarRut.Text, tbEditarNombresClientes.Text, tbEditarApellidosClientes.Text, Convert.ToInt32(tbEditarTelefono.Text), tbEditarCorreo.Text, tbEditarContraseña.Text);
-            }
+            //try
+            //{
+            //    logic.editCliente(tbEditarRut.Text, tbEditarNombresClientes.Text, tbEditarApellidosClientes.Text, Convert.ToInt32(tbEditarTelefono.Text), tbEditarCorreo.Text, tbEditarContraseña.Text);
+            //}
 
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se deben llenar todos los campos");
-            }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Se deben llenar todos los campos");
+            //}
 
         }
     }

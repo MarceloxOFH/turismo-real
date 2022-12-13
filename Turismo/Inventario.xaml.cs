@@ -68,26 +68,35 @@ namespace Turismo
 
         private void dgInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                id_articulo = dr["ID_ARTICULO"].ToString();
-                nombre_articulo = dr["NOMBRE_ARTICULO"].ToString();
-                descripcion = dr["DESCRIPCION"].ToString();
-                id_categoria = dr["CATEGORIA_ID_CATEGORIA"].ToString(); 
-                categoria = dr["CATEGORIA"].ToString();
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    id_articulo = dr["ID_ARTICULO"].ToString();
+                    nombre_articulo = dr["NOMBRE_ARTICULO"].ToString();
+                    descripcion = dr["DESCRIPCION"].ToString();
+                    id_categoria = dr["CATEGORIA_ID_CATEGORIA"].ToString();
+                    categoria = dr["CATEGORIA"].ToString();
 
-                tbNombreArticulo.Text = nombre_articulo;
-                tbIdArticulo.Text = id_articulo;
+                    tbNombreArticulo.Text = nombre_articulo;
+                    tbIdArticulo.Text = id_articulo;
 
-                BtnEditar.IsEnabled = true;
-                BtnEliminar.IsEnabled = true;
+                    BtnEditar.IsEnabled = true;
+                    BtnEliminar.IsEnabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 
         private void dgInvDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -100,7 +109,12 @@ namespace Turismo
                 tbIdDepartamento.Text = id_departamento;
                 BtnInvDepartamento.IsEnabled = true;
             }
-        }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
+}
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {

@@ -29,29 +29,27 @@ namespace Turismo
 
         string id_empleado;
 
-        public EditarEmpleado(string nombres, string apellidos, DateTime anno_contratacion, int sueldo, DateTime horario_trabajo, string id_cargo, string acceso_usernam)
+        public EditarEmpleado(string id_empleado, string nombres, string apellidos, DateTime anno_contratacion, int sueldo, DateTime horario_trabajo, string id_cargo, string acceso_username)
         {
             InitializeComponent();
 
 
-            DataTable dted = logic.dtestadoEmpleadoData();
-            cbCargo.ItemsSource = dted.AsDataView();
+            this.id_empleado = id_empleado;
+
+            DataTable dtca = logic.dtCargoEmpleadoData();
+            cbCargo.ItemsSource = dtca.AsDataView();
             cbCargo.DisplayMemberPath = "NOMBRE";
             cbCargo.SelectedValuePath = "ID_CARGO";
+            cbCargo.SelectedIndex = Convert.ToInt32(id_cargo) - 1;
+            this.idCargo = (Convert.ToInt32(cbCargo.SelectedIndex) + 1).ToString();
 
             tbNombre.Text = nombres;
             tbApellido.Text = apellidos;
-            this.idCargo = (Convert.ToInt32(cbCargo.SelectedIndex) + 1).ToString();
-            //tbSueldo.Text = sueldo.ToString;
-            //tbAccesoUsername = acceso_usernam;
-            //dtpAnnoContrato = anno_contratacion;
+            
+            tbSueldo.Text = sueldo.ToString();
+            tbAccesoUsername.Text = acceso_username;
+            dtpAnnoContrato.Text = anno_contratacion.ToShortDateString();
             //dtpHorario = horario_trabajo;
-
-
-
-
-
-
 
         }
 
@@ -65,9 +63,11 @@ namespace Turismo
         private void BtnEditarEmpleados_Click(object sender, RoutedEventArgs e)
         {
 
+            //MessageBox.Show("id_empleado: " + id_empleado);
+
             //try
             //{
-            //    logic.editEmpleado(id_empleado, tbNombre.Text, tbApellido.Text, Convert.ToDateTime(dtpAnnoContrato.Text), cbCargo.Text, Convert.ToInt32(tbSueldo.Text), Convert.ToDateTime(dtpHorario.Text), idCargo, tbAccesoUsername.Text);
+            //    logic.editEmpleado(id_empleado, tbNombre.Text, tbApellido.Text, Convert.ToDateTime(dtpAnnoContrato.Text), Convert.ToInt32(tbSueldo.Text), idCargo);
             //}
 
             //catch (Exception ex)

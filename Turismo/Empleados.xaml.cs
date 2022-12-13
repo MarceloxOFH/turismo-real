@@ -3,6 +3,7 @@ using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace Turismo
             LblCargo.Content = Business.usertype_login;
             dgEmpleados.ItemsSource = logic.EmpleadosData().DefaultView;
 
-            DataTable dtca = logic.dtestadoEmpleadoData();
+            DataTable dtca = logic.dtCargoEmpleadoData();
             cbCargo.ItemsSource = dtca.AsDataView();
             cbCargo.DisplayMemberPath = "NOMBRE";
             cbCargo.SelectedValuePath = "ID_CARGO";
@@ -56,7 +57,7 @@ namespace Turismo
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estás seguro que deseas borrar el departamento '" + tbnombreEmpleado.Text + "' ", "Eliminar empleado", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estás seguro que deseas borrar el empleado seleccionado?", "Eliminar empleado", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
 
                 try
@@ -95,7 +96,7 @@ namespace Turismo
                     id_empleado = dr["ID_EMPLEADO"].ToString();
                     nombres = dr["NOMBRES"].ToString();
                     apellidos = dr["APELLIDOS"].ToString();
-                    anno_contratacion = Convert.ToDateTime(dr["AÑO_CONTRATACION"]);
+                    anno_contratacion = DateTime.ParseExact(dr["AÑO_CONTRATACION"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
                     cargo = dr["CARGO"].ToString();
                     sueldo = Convert.ToInt32(dr["SUELDO"]);
                     id_cargo = dr["ID_CARGO"].ToString();
@@ -129,7 +130,7 @@ namespace Turismo
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            new EditarEmpleado(nombres, apellidos, anno_contratacion, sueldo, horario_trabajo, id_cargo, acceso_username).Show();
+            new EditarEmpleado(id_empleado, nombres, apellidos, anno_contratacion, sueldo, horario_trabajo, id_cargo, acceso_username).Show();
         }
 
         private void BtnCrearCargo_Click(object sender, RoutedEventArgs e)

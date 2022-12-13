@@ -65,6 +65,8 @@ namespace Turismo
 
         private void btnSubirFirma_Click(object sender, RoutedEventArgs e)
         {
+            try
+            { 
             OpenFileDialog fd = new OpenFileDialog();
             if (fd.ShowDialog() == true)
             {
@@ -77,6 +79,11 @@ namespace Turismo
                 firma_subida = true;
                 LblFirma.Content = "✓ Firma subida";
                 LblFirma.Foreground = System.Windows.Media.Brushes.DarkGreen;
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 
@@ -105,8 +112,16 @@ namespace Turismo
 
         private void cbRegalo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            id_regalo = cbRegalo.SelectedValue.ToString();
-            combobox_regalo = true;
-        }
+            try
+            {
+                id_regalo = cbRegalo.SelectedValue.ToString();
+                combobox_regalo = true;
+            
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
+}
     }
 }

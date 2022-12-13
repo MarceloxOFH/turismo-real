@@ -19,12 +19,12 @@
         <TextBox x:Name="tbApellidoEmpleado" HorizontalAlignment="Left" Margin="370,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20" FontWeight="Bold"/>
         <Label x:Name="lbl_Cargo" Content="Cargo:" HorizontalAlignment="Left" Margin="616,103,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
         <ComboBox x:Name="cbCargo" SelectedValuePath="id_estado" HorizontalAlignment="Left" Margin="682,108,0,0" VerticalAlignment="Top" Width="118" Height="22" FontWeight="Bold"/>
-        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="643,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
-        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="737,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="848,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click" Background="#FFFCC5C5"/>
+        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="660,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click" Background="#FFD0FCCE"/>
         <Button x:Name="BtnCrearCargo" Content="Crear Cargo" HorizontalAlignment="Left" Margin="193,582,0,0" VerticalAlignment="Top" Height="29" Width="96" Click="BtnCrearCargo_Click" />
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="831,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="754,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click" Background="#FFF6F9C3"/>
         <Button x:Name="btnAcceso" Content="Crear Acceso" HorizontalAlignment="Left" Margin="322,582,0,0" VerticalAlignment="Top" Height="29" Width="109" Click="btnAcceso_Click"/>
-        <Button x:Name="actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="928,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="actualizar_Click"/>
+        <Button x:Name="actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="941,582,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="actualizar_Click" Background="#FFBCE1E5"/>
 
         <DataGrid x:Name="dgEmpleados" IsReadOnly="True" AutoGenerateColumns="False"  Margin="191,196,61,139" SelectionChanged="dgEmpleados_SelectionChanged" FontWeight="Bold">
             <DataGrid.Columns>

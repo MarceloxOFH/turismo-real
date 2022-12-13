@@ -9,18 +9,18 @@
         Title="Crear Cliente" Height="520" Width="361" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
         <Label Content="Crear Cliente" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="lblRut" Content="Rut:" HorizontalAlignment="Left" Margin="16,81,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblNombres" Content="Nombres:" HorizontalAlignment="Left" Margin="16,111,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblApellidos" Content="Apellidos:" HorizontalAlignment="Left" Margin="16,141,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label x:Name="lblTelefono" Content="Telefono:" HorizontalAlignment="Left" Margin="16,177,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbRut" HorizontalAlignment="Left" Margin="161,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="tbNombresClientes" HorizontalAlignment="Left" Margin="161,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="tbTelefono" HorizontalAlignment="Left" Margin="161,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="tbApellidosClientes" HorizontalAlignment="Left" Margin="161,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" Margin="16,206,0,0" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbCorreo" HorizontalAlignment="Left" Margin="161,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <Label x:Name="lblContraseña" Content="Contraseña:" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Center" Width="192" FontSize="16"/>
-        <TextBox x:Name="tbContraseña" HorizontalAlignment="Left" Margin="161,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170"/>
+        <Label x:Name="lblRut" Content="Rut:" HorizontalAlignment="Left" Margin="16,83,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblNombres" Content="Nombres:" HorizontalAlignment="Left" Margin="16,114,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblApellidos" Content="Apellidos:" HorizontalAlignment="Left" Margin="16,146,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblTelefono" Content="Telefono:" HorizontalAlignment="Left" Margin="16,177,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbRut" HorizontalAlignment="Left" Margin="161,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombresClientes" HorizontalAlignment="Left" Margin="161,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <TextBox x:Name="tbTelefono" HorizontalAlignment="Left" Margin="161,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <TextBox x:Name="tbApellidosClientes" HorizontalAlignment="Left" Margin="161,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" Margin="16,206,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbCorreo" HorizontalAlignment="Left" Margin="161,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+        <Label x:Name="lblContraseña" Content="Contraseña:" HorizontalAlignment="Left" Margin="16,239,0,0" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="tbContraseña" HorizontalAlignment="Left" Margin="161,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
         <Button x:Name="btnCrearCliente" Content="Crear" HorizontalAlignment="Left" Margin="209,442,0,0" VerticalAlignment="Top" Height="32" Width="74" Click="btnCrearCliente_Click"/>
 
     </Grid>

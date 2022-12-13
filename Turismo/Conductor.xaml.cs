@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.Globalization;
 
 namespace Turismo
 {
@@ -61,7 +62,7 @@ namespace Turismo
                     rut_conductor = dr["RUT_CONDUCTOR"].ToString();
                     nombres = dr["NOMBRES"].ToString();
                     apellidos = dr["APELLIDOS"].ToString();
-                    caducidad_licencia = DateTime.Parse(dr["CADUCIDAD_LICENCIA"].ToString());
+                    caducidad_licencia = DateTime.ParseExact(dr["CADUCIDAD_LICENCIA"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
                     disponibilidad = dr["DISPONIBILIDAD"].ToString();
                     sueldo = Convert.ToInt32(dr["SUELDO"]);
 
@@ -74,9 +75,9 @@ namespace Turismo
                     BtnEditar.IsEnabled = true;
                 }
             }
-            catch 
+            catch (Exception ex)
             {
-               MessageBox.Show("conductor selection change error");
+               MessageBox.Show("conductor selection change error: " + ex.Message);
             }
         }
 

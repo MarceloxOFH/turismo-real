@@ -1469,7 +1469,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("El artículo ya existe en el departamento: " + ex);
+                MessageBox.Show("El artículo ya existe en el departamento","Error");
             }
         }
 
@@ -3295,7 +3295,7 @@ namespace CapaNegocio
             }
         }
 
-        public DataTable dtestadoEmpleadoData()
+        public DataTable dtCargoEmpleadoData()
         {
             try
             {
@@ -3313,7 +3313,7 @@ namespace CapaNegocio
 
             catch (Exception ex)
             {
-                MessageBox.Show("error en dtestadoEmpleadoData()" + ex);
+                MessageBox.Show("error en dtCargoEmpleadoData()" + ex);
                 DataTable dt = null;
                 return dt;
             }
@@ -3510,6 +3510,33 @@ namespace CapaNegocio
             }
         }
 
+
+        public void editEmpleado(string id_empleado, string nombres, string apellidos, DateTime anno_contratacion, int sueldo, string idCargo)
+        {
+            try
+            {
+                OracleCommand command = new OracleCommand("UPDATE EMPLEADO " +
+                    "SET NOMBRES = :nombres, APELLIDOS = :apellidos, ANNO_CONTRATACION = :anno_contratacion, " +
+                    "SUELDO = :sueldo, CARGO_ID_CARGO = :idCargo " +
+                    "WHERE ID_EMPLEADO = :id_empleado", Conec.Connect());
+
+                command.Parameters.Add("nombres", OracleDbType.Varchar2, 100).Value = nombres;
+                command.Parameters.Add("apellidos", OracleDbType.Varchar2, 100).Value = apellidos;
+                command.Parameters.Add("anno_contratacion", OracleDbType.Varchar2, 100).Value = anno_contratacion.ToString("dd/MM/yyyy HH:mm");
+                command.Parameters.Add("sueldo", OracleDbType.Int32, 100).Value = sueldo;
+                command.Parameters.Add("idCargo", OracleDbType.Varchar2, 100).Value = idCargo;
+                command.Parameters.Add("id_empleado", OracleDbType.Varchar2, 100).Value = id_empleado;
+                //MessageBox.Show("id_empleado: " + id_empleado);
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Empleado editado exitosamente", "Editar");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar empleado: ");
+            }
+        }
 
     }
 }

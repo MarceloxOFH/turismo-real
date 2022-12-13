@@ -51,6 +51,8 @@ namespace Turismo
 
         private void dgVehiculo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -72,6 +74,11 @@ namespace Turismo
                 BtnEditar.IsEnabled = true;
 
                 this.id_estado = (Convert.ToInt32(cbEstado.SelectedIndex) + 1).ToString();
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 

@@ -46,6 +46,8 @@ namespace Turismo
 
         private void dgInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -63,6 +65,11 @@ namespace Turismo
                 tbIdArticulo.Text = id_articulo;
 
                 BtnEditarArticulo.IsEnabled = true;
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 
@@ -126,6 +133,8 @@ namespace Turismo
 
         private void dgInvGeneral_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            { 
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
@@ -138,10 +147,17 @@ namespace Turismo
 
                 BtnAgregarArticulo.IsEnabled = true;
             }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
+            }
         }
 
         private void BtnAgregarArticulo_Click(object sender, RoutedEventArgs e)
         {
+            try
+            { 
             if (Convert.ToInt32(tbCantidad.Text) > 0)
             {
                 try
@@ -158,6 +174,11 @@ namespace Turismo
             else 
             {
                 MessageBox.Show("La cantidad debe ser un número positivo", "Error");
+            }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error selectionchanged");
             }
         }
 

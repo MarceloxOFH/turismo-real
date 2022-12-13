@@ -118,37 +118,44 @@ namespace Turismo
 
         private void dgDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                id_departamento = dr["ID_DEPARTAMENTO"].ToString();
-                nombre_departamento = dr["NOMBRE"].ToString();
-                numero = Convert.ToInt32(dr["NUMERO"]);
-                arriendo_diario = Convert.ToInt32(dr["ARRIENDO_DIARIO"]);
-                habitaciones = Convert.ToInt32(dr["HABITACIONES"]);
-                banos = Convert.ToInt32(dr["BANOS"]);
-                metros_cuadrados = Convert.ToInt32(dr["METROS_CUADRADOS"]);
-                descripcion = dr["DESCRIPCION"].ToString();
-                id_ubicacion = dr["ID_UBICACION"].ToString();
-                region = dr["REGION"].ToString();
-                id_region = dr["ID_REGION"].ToString();
-                direccion = dr["DIRECCION"].ToString();
-                estado = dr["ESTADO"].ToString();
-                id_estado = dr["ID_ESTADO"].ToString();
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    id_departamento = dr["ID_DEPARTAMENTO"].ToString();
+                    nombre_departamento = dr["NOMBRE"].ToString();
+                    numero = Convert.ToInt32(dr["NUMERO"]);
+                    arriendo_diario = Convert.ToInt32(dr["ARRIENDO_DIARIO"]);
+                    habitaciones = Convert.ToInt32(dr["HABITACIONES"]);
+                    banos = Convert.ToInt32(dr["BANOS"]);
+                    metros_cuadrados = Convert.ToInt32(dr["METROS_CUADRADOS"]);
+                    descripcion = dr["DESCRIPCION"].ToString();
+                    id_ubicacion = dr["ID_UBICACION"].ToString();
+                    region = dr["REGION"].ToString();
+                    id_region = dr["ID_REGION"].ToString();
+                    direccion = dr["DIRECCION"].ToString();
+                    estado = dr["ESTADO"].ToString();
+                    id_estado = dr["ID_ESTADO"].ToString();
 
 
-                tbidDepartamento.Text = id_departamento;
-                tbnombreDepartamento.Text = nombre_departamento;
-                BtnEliminar.IsEnabled = true;
-                BtnEditar.IsEnabled = true;
-                BtnVerInventario.IsEnabled = true;
-                BtnVerMantencion.IsEnabled = true;
-                BtnVerFotos.IsEnabled = true;
-                BtnServicios.IsEnabled = true;
+                    tbidDepartamento.Text = id_departamento;
+                    tbnombreDepartamento.Text = nombre_departamento;
+                    BtnEliminar.IsEnabled = true;
+                    BtnEditar.IsEnabled = true;
+                    BtnVerInventario.IsEnabled = true;
+                    BtnVerMantencion.IsEnabled = true;
+                    BtnVerFotos.IsEnabled = true;
+                    BtnServicios.IsEnabled = true;
 
-                cbEstado.SelectedIndex = Convert.ToInt32(id_estado) - 1;
-                cbRegion.SelectedIndex = Convert.ToInt32(id_region) - 1;
+                    cbEstado.SelectedIndex = Convert.ToInt32(id_estado) - 1;
+                    cbRegion.SelectedIndex = Convert.ToInt32(id_region) - 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Hubo un problema para leer los datos");
             }
         }
 

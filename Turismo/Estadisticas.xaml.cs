@@ -147,8 +147,14 @@ namespace Turismo
                 lblCostosMultas_Copy.Content = logic.TEstResCostosMultas(id_region);
                 lblCostoReservaTotal_Copy.Content = logic.TEstResCostoReservaTotal(id_region);
 
-                //porcentajes
-                try
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("error");
+            }
+
+            //porcentajes
+            try
                 {
                     lblPorcCantidad.Content = ((Convert.ToInt32(logic.EstDepCantidad(id_region)) * 100 / Convert.ToInt32(logic.TEstDepCantidad(id_region)) * 100) * 10000) / 1000000 + "%";
                 }
@@ -306,20 +312,7 @@ namespace Turismo
                 {
                     lblPorcCostoReservaTotal.Content = "0%";
                 }
-            }
-            catch 
-            {
-                MessageBox.Show("Hubo un problema para cargar los datos");
-            }
-
-
-
-
-
-
-
-
-
+           
 
 
         }
