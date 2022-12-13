@@ -2073,7 +2073,7 @@ namespace CapaNegocio
             try
             {
                 OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, RES.TOTAL_PERSONAS, " +
-                "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                 "CLI.NOMBRES, CLI.APELLIDOS, " +
                 "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
                 "FROM RESERVA RES " +
@@ -2379,7 +2379,7 @@ namespace CapaNegocio
 
                 OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), RES.TOTAL_PERSONAS, " + 
                     "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
-                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
                     "FROM RESERVA RES " +
@@ -2395,7 +2395,7 @@ namespace CapaNegocio
                     "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)" +
                     "GROUP BY RES.TOTAL_PERSONAS, " +
                     "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
-                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS", Conec.Connect());
 
@@ -2850,7 +2850,7 @@ namespace CapaNegocio
 
                 OracleCommand command = new OracleCommand("SELECT COUNT(RES.NRO_RESERVA), RES.TOTAL_PERSONAS, " +
                     "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
-                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
                     "FROM RESERVA RES " +
@@ -2865,7 +2865,7 @@ namespace CapaNegocio
                     "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)" +
                     "GROUP BY RES.TOTAL_PERSONAS, " +
                     "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_SERVICIOS_EXTRA, " +
-                    "RES.VALOR_POR_DIAS, RES.VALOR_TOTAL, " +
+                    "RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                     "CLI.NOMBRES, CLI.APELLIDOS, " +
                     "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS", Conec.Connect());
 
