@@ -189,8 +189,7 @@ namespace Turismo
                 Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
                 string nombre_documento = nro_reserva + "-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".pdf";
                 //MessageBox.Show("nombre_documento: " + nombre_documento);
-                string directorio = @"C:\Users\Marcelo\Desktop\";
-                FileStream file = new FileStream(directorio + nombre_documento, FileMode.Create);
+                FileStream file = new FileStream(Business.filePath + nombre_documento, FileMode.Create);
                 PdfWriter writer = PdfWriter.GetInstance(doc, file);
                 //PdfWriter writer = PdfWriter.GetInstance(doc, new System.IO.FileStream("Test.pdf", System.IO.FileMode.Create));
                 doc.Open();
@@ -203,6 +202,7 @@ namespace Turismo
                 doc.Add(new Paragraph("             Rut Cliente: " + rut_cliente, boldFont));
                 doc.Add(new Paragraph("             Nombres: " + nombres, boldFont));
                 doc.Add(new Paragraph("             Apellidos: " + apellidos, boldFont));
+                doc.Add(new Paragraph("             Pago Total: $ " + lblMontoTotal.Content, boldFont));
                 doc.Add(Chunk.NEWLINE);
                 doc.Add(new Paragraph("             Lista de Pagos:", boldFont));
                 doc.Add(Chunk.NEWLINE);
@@ -236,7 +236,7 @@ namespace Turismo
 
                     doc.Close();
                     writer.Close();
-                    System.Diagnostics.Process.Start(directorio + nombre_documento);
+                    System.Diagnostics.Process.Start(Business.filePath + nombre_documento);
 
                 }
             }

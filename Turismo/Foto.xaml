@@ -28,12 +28,12 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="302,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click"/>
+        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="302,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnActualizar_Click" Background="#FFBCE1E5"/>
         <Rectangle HorizontalAlignment="Left" Height="242" Margin="475,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="322" Fill="#FF9A9797"/>
 
-        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="208,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click"/>
-        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="20,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click"/>
-        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="114,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click" RenderTransformOrigin="0.368,1.611"/>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="208,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEliminar_Click" Background="#FFFCC5C5"/>
+        <Button x:Name="BtnCrear" Content="Crear" HorizontalAlignment="Left" Margin="20,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnCrear_Click" Background="#FFD0FCCE"/>
+        <Button x:Name="BtnEditar" Content="Editar" HorizontalAlignment="Left" Margin="114,467,0,0" VerticalAlignment="Top" Height="29" Width="78" Click="BtnEditar_Click" RenderTransformOrigin="0.368,1.611" Background="#FFF6F9C3"/>
         <Image x:Name="ImgImagen" HorizontalAlignment="Left" Height="239" Margin="476,156,0,0" VerticalAlignment="Top" Width="320" OpacityMask="#FFC09666"/>
         <Button x:Name="BtnAnterior" Content="▲" HorizontalAlignment="Left" Margin="476,102,0,0" VerticalAlignment="Top" Height="48" Width="321" FontSize="20" Click="BtnAnterior_Click" FontWeight="Bold"/>
         <Label Content="Gestionar Fotos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>

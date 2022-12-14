@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing.Imaging;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +15,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapaNegocio;
 using MahApps.Metro.Controls;
-using Rectangle = System.Drawing.Rectangle;
-using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace Turismo
 {
@@ -324,14 +321,38 @@ namespace Turismo
         private void BtnGenerarFoto_Click(object sender, RoutedEventArgs e)
         {
 
+            //string filePath = @"C:\Users\Marcelo\Desktop\";
+            string fileName = "SS-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".png";
+            CreateBitmapFromVisual(Grid1, Business.filePath + fileName);
+            MessageBox.Show("Se generó el ScreenShot en el directorio: " + Business.filePath + fileName, "Screenshot generado exitosamente");
+        }
 
+        public static void CreateBitmapFromVisual(Visual target, string fileName)
+        {
+            if (target == null || string.IsNullOrEmpty(fileName))
+            {
+                return;
+            }
 
+            Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
 
-            ////Rectangle rect = new Rectangle(0, 0, 100, 100);
-            //Bitmap bmp = new Bitmap((int)RtFoto.Width, (int)RtFoto.Height, PixelFormat.Format32bppArgb);
-            //Graphics g = Graphics.FromImage(bmp);
-            //g.CopyFromScreen((int)RtFoto.Left, (int)RtFoto.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
-            //bmp.Save("test", ImageFormat.Jpeg);
+            RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height, 96, 96, PixelFormats.Pbgra32);
+
+            DrawingVisual visual = new DrawingVisual();
+
+            using (DrawingContext context = visual.RenderOpen())
+            {
+                VisualBrush visualBrush = new VisualBrush(target);
+                context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
+            }
+
+            renderTarget.Render(visual);
+            PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+            bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
+            using (Stream stm = File.Create(fileName))
+            {
+                bitmapEncoder.Save(stm);
+            }
         }
     }
 }

@@ -92,10 +92,10 @@ namespace Turismo
                     try
                     {
                         // recvisa que la direccion de la foto existe  
-                        if (File.Exists(Path.Combine(@"C:\Users\Marcelo\Desktop\", "dep-" + id_departamento + "-" + (descripcion).Replace(' ', '-') + ".jpg")))
+                        if (File.Exists(Path.Combine(Business.filePathFoto, "dep-" + id_departamento + "-" + (descripcion).Replace(' ', '-') + ".jpg")))
                         {
                             // si es que existe, se elimina    
-                            File.Delete(Path.Combine(@"C:\Users\Marcelo\Desktop\", "dep-" + id_departamento + "-" + (descripcion).Replace(' ', '-') + ".jpg"));
+                            File.Delete(Path.Combine(Business.filePathFoto, "dep-" + id_departamento + "-" + (descripcion).Replace(' ', '-') + ".jpg"));
                         }
                     }
                     catch

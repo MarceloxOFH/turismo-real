@@ -46,15 +46,21 @@ namespace Turismo
 
         private void dgRegalos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                id_regalo = dr["ID_REGALO"].ToString();
-                contenido = dr["CONTENIDO"].ToString();
-                valor = Convert.ToInt32(dr["VALOR"]);
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    id_regalo = dr["ID_REGALO"].ToString();
+                    contenido = dr["CONTENIDO"].ToString();
+                    valor = Convert.ToInt32(dr["VALOR"]);
 
 
+                }
+            }
+            catch
+            { 
             }
 
         }

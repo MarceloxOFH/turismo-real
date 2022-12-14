@@ -296,8 +296,7 @@ namespace Turismo
             {
                 Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
                 string nombre_documento = nro_reserva + "-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".pdf";
-                string directorio = @"C:\Users\Marcelo\Desktop\";
-                FileStream file = new FileStream(directorio + nombre_documento, FileMode.Create);
+                FileStream file = new FileStream(Business.filePath + nombre_documento, FileMode.Create);
                 PdfWriter writer = PdfWriter.GetInstance(doc, file);
                 doc.Open();
                 var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
@@ -313,10 +312,12 @@ namespace Turismo
                 doc.Add(new Paragraph("             Fecha Inicio: " + fecha_inicio.ToString("dd/MM/yyyy HH:mm"), boldFont));
                 doc.Add(new Paragraph("             Fecha Termino: " + fecha_termino.ToString("dd/MM/yyyy HH:mm"), boldFont));
                 doc.Add(new Paragraph("             Estado Check Out: Realizado", boldFont));
-
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(new Paragraph("             Gracias por confiar en nuestros servicios.", boldFont));
                 doc.Close();
                 writer.Close();
-                System.Diagnostics.Process.Start(directorio + nombre_documento);
+                System.Diagnostics.Process.Start(Business.filePath + nombre_documento);
 
 
             }

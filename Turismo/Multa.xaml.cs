@@ -85,18 +85,25 @@ namespace Turismo
 
         private void dgMulta_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                id_multa = dr["ID_MULTA"].ToString();
-                descripcion = dr["DESCRIPCION"].ToString();
-                costo = Convert.ToInt32(dr["COSTO"]);
-                pagada = dr["PAGADA"].ToString();
-                fecha_creacion = DateTime.Parse(dr["FECHA_CREACION"].ToString());
-                BtnEditar.IsEnabled = true;
-                BtnEliminar.IsEnabled = true;
-                BtnPagarMulta.IsEnabled = true;
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    id_multa = dr["ID_MULTA"].ToString();
+                    descripcion = dr["DESCRIPCION"].ToString();
+                    costo = Convert.ToInt32(dr["COSTO"]);
+                    pagada = dr["PAGADA"].ToString();
+                    //fecha_creacion = DateTime.Parse(dr["FECHA_CREACION"].ToString());
+                    BtnEditar.IsEnabled = true;
+                    BtnEliminar.IsEnabled = true;
+                    BtnPagarMulta.IsEnabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("multa selectionchanged " + ex.Message);
             }
         }
 

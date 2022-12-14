@@ -23,6 +23,8 @@ namespace CapaNegocio
         private Connection conec;
         public Connection Conec { get => conec; set => conec = value; }
 
+        public static string filePath = @"C:\Users\Marcelo\Desktop\";
+        public static string filePathFoto = @"C:\Users\Marcelo\Desktop\";
 
 
         public void configConnection()
@@ -2060,6 +2062,10 @@ namespace CapaNegocio
 
         public static string user_login { get; set; }
         public static string usertype_login { get; set; }
+
+  
+
+
 
 
 

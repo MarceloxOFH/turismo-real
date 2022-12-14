@@ -65,7 +65,7 @@ namespace Turismo
             try 
             {
                 logic.editFoto(tbDescripcion.Text, "dep-" + tbIdDepartamento.Text + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", base64Text, id_foto);
-                File.WriteAllBytes(@"C:\Users\Marcelo\Desktop\" + "dep-" + id_departamento + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", Convert.FromBase64String(base64Text));
+                File.WriteAllBytes(Business.filePathFoto + "dep-" + id_departamento + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", Convert.FromBase64String(base64Text));
                 foto.refreshDatagrid();
             }
             catch 

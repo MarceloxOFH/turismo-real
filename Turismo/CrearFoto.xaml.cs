@@ -51,7 +51,7 @@ namespace Turismo
                 if (base64Text != null)
                 {
                     logic.newFoto(tbDescripcion.Text, "dep-" + id_departamento + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", base64Text, tbIdDepartamento.Text);
-                    File.WriteAllBytes(@"C:\Users\Marcelo\Desktop\" + "dep-" + id_departamento + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", Convert.FromBase64String(base64Text));
+                    File.WriteAllBytes(Business.filePathFoto + "dep-" + id_departamento + "-" + (tbDescripcion.Text).Replace(' ', '-') + ".jpg", Convert.FromBase64String(base64Text));
                     foto.refreshDatagrid();
                 }
             }
