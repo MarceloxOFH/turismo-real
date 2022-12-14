@@ -1,15 +1,16 @@
-﻿<Window x:Class="Turismo.Regalos"
+﻿<mah:MetroWindow x:Class="Turismo.Regalos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Regalos" Height="520" Width="361">
+        Title="Regalos" Height="520" Width="361"  Background="LightGray" ResizeMode="NoResize" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" >
     <Grid>
 
         <Label Content="Lista de Regalos disponibles" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="329" FontSize="24" FontWeight="Bold"/>
-        <DataGrid x:Name="dgRegalos" IsReadOnly="True" AutoGenerateColumns="False"  Margin="23,142,22,124" SelectionChanged="dgRegalos_SelectionChanged" BorderThickness="2"  >
+        <DataGrid x:Name="dgRegalos" IsReadOnly="True" AutoGenerateColumns="False"  Margin="23,142,22,124" SelectionChanged="dgRegalos_SelectionChanged" BorderThickness="2" FontWeight="Bold"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding ID_REGALO}" Width="30"/>
                 <DataGridTextColumn Header="Contenido" Binding="{Binding CONTENIDO}" Width="120"/>
@@ -31,4 +32,4 @@
         <Button x:Name="btnActualizarRegalo" Content="Actualizar" HorizontalAlignment="Left" Margin="267,403,0,0" VerticalAlignment="Top" Click="btnActualizarRegalo_Click"/>
 
     </Grid>
-</Window>
+</mah:MetroWindow>

@@ -6,31 +6,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="Crear Mantención" Height="480" Width="400" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
+        Title="Crear Mantención" Height="480" Width="500" Background="LightGray" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0">
     <Grid>
-        <DatePicker x:Name="dpFechaInicio" HorizontalAlignment="Left" Margin="115,152,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpFechaInicio" HorizontalAlignment="Left" Margin="115,152,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="191"/>
         <Label Content="Crear Mantención" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
         <Label Content="Fecha inicio:" HorizontalAlignment="Left" Margin="18,151,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
-        <DatePicker x:Name="dpFechaTermino" HorizontalAlignment="Left" Margin="115,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpFechaTermino" HorizontalAlignment="Left" Margin="115,194,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="191"/>
         <Label Content="Fecha término:" HorizontalAlignment="Left" Margin="18,193,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
         <Label Content="Costo:" HorizontalAlignment="Left" Margin="18,234,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="18,272,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
         <TextBox x:Name="tbCosto" HorizontalAlignment="Left" Margin="115,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" FontWeight="Bold"/>
-        <TextBox x:Name="tbDesccripcion" HorizontalAlignment="Left" Margin="115,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="90" FontWeight="Bold"/>
+        <TextBox x:Name="tbDesccripcion" HorizontalAlignment="Left" Margin="115,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="321" Height="90" FontWeight="Bold"/>
         <Button x:Name="btnAgregar" Content="Crear" HorizontalAlignment="Left" Margin="25,388,0,0" VerticalAlignment="Top" Width="81" Click="btnAgregar_Click" Background="#FFD0FCCE"/>
         <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="274,388,0,0" VerticalAlignment="Top" Width="81"/>
         <Label Content="Id Depto:" HorizontalAlignment="Left" Margin="18,71,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
         <Label Content="Nombre Depto:" HorizontalAlignment="Left" Margin="18,112,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
         <TextBox x:Name="tbIdDepartamento" HorizontalAlignment="Left" Margin="115,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" IsEnabled="False" FontWeight="Bold"/>
-        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="115,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" IsEnabled="False" FontWeight="Bold"/>
-        <TextBox x:Name="tbHoraInicio" HorizontalAlignment="Left" Margin="258,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <TextBox x:Name="tbMinutoInicio" HorizontalAlignment="Left" Margin="323,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <Label Content="HH:" HorizontalAlignment="Left" Margin="230,152,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="MM:" HorizontalAlignment="Left" Margin="291,152,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbHoraTermino" HorizontalAlignment="Left" Margin="258,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <TextBox x:Name="tbMinutoTermino" HorizontalAlignment="Left" Margin="323,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <Label Content="HH:" HorizontalAlignment="Left" Margin="230,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="MM:" HorizontalAlignment="Left" Margin="291,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="115,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" IsEnabled="False" FontWeight="Bold"/>
+        <TextBox x:Name="tbHoraInicio" HorizontalAlignment="Left" Margin="339,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
+        <TextBox x:Name="tbMinutoInicio" HorizontalAlignment="Left" Margin="404,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
+        <Label Content="HH:" HorizontalAlignment="Left" Margin="311,152,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="MM:" HorizontalAlignment="Left" Margin="372,152,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbHoraTermino" HorizontalAlignment="Left" Margin="339,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
+        <TextBox x:Name="tbMinutoTermino" HorizontalAlignment="Left" Margin="404,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
+        <Label Content="HH:" HorizontalAlignment="Left" Margin="311,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="MM:" HorizontalAlignment="Left" Margin="372,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </mah:MetroWindow>

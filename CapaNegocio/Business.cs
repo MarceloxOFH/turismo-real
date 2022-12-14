@@ -7,7 +7,8 @@ using System.Web.Mvc;
 using System.IO;
 using System.Windows.Media.Imaging;
 using Image = System.Windows.Controls.Image;
-
+using System.Collections.Generic;
+using System.Windows.Media;
 
 namespace CapaNegocio
 {
@@ -32,7 +33,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error de conexión en configConnection(): " + ex);
+                MessageBox.Show("Error de conexión en configConnection(): ");
             }
 
         }
@@ -56,7 +57,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error en InventarioData(): " + ex);
+                MessageBox.Show("error en InventarioData(): ");
                 DataTable dt = new DataTable();
                 return dt;
             }
@@ -94,7 +95,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error en ReservaCOData(): " + ex);
+                MessageBox.Show("error en ReservaCOData(): ");
                 DataTable dt = new DataTable();
                 return dt;
             }
@@ -432,7 +433,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error en DepartamentoData(): " + ex);
+                MessageBox.Show("error en DepartamentoData(): ");
                 DataTable dt = new DataTable();
                 return dt;
             }
@@ -747,7 +748,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar departamento: " + ex);
+                MessageBox.Show("Error al agregar departamento: ");
             }
         }
 
@@ -771,7 +772,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar valor del inventario del departamento: " + ex);
+                MessageBox.Show("Error al actualizar valor del inventario del departamento: ");
             }
         }
 
@@ -796,7 +797,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error get inventario: " + ex);
+                MessageBox.Show("error get inventario: ");
                 int valor_inventario = 0;
                 return valor_inventario;
             }
@@ -827,7 +828,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar mantención: " + ex);
+                MessageBox.Show("Error al agregar mantención: ");
             }
         }
 
@@ -857,7 +858,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar Conductor: " + ex);
+                MessageBox.Show("Error al agregar Conductor: ");
             }
         }
 
@@ -955,7 +956,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar Categoría: " + ex);
+                MessageBox.Show("Error al agregar Categoría: ");
             }
         }
 
@@ -982,7 +983,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar Servicio: " + ex);
+                MessageBox.Show("Error al agregar Servicio: ");
             }
         }
 
@@ -1007,7 +1008,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar Servicio: " + ex);
+                MessageBox.Show("Error al editar Servicio: ");
             }
         }
 
@@ -1027,7 +1028,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar Servicio: " + ex);
+                MessageBox.Show("Error al eliminar Servicio: ");
             }
         }
 
@@ -1048,7 +1049,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al quitar Servicio: " + ex);
+                MessageBox.Show("Error al quitar Servicio: ");
             }
         }
 
@@ -1073,7 +1074,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al mover Servicio: " + ex);
+                MessageBox.Show("Error al mover Servicio: ");
             }
         }
 
@@ -1104,7 +1105,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar Vehículo: " + ex);
+                MessageBox.Show("Error al agregar Vehículo: ");
             }
         }
 
@@ -1127,7 +1128,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar ubicación: " + ex);
+                MessageBox.Show("Error al ingresar ubicación: ");
             }
         }
     
@@ -1171,7 +1172,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar departamento: " + ex);
+                MessageBox.Show("Error al modificar departamento: ");
             }
         }
 
@@ -1196,7 +1197,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar valores: " + ex);
+                MessageBox.Show("Error al editar valores: ");
             }
         }
 
@@ -1219,7 +1220,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar artículo: " + ex);
+                MessageBox.Show("Error al eliminar artículo: ");
             }
         }
 
@@ -1266,7 +1267,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al finalizar Check in: " + ex);
+                MessageBox.Show("Error al finalizar Check in: ");
             }
         }
 
@@ -1292,7 +1293,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al crear multa: " + ex);
+                MessageBox.Show("Error al crear multa: ");
             }
         }
 
@@ -1444,7 +1445,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al realizar Check Out: " + ex);
+                MessageBox.Show("Error al realizar Check Out: ");
             }
         }
 
@@ -1493,7 +1494,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar Artículo: " + ex);
+                MessageBox.Show("Error al agregar Artículo: ");
             }
         }
 
@@ -1519,7 +1520,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar Artículo: " + ex);
+                MessageBox.Show("Error al editar Artículo: ");
             }
         }
 
@@ -1545,7 +1546,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar Foto: " + ex);
+                MessageBox.Show("Error al editar Foto: ");
             }
         }
 
@@ -1574,7 +1575,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar Conductor: " + ex);
+                MessageBox.Show("Error al editar Conductor: ");
             }
         }
 
@@ -1605,7 +1606,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar Vehiculo: " + ex);
+                MessageBox.Show("Error al editar Vehiculo: ");
             }
         }
 
@@ -1627,7 +1628,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar Categoría: " + ex);
+                MessageBox.Show("Error al editar Categoría: ");
             }
         }
 
@@ -1649,7 +1650,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar artículo: " + ex);
+                MessageBox.Show("Error al eliminar artículo: ");
             }
         }
 
@@ -1671,7 +1672,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar multa: " + ex);
+                MessageBox.Show("Error al eliminar multa: ");
             }
         }
 
@@ -1693,7 +1694,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar Foto: " + ex);
+                MessageBox.Show("Error al eliminar Foto: ");
             }
         }
 
@@ -1715,7 +1716,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar vehiculo: " + ex);
+                MessageBox.Show("Error al eliminar vehiculo: ");
             }
         }
 
@@ -1737,7 +1738,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar categoría: " + ex);
+                MessageBox.Show("Error al eliminar categoría: ");
             }
         }
 
@@ -1757,7 +1758,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar categoría: " + ex);
+                MessageBox.Show("Error al eliminar categoría: ");
             }
         }
 
@@ -1781,7 +1782,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar ubicación: " + ex);
+                MessageBox.Show("Error al modificar ubicación: ");
             }
         }
 
@@ -1804,7 +1805,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar ubicación: " + ex);
+                MessageBox.Show("Error al modificar ubicación: ");
             }
         }
 
@@ -1833,7 +1834,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar mantención: " + ex);
+                MessageBox.Show("Error al editar mantención: ");
             }
         }
         public void deleteDepartamento(string id_departamento)
@@ -1878,7 +1879,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en deleteFotoPrincipal() " + ex);
+                MessageBox.Show("Error en deleteFotoPrincipal() ");
             }
         }
 
@@ -1900,7 +1901,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar multa: " + ex);
+                MessageBox.Show("Error al editar multa: ");
             }
         }
 
@@ -1923,7 +1924,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al pagar multa: " + ex);
+                MessageBox.Show("Error al pagar multa: ");
             }
         }
 
@@ -1966,7 +1967,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar departamento: " + ex);
+                MessageBox.Show("Error al eliminar departamento: ");
             }
         }
 
@@ -1994,7 +1995,7 @@ namespace CapaNegocio
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
-                MessageBox.Show("Error en el login: " + ex);
+                MessageBox.Show("Error en el login: ");
 
                 return dt;
             }
@@ -2017,7 +2018,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("string vacio: " + ex);
+                MessageBox.Show("string vacio: ");
             }
         }
 
@@ -2073,7 +2074,7 @@ namespace CapaNegocio
             try
             {
                 OracleCommand command = new OracleCommand("SELECT RES.NRO_RESERVA, RES.TOTAL_PERSONAS, " +
-                "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
+                "RES.FECHA_RESERVA, RD.RESERVA_INICIO, RD.RESERVA_TERMINO, RES.VALOR_DIAS, RES.VALOR_TOTAL, " +
                 "CLI.NOMBRES, CLI.APELLIDOS, " +
                 "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
                 "FROM RESERVA RES " +
@@ -2092,7 +2093,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error en ReservaData()" + ex);
+                MessageBox.Show("error en ReservaData()");
                 DataTable dt = null;
                 return dt;
             }
@@ -2123,7 +2124,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("check in data error" + ex);
+                MessageBox.Show("check in data error");
                 DataTable dt = null;
                 return dt;
             }
@@ -2148,7 +2149,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error en dtestadoNroReservaInData()" + ex);
+                MessageBox.Show("error en dtestadoNroReservaInData()");
                 DataTable dt = null;
                 return dt;
             }
@@ -3144,7 +3145,7 @@ namespace CapaNegocio
 
             catch (Exception ex)
             {
-                MessageBox.Show("error en ClientesData()" + ex);
+                MessageBox.Show("error en ClientesData()");
                 DataTable dt = null;
                 return dt;
             }
@@ -3169,7 +3170,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar empleado: " + ex);
+                MessageBox.Show("Error al eliminar empleado: ");
             }
         }
 
@@ -3209,7 +3210,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar cliente: " + ex);
+                MessageBox.Show("Error al modificar cliente: ");
             }
         }
 
@@ -3240,7 +3241,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar cliente: " + ex);
+                MessageBox.Show("Error al ingresar cliente: ");
             }
         }
 
@@ -3265,7 +3266,7 @@ namespace CapaNegocio
 
             catch (Exception ex)
             {
-                MessageBox.Show("error en EmpleadosData()" + ex);
+                MessageBox.Show("error en EmpleadosData()");
                 DataTable dt = null;
                 return dt;
             }
@@ -3291,7 +3292,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar empleado: " + ex);
+                MessageBox.Show("Error al eliminar empleado: ");
             }
         }
 
@@ -3313,7 +3314,7 @@ namespace CapaNegocio
 
             catch (Exception ex)
             {
-                MessageBox.Show("error en dtCargoEmpleadoData()" + ex);
+                MessageBox.Show("error en dtCargoEmpleadoData()");
                 DataTable dt = null;
                 return dt;
             }
@@ -3353,7 +3354,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar Empleado: " + ex);
+                MessageBox.Show("Error al agregar Empleado: ");
             }
         }
 
@@ -3382,7 +3383,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar Acceso: " + ex);
+                MessageBox.Show("Error al ingresar Acceso: ");
             }
         }
 
@@ -3406,7 +3407,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar ubicación: " + ex);
+                MessageBox.Show("Error al ingresar ubicación: ");
             }
         }
 
@@ -3442,7 +3443,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar check in: " + ex);
+                MessageBox.Show("Error al ingresar check in: ");
                 return false;
             }
         }
@@ -3479,7 +3480,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar regalo: " + ex);
+                MessageBox.Show("Error al eliminar regalo: ");
             }
         }
 
@@ -3506,7 +3507,7 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar Regalo: " + ex);
+                MessageBox.Show("Error al ingresar Regalo: ");
             }
         }
 
@@ -3537,6 +3538,41 @@ namespace CapaNegocio
                 MessageBox.Show("Error al editar empleado: ");
             }
         }
+
+
+
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
+        where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
+
+        public static childItem FindVisualChild<childItem>(DependencyObject obj)
+        where childItem : DependencyObject
+        {
+            foreach (childItem child in FindVisualChildren<childItem>(obj))
+            {
+                return child;
+            }
+
+            return null;
+        }
+
 
     }
 }

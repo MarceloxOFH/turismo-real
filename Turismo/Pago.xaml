@@ -165,7 +165,7 @@
         </DataGrid>
         <Button x:Name="BtnActivas" Content="Activas" HorizontalAlignment="Left" Margin="865,99,0,0" VerticalAlignment="Top" Width="63" Height="22" Click="BtnActivas_Click"/>
         <Button x:Name="BtnFinalizadas" Content="Finalizadas" HorizontalAlignment="Left" Margin="942,99,0,0" VerticalAlignment="Top" Width="89" Height="22" Click="BtnFinalizadas_Click"/>
-        <Button x:Name="BtnGenerarInforme" Content="Generar Informe" HorizontalAlignment="Left" Margin="919,558,0,0" VerticalAlignment="Top" Width="112" Height="28" Click="BtnGenerarInforme_Click"/>
+        <Button x:Name="BtnGenerarInforme" Content="Generar Comprobante" HorizontalAlignment="Left" Margin="899,545,0,0" VerticalAlignment="Top" Width="137" Height="28" Click="BtnGenerarInforme_Click"/>
         <DataGrid x:Name="dgReservaFinalizada" IsReadOnly="True" AutoGenerateColumns="False"  Margin="198,133,45,312" SelectionChanged="dgReservaFinalizada_SelectionChanged" BorderBrush="#CCD72F00" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -179,8 +179,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" N°" Binding="{Binding NRO_RESERVA}" Width="80"/>
                 <DataGridTextColumn Header=" Rut Cliente" Binding="{Binding RUT_CLIENTE}" Width="85"/>
-                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="105"/>
-                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="105"/>
+                <DataGridTextColumn Header=" Nombres" Binding="{Binding NOMBRES}" Width="115"/>
+                <DataGridTextColumn Header=" Apellidos" Binding="{Binding APELLIDOS}" Width="115"/>
                 <DataGridTextColumn Header=" Fecha Reserva" Binding="{Binding FECHA_RESERVA}" Width="150"/>
                 <DataGridTextColumn Header=" Reserva Inicio" Binding="{Binding RESERVA_INICIO}" Width="150"/>
                 <DataGridTextColumn Header=" Reserva Termino" Binding="{Binding RESERVA_TERMINO}" Width="*"/>

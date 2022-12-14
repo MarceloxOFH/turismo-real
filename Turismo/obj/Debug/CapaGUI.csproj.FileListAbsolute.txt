@@ -446,3 +446,6 @@ C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearServicio.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarServicio.g.cs
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\CrearServicio.baml
 C:\Users\Marcelo\TurismoReal\Turismo\obj\Debug\EditarServicio.baml
+C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\itextsharp.dll
+C:\Users\Marcelo\TurismoReal\Turismo\bin\Debug\itextsharp.xml

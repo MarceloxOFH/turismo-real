@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Imaging;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapaNegocio;
 using MahApps.Metro.Controls;
+using Rectangle = System.Drawing.Rectangle;
+using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace Turismo
 {
@@ -317,5 +321,17 @@ namespace Turismo
 
         }
 
+        private void BtnGenerarFoto_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+
+            ////Rectangle rect = new Rectangle(0, 0, 100, 100);
+            //Bitmap bmp = new Bitmap((int)RtFoto.Width, (int)RtFoto.Height, PixelFormat.Format32bppArgb);
+            //Graphics g = Graphics.FromImage(bmp);
+            //g.CopyFromScreen((int)RtFoto.Left, (int)RtFoto.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
+            //bmp.Save("test", ImageFormat.Jpeg);
+        }
     }
 }

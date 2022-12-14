@@ -1,19 +1,20 @@
-﻿<Window x:Class="Turismo.CrearRegalo"
+﻿<mah:MetroWindow x:Class="Turismo.CrearRegalo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turismo"
         mc:Ignorable="d"
-        Title="CrearRegalo" Height="344" Width="361">
+        Title="Crear Regalo" Background="LightGray" Height="344" Width="361" Icon="Pictures/logo_icon1.png" WindowStartupLocation="Manual" Left="0" Top="0" ResizeMode="NoResize">
     <Grid>
         <Label Content="Crear Regalo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="329" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="lblContenido" Content="Contenido :" HorizontalAlignment="Left" Margin="23,89,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbContenido" HorizontalAlignment="Left" Margin="114,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
-        <Label x:Name="lblValor" Content="Valor :" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Center"/>
-        <TextBox x:Name="tbValor" HorizontalAlignment="Left" Margin="114,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="201"/>
+        <Label x:Name="lblContenido" Content="Contenido :" HorizontalAlignment="Left" Margin="23,89,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbContenido" HorizontalAlignment="Left" Margin="114,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201" FontWeight="Bold"/>
+        <Label x:Name="lblValor" Content="Valor :" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="tbValor" HorizontalAlignment="Left" Margin="114,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="201" FontWeight="Bold"/>
         <Button x:Name="btnCrearRegalo" Content="Crear" HorizontalAlignment="Left" Margin="262,274,0,0" VerticalAlignment="Top" Click="btnCrearRegalo_Click"/>
 
 
     </Grid>
-</Window>
+</mah:MetroWindow>

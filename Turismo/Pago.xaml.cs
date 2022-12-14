@@ -14,6 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Data;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using static System.Net.Mime.MediaTypeNames;
+using System.Collections;
+using System.Windows.Controls.Primitives;
+using System.IO;
+using Paragraph = iTextSharp.text.Paragraph;
 
 namespace Turismo
 {
@@ -32,16 +40,20 @@ namespace Turismo
             dgReservaFinalizada.Visibility = Visibility.Hidden;
             rtFinalizadas.Visibility = Visibility.Hidden;
             rtActivas.Visibility = Visibility.Visible;
+            BtnGenerarInforme.IsEnabled = false;
         }
 
         Business logic = new Business();
         int nro_reserva;
         int monto_total;
+        string rut_cliente;
+        string nombres;
+        string apellidos;
 
         private void BtnSubirFirma_Click(object sender, RoutedEventArgs e)
         {
 
-        }       
+        }
 
         private void BtnPagosPendientes_Click(object sender, RoutedEventArgs e)
         {
@@ -58,6 +70,7 @@ namespace Turismo
             dgReservaFinalizada.Visibility = Visibility.Hidden;
             refreshDatagridReservas();
             dgPagos.ItemsSource = null;
+            BtnGenerarInforme.IsEnabled = false;
         }
 
         private void BtnFinalizadas_Click(object sender, RoutedEventArgs e)
@@ -70,27 +83,29 @@ namespace Turismo
             dgReserva.Visibility = Visibility.Hidden;
             refreshDatagridReservas();
             dgPagos.ItemsSource = null;
+            BtnGenerarInforme.IsEnabled = false;
         }
 
 
-        private void BtnGenerarInforme_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void dgReserva_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try 
-            { 
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
+            try
             {
-                nro_reserva = Convert.ToInt32(dr["NRO_RESERVA"]);
-                //MessageBox.Show(nro_reserva.ToString());
-                refreshDatagrid();
-               //dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
-            }
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    nro_reserva = Convert.ToInt32(dr["NRO_RESERVA"]);
+                    rut_cliente = dr["CLIENTE_RUT_CLIENTE"].ToString(); ;
+                    nombres = dr["NOMBRES"].ToString();
+                    apellidos = dr["APELLIDOS"].ToString();
+                    BtnGenerarInforme.IsEnabled = true;
+                    //MessageBox.Show(nro_reserva.ToString());
+                    refreshDatagrid();
+                    //dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
+                }
             }
             catch (Exception ex)
             {
@@ -106,16 +121,20 @@ namespace Turismo
         private void dgReservaFinalizada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
-            { 
-            DataGrid dg = sender as DataGrid;
-            DataRowView dr = dg.SelectedItem as DataRowView;
-            if (dr != null)
             {
-                nro_reserva = Convert.ToInt32(dr["NRO_RESERVA"]);
-                //MessageBox.Show(nro_reserva.ToString());
-                refreshDatagrid();
-                //dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
-            }
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    nro_reserva = Convert.ToInt32(dr["NRO_RESERVA"]);
+                    rut_cliente = dr["RUT_CLIENTE"].ToString(); ;
+                    nombres = dr["NOMBRES"].ToString();
+                    apellidos = dr["APELLIDOS"].ToString();
+                    BtnGenerarInforme.IsEnabled = true;
+                    //MessageBox.Show(nro_reserva.ToString());
+                    refreshDatagrid();
+                    //dgPagos.ItemsSource = logic.PagosData(nro_reserva).DefaultView;
+                }
             }
             catch (Exception ex)
             {
@@ -132,7 +151,7 @@ namespace Turismo
                 monto_total = logic.PagoMontoTotal(nro_reserva);
                 lblMontoTotal.Content = monto_total.ToString();
             }
-            
+
             catch (Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
@@ -142,17 +161,95 @@ namespace Turismo
         public void refreshDatagridReservas()
         {
             try
-            { 
-            dgReserva.ItemsSource = null;
-            dgReserva.ItemsSource = logic.ReservasActivasData().DefaultView;
-            dgReservaFinalizada.ItemsSource = null;
-            dgReservaFinalizada.ItemsSource = logic.ReservasFinalizadasData().DefaultView;
+            {
+                dgReserva.ItemsSource = null;
+                dgReserva.ItemsSource = logic.ReservasActivasData().DefaultView;
+                dgReservaFinalizada.ItemsSource = null;
+                dgReservaFinalizada.ItemsSource = logic.ReservasFinalizadasData().DefaultView;
             }
             catch (Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }
         }
+
+
+       
+
+        private void BtnGenerarInforme_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToPdf(dgPagos);
+        }
+
+        private void ExportToPdf(DataGrid grid)
+        {
+            try
+            {
+                PdfPTable table = new PdfPTable(grid.Columns.Count);
+                Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+                string nombre_documento = nro_reserva + "-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".pdf";
+                //MessageBox.Show("nombre_documento: " + nombre_documento);
+                string directorio = @"C:\Users\Marcelo\Desktop\";
+                FileStream file = new FileStream(directorio + nombre_documento, FileMode.Create);
+                PdfWriter writer = PdfWriter.GetInstance(doc, file);
+                //PdfWriter writer = PdfWriter.GetInstance(doc, new System.IO.FileStream("Test.pdf", System.IO.FileMode.Create));
+                doc.Open();
+                var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                doc.Add(new Paragraph("                                                                                                                                  TURISMO REAL", boldFont));
+                doc.Add(new Paragraph("             COMPROBANTE DE PAGOS", boldFont));
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(new Paragraph("             Fecha Comprobante: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), boldFont));
+                doc.Add(new Paragraph("             N° Reserva: " + nro_reserva, boldFont));
+                doc.Add(new Paragraph("             Rut Cliente: " + rut_cliente, boldFont));
+                doc.Add(new Paragraph("             Nombres: " + nombres, boldFont));
+                doc.Add(new Paragraph("             Apellidos: " + apellidos, boldFont));
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(new Paragraph("             Lista de Pagos:", boldFont));
+                doc.Add(Chunk.NEWLINE);
+
+                for (int j = 0; j < grid.Columns.Count; j++)
+                {
+                    table.AddCell(new Phrase(grid.Columns[j].Header.ToString(), boldFont));
+                }
+                table.HeaderRows = 1;
+                IEnumerable itemsSource = grid.ItemsSource as IEnumerable;
+                if (itemsSource != null)
+                {
+                    foreach (var item in itemsSource)
+                    {
+                        DataGridRow row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
+                        if (row != null)
+                        {
+                            DataGridCellsPresenter presenter = Business.FindVisualChild<DataGridCellsPresenter>(row);
+                            for (int i = 0; i < grid.Columns.Count; ++i)
+                            {
+                                DataGridCell cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(i);
+                                TextBlock txt = cell.Content as TextBlock;
+                                if (txt != null)
+                                {
+                                    table.AddCell(new Phrase(txt.Text, boldFont));
+                                }
+                            }
+                        }
+                    }
+                    doc.Add(table);
+
+                    doc.Close();
+                    writer.Close();
+                    System.Diagnostics.Process.Start(directorio + nombre_documento);
+
+                }
+            }
+            
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+
+        }
+
+
+
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {

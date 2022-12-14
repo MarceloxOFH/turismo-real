@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -13,7 +16,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapaNegocio;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using MahApps.Metro.Controls;
+using Paragraph = iTextSharp.text.Paragraph;
+using System.Globalization;
 
 namespace Turismo
 {
@@ -46,6 +53,7 @@ namespace Turismo
             dgCheckIn.ItemsSource = logic.CheckInData().DefaultView;
             dgCheckIn.Visibility = Visibility.Hidden;
             rtCheckInRealizado.Visibility = Visibility.Hidden;
+            BtnGenerarComprobante.IsEnabled = false;
 
             DataTable dted = logic.dtestadoNroReservaInData();
 
@@ -66,6 +74,11 @@ namespace Turismo
         string nombres;
         string apellidos;
         string nombre_completo;
+        string id_checkin;
+        DateTime fecha_ingreso;
+        DateTime fecha_termino;
+        int pago_estadia;
+        DateTime fecha_inicio;
 
         //string id_checkin;
         //string condicion_departamento;
@@ -134,6 +147,7 @@ namespace Turismo
 
         private void btnReservas_Click(object sender, RoutedEventArgs e)
         {
+            BtnGenerarComprobante.IsEnabled = false;
             rtReservasAgendadas.Visibility = Visibility.Visible;
             rtCheckInRealizado.Visibility = Visibility.Hidden;
             nro_reserva = 0;
@@ -172,7 +186,7 @@ namespace Turismo
         {
             if (nro_reserva != 0)
             {
-                new CrearCheckIn(nro_reserva, (pago_total/2)*3 , nombre_completo, rut_cliente).Show();
+                new CrearCheckIn(nro_reserva, (pago_total/10)*6 , nombre_completo, rut_cliente).Show();
             }
             else 
             {
@@ -193,9 +207,16 @@ namespace Turismo
                 rut_cliente = dr["RUT_CLIENTE"].ToString();
                 nombres = dr["NOMBRES"].ToString();
                 apellidos = dr["APELLIDOS"].ToString();
+                id_checkin = dr["ID_CHECKIN"].ToString();
+                fecha_ingreso = DateTime.ParseExact(dr["HORA_INGRESO"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                fecha_inicio = DateTime.ParseExact(dr["RESERVA_INICIO"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                fecha_termino = DateTime.ParseExact(dr["RESERVA_TERMINO"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                pago_estadia = Convert.ToInt32(dr["PAGO_ESTADIA"]);
                 nombre_completo = nombres + " " + apellidos;
                 tbRutCliente.Text = rut_cliente;
                 tbNombreCliente.Text = nombre_completo;
+                BtnGenerarComprobante.IsEnabled = true;
+
             }
             }
             catch (Exception ex)
@@ -204,7 +225,47 @@ namespace Turismo
             }
         }
 
-        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+
+
+        private void ExportToPdf()
+        {
+            try
+            {
+                Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+                string nombre_documento = nro_reserva + "-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".pdf";
+                string directorio = @"C:\Users\Marcelo\Desktop\";
+                FileStream file = new FileStream(directorio + nombre_documento, FileMode.Create);
+                PdfWriter writer = PdfWriter.GetInstance(doc, file);
+                doc.Open();
+                var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                doc.Add(new Paragraph("                                                                                                                                  TURISMO REAL", boldFont));
+                doc.Add(new Paragraph("             COMPROBANTE DE CHECK IN", boldFont));
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(new Paragraph("             Fecha Comprobante: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), boldFont));
+                doc.Add(new Paragraph("             Ingreso: " + fecha_ingreso.ToString("dd/MM/yyyy HH:mm"), boldFont));
+                doc.Add(new Paragraph("             N° Reserva: " + nro_reserva, boldFont));
+                doc.Add(new Paragraph("             Rut Cliente: " + rut_cliente, boldFont));
+                doc.Add(new Paragraph("             Nombres: " + nombres, boldFont));
+                doc.Add(new Paragraph("             Apellidos: " + apellidos, boldFont));
+                doc.Add(new Paragraph("             Fecha Inicio: " + fecha_inicio.ToString("dd/MM/yyyy HH:mm"), boldFont));
+                doc.Add(new Paragraph("             Fecha Termino: " + fecha_termino.ToString("dd/MM/yyyy HH:mm"), boldFont));
+                doc.Add(new Paragraph("             Estado Check In: Realizado", boldFont));
+
+                doc.Close();
+                writer.Close();
+                System.Diagnostics.Process.Start(directorio + nombre_documento);
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+            private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             new Login().Show();
             this.Close();
@@ -269,5 +330,14 @@ namespace Turismo
             new Pago().Show();
             this.Close();
         }
+
+        private void BtnGenerarComprobante_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToPdf();
+        }
+
+        
+
+
     }
 }

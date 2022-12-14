@@ -216,6 +216,8 @@
         <Rectangle x:Name="RtFoto_Copy4" HorizontalAlignment="Left" Height="34" Margin="626,124,0,0" Stroke="#FFACACAC" VerticalAlignment="Top" Width="50" Fill="#FF00D63E"/>
         <Label x:Name="lblDepart_Copy15" Content="Todas las regiones incluídas" HorizontalAlignment="Left" Margin="681,80,0,0" VerticalAlignment="Top" Width="234" FontSize="16" FontWeight="Bold" Foreground="#FF0C98D8"/>
         <Label x:Name="lblDepart_Copy16" Content="Porcentaje con respecto a todas las regiones" HorizontalAlignment="Left" Margin="681,124,0,0" VerticalAlignment="Top" Width="345" FontSize="16" FontWeight="Bold" Foreground="#FF00D63E"/>
+        <Button x:Name="BtnGenerarFoto" Content="Generar Foto" HorizontalAlignment="Left" Margin="910,621,0,0" VerticalAlignment="Top" Width="116" Click="BtnGenerarFoto_Click"/>
+        <Rectangle x:Name="rtFoto" HorizontalAlignment="Left" Height="596" Margin="181,20,0,0" Stroke="Black" VerticalAlignment="Top" Width="869"/>
 
 
 

@@ -18,6 +18,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using Paragraph = iTextSharp.text.Paragraph;
+using System.Globalization;
 
 namespace Turismo
 {
@@ -67,6 +71,9 @@ namespace Turismo
         string apellidos;
         int multas_activas;
         Multa MUL;
+        DateTime fecha_reserva;
+        DateTime fecha_inicio;
+        DateTime fecha_termino;
 
         
         private void BtnCrear_Click(object sender, RoutedEventArgs e)
@@ -163,6 +170,9 @@ namespace Turismo
                 rut_cliente = dr["CLIENTE_RUT_CLIENTE"].ToString();
                 nombres = dr["NOMBRES"].ToString();
                 apellidos = dr["APELLIDOS"].ToString();
+                fecha_reserva = DateTime.ParseExact(dr["FECHA_RESERVA"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                fecha_inicio = DateTime.ParseExact(dr["RESERVA_INICIO"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                fecha_termino = DateTime.ParseExact(dr["RESERVA_TERMINO"].ToString(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
                 tbRutCliente.Text = rut_cliente;
                 tbNombreCliente.Text = nombres + " " + apellidos;
                 multas_activas = logic.getMultas(nro_reserva);
@@ -218,6 +228,14 @@ namespace Turismo
             {
                 logic.newCheckOut(nro_reserva, firma_cliente);
                 logic.CheckInNoActivo(nro_reserva);
+                await this.ShowMessageAsync("Check Out finalizado", "El Check Out se realizó exitosamente.");
+                    try
+                    {
+                        ExportToPdf();
+                    }
+                    catch
+                    { 
+                    }
                 //logic.newPagoMulta(nro_reserva,id_multa);
                 refreshDatagrid();
                 BtnGestionarMultas.IsEnabled = false;
@@ -233,7 +251,7 @@ namespace Turismo
                 apellidos = "";
                 nro_reserva = -1;
                 multas_activas = -1;
-                await this.ShowMessageAsync("Check Out finalizado", "El Check Out se realizó exitosamente.");
+                
                 //MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
 
             }
@@ -271,7 +289,46 @@ namespace Turismo
             }
         }
 
-        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+
+        private void ExportToPdf()
+        {
+            try
+            {
+                Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+                string nombre_documento = nro_reserva + "-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".pdf";
+                string directorio = @"C:\Users\Marcelo\Desktop\";
+                FileStream file = new FileStream(directorio + nombre_documento, FileMode.Create);
+                PdfWriter writer = PdfWriter.GetInstance(doc, file);
+                doc.Open();
+                var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                doc.Add(new Paragraph("                                                                                                                                  TURISMO REAL", boldFont));
+                doc.Add(new Paragraph("             COMPROBANTE DE CHECK OUT", boldFont));
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(new Paragraph("             Fecha Comprobante: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), boldFont));
+                doc.Add(new Paragraph("             N° Reserva: " + nro_reserva, boldFont));
+                doc.Add(new Paragraph("             Rut Cliente: " + rut_cliente, boldFont));
+                doc.Add(new Paragraph("             Nombres: " + nombres, boldFont));
+                doc.Add(new Paragraph("             Apellidos: " + apellidos, boldFont));
+                doc.Add(new Paragraph("             Fecha Reserva: " + fecha_reserva.ToString("dd/MM/yyyy HH:mm"), boldFont));
+                doc.Add(new Paragraph("             Fecha Inicio: " + fecha_inicio.ToString("dd/MM/yyyy HH:mm"), boldFont));
+                doc.Add(new Paragraph("             Fecha Termino: " + fecha_termino.ToString("dd/MM/yyyy HH:mm"), boldFont));
+                doc.Add(new Paragraph("             Estado Check Out: Realizado", boldFont));
+
+                doc.Close();
+                writer.Close();
+                System.Diagnostics.Process.Start(directorio + nombre_documento);
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+            private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             new Login().Show();
             this.Close();
@@ -336,5 +393,6 @@ namespace Turismo
             new Pago().Show();
             this.Close();
         }
+
     }
 }
