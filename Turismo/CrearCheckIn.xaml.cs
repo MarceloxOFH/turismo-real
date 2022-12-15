@@ -1,20 +1,11 @@
 ﻿using CapaNegocio;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 
 namespace Turismo
@@ -81,7 +72,7 @@ namespace Turismo
                 LblFirma.Foreground = System.Windows.Media.Brushes.DarkGreen;
             }
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }
@@ -99,7 +90,7 @@ namespace Turismo
                     //logic.newCheckIn(tbCondicionDepto.Text, Convert.ToDateTime(dpHoraIngreso.Text), Convert.ToInt32(tbPagoEstadia.Text), Convert.ToInt32(cbNroReserva.Text), firma_cliente, regalo_id_regalo, cbCheckActivo.Text, tbAnotaciones.Text);
                 }
 
-                catch (Exception ex)
+                catch //(Exception ex)
                 {
                     //MessageBox.Show("Se debe subir la firma");
                 }
@@ -118,7 +109,7 @@ namespace Turismo
                 combobox_regalo = true;
             
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }

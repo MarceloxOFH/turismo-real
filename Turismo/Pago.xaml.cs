@@ -1,23 +1,11 @@
 ﻿using CapaNegocio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Data;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using iTextSharp.text.html;
-using static System.Net.Mime.MediaTypeNames;
 using System.Collections;
 using System.Windows.Controls.Primitives;
 using System.IO;
@@ -41,6 +29,7 @@ namespace Turismo
             rtFinalizadas.Visibility = Visibility.Hidden;
             rtActivas.Visibility = Visibility.Visible;
             BtnGenerarInforme.IsEnabled = false;
+            BtnRevisarComprobantePago.IsEnabled = false;
         }
 
         Business logic = new Business();
@@ -49,6 +38,9 @@ namespace Turismo
         string rut_cliente;
         string nombres;
         string apellidos;
+        string id_pago;
+        string estado;
+        string medio_pago;
 
         private void BtnSubirFirma_Click(object sender, RoutedEventArgs e)
         {
@@ -115,7 +107,24 @@ namespace Turismo
 
         private void dgPagos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            try
+            {
+                DataGrid dg = sender as DataGrid;
+                DataRowView dr = dg.SelectedItem as DataRowView;
+                if (dr != null)
+                {
+                    nro_reserva = Convert.ToInt32(dr["RESERVA_NRO_RESERVA"]);
+                    id_pago = dr["PAGO_ID_PAGO"].ToString(); ;
+                    estado = dr["ESTADO"].ToString();
+                    medio_pago = dr["MEDIO_PAGO"].ToString();
+                    BtnRevisarComprobantePago.IsEnabled = true;
+                    //refreshDatagrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error selectionchanged" + ex.Message);
+            }
         }
 
         private void dgReservaFinalizada_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -167,7 +176,7 @@ namespace Turismo
                 dgReservaFinalizada.ItemsSource = null;
                 dgReservaFinalizada.ItemsSource = logic.ReservasFinalizadasData().DefaultView;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }
@@ -241,7 +250,7 @@ namespace Turismo
                 }
             }
             
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show(ex.Message);
             }
@@ -315,6 +324,30 @@ namespace Turismo
         {
             //new Pago().Show();
             //this.Close();
+        }
+
+        private void BtnRevisarComprobantePago_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (medio_pago == "Transferencia")
+                {
+                    new RevisarComprobante(nro_reserva, id_pago).Show();
+                }
+                else
+                {
+                    MessageBox.Show("Función habilitada solo para pagos con Transferencia","Revisar Transferencia de Pago");
+                }
+            }
+            catch
+            { 
+            }
+        }
+
+        
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            refreshDatagrid();
         }
     }
 }

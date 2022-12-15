@@ -77,7 +77,7 @@ namespace Turismo
                 dep.refreshDatagrid();
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Se deben llenar todos los campos");
             }

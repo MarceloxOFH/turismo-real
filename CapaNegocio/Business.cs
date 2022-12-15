@@ -33,7 +33,7 @@ namespace CapaNegocio
             {
                 this.Conec = new Connection();
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error de conexión en configConnection(): ");
             }
@@ -57,7 +57,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en InventarioData(): ");
                 DataTable dt = new DataTable();
@@ -95,7 +95,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en ReservaCOData(): ");
                 DataTable dt = new DataTable();
@@ -125,7 +125,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error en ReservaCOData(): " + ex);
                 DataTable dt = new DataTable();
@@ -153,7 +153,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error en Reserva: " + ex);
                 DataTable dt = new DataTable();
@@ -183,7 +183,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error en ReservaCOData(): " + ex);
                 DataTable dt = new DataTable();
@@ -211,7 +211,7 @@ namespace CapaNegocio
                 return dt;
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
                 return dt;
@@ -233,7 +233,7 @@ namespace CapaNegocio
                 return dt;
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
                 return dt;
@@ -251,7 +251,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
 
@@ -281,7 +281,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error para acceder al inventario del departamento: " + ex.Message);
                 DataTable dt = new DataTable();
@@ -304,7 +304,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
 
@@ -331,7 +331,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
                 return dt;
@@ -356,7 +356,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex) 
+            catch //(Exception ex) 
             {
                 DataTable dt = new DataTable();
 
@@ -377,7 +377,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
 
@@ -404,7 +404,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
                 return dt;
@@ -433,7 +433,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en DepartamentoData(): ");
                 DataTable dt = new DataTable();
@@ -459,7 +459,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
 
@@ -479,7 +479,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
                 return dt;
@@ -509,7 +509,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
                 return dt;
@@ -532,7 +532,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
 
@@ -556,7 +556,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
 
@@ -580,7 +580,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
 
@@ -601,7 +601,7 @@ namespace CapaNegocio
 
                 return ubi_id;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string ubi_id = "0";
                 return ubi_id;
@@ -620,7 +620,7 @@ namespace CapaNegocio
 
                 return id_checkout;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string id_checkout = "0";
                 return id_checkout;
@@ -646,7 +646,7 @@ namespace CapaNegocio
 
                 return reserva_nro;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 int reserva_nro = 0;
                 return reserva_nro;
@@ -674,7 +674,7 @@ namespace CapaNegocio
 
                 return multas;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 int multas = -1;
                 return multas;
@@ -700,7 +700,7 @@ namespace CapaNegocio
 
                 return id_checkout;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string id_checkout = "";
                 //MessageBox.Show("error al encontrar id checkout");
@@ -748,7 +748,7 @@ namespace CapaNegocio
                 //dep.
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar departamento: ");
             }
@@ -772,7 +772,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al actualizar valor del inventario del departamento: ");
             }
@@ -797,7 +797,7 @@ namespace CapaNegocio
 
                 return valor_inventario;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error get inventario: ");
                 int valor_inventario = 0;
@@ -828,7 +828,7 @@ namespace CapaNegocio
                 MessageBox.Show("Mantención agregada");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar mantención: ");
             }
@@ -858,7 +858,7 @@ namespace CapaNegocio
                 MessageBox.Show("Conductor agregado exitosamente","Agregar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar Conductor: ");
             }
@@ -885,7 +885,7 @@ namespace CapaNegocio
                 MessageBox.Show("Foto agregada exitosamente","Agregar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Asegurese de que se ingresó toda la información","Error al agregar Foto");
             }
@@ -907,7 +907,7 @@ namespace CapaNegocio
                 MessageBox.Show("Foto asignada como Principal", "Foto");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("Error al asignar Foto Principal: " + ex);
                 editFotoPrincipal(url_imagen, id_departamento);
@@ -931,7 +931,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Foto asignada como Principal", "Foto");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("Error al editar Foto Principal: " + ex);
             }
@@ -956,7 +956,7 @@ namespace CapaNegocio
                 MessageBox.Show("Categoría agregada exitosamente","Agregar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar Categoría: ");
             }
@@ -983,7 +983,7 @@ namespace CapaNegocio
                 MessageBox.Show("Servicio agregado exitosamente", "Agregar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar Servicio: ");
             }
@@ -1008,7 +1008,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Servicio editado exitosamente", "Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar Servicio: ");
             }
@@ -1028,7 +1028,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Servicio eliminado exitosamente", "Eliminar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar Servicio: ");
             }
@@ -1049,7 +1049,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Servicio quitado exitosamente", "Quitar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al quitar Servicio: ");
             }
@@ -1074,7 +1074,7 @@ namespace CapaNegocio
                 MessageBox.Show("Servicio movido exitosamente", "Mover");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al mover Servicio: ");
             }
@@ -1105,7 +1105,7 @@ namespace CapaNegocio
                 MessageBox.Show("Vehículo agregado exitosamente","Agregar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar Vehículo: ");
             }
@@ -1128,7 +1128,7 @@ namespace CapaNegocio
 
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al ingresar ubicación: ");
             }
@@ -1172,7 +1172,7 @@ namespace CapaNegocio
                 editRegion(id_ubicacion, id_region);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al modificar departamento: ");
             }
@@ -1197,7 +1197,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Valores editados exitosamente","Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar valores: ");
             }
@@ -1220,7 +1220,7 @@ namespace CapaNegocio
                 MessageBox.Show("Artículo eliminado exitosamente","Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar artículo: ");
             }
@@ -1246,7 +1246,7 @@ namespace CapaNegocio
                 //MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 editPendingCheckOut(nro_reserva, firma_cliente);
                 //MessageBox.Show("Error al realizar Check Out: " + ex);
@@ -1267,7 +1267,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al finalizar Check in: ");
             }
@@ -1293,7 +1293,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Multa creada exitosamente", "Crear");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al crear multa: ");
             }
@@ -1318,7 +1318,7 @@ namespace CapaNegocio
                 newMulta(GetIdCheckOut(), descripcion, costo);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //si el cliente tiene un checkout previamente ingresado
                 //debido a multa
@@ -1342,7 +1342,7 @@ namespace CapaNegocio
 
                 return id_pago;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string id_pago = "0";
                 //MessageBox.Show("error getIdPago()" + ex);
@@ -1369,7 +1369,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
                 //MessageBox.Show("newPago(..) realizado");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("Error en newPago(..)" + ex);
             }
@@ -1393,7 +1393,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
                 //MessageBox.Show("newPagoReservaMulta(..) realizado");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("Error en newPagoReservaMulta(..)" + ex);
             }
@@ -1418,7 +1418,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
                 //MessageBox.Show("newPagoReservaMulta(..) realizado");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("Error en newPagoReservaMulta(..)" + ex);
             }
@@ -1445,7 +1445,7 @@ namespace CapaNegocio
 
                 //MessageBox.Show("El Check Out se realizó exitosamente", "Check Out finalizado");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al realizar Check Out: ");
             }
@@ -1470,7 +1470,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Artículo agregado al departamento", "Agregar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("El artículo ya existe en el departamento","Error");
             }
@@ -1494,7 +1494,7 @@ namespace CapaNegocio
                 MessageBox.Show("Artículo agregado exitosamente", "Agregar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar Artículo: ");
             }
@@ -1520,7 +1520,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Artículo editado exitosamente", "Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar Artículo: ");
             }
@@ -1546,7 +1546,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Foto editada exitosamente","Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar Foto: ");
             }
@@ -1575,7 +1575,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Conductor editado exitosamente","Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar Conductor: ");
             }
@@ -1606,7 +1606,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Vehiculo editado exitosamente","Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar Vehiculo: ");
             }
@@ -1628,7 +1628,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Categoría editada exitosamente","Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar Categoría: ");
             }
@@ -1650,7 +1650,7 @@ namespace CapaNegocio
                 MessageBox.Show("Artículo eliminado exitosamente","Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar artículo: ");
             }
@@ -1672,7 +1672,7 @@ namespace CapaNegocio
                 MessageBox.Show("Multa eliminada exitosamente","Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar multa: ");
             }
@@ -1694,7 +1694,7 @@ namespace CapaNegocio
                 MessageBox.Show("Foto eliminada exitosamente","Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar Foto: ");
             }
@@ -1716,7 +1716,7 @@ namespace CapaNegocio
                 MessageBox.Show("Vehiculo eliminado exitosamente","Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar vehiculo: ");
             }
@@ -1738,7 +1738,7 @@ namespace CapaNegocio
                 MessageBox.Show("Categoría eliminada exitosamente","Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar categoría: ");
             }
@@ -1758,7 +1758,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Conductor eliminado exitosamente","Eliminar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar categoría: ");
             }
@@ -1782,7 +1782,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al modificar ubicación: ");
             }
@@ -1805,7 +1805,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al modificar ubicación: ");
             }
@@ -1834,7 +1834,7 @@ namespace CapaNegocio
                 OracleDataAdapter da = new OracleDataAdapter(command);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar mantención: ");
             }
@@ -1857,7 +1857,7 @@ namespace CapaNegocio
                 deleteFotoPrincipal(id_departamento);
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("El Departamento no se pudo eliminar", "Error");
             }
@@ -1879,7 +1879,7 @@ namespace CapaNegocio
                 //MessageBox.Show("Departamento eliminado exitosamente", "Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error en deleteFotoPrincipal() ");
             }
@@ -1901,7 +1901,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Multa editada exitosamente", "Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar multa: ");
             }
@@ -1924,7 +1924,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Multa pagada exitosamente","Pagar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al pagar multa: ");
             }
@@ -1945,7 +1945,7 @@ namespace CapaNegocio
                 //MessageBox.Show("Ubicación eliminada");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("Error al eliminar Ubicación: " + ex);
             }
@@ -1967,7 +1967,7 @@ namespace CapaNegocio
                 MessageBox.Show("Mantención eliminada exitosamente","Eliminar");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar departamento: ");
             }
@@ -1994,7 +1994,7 @@ namespace CapaNegocio
                 return dt;
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 DataTable dt = new DataTable();
                 MessageBox.Show("Error en el login: ");
@@ -2018,7 +2018,7 @@ namespace CapaNegocio
                 Image img = new Image();
                 ImgImagen.Source = bi;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("string vacio: ");
             }
@@ -2031,7 +2031,7 @@ namespace CapaNegocio
                 string base64ImageRepresentation = Convert.ToBase64String(image_array);
                 return base64ImageRepresentation;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en ConvertImageToBase64String(byte[] image_array)");
                 string base64ImageRepresentation = "";
@@ -2045,7 +2045,7 @@ namespace CapaNegocio
             {
                 user_login = _usuario;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
             }
         }
@@ -2055,7 +2055,7 @@ namespace CapaNegocio
             {
                 usertype_login = _usertype_login;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
             }
         }
@@ -2084,10 +2084,12 @@ namespace CapaNegocio
                 "CLI.NOMBRES, CLI.APELLIDOS, " +
                 "RES.CLIENTE_RUT_CLIENTE, RES.CANTIDAD_NINOS, RES.CANTIDAD_ADULTOS " +
                 "FROM RESERVA RES " +
+                "INNER JOIN PAGO_RESERVA PR ON PR.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
+                "INNER JOIN PAGO PAG ON PAG.ID_PAGO = PR.PAGO_ID_PAGO " +
                 "INNER JOIN RESERVA_DEPTO RD ON RD.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
                 "INNER JOIN CLIENTE CLI ON CLI.RUT_CLIENTE = RES.CLIENTE_RUT_CLIENTE " +
                 "LEFT JOIN CHECK_IN CI ON CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA " +
-                "WHERE NOT EXISTS " +
+                "WHERE PAG.ESTADO = 'PAGADO' AND NOT EXISTS " +
                     "(SELECT NULL " +
                     "FROM CHECK_IN " +
                     "WHERE CI.RESERVA_NRO_RESERVA = RES.NRO_RESERVA)", Conec.Connect());
@@ -2097,7 +2099,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en ReservaData()");
                 DataTable dt = null;
@@ -2128,7 +2130,7 @@ namespace CapaNegocio
                 return dt;
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("check in data error");
                 DataTable dt = null;
@@ -2153,7 +2155,7 @@ namespace CapaNegocio
 
                 return dt;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en dtestadoNroReservaInData()");
                 DataTable dt = null;
@@ -2183,7 +2185,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2210,7 +2212,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2236,7 +2238,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2262,7 +2264,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2288,7 +2290,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2314,7 +2316,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2340,7 +2342,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2370,7 +2372,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2415,7 +2417,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2455,7 +2457,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2494,7 +2496,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2526,7 +2528,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2558,7 +2560,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2590,7 +2592,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2622,7 +2624,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2656,7 +2658,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2682,7 +2684,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2708,7 +2710,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2734,7 +2736,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2760,7 +2762,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2786,7 +2788,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2812,7 +2814,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2841,7 +2843,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2885,7 +2887,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2925,7 +2927,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2964,7 +2966,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -2996,7 +2998,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -3028,7 +3030,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -3060,7 +3062,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -3091,7 +3093,7 @@ namespace CapaNegocio
 
                 return valor;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 string valor = "0";
                 return valor;
@@ -3149,7 +3151,7 @@ namespace CapaNegocio
                 return dt;
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en ClientesData()");
                 DataTable dt = null;
@@ -3174,7 +3176,7 @@ namespace CapaNegocio
                 MessageBox.Show("Cliente eliminado");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar empleado: ");
             }
@@ -3214,7 +3216,7 @@ namespace CapaNegocio
                 //dep.
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al modificar cliente: ");
             }
@@ -3245,7 +3247,7 @@ namespace CapaNegocio
 
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al ingresar cliente: ");
             }
@@ -3270,7 +3272,7 @@ namespace CapaNegocio
                 return dt;
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en EmpleadosData()");
                 DataTable dt = null;
@@ -3296,7 +3298,7 @@ namespace CapaNegocio
                 MessageBox.Show("Empleado eliminado");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar empleado: ");
             }
@@ -3318,7 +3320,7 @@ namespace CapaNegocio
                 return dt;
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("error en dtCargoEmpleadoData()");
                 DataTable dt = null;
@@ -3358,7 +3360,7 @@ namespace CapaNegocio
                 //dep.
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al agregar Empleado: ");
             }
@@ -3387,7 +3389,7 @@ namespace CapaNegocio
 
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al ingresar Acceso: ");
             }
@@ -3411,7 +3413,7 @@ namespace CapaNegocio
 
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al ingresar ubicación: ");
             }
@@ -3447,7 +3449,7 @@ namespace CapaNegocio
                 return true;
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al ingresar check in: ");
                 return false;
@@ -3484,7 +3486,7 @@ namespace CapaNegocio
                 MessageBox.Show("Regalo eliminado");
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al eliminar regalo: ");
             }
@@ -3511,7 +3513,7 @@ namespace CapaNegocio
 
 
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al ingresar Regalo: ");
             }
@@ -3539,7 +3541,7 @@ namespace CapaNegocio
 
                 MessageBox.Show("Empleado editado exitosamente", "Editar");
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Error al editar empleado: ");
             }
@@ -3585,6 +3587,86 @@ namespace CapaNegocio
             catch 
             {
                 return null;
+            }
+        }
+
+
+
+        public string GetComprobanteFromPago(string id_pago)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT COMPROBANTE_TRANSFERENCIA " +
+                    "FROM PAGO PAG " +
+                    "INNER JOIN PAGO_RESERVA PR ON PR.PAGO_ID_PAGO = PAG.ID_PAGO " +
+                    "WHERE PAG.ID_PAGO = :id_pago", Conec.Connect());
+
+                command.Parameters.Add("id_pago", OracleDbType.Varchar2, 100).Value = id_pago;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch //(Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public string GetEstadoFromPago(string id_pago)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                OracleCommand command = new OracleCommand("SELECT ESTADO " +
+                    "FROM PAGO PAG " +
+                    "INNER JOIN PAGO_RESERVA PR ON PR.PAGO_ID_PAGO = PAG.ID_PAGO " +
+                    "WHERE PAG.ID_PAGO = :id_pago", Conec.Connect());
+
+                command.Parameters.Add("id_pago", OracleDbType.Varchar2, 100).Value = id_pago;
+
+                OracleDataAdapter da = new OracleDataAdapter(command);
+                da.Fill(dt);
+
+                string valor = dt.Rows[0][0].ToString();
+
+                return valor;
+            }
+            catch //(Exception ex)
+            {
+                string valor = "0";
+                return valor;
+            }
+        }
+
+        public void ValidarPago(string id_pago)
+        {
+
+            try
+            {
+
+                OracleCommand command = new OracleCommand("UPDATE PAGO " +
+                    "SET ESTADO = :estado " +
+                    "WHERE ID_PAGO = :id_pago", Conec.Connect());
+
+                command.Parameters.Add("estado", OracleDbType.Varchar2, 100).Value = "PAGADO";
+                command.Parameters.Add("id_pago", OracleDbType.Varchar2, 100).Value = id_pago;
+               
+                command.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(command);
+
+                MessageBox.Show("Pago de Transferencia validada", "Pago");
+            }
+            catch //(Exception ex)
+            {
+                MessageBox.Show("Error al validar Transferencia: ");
             }
         }
 

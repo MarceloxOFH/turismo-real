@@ -1,21 +1,11 @@
 ﻿using CapaNegocio;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using iTextSharp.text.pdf;
@@ -152,7 +142,7 @@ namespace Turismo
                 pagada = dr["PAGADA"].ToString();
             }
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }
@@ -188,7 +178,7 @@ namespace Turismo
                 CheckMultasStatus();
             }
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }
@@ -260,7 +250,7 @@ namespace Turismo
                 MessageBox.Show("Verificar Firma y Multas.", "Check Out incompleto");
             }
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }
@@ -283,7 +273,7 @@ namespace Turismo
             multas_activas = logic.getMultas(nro_reserva);
             CheckMultasStatus();
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("error selectionchanged");
             }

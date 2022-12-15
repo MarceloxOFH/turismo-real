@@ -1,22 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data.OracleClient;
 using System.Data;
-//using CapaDatos;
 using CapaNegocio;
-using System.Drawing;
-using Tienda;
 using MahApps.Metro.Controls;
 
 namespace Turismo
@@ -153,7 +139,7 @@ namespace Turismo
                     cbRegion.SelectedIndex = Convert.ToInt32(id_region) - 1;
                 }
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show("Hubo un problema para leer los datos");
             }

@@ -31,7 +31,7 @@ namespace Turismo
                 logic.newMantencion(tbIdDepartamento.Text, fecha_inicio, fecha_termino, Convert.ToInt32(tbCosto.Text), tbDesccripcion.Text);
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 MessageBox.Show("Se deben llenar todos los campos");
             }

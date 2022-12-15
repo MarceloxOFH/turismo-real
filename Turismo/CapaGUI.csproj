@@ -402,14 +402,14 @@
     <Compile Include="Regalos.xaml.cs">
       <DependentUpon>Regalos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reservas.xaml.cs">
-      <DependentUpon>Reservas.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Return.xaml.cs">
       <DependentUpon>Return.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventarioDep.xaml.cs">
       <DependentUpon>InventarioDep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RevisarComprobante.xaml.cs">
+      <DependentUpon>RevisarComprobante.xaml</DependentUpon>
     </Compile>
     <Compile Include="Servicio.xaml.cs">
       <DependentUpon>Servicio.xaml</DependentUpon>
@@ -596,15 +596,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Reservas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Return.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InventarioDep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RevisarComprobante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
