@@ -88,7 +88,7 @@ namespace Turismo
             rtBtnOtrSer.Visibility = Visibility.Visible;
             BtnOtrosServicios.IsEnabled = false;
             BtnServiciosActuales.IsEnabled = true;
-            
+            btnCrear.IsEnabled = true;
             tab = false;
         }
 

@@ -122,8 +122,8 @@
 
 
         <Label Content="Estadísticas" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Width="311" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="lblDepart" Content="Región Departamento:" HorizontalAlignment="Left" Margin="195,102,0,0" VerticalAlignment="Top" Width="184" FontSize="16" FontWeight="Bold"/>
-        <ComboBox x:Name="cbRegion" SelectedValuePath="id_region"  HorizontalAlignment="Left" Margin="384,107,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold" SelectionChanged="cbRegion_SelectionChanged"/>
+        <Label x:Name="lblDepart" Content="Región:" HorizontalAlignment="Left" Margin="203,97,0,0" VerticalAlignment="Top" Width="184" FontSize="22" FontWeight="Bold"/>
+        <ComboBox x:Name="cbRegion" SelectedValuePath="id_region"  HorizontalAlignment="Left" Margin="300,105,0,0" VerticalAlignment="Top" Width="231" FontWeight="Bold" SelectionChanged="cbRegion_SelectionChanged"/>
         <Label x:Name="lblArriendoPrecioBajo" HorizontalContentAlignment="Center" Content="" HorizontalAlignment="Left" Margin="423,295,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="lblInventarioValorPromedio" HorizontalContentAlignment="Center" Content="" HorizontalAlignment="Left" Margin="614,295,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="lblInventarioValorTotal" HorizontalContentAlignment="Center" Content="" HorizontalAlignment="Left" Margin="825,295,0,0" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold"/>

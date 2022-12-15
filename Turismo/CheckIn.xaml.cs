@@ -248,6 +248,7 @@ namespace Turismo
                 doc.Add(new Paragraph("             Apellidos: " + apellidos, boldFont));
                 doc.Add(new Paragraph("             Fecha Inicio: " + fecha_inicio.ToString("dd/MM/yyyy HH:mm"), boldFont));
                 doc.Add(new Paragraph("             Fecha Termino: " + fecha_termino.ToString("dd/MM/yyyy HH:mm"), boldFont));
+                doc.Add(new Paragraph("             Pago por estadía: " + pago_estadia.ToString(), boldFont));
                 doc.Add(new Paragraph("             Estado Check In: Realizado", boldFont));
                 doc.Add(Chunk.NEWLINE);
                 doc.Add(Chunk.NEWLINE);

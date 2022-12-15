@@ -34,7 +34,7 @@
                 <DataGridTextColumn Header="Año contratacion" Binding="{Binding AÑO_CONTRATACION}" Width="110"/>
                 <DataGridTextColumn Header="Cargo" Binding="{Binding CARGO}" Width="100"/>
                 <DataGridTextColumn Header="Sueldo" Binding="{Binding SUELDO}" Width="80"/>
-                <DataGridTextColumn Header="Username" Binding="{Binding USERNAME}" Width="100"/>
+                <DataGridTextColumn Header="Username" Binding="{Binding USERNAME}" Width="*"/>
 
             </DataGrid.Columns>
             <DataGrid.Resources>

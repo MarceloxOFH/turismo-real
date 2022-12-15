@@ -20,16 +20,15 @@ namespace Turismo
         {
             try
             {
-                DateTime? dtFechaHoraInicio = dpFechaInicio.SelectedDate;
-                DateTime? dtFechaHoraTermino = dpFechaTermino.SelectedDate;
+                DateTime? dtFechaInicio = dpFechaInicio.SelectedDate;
+                string stFechaInicio = dtFechaInicio.Value.Date.ToString("dd/MM/yyyy") + " 00:00:00";
+                DateTime fecha_inicio = DateTime.ParseExact(stFechaInicio, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
 
-                string stFechaHoraInicio = dtFechaHoraInicio.Value.Date.ToString("dd/MM/yyyy") + " " + tbHoraInicio.Text + ":" + tbMinutoInicio.Text;
-                string stFechaHoraTermino = dtFechaHoraTermino.Value.Date.ToString("dd/MM/yyyy") + " " + tbHoraTermino.Text + ":" + tbMinutoTermino.Text;
+                DateTime? dtFechaTermino = dpFechaTermino.SelectedDate;
+                string stFechaTermino = dtFechaTermino.Value.Date.ToString("dd/MM/yyyy") + " 00:00:00";
+                DateTime fecha_termino = DateTime.ParseExact(stFechaTermino, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
 
-                DateTime fechaInicio = DateTime.ParseExact(stFechaHoraInicio, "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
-                DateTime fechaTermino = DateTime.ParseExact(stFechaHoraTermino, "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
-
-                logic.newMantencion(tbIdDepartamento.Text, fechaInicio, fechaTermino, Convert.ToInt32(tbCosto.Text), tbDesccripcion.Text);
+                logic.newMantencion(tbIdDepartamento.Text, fecha_inicio, fecha_termino, Convert.ToInt32(tbCosto.Text), tbDesccripcion.Text);
             }
 
             catch (Exception ex)

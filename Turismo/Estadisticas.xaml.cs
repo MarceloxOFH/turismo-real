@@ -320,38 +320,49 @@ namespace Turismo
 
         private void BtnGenerarFoto_Click(object sender, RoutedEventArgs e)
         {
-
-            //string filePath = @"C:\Users\Marcelo\Desktop\";
-            string fileName = "SS-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".png";
-            CreateBitmapFromVisual(Grid1, Business.filePath + fileName);
-            MessageBox.Show("Se generó el ScreenShot en el directorio: " + Business.filePath + fileName, "Screenshot generado exitosamente");
+            try
+            {
+                //string filePath = @"C:\Users\Marcelo\Desktop\";
+                string fileName = "SS-" + DateTime.Now.ToString("ddMMMyyyy-HHmmss") + ".png";
+                CreateBitmapFromVisual(Grid1, Business.filePath + fileName);
+                MessageBox.Show("Se generó el ScreenShot en el directorio: " + Business.filePath + fileName, "Screenshot generado exitosamente");
+            }
+            catch
+            { 
+            }
         }
 
         public static void CreateBitmapFromVisual(Visual target, string fileName)
         {
-            if (target == null || string.IsNullOrEmpty(fileName))
+            try
             {
-                return;
+                if (target == null || string.IsNullOrEmpty(fileName))
+                {
+                    return;
+                }
+
+                Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+
+                RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height, 96, 96, PixelFormats.Pbgra32);
+
+                DrawingVisual visual = new DrawingVisual();
+
+                using (DrawingContext context = visual.RenderOpen())
+                {
+                    VisualBrush visualBrush = new VisualBrush(target);
+                    context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
+                }
+
+                renderTarget.Render(visual);
+                PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+                bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
+                using (Stream stm = File.Create(fileName))
+                {
+                    bitmapEncoder.Save(stm);
+                }
             }
-
-            Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
-
-            RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height, 96, 96, PixelFormats.Pbgra32);
-
-            DrawingVisual visual = new DrawingVisual();
-
-            using (DrawingContext context = visual.RenderOpen())
+            catch
             {
-                VisualBrush visualBrush = new VisualBrush(target);
-                context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
-            }
-
-            renderTarget.Render(visual);
-            PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
-            bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
-            using (Stream stm = File.Create(fileName))
-            {
-                bitmapEncoder.Save(stm);
             }
         }
     }

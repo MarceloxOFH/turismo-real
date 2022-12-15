@@ -24,14 +24,6 @@
         <Label Content="Nombre Depto:" HorizontalAlignment="Left" Margin="18,111,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
         <TextBox x:Name="tbIdDepartamento" HorizontalAlignment="Left" Margin="115,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" IsEnabled="False" FontWeight="Bold"/>
         <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="115,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" IsEnabled="False" FontWeight="Bold"/>
-        <TextBox x:Name="tbHoraInicio" HorizontalAlignment="Left" Margin="346,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <TextBox x:Name="tbMinutoInicio" HorizontalAlignment="Left" Margin="411,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <Label Content="HH:" HorizontalAlignment="Left" Margin="317,152,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="MM:" HorizontalAlignment="Left" Margin="378,152,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbHoraTermino" HorizontalAlignment="Left" Margin="346,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <TextBox x:Name="tbMinutoTermino" HorizontalAlignment="Left" Margin="411,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
-        <Label Content="HH:" HorizontalAlignment="Left" Margin="317,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="MM:" HorizontalAlignment="Left" Margin="378,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </mah:MetroWindow>

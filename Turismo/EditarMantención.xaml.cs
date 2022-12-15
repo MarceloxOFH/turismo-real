@@ -31,11 +31,11 @@ namespace Turismo
             tbIdDepartamento.Text = id_departamento;
             tbNombre.Text = nombre_departamento;
             dpFechaInicio.Text = fecha_inicio.ToShortDateString();
-            tbHoraInicio.Text = fecha_inicio.ToString("HH");
-            tbMinutoInicio.Text = fecha_inicio.ToString("mm");
+            //tbHoraInicio.Text = fecha_inicio.ToString("HH");
+            //tbMinutoInicio.Text = fecha_inicio.ToString("mm");
             dpFechaTermino.Text = fecha_termino.ToShortDateString();
-            tbHoraTermino.Text = fecha_termino.ToString("HH");
-            tbMinutoTermino.Text = fecha_termino.ToString("mm");
+            //tbHoraTermino.Text = fecha_termino.ToString("HH");
+            //tbMinutoTermino.Text = fecha_termino.ToString("mm");
             tbCosto.Text = costo.ToString();
             tbDesccripcion.Text = descripcion;
         }
@@ -47,16 +47,16 @@ namespace Turismo
         {
             try
             {
-                DateTime? dtFechaHoraInicio = dpFechaInicio.SelectedDate;
-                DateTime? dtFechaHoraTermino = dpFechaTermino.SelectedDate;
+                DateTime? dtFechaInicio = dpFechaInicio.SelectedDate;
+                string stFechaInicio = dtFechaInicio.Value.Date.ToString("dd/MM/yyyy") + " 00:00:00";
+                DateTime fecha_inicio = DateTime.ParseExact(stFechaInicio, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
 
-                string stFechaHoraInicio = dtFechaHoraInicio.Value.Date.ToString("dd/MM/yyyy") + " " + tbHoraInicio.Text + ":" + tbMinutoInicio.Text;
-                string stFechaHoraTermino = dtFechaHoraTermino.Value.Date.ToString("dd/MM/yyyy") + " " + tbHoraTermino.Text + ":" + tbMinutoTermino.Text;
+                DateTime? dtFechaTermino = dpFechaTermino.SelectedDate;
+                string stFechaTermino = dtFechaTermino.Value.Date.ToString("dd/MM/yyyy") + " 00:00:00";
+                DateTime fecha_termino = DateTime.ParseExact(stFechaTermino, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
 
-                DateTime fechaInicio = DateTime.ParseExact(stFechaHoraInicio, "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
-                DateTime fechaTermino = DateTime.ParseExact(stFechaHoraTermino, "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
 
-                logic.editMantencion(tbIdDepartamento.Text, id_mantencion, fechaInicio, fechaTermino, Convert.ToInt32(tbCosto.Text), tbDesccripcion.Text);
+                logic.editMantencion(tbIdDepartamento.Text, id_mantencion, fecha_inicio, fecha_termino, Convert.ToInt32(tbCosto.Text), tbDesccripcion.Text);
 
                 MessageBox.Show("Se editó la mantención");
             }

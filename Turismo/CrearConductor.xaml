@@ -15,7 +15,7 @@
         <Label Content="Nombres:" HorizontalAlignment="Left" Margin="19,133,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
         <TextBox x:Name="tbNombres" HorizontalAlignment="Left" Margin="150,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" FontWeight="Bold"/>
         <Label Content="Rut:" HorizontalAlignment="Left" Margin="20,63,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
-        <TextBox x:Name="tbRut" HorizontalAlignment="Left" Margin="151,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontWeight="Bold"/>
+        <TextBox x:Name="tbRut" HorizontalAlignment="Left" Margin="151,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" FontWeight="Bold"/>
         <Label Content="Disponibilidad:" HorizontalAlignment="Left" Margin="19,98,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
         <ComboBox x:Name="cbDisponibilidad" HorizontalAlignment="Left" Margin="150,99,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold">
             <ComboBoxItem>
@@ -29,6 +29,6 @@
         <Label Content="Sueldo:" HorizontalAlignment="Left" Margin="19,228,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
         <Label Content="Caducidad Licencia:" HorizontalAlignment="Left" Margin="19,197,0,0" VerticalAlignment="Top" Width="141" FontWeight="Bold"/>
         <TextBox x:Name="tbSueldo" HorizontalAlignment="Left" Margin="150,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold"/>
-        <DatePicker x:Name="dpCaducidadLicencia" HorizontalAlignment="Left" Margin="150,197,0,0" VerticalAlignment="Top" Width="114" FontWeight="Bold"/>
+        <DatePicker x:Name="dpCaducidadLicencia" HorizontalAlignment="Left" Margin="150,197,0,0" VerticalAlignment="Top" Width="167" FontWeight="Bold"/>
     </Grid>
 </mah:MetroWindow>
