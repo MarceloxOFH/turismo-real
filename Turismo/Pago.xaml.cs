@@ -23,6 +23,23 @@ namespace Turismo
             InitializeComponent();
             LblUsuario.Content = Business.user_login;
             LblCargo.Content = Business.usertype_login;
+
+            if (Business.usertype_login == "Funcionario")
+            {
+                BtnCheckIn.Margin = new Thickness(12, 105, 0, 0);
+                BtnCheckOut.Margin = new Thickness(12, 150, 0, 0);
+                BtnPagos.Margin = new Thickness(12, 195, 0, 0);
+                BtnDepartamentos.Visibility = Visibility.Hidden;
+                BtnInventario.Visibility = Visibility.Hidden;
+                BtnEmpleados.Visibility = Visibility.Hidden;
+                BtnClientes.Visibility = Visibility.Hidden;
+                BtnConductores.Visibility = Visibility.Hidden;
+                BtnVehiculos.Visibility = Visibility.Hidden;
+                BtnEstadisticas.Visibility = Visibility.Hidden;
+                //BtnPagos.Visibility = Visibility.Hidden;
+            }
+
+
             dgReserva.ItemsSource = logic.ReservasActivasData().DefaultView;
             dgReservaFinalizada.ItemsSource = logic.ReservasFinalizadasData().DefaultView;
             dgReservaFinalizada.Visibility = Visibility.Hidden;

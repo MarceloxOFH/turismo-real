@@ -27,6 +27,7 @@ namespace Turismo
             {
                 BtnCheckIn.Margin = new Thickness(12, 105, 0, 0);
                 BtnCheckOut.Margin = new Thickness(12, 150, 0, 0);
+                BtnPagos.Margin = new Thickness(12, 195, 0, 0);
                 BtnDepartamentos.Visibility = Visibility.Hidden;
                 BtnInventario.Visibility = Visibility.Hidden;
                 BtnEmpleados.Visibility = Visibility.Hidden;
@@ -34,7 +35,7 @@ namespace Turismo
                 BtnConductores.Visibility = Visibility.Hidden;
                 BtnVehiculos.Visibility = Visibility.Hidden;
                 BtnEstadisticas.Visibility = Visibility.Hidden;
-                BtnPagos.Visibility = Visibility.Hidden;
+                //BtnPagos.Visibility = Visibility.Hidden;
             }
 
             dgReserva.ItemsSource = logic.ReservaCOData().DefaultView;
